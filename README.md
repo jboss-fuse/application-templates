@@ -2,6 +2,9 @@
 This project contains OpenShift v3 application templates which support
 applications based on JBoss Fuse Integration Services.
 
+##Article on how to get started with this OpenShift template
+See http://www.opensourcerers.org/first-fuse-application-on-openshift-v3-1/
+
 ##Common Image Repositories
 The `fis-image-streams.json` file contains __ImageStream__ definitions for all
 Fuse Integration Services.  This will need to be
