@@ -4,7 +4,8 @@
   "labels": {},
   "metadata": {
     "annotations": {
-      "description": "Spring Boot, Camel and ActiveMQ QuickStart\n\nThis quickstart demonstrates how to connect a Spring-Boot application to an ActiveMQ broker and use JMS messaging between two Camel routes using OpenShift.\nIn this example we will use two containers, one container to run as a ActiveMQ broker, and another as a client to the broker, where the Camel routes are running. This quickstart requires the ActiveMQ broker has been deployed and running first.",
+      "description": "Spring Boot, Camel and ActiveMQ QuickStart. This quickstart demonstrates how to connect a Spring-Boot application to an ActiveMQ broker and use JMS messaging between two Camel routes using OpenShift. In this example we will use two containers, one container to run as a ActiveMQ broker, and another as a client to the broker, where the Camel routes are running. This quickstart requires the ActiveMQ broker has been deployed and running first.",
+      "tags": "quickstart,java,springboot",
       "iconClass": "icon-openjdk"
     },
     "labels": {},
@@ -13,54 +14,82 @@
   "parameters": [
     {
       "name": "APP_NAME",
+      "displayName": "Application Name",
+      "required": true,
       "value": "fis2-quickstart-springboot-camel-amq",
-      "description": "Application Name"
+      "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
+      "displayName": "Git Repository URL",
       "required": true,
       "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-amq.git",
-      "description": "Git repository, required"
+      "description": "The URL of the repository with your application source code."
     },
     {
       "name": "GIT_REF",
+      "displayName": "Git Reference",
       "value": "master",
-      "description": "Git ref to build"
+      "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
+    },
+    {
+      "name": "ACTIVEMQ_SERVICE_NAME",
+      "displayName": "ActiveMQ Broker Service",
+      "required": true,
+      "value": "broker-amq-tcp",
+      "description": "Set this to the name of the TCP service of the ActiveMQ broker. You may need to create a broker first."
+    },
+    {
+      "name": "ACTIVEMQ_BROKER_USERNAME",
+      "displayName": "ActiveMQ Broker Username",
+      "description": "The username used to authenticate with the ActiveMQ broker. Leave it empty if authentication is disabled."
+    },
+    {
+      "name": "ACTIVEMQ_BROKER_PASSWORD",
+      "displayName": "ActiveMQ Broker Password",
+      "description": "The password used to authenticate with the ActiveMQ broker. Leave it empty if authentication is disabled."
     },
     {
       "name": "BUILDER_VERSION",
+      "displayName": "Builder version",
       "value": "2.0",
-      "description": "Builder version"
+      "description": "The version of the FIS S2I builder image to use."
     },
     {
       "name": "APP_VERSION",
+      "displayName": "Application Version",
       "value": "2.2.64-SNAPSHOT",
-      "description": "Application version"
+      "description": "The application version."
     },
     {
       "name": "MAVEN_ARGS",
+      "displayName": "Maven Arguments",
       "value": "package -DskipTests -e",
-      "description": "Arguments passed to mvn in the build"
+      "description": "Arguments passed to mvn in the build."
     },
     {
       "name": "MAVEN_ARGS_APPEND",
-      "description": "Extra arguments passed to mvn, e.g. for multi-module builds"
+      "displayName": "Extra Maven Arguments",
+      "description": "Extra arguments passed to mvn, e.g. for multi-module builds."
     },
     {
       "name": "ARTIFACT_DIR",
-      "description": "Maven build directory"
+      "displayName": "Maven build directory",
+      "description": "Directory of the artifact to be built, e.g. for multi-module builds."
     },
     {
-      "description": "Namespace in which the Fuse ImageStreams are installed. These ImageStreams are normally installed in the openshift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project.",
       "name": "IMAGE_STREAM_NAMESPACE",
+      "displayName": "Image Stream Namespace",
       "value": "openshift",
-      "required": true
+      "required": true,
+      "description": "Namespace in which the Fuse ImageStreams are installed. These ImageStreams are normally installed in the openshift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project."
     },
     {
-      "generate": "expression",
       "name": "BUILD_SECRET",
-      "description": "The secret needed to trigger a build",
-      "from": "[a-zA-Z0-9]{8}"
+      "displayName": "Git Build Secret",
+      "generate": "expression",
+      "description": "The secret needed to trigger a build.",
+      "from": "[a-zA-Z0-9]{40}"
     }
   ],
   "objects": [
@@ -152,6 +181,18 @@
               {
                 "name": "MAVEN_ARGS_APPEND",
                 "value": "${MAVEN_ARGS_APPEND}"
+              },
+              {
+                "name": "ACTIVEMQ_SERVICE_NAME",
+                "value": "${ACTIVEMQ_SERVICE_NAME}"
+              },
+              {
+                "name": "ACTIVEMQ_BROKER_USERNAME",
+                "value": "${ACTIVEMQ_BROKER_USERNAME}"
+              },
+              {
+                "name": "ACTIVEMQ_BROKER_PASSWORD",
+                "value": "${ACTIVEMQ_BROKER_PASSWORD}"
               }
             ]
           }
