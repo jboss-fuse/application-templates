@@ -1,15 +1,17 @@
 {
   "apiVersion": "v1",
   "kind": "Template",
-  "labels": {},
   "metadata": {
     "annotations": {
       "description": "A simple Camel route in Karaf container.",
       "tags": "quickstart,java,karaf,fis",
-      "iconClass": "icon-openjdk"
+      "iconClass": "icon-openjdk",
+      "version": "2.0"
     },
-    "labels": {},
     "name": "s2i-jboss-fuse-camel-log"
+  },
+  "labels": {
+    "template": "s2i-jboss-fuse-camel-log"
   },
   "parameters": [
     {

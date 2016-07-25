@@ -1,15 +1,17 @@
 {
   "apiVersion": "v1",
   "kind": "Template",
-  "labels": {},
   "metadata": {
     "annotations": {
       "description": "REST example using CXF in Karaf container.",
       "tags": "quickstart,java,karaf,fis",
-      "iconClass": "icon-openjdk"
+      "iconClass": "icon-openjdk",
+      "version": "2.0"
     },
-    "labels": {},
     "name": "s2i-jboss-fuse-cxf-rest"
+  },
+  "labels": {
+    "template": "s2i-jboss-fuse-cxf-rest"
   },
   "parameters": [
     {

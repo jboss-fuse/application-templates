@@ -1,15 +1,17 @@
 {
   "apiVersion": "v1",
   "kind": "Template",
-  "labels": {},
   "metadata": {
     "annotations": {
       "description": "Camel example using Rest DSL with SQL Database in Karaf container.",
       "tags": "quickstart,java,karaf,fis",
-      "iconClass": "icon-openjdk"
+      "iconClass": "icon-openjdk",
+      "version": "2.0"
     },
-    "labels": {},
     "name": "s2i-jboss-fuse-camel-rest-sql"
+  },
+  "labels": {
+    "template": "s2i-jboss-fuse-camel-rest-sql"
   },
   "parameters": [
     {
@@ -35,7 +37,7 @@
     {
       "name": "SERVICE_NAME",
       "displayName": "Service Name",
-      "value": "s2i-jboss-fuse-camel-rest-sql",
+      "value": "s2i-jboss-fuse-camel-r-s",
       "description": "Exposed Service name."
     },
     {
