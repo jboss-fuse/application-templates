@@ -1,29 +1,31 @@
 {
   "apiVersion": "v1",
   "kind": "Template",
-  "labels": {},
   "metadata": {
     "annotations": {
       "description": "Spring-Boot, Camel and JBoss BRMS QuickStart. This example demonstrates how you can use Apache Camel and JBoss BRMS with Spring Boot on OpenShift. DRL files contain simple rules which are used to create knowledge session via Spring configuration file. Camel routes, defined via Spring as well, are then used to e.g. pass (insert) the Body of the message as a POJO to Drools engine for execution.",
-      "tags": "quickstart,java,springboot",
-      "iconClass": "icon-openjdk"
+      "tags": "quickstart,java,springboot,fis",
+      "iconClass": "icon-openjdk",
+      "version": "2.0"
     },
-    "labels": {},
-    "name": "fis2-quickstart-springboot-camel-brms"
+    "name": "s2i-jboss-fuse-springboot-camel-brms"
+  },
+  "labels": {
+    "template": "s2i-jboss-fuse-springboot-camel-brms"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "fis2-quickstart-springboot-camel-amq",
+      "value": "s2i-jboss-fuse-springboot-camel-brms",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
       "required": true,
-      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-amq.git",
+      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-drools.git",
       "description": "The URL of the repository with your application source code."
     },
     {

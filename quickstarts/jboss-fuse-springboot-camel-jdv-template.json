@@ -1,29 +1,31 @@
 {
   "apiVersion": "v1",
   "kind": "Template",
-  "labels": {},
   "metadata": {
     "annotations": {
       "description": "Spring-Boot, Camel and JBoss Data Virtualization QuickStart. This example demonstrates how you can use Apache Camel and JBoss Data Virtualization on Spring Boot running on OpenShift. Two (sample) embedded H2 database instances are created and linked together through a JDV virtual database layer. A camel route periodically generates a random input and queries the virtual database to compute intermediate routing information.",
-      "tags": "quickstart,java,springboot",
-      "iconClass": "icon-openjdk"
+      "tags": "quickstart,java,springboot,fis",
+      "iconClass": "icon-openjdk",
+      "version": "2.0"
     },
-    "labels": {},
-    "name": "fis2-quickstart-springboot-camel-jdv"
+    "name": "s2i-jboss-fuse-springboot-camel-jdv"
+  },
+  "labels": {
+    "template": "s2i-jboss-fuse-springboot-camel-jdv"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "fis2-quickstart-springboot-camel-amq",
+      "value": "s2i-jboss-fuse-springboot-camel-jdv",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
       "required": true,
-      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-amq.git",
+      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-teiid.git",
       "description": "The URL of the repository with your application source code."
     },
     {
