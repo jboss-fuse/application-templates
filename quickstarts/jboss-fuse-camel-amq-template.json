@@ -5,7 +5,8 @@
   "metadata": {
     "annotations": {
       "description": "Camel route using ActiveMQ in Karaf container",
-      "iconClass": "icon-java"
+      "tags": "quickstart,java,karaf,fis",
+      "iconClass": "icon-openjdk"
     },
     "labels": {},
     "name": "s2i-jboss-fuse-camel-amq"
