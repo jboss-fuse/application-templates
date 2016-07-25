@@ -1,66 +1,80 @@
 {
   "apiVersion": "v1",
   "kind": "Template",
-  "labels": {},
   "metadata": {
     "annotations": {
-      "description": "Spring-Boot and Camel QuickStart\n\nThis example demonstrates how you can use Apache Camel with Spring Boot on Openshift.\nThe quickstart uses Spring Boot to configure a little application that includes a Camel route that triggeres a message every 5th second, and routes the message to a log.",
-      "iconClass": "icon-openjdk"
+      "description": "Spring-Boot and Camel QuickStart. This example demonstrates how you can use Apache Camel with Spring Boot on Openshift. The quickstart uses Spring Boot to configure a little application that includes a Camel route that triggeres a message every 5th second, and routes the message to a log.",
+      "tags": "quickstart,java,springboot,fis",
+      "iconClass": "icon-openjdk",
+      "version": "2.0"
     },
-    "labels": {},
-    "name": "fis2-quickstart-springboot-camel"
+    "name": "s2i-jboss-fuse-springboot-camel"
+  },
+  "labels": {
+    "template": "s2i-jboss-fuse-springboot-camel"
   },
   "parameters": [
     {
       "name": "APP_NAME",
-      "value": "fis2-quickstart-springboot-camel",
-      "description": "Application Name"
+      "displayName": "Application Name",
+      "required": true,
+      "value": "s2i-jboss-fuse-springboot-camel",
+      "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
+      "displayName": "Git Repository URL",
       "required": true,
       "value": "https://github.com/fabric8-quickstarts/spring-boot-camel.git",
-      "description": "Git repository, required"
+      "description": "The URL of the repository with your application source code."
     },
     {
       "name": "GIT_REF",
+      "displayName": "Git Reference",
       "value": "master",
-      "description": "Git ref to build"
+      "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
       "name": "BUILDER_VERSION",
+      "displayName": "Builder version",
       "value": "2.0",
-      "description": "Builder version"
+      "description": "The version of the FIS S2I builder image to use."
     },
     {
       "name": "APP_VERSION",
+      "displayName": "Application Version",
       "value": "2.2.64-SNAPSHOT",
-      "description": "Application version"
+      "description": "The application version."
     },
     {
       "name": "MAVEN_ARGS",
+      "displayName": "Maven Arguments",
       "value": "package -DskipTests -e",
-      "description": "Arguments passed to mvn in the build"
+      "description": "Arguments passed to mvn in the build."
     },
     {
       "name": "MAVEN_ARGS_APPEND",
-      "description": "Extra arguments passed to mvn, e.g. for multi-module builds"
+      "displayName": "Extra Maven Arguments",
+      "description": "Extra arguments passed to mvn, e.g. for multi-module builds."
     },
     {
       "name": "ARTIFACT_DIR",
-      "description": "Maven build directory"
+      "displayName": "Maven build directory",
+      "description": "Directory of the artifact to be built, e.g. for multi-module builds."
     },
     {
-      "description": "Namespace in which the Fuse ImageStreams are installed. These ImageStreams are normally installed in the openshift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project.",
       "name": "IMAGE_STREAM_NAMESPACE",
+      "displayName": "Image Stream Namespace",
       "value": "openshift",
-      "required": true
+      "required": true,
+      "description": "Namespace in which the Fuse ImageStreams are installed. These ImageStreams are normally installed in the openshift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project."
     },
     {
-      "generate": "expression",
       "name": "BUILD_SECRET",
-      "description": "The secret needed to trigger a build",
-      "from": "[a-zA-Z0-9]{8}"
+      "displayName": "Git Build Secret",
+      "generate": "expression",
+      "description": "The secret needed to trigger a build.",
+      "from": "[a-zA-Z0-9]{40}"
     }
   ],
   "objects": [
