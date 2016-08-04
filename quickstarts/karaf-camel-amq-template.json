@@ -1,90 +1,106 @@
 {
   "apiVersion": "v1",
   "kind": "Template",
-  "labels": {},
   "metadata": {
     "annotations": {
-      "description": "Camel route using ActiveMQ in Karaf container",
-      "iconClass": "icon-java"
+      "description": "Camel route using ActiveMQ in Karaf container.",
+      "tags": "quickstart,java,karaf,fis",
+      "iconClass": "icon-openjdk",
+      "version": "2.0"
     },
-    "labels": {},
     "name": "s2i-karaf-camel-amq"
+  },
+  "labels": {
+    "template": "s2i-karaf-camel-amq"
   },
   "parameters": [
     {
       "name": "APP_NAME",
+      "displayName": "Application Name",
+      "required": true,
       "value": "s2i-karaf-camel-amq",
-      "description": "Application Name"
+      "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
+      "displayName": "Git Repository URL",
       "value": "https://github.com/fabric8-quickstarts/karaf-camel-amq.git",
       "required": true,
-      "description": "Git repository, required"
+      "description": "The URL of the repository with your application source code."
     },
     {
       "name": "GIT_REF",
+      "displayName": "Git Reference",
       "value": "master",
-      "description": "Git ref to build"
+      "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
       "name": "SERVICE_NAME",
+      "displayName": "Service Name",
       "value": "s2i-karaf-camel-amq",
-      "description": "Exposed Service name"
+      "description": "Exposed Service name."
     },
     {
       "name": "BUILDER_VERSION",
-      "value": "1.2.5",
-      "description": "Builder version"
+      "displayName": "Builder version",
+      "value": "1.3.1",
+      "description": "The version of the FIS S2I builder image to use."
     },
     {
       "name": "APP_VERSION",
-      "value": "2.2.64-SNAPSHOT",
-      "description": "Application version"
+      "displayName": "Application Version",
+      "value": "2.2.60-SNAPSHOT",
+      "description": "The application version."
     },
     {
       "name": "MAVEN_ARGS",
-      "value": "install -DskipTests -e",
-      "description": "Arguments passed to mvn in the build"
+      "displayName": "Maven Arguments",
+      "value": "install -DskipTests -Ddocker.skip -e",
+      "description": "Arguments passed to mvn in the build."
     },
     {
       "name": "MAVEN_ARGS_APPEND",
-      "description": "Extra arguments passed to mvn, e.g. for multi-module builds"
+      "displayName": "Extra Maven Arguments",
+      "description": "Extra arguments passed to mvn, e.g. for multi-module builds."
     },
     {
       "name": "ARTIFACT_DIR",
-      "description": "Maven build directory"
+      "displayName": "Maven build directory",
+      "description": "Directory of the artifact to be built, e.g. for multi-module builds."
     },
     {
-      "generate": "expression",
+      "name": "IMAGE_STREAM_NAMESPACE",
+      "displayName": "Image Stream Namespace",
+      "value": "openshift",
+      "required": true,
+      "description": "Namespace in which the Fuse ImageStreams are installed. These ImageStreams are normally installed in the openshift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project."
+    },
+    {
       "name": "BUILD_SECRET",
-      "description": "The secret needed to trigger a build",
-      "from": "[a-zA-Z0-9]{8}"
+      "displayName": "Git Build Secret",
+      "generate": "expression",
+      "description": "The secret needed to trigger a build.",
+      "from": "[a-zA-Z0-9]{40}"
+    },
+    {
+      "name": "ACTIVEMQ_SERVICE_NAME",
+      "displayName": "ActiveMQ Broker Service",
+      "required": true,
+      "value": "broker-amq-tcp",
+      "description": "Set this to the name of the TCP service of the ActiveMQ broker. You may need to create a broker first."
+    },
+    {
+      "name": "ACTIVEMQ_USERNAME",
+      "displayName": "ActiveMQ Broker Username",
+      "description": "The username used to authenticate with the ActiveMQ broker. Leave it empty if authentication is disabled."
+    },
+    {
+      "name": "ACTIVEMQ_PASSWORD",
+      "displayName": "ActiveMQ Broker Password",
+      "description": "The password used to authenticate with the ActiveMQ broker. Leave it empty if authentication is disabled."
     }
   ],
   "objects": [
-    {
-      "kind": "ImageStream",
-      "apiVersion": "v1",
-      "metadata": {
-        "name": "s2i-karaf-${APP_NAME}",
-        "creationTimestamp": null,
-        "labels": {
-          "component": "${APP_NAME}",
-          "container": "karaf",
-          "group": "quickstarts",
-          "project": "${APP_NAME}",
-          "provider": "s2i",
-          "version": "${APP_VERSION}"
-        }
-      },
-      "spec": {
-        "dockerImageRepository": "fabric8/s2i-karaf:${BUILDER_VERSION}"
-      },
-      "status": {
-        "dockerImageRepository": ""
-      }
-    },
     {
       "kind": "ImageStream",
       "apiVersion": "v1",
@@ -154,9 +170,11 @@
           "sourceStrategy": {
             "from": {
               "kind": "ImageStreamTag",
-              "name": "s2i-karaf-${APP_NAME}:${BUILDER_VERSION}"
+              "namespace": "${IMAGE_STREAM_NAMESPACE}",
+              "name": "fis-karaf-openshift:${BUILDER_VERSION}"
             },
             "forcePull": true,
+            "incremental": true,
             "env": [
               {
                 "name": "BUILD_LOGLEVEL",
@@ -173,6 +191,18 @@
               {
                 "name": "MAVEN_ARGS_APPEND",
                 "value": "${MAVEN_ARGS_APPEND}"
+              },
+              {
+                "name": "ACTIVEMQ_SERVICE_NAME",
+                "value": "${ACTIVEMQ_SERVICE_NAME}"
+              },
+              {
+                "name": "ACTIVEMQ_USERNAME",
+                "value": "${ACTIVEMQ_USERNAME}"
+              },
+              {
+                "name": "ACTIVEMQ_PASSWORD",
+                "value": "${ACTIVEMQ_USERNAME}"
               }
             ]
           }
