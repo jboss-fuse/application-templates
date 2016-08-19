@@ -43,7 +43,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "2.0",
+      "value": "1.3.3",
       "description": "The version of the FIS S2I builder image to use."
     },
     {
@@ -55,7 +55,7 @@
     {
       "name": "MAVEN_ARGS",
       "displayName": "Maven Arguments",
-      "value": "install -DskipTests -e",
+      "value": "install -DskipTests -Ddocker.skip -e",
       "description": "Arguments passed to mvn in the build."
     },
     {
