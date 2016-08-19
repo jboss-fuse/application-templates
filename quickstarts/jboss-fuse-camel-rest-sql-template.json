@@ -330,16 +330,19 @@
               {
                 "name": "${APP_NAME}",
                 "image": "library/${APP_NAME}:latest",
-                "readinessProbe": {
-                  "exec": {
-                    "command": [
-                      "/bin/bash",
-                      "-c",
-                      "(curl -f 127.0.0.1:8181) >/dev/null 2>&1; test $? != 7"
-                    ]
+                "readinessProbe" : {
+                  "httpGet" : {
+                    "path" : "/readiness-check",
+                    "port" : 8181
                   },
-                  "initialDelaySeconds": 30,
-                  "timeoutSeconds": 5
+                  "initialDelaySeconds" : 180
+                },
+                "livenessProbe" : {
+                  "httpGet" : {
+                    "path" : "/health-check",
+                    "port" : 8181
+                  },
+                  "initialDelaySeconds" : 10
                 },
                 "ports": [
                   {
