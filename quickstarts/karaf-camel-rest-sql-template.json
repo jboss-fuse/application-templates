@@ -30,7 +30,7 @@
     {
       "name": "SERVICE_NAME",
       "value": "s2i-karaf-camel-rest-sql",
-      "description": "Exposed Service name"
+      "description": "Exposed Service name."
     },
     {
       "name": "MYSQL_SERVICE_NAME",

@@ -30,7 +30,7 @@
     {
       "name": "SERVICE_NAME",
       "value": "s2i-karaf-camel-log",
-      "description": "Exposed Service name"
+      "description": "Exposed Service name."
     },
     {
       "name": "BUILDER_VERSION",

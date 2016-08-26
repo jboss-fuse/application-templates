@@ -37,7 +37,7 @@
     {
       "name": "SERVICE_NAME",
       "displayName": "Service Name",
-      "value": "s2i-jboss-fuse-camel-amq",
+      "value": "s2i-fuse-camel-amq",
       "description": "Exposed Service name."
     },
     {

@@ -37,7 +37,7 @@
     {
       "name": "SERVICE_NAME",
       "displayName": "Service Name",
-      "value": "s2i-jboss-fuse-cxf-rest",
+      "value": "s2i-fuse-cxf-rest",
       "description": "Exposed Service name."
     },
     {

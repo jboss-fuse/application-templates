@@ -37,7 +37,7 @@
     {
       "name": "SERVICE_NAME",
       "displayName": "Service Name",
-      "value": "s2i-jboss-fuse-camel-log",
+      "value": "s2i-fuse-camel-log",
       "description": "Exposed Service name."
     },
     {
