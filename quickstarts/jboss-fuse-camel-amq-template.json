@@ -191,18 +191,6 @@
               {
                 "name": "MAVEN_ARGS_APPEND",
                 "value": "${MAVEN_ARGS_APPEND}"
-              },
-              {
-                "name": "ACTIVEMQ_SERVICE_NAME",
-                "value": "${ACTIVEMQ_SERVICE_NAME}"
-              },
-              {
-                "name": "ACTIVEMQ_USERNAME",
-                "value": "${ACTIVEMQ_USERNAME}"
-              },
-              {
-                "name": "ACTIVEMQ_PASSWORD",
-                "value": "${ACTIVEMQ_USERNAME}"
               }
             ]
           }
@@ -315,6 +303,15 @@
                       "fieldPath" : "metadata.namespace"
                     }
                   }
+                }, {
+                  "name": "ACTIVEMQ_SERVICE_NAME",
+                  "value": "${ACTIVEMQ_SERVICE_NAME}"
+                }, {
+                  "name": "ACTIVEMQ_USERNAME",
+                  "value": "${ACTIVEMQ_USERNAME}"
+                }, {
+                  "name": "ACTIVEMQ_PASSWORD",
+                  "value": "${ACTIVEMQ_USERNAME}"
                 } ],
                 "resources": {}
               }

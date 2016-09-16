@@ -183,18 +183,6 @@
               {
                 "name": "MAVEN_ARGS_APPEND",
                 "value": "${MAVEN_ARGS_APPEND}"
-              },
-              {
-                "name": "ACTIVEMQ_SERVICE_NAME",
-                "value": "${ACTIVEMQ_SERVICE_NAME}"
-              },
-              {
-                "name": "ACTIVEMQ_BROKER_USERNAME",
-                "value": "${ACTIVEMQ_BROKER_USERNAME}"
-              },
-              {
-                "name": "ACTIVEMQ_BROKER_PASSWORD",
-                "value": "${ACTIVEMQ_BROKER_PASSWORD}"
               }
             ]
           }
@@ -300,6 +288,15 @@
                       "fieldPath" : "metadata.namespace"
                     }
                   }
+                } , {
+                  "name": "ACTIVEMQ_SERVICE_NAME",
+                  "value": "${ACTIVEMQ_SERVICE_NAME}"
+                }, {
+                  "name": "ACTIVEMQ_BROKER_USERNAME",
+                  "value": "${ACTIVEMQ_BROKER_USERNAME}"
+                }, {
+                  "name": "ACTIVEMQ_BROKER_PASSWORD",
+                  "value": "${ACTIVEMQ_BROKER_PASSWORD}"
                 } ],
                 "resources": {}
               }

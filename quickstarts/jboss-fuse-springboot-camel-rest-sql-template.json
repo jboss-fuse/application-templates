@@ -228,22 +228,6 @@
               {
                 "name": "MAVEN_ARGS_APPEND",
                 "value": "${MAVEN_ARGS_APPEND}"
-              },
-              {
-                "name": "MYSQL_SERVICE_NAME",
-                "value": "${MYSQL_SERVICE_NAME}"
-              },
-              {
-                "name": "MYSQL_SERVICE_DATABASE",
-                "value": "${MYSQL_SERVICE_DATABASE}"
-              },
-              {
-                "name": "MYSQL_SERVICE_USERNAME",
-                "value": "${MYSQL_SERVICE_USERNAME}"
-              },
-              {
-                "name": "MYSQL_SERVICE_PASSWORD",
-                "value": "${MYSQL_SERVICE_PASSWORD}"
               }
             ]
           }
@@ -353,6 +337,18 @@
                       "fieldPath" : "metadata.namespace"
                     }
                   }
+                } , {
+                  "name": "MYSQL_SERVICE_NAME",
+                  "value": "${MYSQL_SERVICE_NAME}"
+                }, {
+                  "name": "MYSQL_SERVICE_DATABASE",
+                  "value": "${MYSQL_SERVICE_DATABASE}"
+                }, {
+                  "name": "MYSQL_SERVICE_USERNAME",
+                  "value": "${MYSQL_SERVICE_USERNAME}"
+                }, {
+                  "name": "MYSQL_SERVICE_PASSWORD",
+                  "value": "${MYSQL_SERVICE_PASSWORD}"
                 } ],
                 "resources": {}
               }
