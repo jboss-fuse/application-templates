@@ -68,7 +68,7 @@
     },
     {
       "name": "MAVEN_ARGS",
-      "value": "package -DskipTests -e",
+      "value": "package -DskipTests -Ddocker.skip -e",
       "description": "Arguments passed to mvn in the build"
     },
     {
