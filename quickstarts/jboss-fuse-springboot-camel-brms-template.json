@@ -35,6 +35,26 @@
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
+      "name": "KIESERVER_SERVICE",
+      "displayName": "Decision Server Name",
+      "required": true,
+      "value": "kie-app",
+      "description": "Set this to the name of the Decision Server. You may need to create an instance before."
+    },
+    {
+      "name": "KIESERVER_USERNAME",
+      "displayName": "Decision Server Username",
+      "required": true,
+      "value": "kieserver",
+      "description": "The username used to authenticate with the Decision Server."
+    },
+    {
+      "name": "KIESERVER_PASSWORD",
+      "displayName": "Decision Server Password",
+      "required": true,
+      "description": "The password used to authenticate with the Decision Server."
+    },
+    {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
       "value": "2.0",
@@ -247,14 +267,14 @@
                 "readinessProbe" : {
                   "httpGet" : {
                     "path" : "/health",
-                    "port" : 8081
+                    "port" : 8080
                   },
                   "initialDelaySeconds" : 10
                 },
                 "livenessProbe" : {
                   "httpGet" : {
                     "path" : "/health",
-                    "port" : 8081
+                    "port" : 8080
                   },
                   "initialDelaySeconds" : 180
                 },
@@ -271,6 +291,15 @@
                       "fieldPath" : "metadata.namespace"
                     }
                   }
+                }, {
+                  "name": "KIESERVER_SERVICE",
+                  "value": "${KIESERVER_SERVICE}"
+                }, {
+                  "name": "KIESERVER_USERNAME",
+                  "value": "${KIESERVER_USERNAME}"
+                }, {
+                  "name": "KIESERVER_PASSWORD",
+                  "value": "${KIESERVER_PASSWORD}"
                 } ],
                 "resources": {}
               }
