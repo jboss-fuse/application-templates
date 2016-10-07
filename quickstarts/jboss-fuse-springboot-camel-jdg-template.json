@@ -254,14 +254,14 @@
                 "readinessProbe" : {
                   "httpGet" : {
                     "path" : "/health",
-                    "port" : 8080
+                    "port" : 8081
                   },
                   "initialDelaySeconds" : 10
                 },
                 "livenessProbe" : {
                   "httpGet" : {
                     "path" : "/health",
-                    "port" : 8080
+                    "port" : 8081
                   },
                   "initialDelaySeconds" : 180
                 },
