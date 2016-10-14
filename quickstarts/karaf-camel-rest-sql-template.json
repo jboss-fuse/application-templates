@@ -5,7 +5,8 @@
   "metadata": {
     "annotations": {
       "description": "Camel Example using Rest DSL with SQL Database in Karaf container",
-      "iconClass": "icon-java"
+      "tags": "quickstart,java,karaf,fis",
+      "iconClass": "icon-jboss"
     },
     "labels": {},
     "name": "s2i-karaf-camel-rest-sql"

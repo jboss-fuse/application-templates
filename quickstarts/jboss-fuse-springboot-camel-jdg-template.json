@@ -5,7 +5,7 @@
     "annotations": {
       "description": "Spring Boot, Camel and JBoss Data Grid QuickStart. This quickstart demonstrates how to connect a Spring-Boot application to a JBoss Data Grid (or Infinispan) server using the Hot Rod protocol. It requires that the data grid server (or cluster) has been deployed first.",
       "tags": "quickstart,java,springboot,fis",
-      "iconClass": "icon-openjdk",
+      "iconClass": "icon-jboss",
       "version": "2.0"
     },
     "name": "s2i-jboss-fuse-springboot-camel-jdg"

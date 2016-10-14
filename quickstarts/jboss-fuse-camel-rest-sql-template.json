@@ -5,7 +5,7 @@
     "annotations": {
       "description": "Camel example using Rest DSL with SQL Database in Karaf container.",
       "tags": "quickstart,java,karaf,fis",
-      "iconClass": "icon-openjdk",
+      "iconClass": "icon-jboss",
       "version": "2.0"
     },
     "name": "s2i-jboss-fuse-camel-rest-sql"

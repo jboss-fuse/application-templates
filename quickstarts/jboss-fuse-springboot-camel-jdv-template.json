@@ -5,7 +5,7 @@
     "annotations": {
       "description": "Spring-Boot, Camel and JBoss Data Virtualization QuickStart. This example demonstrates how you can use Apache Camel and JBoss Data Virtualization on Spring Boot running on OpenShift. Two (sample) embedded H2 database instances are created and linked together through a JDV virtual database layer. A camel route periodically generates a random input and queries the virtual database to compute intermediate routing information.",
       "tags": "quickstart,java,springboot,fis",
-      "iconClass": "icon-openjdk",
+      "iconClass": "icon-jboss",
       "version": "2.0"
     },
     "name": "s2i-jboss-fuse-springboot-camel-jdv"

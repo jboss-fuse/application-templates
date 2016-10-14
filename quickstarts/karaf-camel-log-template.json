@@ -5,7 +5,8 @@
   "metadata": {
     "annotations": {
       "description": "A simple Camel route in Karaf container",
-      "iconClass": "icon-java"
+      "tags": "quickstart,java,karaf,fis",
+      "iconClass": "icon-jboss"
     },
     "labels": {},
     "name": "s2i-karaf-camel-log"
