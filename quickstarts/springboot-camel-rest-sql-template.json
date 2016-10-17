@@ -3,29 +3,29 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "description": "Spring-Boot, Camel and JBoss BRMS QuickStart. This example demonstrates how you can use Apache Camel and JBoss BRMS with Spring Boot on OpenShift. DRL files contain simple rules which are used to create knowledge session via Spring configuration file. Camel routes, defined via Spring as well, are then used to e.g. pass (insert) the Body of the message as a POJO to Drools engine for execution.",
+      "description": "Spring Boot, Camel REST DSL and MySQL QuickStart. This quickstart demonstrates how to connect a Spring Boot application to a MySQL database and expose a REST API with Camel on OpenShift. In this example we will use two containers, one container to run as a MySQL server, and another as a client to the database, where the Camel routes are running. This quickstart requires the MySQL server to be deployed and started first.",
       "tags": "quickstart,java,springboot,fis",
       "iconClass": "icon-jboss",
       "version": "2.0"
     },
-    "name": "s2i-jboss-fuse-springboot-camel-brms"
+    "name": "s2i-springboot-camel-rest-sql"
   },
   "labels": {
-    "template": "s2i-jboss-fuse-springboot-camel-brms"
+    "template": "s2i-springboot-camel-rest-sql"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-jboss-fuse-springboot-camel-brms",
+      "value": "s2i-springboot-camel-rest-sql",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
       "required": true,
-      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-drools.git",
+      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-rest-sql.git",
       "description": "The URL of the repository with your application source code."
     },
     {
@@ -35,24 +35,33 @@
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
-      "name": "KIESERVER_SERVICE",
-      "displayName": "Decision Server Name",
-      "required": true,
-      "value": "kie-app",
-      "description": "Set this to the name of the Decision Server. You may need to create an instance before."
+      "name": "SERVICE_NAME",
+      "displayName": "Service Name",
+      "value": "camel-rest-sql",
+      "description": "Exposed service name."
     },
     {
-      "name": "KIESERVER_USERNAME",
-      "displayName": "Decision Server Username",
+      "name": "MYSQL_SERVICE_NAME",
+      "displayName": "MySQL Server Service",
       "required": true,
-      "value": "kieserver",
-      "description": "The username used to authenticate with the Decision Server."
+      "value": "mysql",
+      "description": "Set this to the name of the TCP service of the MySQL server. You may need to create a server first."
     },
     {
-      "name": "KIESERVER_PASSWORD",
-      "displayName": "Decision Server Password",
-      "required": true,
-      "description": "The password used to authenticate with the Decision Server."
+      "name": "MYSQL_SERVICE_DATABASE",
+      "displayName": "MySQL Server Database",
+      "value": "sampledb",
+      "description": "The database hosted by the MySQL server to be used by the application."
+    },
+    {
+      "name": "MYSQL_SERVICE_USERNAME",
+      "displayName": "MySQL Server Username",
+      "description": "The username used to authenticate with the MySQL server. Leave it empty if authentication is disabled."
+    },
+    {
+      "name": "MYSQL_SERVICE_PASSWORD",
+      "displayName": "MySQL Server Password",
+      "description": "The password used to authenticate with the MySQL server. Leave it empty if authentication is disabled."
     },
     {
       "name": "BUILDER_VERSION",
@@ -98,6 +107,39 @@
     }
   ],
   "objects": [
+    {
+      "apiVersion": "v1",
+      "kind": "Service",
+      "metadata": {
+        "annotations": {
+        },
+        "labels": {
+          "component": "${APP_NAME}",
+          "provider": "s2i",
+          "project": "${APP_NAME}",
+          "version": "${APP_VERSION}",
+          "group": "quickstarts"
+        },
+        "name": "${SERVICE_NAME}"
+      },
+      "spec": {
+        "clusterIP": "None",
+        "deprecatedPublicIPs": [],
+        "ports": [
+          {
+            "port": 9411,
+            "protocol": "TCP",
+            "targetPort": 8080
+          }
+        ],
+        "selector": {
+          "project": "${APP_NAME}",
+          "component": "${APP_NAME}",
+          "provider": "s2i",
+          "group": "quickstarts"
+        }
+      }
+    },
     {
       "kind": "ImageStream",
       "apiVersion": "v1",
@@ -280,6 +322,10 @@
                 },
                 "ports": [
                   {
+                    "containerPort": 8080,
+                    "name": "http"
+                  },
+                  {
                     "containerPort": 8778,
                     "name": "jolokia"
                   }
@@ -291,15 +337,18 @@
                       "fieldPath" : "metadata.namespace"
                     }
                   }
+                } , {
+                  "name": "MYSQL_SERVICE_NAME",
+                  "value": "${MYSQL_SERVICE_NAME}"
                 }, {
-                  "name": "KIESERVER_SERVICE",
-                  "value": "${KIESERVER_SERVICE}"
+                  "name": "MYSQL_SERVICE_DATABASE",
+                  "value": "${MYSQL_SERVICE_DATABASE}"
                 }, {
-                  "name": "KIESERVER_USERNAME",
-                  "value": "${KIESERVER_USERNAME}"
+                  "name": "MYSQL_SERVICE_USERNAME",
+                  "value": "${MYSQL_SERVICE_USERNAME}"
                 }, {
-                  "name": "KIESERVER_PASSWORD",
-                  "value": "${KIESERVER_PASSWORD}"
+                  "name": "MYSQL_SERVICE_PASSWORD",
+                  "value": "${MYSQL_SERVICE_PASSWORD}"
                 } ],
                 "resources": {}
               }

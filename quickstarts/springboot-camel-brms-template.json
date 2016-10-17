@@ -3,29 +3,29 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "description": "Spring-Boot and Camel QuickStart. This example demonstrates how you can use Apache Camel with Spring Boot on Openshift. The quickstart uses Spring Boot to configure a little application that includes a Camel route that triggeres a message every 5th second, and routes the message to a log.",
+      "description": "Spring-Boot, Camel and JBoss BRMS QuickStart. This example demonstrates how you can use Apache Camel and JBoss BRMS with Spring Boot on OpenShift. DRL files contain simple rules which are used to create knowledge session via Spring configuration file. Camel routes, defined via Spring as well, are then used to e.g. pass (insert) the Body of the message as a POJO to Drools engine for execution.",
       "tags": "quickstart,java,springboot,fis",
       "iconClass": "icon-jboss",
       "version": "2.0"
     },
-    "name": "s2i-jboss-fuse-springboot-camel"
+    "name": "s2i-springboot-camel-brms"
   },
   "labels": {
-    "template": "s2i-jboss-fuse-springboot-camel"
+    "template": "s2i-springboot-camel-brms"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-jboss-fuse-springboot-camel",
+      "value": "s2i-springboot-camel-brms",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
       "required": true,
-      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel.git",
+      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-drools.git",
       "description": "The URL of the repository with your application source code."
     },
     {
@@ -33,6 +33,26 @@
       "displayName": "Git Reference",
       "value": "master",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
+    },
+    {
+      "name": "KIESERVER_SERVICE",
+      "displayName": "Decision Server Name",
+      "required": true,
+      "value": "kie-app",
+      "description": "Set this to the name of the Decision Server. You may need to create an instance before."
+    },
+    {
+      "name": "KIESERVER_USERNAME",
+      "displayName": "Decision Server Username",
+      "required": true,
+      "value": "kieserver",
+      "description": "The username used to authenticate with the Decision Server."
+    },
+    {
+      "name": "KIESERVER_PASSWORD",
+      "displayName": "Decision Server Password",
+      "required": true,
+      "description": "The password used to authenticate with the Decision Server."
     },
     {
       "name": "BUILDER_VERSION",
@@ -271,6 +291,15 @@
                       "fieldPath" : "metadata.namespace"
                     }
                   }
+                }, {
+                  "name": "KIESERVER_SERVICE",
+                  "value": "${KIESERVER_SERVICE}"
+                }, {
+                  "name": "KIESERVER_USERNAME",
+                  "value": "${KIESERVER_USERNAME}"
+                }, {
+                  "name": "KIESERVER_PASSWORD",
+                  "value": "${KIESERVER_PASSWORD}"
                 } ],
                 "resources": {}
               }

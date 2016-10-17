@@ -3,29 +3,29 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "description": "Spring-Boot, Camel and JBoss Data Virtualization QuickStart. This example demonstrates how you can use Apache Camel and JBoss Data Virtualization on Spring Boot running on OpenShift. Two (sample) embedded H2 database instances are created and linked together through a JDV virtual database layer. A camel route periodically generates a random input and queries the virtual database to compute intermediate routing information.",
+      "description": "Spring Boot, Camel and ActiveMQ QuickStart. This quickstart demonstrates how to connect a Spring-Boot application to an ActiveMQ broker and use JMS messaging between two Camel routes using OpenShift. In this example we will use two containers, one container to run as a ActiveMQ broker, and another as a client to the broker, where the Camel routes are running. This quickstart requires the ActiveMQ broker has been deployed and running first.",
       "tags": "quickstart,java,springboot,fis",
       "iconClass": "icon-jboss",
       "version": "2.0"
     },
-    "name": "s2i-jboss-fuse-springboot-camel-jdv"
+    "name": "s2i-springboot-camel-amq"
   },
   "labels": {
-    "template": "s2i-jboss-fuse-springboot-camel-jdv"
+    "template": "s2i-springboot-camel-amq"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-jboss-fuse-springboot-camel-jdv",
+      "value": "s2i-springboot-camel-amq",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
       "required": true,
-      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-teiid.git",
+      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-amq.git",
       "description": "The URL of the repository with your application source code."
     },
     {
@@ -33,6 +33,23 @@
       "displayName": "Git Reference",
       "value": "master",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
+    },
+    {
+      "name": "ACTIVEMQ_SERVICE_NAME",
+      "displayName": "ActiveMQ Broker Service",
+      "required": true,
+      "value": "broker-amq-tcp",
+      "description": "Set this to the name of the TCP service of the ActiveMQ broker. You may need to create a broker first."
+    },
+    {
+      "name": "ACTIVEMQ_BROKER_USERNAME",
+      "displayName": "ActiveMQ Broker Username",
+      "description": "The username used to authenticate with the ActiveMQ broker. Leave it empty if authentication is disabled."
+    },
+    {
+      "name": "ACTIVEMQ_BROKER_PASSWORD",
+      "displayName": "ActiveMQ Broker Password",
+      "description": "The password used to authenticate with the ActiveMQ broker. Leave it empty if authentication is disabled."
     },
     {
       "name": "BUILDER_VERSION",
@@ -271,6 +288,15 @@
                       "fieldPath" : "metadata.namespace"
                     }
                   }
+                } , {
+                  "name": "ACTIVEMQ_SERVICE_NAME",
+                  "value": "${ACTIVEMQ_SERVICE_NAME}"
+                }, {
+                  "name": "ACTIVEMQ_BROKER_USERNAME",
+                  "value": "${ACTIVEMQ_BROKER_USERNAME}"
+                }, {
+                  "name": "ACTIVEMQ_BROKER_PASSWORD",
+                  "value": "${ACTIVEMQ_BROKER_PASSWORD}"
                 } ],
                 "resources": {}
               }

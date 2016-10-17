@@ -3,29 +3,29 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "description": "Spring Boot, Camel and JBoss Data Grid QuickStart. This quickstart demonstrates how to connect a Spring-Boot application to a JBoss Data Grid (or Infinispan) server using the Hot Rod protocol. It requires that the data grid server (or cluster) has been deployed first.",
+      "description": "Spring-Boot and Camel Xml QuickStart. This example demonstrates how you can use Apache Camel with Spring Boot on Openshift. The quickstart uses Spring Boot to configure a little application that includes a Camel route (in Spring xml) that triggeres a message every 5th second, and routes the message to a log.",
       "tags": "quickstart,java,springboot,fis",
       "iconClass": "icon-jboss",
       "version": "2.0"
     },
-    "name": "s2i-jboss-fuse-springboot-camel-jdg"
+    "name": "s2i-springboot-camel-xml"
   },
   "labels": {
-    "template": "s2i-jboss-fuse-springboot-camel-jdg"
+    "template": "s2i-springboot-camel-xml"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-jboss-fuse-springboot-camel-jdg",
+      "value": "s2i-springboot-camel-xml",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
       "required": true,
-      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-infinispan.git",
+      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-xml.git",
       "description": "The URL of the repository with your application source code."
     },
     {
@@ -33,13 +33,6 @@
       "displayName": "Git Reference",
       "value": "master",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
-    },
-    {
-      "name": "INFINISPAN_SERVICE",
-      "displayName": "JBoss Data Grid Service (Hot Rod)",
-      "required": true,
-      "value": "datagrid-app-hotrod",
-      "description": "Set this to the name of the Hot Rod service of the JBoss Data Grid. You may need to create the data grid first."
     },
     {
       "name": "BUILDER_VERSION",
@@ -278,9 +271,6 @@
                       "fieldPath" : "metadata.namespace"
                     }
                   }
-                } , {
-                  "name": "INFINISPAN_SERVICE",
-                  "value": "${INFINISPAN_SERVICE}"
                 } ],
                 "resources": {}
               }
