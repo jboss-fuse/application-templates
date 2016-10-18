@@ -79,7 +79,7 @@
     {
       "name": "MAVEN_ARGS",
       "displayName": "Maven Arguments",
-      "value": "install -DskipTests -Ddocker.skip -e -B",
+      "value": "install -DskipTests -Dfabric8.skip -e -B",
       "description": "Arguments passed to mvn in the build."
     },
     {
