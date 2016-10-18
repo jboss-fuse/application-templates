@@ -3,28 +3,28 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "description": "A simple Camel route in Karaf container.",
+      "description": "Camel example using Rest DSL with SQL Database in Karaf container.",
       "tags": "quickstart,java,karaf,fis",
       "iconClass": "icon-jboss",
       "version": "2.0"
     },
-    "name": "s2i-jboss-fuse-camel-log"
+    "name": "s2i-karaf2-camel-rest-sql"
   },
   "labels": {
-    "template": "s2i-jboss-fuse-camel-log"
+    "template": "s2i-karaf2-camel-rest-sql"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-jboss-fuse-camel-log",
+      "value": "s2i-karaf2-camel-rest-sql",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
-      "value": "https://github.com/fabric8-quickstarts/jboss-fuse-camel-log.git",
+      "value": "https://github.com/fabric8-quickstarts/jboss-fuse-camel-rest-sql.git",
       "required": true,
       "description": "The URL of the repository with your application source code."
     },
@@ -37,8 +37,32 @@
     {
       "name": "SERVICE_NAME",
       "displayName": "Service Name",
-      "value": "s2i-fuse-camel-log",
+      "value": "s2i-karaf2-camel-rest",
       "description": "Exposed Service name."
+    },
+    {
+      "name": "MYSQL_SERVICE_NAME",
+      "displayName": "MySQL Server Service",
+      "required": true,
+      "value": "mysql",
+      "description": "Set this to the name of the TCP service of the MySQL server. You may need to create a server first."
+    },
+    {
+      "name": "MYSQL_SERVICE_DATABASE",
+      "displayName": "MySQL Server Database",
+      "required": true,
+      "value": "sampledb",
+      "description": "The database hosted by the MySQL server to be used by the application."
+    },
+    {
+      "name": "MYSQL_SERVICE_USERNAME",
+      "displayName": "MySQL Server Username",
+      "description": "The username used to authenticate with the MySQL server. Leave it empty if authentication is disabled."
+    },
+    {
+      "name": "MYSQL_SERVICE_PASSWORD",
+      "displayName": "MySQL Server Password",
+      "description": "The password used to authenticate with the MySQL server. Leave it empty if authentication is disabled."
     },
     {
       "name": "BUILDER_VERSION",
@@ -84,6 +108,41 @@
     }
   ],
   "objects": [
+    {
+      "apiVersion": "v1",
+      "kind": "Service",
+      "metadata": {
+        "annotations": {
+        },
+        "labels": {
+          "container": "karaf",
+          "component": "${APP_NAME}",
+          "provider": "s2i",
+          "project": "${APP_NAME}",
+          "version": "${APP_VERSION}",
+          "group": "quickstarts"
+        },
+        "name": "${SERVICE_NAME}"
+      },
+      "spec": {
+        "clusterIP": "None",
+        "deprecatedPublicIPs": [],
+        "ports": [
+          {
+            "port": 9411,
+            "protocol": "TCP",
+            "targetPort": 8181
+          }
+        ],
+        "selector": {
+          "container": "karaf",
+          "project": "${APP_NAME}",
+          "component": "${APP_NAME}",
+          "provider": "s2i",
+          "group": "quickstarts"
+        }
+      }
+    },
     {
       "kind": "ImageStream",
       "apiVersion": "v1",
@@ -286,6 +345,18 @@
                       "fieldPath" : "metadata.namespace"
                     }
                   }
+                } , {
+                  "name": "MYSQL_SERVICE_NAME",
+                  "value": "${MYSQL_SERVICE_NAME}"
+                }, {
+                  "name": "MYSQL_SERVICE_DATABASE",
+                  "value": "${MYSQL_SERVICE_DATABASE}"
+                }, {
+                  "name": "MYSQL_SERVICE_USERNAME",
+                  "value": "${MYSQL_SERVICE_USERNAME}"
+                }, {
+                  "name": "MYSQL_SERVICE_PASSWORD",
+                  "value": "${MYSQL_SERVICE_PASSWORD}"
                 } ],
                 "resources": {}
               }

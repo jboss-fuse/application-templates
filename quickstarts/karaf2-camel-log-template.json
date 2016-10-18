@@ -3,28 +3,28 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "description": "Camel route using ActiveMQ in Karaf container.",
+      "description": "A simple Camel route in Karaf container.",
       "tags": "quickstart,java,karaf,fis",
       "iconClass": "icon-jboss",
       "version": "2.0"
     },
-    "name": "s2i-jboss-fuse-camel-amq"
+    "name": "s2i-karaf2-camel-log"
   },
   "labels": {
-    "template": "s2i-jboss-fuse-camel-amq"
+    "template": "s2i-karaf2-camel-log"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-jboss-fuse-camel-amq",
+      "value": "s2i-karaf2-camel-log",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
-      "value": "https://github.com/fabric8-quickstarts/jboss-fuse-camel-amq.git",
+      "value": "https://github.com/fabric8-quickstarts/jboss-fuse-camel-log.git",
       "required": true,
       "description": "The URL of the repository with your application source code."
     },
@@ -37,7 +37,7 @@
     {
       "name": "SERVICE_NAME",
       "displayName": "Service Name",
-      "value": "s2i-fuse-camel-amq",
+      "value": "s2i-karaf2-camel-log",
       "description": "Exposed Service name."
     },
     {
@@ -81,23 +81,6 @@
       "generate": "expression",
       "description": "The secret needed to trigger a build.",
       "from": "[a-zA-Z0-9]{40}"
-    },
-    {
-      "name": "ACTIVEMQ_SERVICE_NAME",
-      "displayName": "ActiveMQ Broker Service",
-      "required": true,
-      "value": "broker-amq-tcp",
-      "description": "Set this to the name of the TCP service of the ActiveMQ broker. You may need to create a broker first."
-    },
-    {
-      "name": "ACTIVEMQ_USERNAME",
-      "displayName": "ActiveMQ Broker Username",
-      "description": "The username used to authenticate with the ActiveMQ broker. Leave it empty if authentication is disabled."
-    },
-    {
-      "name": "ACTIVEMQ_PASSWORD",
-      "displayName": "ActiveMQ Broker Password",
-      "description": "The password used to authenticate with the ActiveMQ broker. Leave it empty if authentication is disabled."
     }
   ],
   "objects": [
@@ -303,15 +286,6 @@
                       "fieldPath" : "metadata.namespace"
                     }
                   }
-                }, {
-                  "name": "ACTIVEMQ_SERVICE_NAME",
-                  "value": "${ACTIVEMQ_SERVICE_NAME}"
-                }, {
-                  "name": "ACTIVEMQ_USERNAME",
-                  "value": "${ACTIVEMQ_USERNAME}"
-                }, {
-                  "name": "ACTIVEMQ_PASSWORD",
-                  "value": "${ACTIVEMQ_USERNAME}"
                 } ],
                 "resources": {}
               }
