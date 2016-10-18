@@ -24,7 +24,7 @@
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
-      "value": "https://github.com/fabric8-quickstarts/jboss-fuse-cxf-rest.git",
+      "value": "https://github.com/fabric8-quickstarts/karaf2-cxf-rest.git",
       "required": true,
       "description": "The URL of the repository with your application source code."
     },
