@@ -311,7 +311,7 @@
                   "value": "${ACTIVEMQ_USERNAME}"
                 }, {
                   "name": "ACTIVEMQ_PASSWORD",
-                  "value": "${ACTIVEMQ_USERNAME}"
+                  "value": "${ACTIVEMQ_PASSWORD}"
                 } ],
                 "resources": {}
               }
