@@ -15,18 +15,8 @@
                 "name": "fis-java-openshift"
             },
             "spec": {
-                "dockerImageRepository": "registry.access.redhat.com/jboss-fuse-6/fis-java-openshift",
+                "dockerImageRepository": "docker-registry.usersys.redhat.com/fabric8/fis-java-openshift",
                 "tags": [
-                    {
-                        "name": "1.0",
-                        "annotations": {
-                            "description": "JBoss Fuse Integration Services 1.0 Java S2I images.",
-                            "iconClass": "icon-jboss",
-                            "tags": "builder,jboss-fuse,java,xpaas",
-                            "supports":"jboss-fuse:6.2.1,java:8,xpaas:1.2",
-                            "version": "1.0"
-                        }
-                    },
                     {
                         "name": "2.0",
                         "annotations": {
@@ -36,7 +26,7 @@
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",
                             "version": "2.0"
                         }
-                    }                    
+                    }
                 ]
             }
         },
@@ -47,18 +37,8 @@
                 "name": "fis-karaf-openshift"
             },
             "spec": {
-                "dockerImageRepository": "registry.access.redhat.com/jboss-fuse-6/fis-karaf-openshift",
+                "dockerImageRepository": "docker-registry.usersys.redhat.com/fabric8/fis-karaf-openshift",
                 "tags": [
-                    {
-                        "name": "1.0",
-                        "annotations": {
-                            "description": "JBoss Fuse Integration Services 1.0 Karaf S2I images.",
-                            "iconClass": "icon-jboss",
-                            "tags": "builder,jboss-fuse,java,karaf,xpaas",
-                            "supports":"jboss-fuse:6.2.1,java:8,xpaas:1.2",
-                            "version": "1.0"
-                        }
-                    },
                     {
                         "name": "2.0",
                         "annotations": {
@@ -68,7 +48,7 @@
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",
                             "version": "2.0"
                         }
-                    }                    
+                    }
                 ]
             }
         }
