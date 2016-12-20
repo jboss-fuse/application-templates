@@ -8,17 +8,17 @@
       "iconClass": "icon-jboss",
       "version": "2.0"
     },
-    "name": "s2i-springboot-camel-config"
+    "name": "s2i-spring-boot-camel-config"
   },
   "labels": {
-    "template": "s2i-springboot-camel-config"
+    "template": "s2i-spring-boot-camel-config"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-springboot-camel-config",
+      "value": "s2i-spring-boot-camel-config",
       "description": "The name assigned to the application."
     },
     {
