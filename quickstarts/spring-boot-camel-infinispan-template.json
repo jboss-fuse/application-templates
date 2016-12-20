@@ -8,17 +8,17 @@
       "iconClass": "icon-jboss",
       "version": "2.0"
     },
-    "name": "s2i-springboot-camel-jdg"
+    "name": "s2i-spring-boot-camel-infinispan"
   },
   "labels": {
-    "template": "s2i-springboot-camel-jdg"
+    "template": "s2i-spring-boot-camel-infinispan"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-springboot-camel-jdg",
+      "value": "s2i-spring-boot-camel-infinispan",
       "description": "The name assigned to the application."
     },
     {

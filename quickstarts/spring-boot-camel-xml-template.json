@@ -8,17 +8,17 @@
       "iconClass": "icon-jboss",
       "version": "2.0"
     },
-    "name": "s2i-springboot-camel-xml"
+    "name": "s2i-spring-boot-camel-xml"
   },
   "labels": {
-    "template": "s2i-springboot-camel-xml"
+    "template": "s2i-spring-boot-camel-xml"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-springboot-camel-xml",
+      "value": "s2i-spring-boot-camel-xml",
       "description": "The name assigned to the application."
     },
     {
