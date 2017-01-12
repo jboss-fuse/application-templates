@@ -98,6 +98,34 @@
       "name": "ACTIVEMQ_PASSWORD",
       "displayName": "ActiveMQ Broker Password",
       "description": "The password used to authenticate with the ActiveMQ broker. Leave it empty if authentication is disabled."
+    },
+    {
+      "name": "CPU_REQUEST",
+      "displayName": "CPU request",
+      "value": "0.2",
+      "required": true,
+      "description": "The amount of CPU to requests."
+    },
+    {
+      "name": "MEMORY_REQUEST",
+      "displayName": "Memory request",
+      "value": "1.5G",
+      "required": true,
+      "description": "The amount of memory required for the container to run."
+    },
+    {
+      "name": "CPU_LIMIT",
+      "displayName": "CPU limit",
+      "value": "1.0",
+      "required": true,
+      "description": "The amount of CPU the container is limited to use."
+    },
+    {
+      "name": "MEMORY_LIMIT",
+      "displayName": "Memory limit",
+      "value": "2G",
+      "required": true,
+      "description": "The amount of memory the container is limited to use."
     }
   ],
   "objects": [
@@ -313,7 +341,16 @@
                   "name": "ACTIVEMQ_PASSWORD",
                   "value": "${ACTIVEMQ_PASSWORD}"
                 } ],
-                "resources": {}
+                "resources": {
+                  "requests": {
+                    "cpu": "${CPU_REQUEST}",
+                    "memory": "${MEMORY_REQUEST}",
+                  },
+                  "limits": {
+                    "cpu": "${CPU_LIMIT}",
+                    "memory": "${MEMORY_LIMIT}",
+                  }
+                }
               }
             ]
           }

@@ -82,6 +82,20 @@
       "generate": "expression",
       "description": "The secret needed to trigger a build.",
       "from": "[a-zA-Z0-9]{40}"
+    },
+    {
+      "name": "CPU_REQUEST",
+      "displayName": "CPU request",
+      "value": "0.2",
+      "required": true,
+      "description": "The amount of CPU to requests."
+    },
+    {
+      "name": "CPU_LIMIT",
+      "displayName": "CPU limit",
+      "value": "1.0",
+      "required": true,
+      "description": "The amount of CPU the container is limited to use."
     }
   ],
   "objects": [
@@ -282,7 +296,14 @@
                   "name": "INFINISPAN_SERVICE",
                   "value": "${INFINISPAN_SERVICE}"
                 } ],
-                "resources": {}
+                "resources": {
+                  "requests": {
+                    "cpu": "${CPU_REQUEST}"
+                  },
+                  "limits": {
+                    "cpu": "${CPU_LIMIT}"
+                  }
+                }
               }
             ]
           }
