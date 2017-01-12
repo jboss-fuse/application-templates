@@ -76,11 +76,32 @@
       "description": "Namespace in which the Fuse ImageStreams are installed. These ImageStreams are normally installed in the openshift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project."
     },
     {
-      "name": "BUILD_SECRET",
-      "displayName": "Git Build Secret",
-      "generate": "expression",
-      "description": "The secret needed to trigger a build.",
-      "from": "[a-zA-Z0-9]{40}"
+      "name": "CPU_REQUEST",
+      "displayName": "CPU request",
+      "value": "0.2",
+      "required": true,
+      "description": "The amount of CPU to requests."
+    },
+    {
+      "name": "MEMORY_REQUEST",
+      "displayName": "Memory request",
+      "value": "1.5G",
+      "required": true,
+      "description": "The amount of memory required for the container to run."
+    },
+    {
+      "name": "CPU_LIMIT",
+      "displayName": "CPU limit",
+      "value": "1.0",
+      "required": true,
+      "description": "The amount of CPU the container is limited to use."
+    },
+    {
+      "name": "MEMORY_LIMIT",
+      "displayName": "Memory limit",
+      "value": "2G",
+      "required": true,
+      "description": "The amount of memory the container is limited to use."
     }
   ],
   "objects": [
@@ -343,7 +364,16 @@
                     }
                   }
                 } ],
-                "resources": {}
+                "resources": {
+                  "requests": {
+                    "cpu": "${CPU_REQUEST}",
+                    "memory": "${MEMORY_REQUEST}",
+                  },
+                  "limits": {
+                    "cpu": "${CPU_LIMIT}",
+                    "memory": "${MEMORY_LIMIT}",
+                  }
+                }
               }
             ]
           }
