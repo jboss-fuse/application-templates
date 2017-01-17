@@ -403,11 +403,11 @@
                 "resources": {
                   "requests": {
                     "cpu": "${CPU_REQUEST}",
-                    "memory": "${MEMORY_REQUEST}",
+                    "memory": "${MEMORY_REQUEST}"
                   },
                   "limits": {
                     "cpu": "${CPU_LIMIT}",
-                    "memory": "${MEMORY_LIMIT}",
+                    "memory": "${MEMORY_LIMIT}"
                   }
                 }
               }
