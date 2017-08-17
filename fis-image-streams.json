@@ -15,7 +15,7 @@
                 "name": "fis-java-openshift"
             },
             "spec": {
-                "dockerImageRepository": "registry.access.redhat.com/jboss-fuse-6/fis-java-openshift",
+                "dockerImageRepository": "docker-registry.usersys.redhat.com/fabric8/fis-java-openshift",
                 "tags": [
                     {
                         "name": "1.0",
@@ -36,7 +36,7 @@
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",
                             "version": "2.0"
                         }
-                    }                    
+                    }
                 ]
             }
         },
@@ -47,7 +47,7 @@
                 "name": "fis-karaf-openshift"
             },
             "spec": {
-                "dockerImageRepository": "registry.access.redhat.com/jboss-fuse-6/fis-karaf-openshift",
+                "dockerImageRepository": "docker-registry.usersys.redhat.com/fabric8/fis-karaf-openshift",
                 "tags": [
                     {
                         "name": "1.0",
@@ -68,7 +68,7 @@
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",
                             "version": "2.0"
                         }
-                    }                    
+                    }
                 ]
             }
         },
@@ -79,7 +79,7 @@
                 "name": "fis-eap-openshift"
             },
             "spec": {
-                "dockerImageRepository": "registry.access.redhat.com/jboss-fuse-7/fis-eap-openshift",
+                "dockerImageRepository": "docker-registry.engineering.redhat.com/jboss-fuse/fis-eap-openshift",
                 "tags": [
                     {
                         "name": "1.0",
@@ -90,9 +90,9 @@
                             "supports":"jboss-fuse:7.0.0,java:8,xpaas:1.2",
                             "version": "1.0"
                         }
-                    }                    
+                    }
                 ]
             }
-        }        
+        }
     ]
 }
