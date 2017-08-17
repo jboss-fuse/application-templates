@@ -40,7 +40,7 @@
       "displayName": "Git Reference",
       "description": "Git branch/tag reference",
       "name": "SOURCE_REPOSITORY_REF",
-      "value": "master",
+      "value": "wildfly-camel-examples-4.8.0.fuse-000004",
       "required": false
     },
     {
