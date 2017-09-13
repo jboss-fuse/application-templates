@@ -20,7 +20,7 @@ $ oc create -n openshift -f fis-image-streams.json
 $ oc create -n myproject -f quickstart-template.json
 ```
 
-If you want to add all template following:
+If you want to add all templates, use the following:
 
 ```
 for i in *.json ; oc create -f "$i" -n <you preferred openhift namespace>  ; done
