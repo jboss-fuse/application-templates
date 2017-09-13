@@ -19,6 +19,14 @@ To set this up for a particular template from a project generated using Fuse Int
 $ oc create -n openshift -f fis-image-streams.json
 $ oc create -n myproject -f quickstart-template.json
 ```
+
+If you want to add all template following:
+
+```
+for i in *.json ; oc create -f "$i" -n <you preferred openhift namespace>  ; done
+
+```
+
 After executing the above, you should be able to see the template after pressing _Create+_ in your project.
 
 Or, if you prefer the command line:
