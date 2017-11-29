@@ -491,17 +491,6 @@
                 "name": "${APP_NAME}",
                 "image": "${APP_NAME}",
                 "imagePullPolicy": "Always",
-                "lifecycle": {
-                  "preStop": {
-                    "exec": {
-                      "command": [
-                        "/opt/eap/bin/jboss-cli.sh",
-                        "-c",
-                        ":shutdown(timeout=60)"
-                      ]
-                    }
-                  }
-                },
                 "livenessProbe": {
                   "exec": {
                     "command": [
@@ -509,7 +498,8 @@
                       "-c",
                       "/opt/eap/bin/livenessProbe.sh"
                     ]
-                  }
+                  },
+                  "initialDelaySeconds": 60
                 },
                 "readinessProbe": {
                   "exec": {
@@ -606,7 +596,15 @@
                     "name": "AUTO_DEPLOY_EXPLODED",
                     "value": "${AUTO_DEPLOY_EXPLODED}"
                   }
-                ]
+                ],
+                "resources": {
+                  "requests": {
+                    "cpu": "${CPU_REQUEST}"
+                  },
+                  "limits": {
+                    "cpu": "${CPU_LIMIT}"
+                  }
+                }
               }
             ]
           }
@@ -728,15 +726,7 @@
                     "name": "MYSQL_AIO",
                     "value": "${MYSQL_AIO}"
                   }
-                ],
-                "resources": {
-                  "requests": {
-                    "cpu": "${CPU_REQUEST}"
-                  },
-                  "limits": {
-                    "cpu": "${CPU_LIMIT}"
-                  }
-                }
+                ]
               }
             ]
           }

@@ -373,17 +373,6 @@
                 "name": "${APP_NAME}",
                 "image": "${APP_NAME}",
                 "imagePullPolicy": "Always",
-                "lifecycle": {
-                  "preStop": {
-                    "exec": {
-                      "command": [
-                        "/opt/eap/bin/jboss-cli.sh",
-                        "-c",
-                        ":shutdown(timeout=60)"
-                      ]
-                    }
-                  }
-                },
                 "livenessProbe": {
                   "exec": {
                     "command": [
@@ -391,7 +380,8 @@
                       "-c",
                       "/opt/eap/bin/livenessProbe.sh"
                     ]
-                  }
+                  },
+                  "initialDelaySeconds": 60
                 },
                 "readinessProbe": {
                   "exec": {
