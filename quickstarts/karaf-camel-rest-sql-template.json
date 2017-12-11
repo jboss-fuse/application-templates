@@ -8,23 +8,23 @@
       "iconClass": "icon-jboss",
       "version": "2.0"
     },
-    "name": "s2i-karaf2-camel-rest-sql"
+    "name": "s2i-karaf-camel-rest-sql"
   },
   "labels": {
-    "template": "s2i-karaf2-camel-rest-sql"
+    "template": "s2i-karaf-camel-rest-sql"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-karaf2-camel-rest-sql",
+      "value": "s2i-karaf-camel-rest-sql",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
-      "value": "https://github.com/fabric8-quickstarts/karaf2-camel-rest-sql.git",
+      "value": "https://github.com/fabric8-quickstarts/karaf-camel-rest-sql.git",
       "required": true,
       "description": "The URL of the repository with your application source code."
     },
@@ -37,7 +37,7 @@
     {
       "name": "SERVICE_NAME",
       "displayName": "Service Name",
-      "value": "s2i-karaf2-camel-rest",
+      "value": "s2i-karaf-camel-rest",
       "description": "Exposed Service name."
     },
     {

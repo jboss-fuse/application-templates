@@ -8,23 +8,23 @@
       "iconClass": "icon-jboss",
       "version": "2.0"
     },
-    "name": "s2i-karaf2-camel-amq"
+    "name": "s2i-karaf-camel-amq"
   },
   "labels": {
-    "template": "s2i-karaf2-camel-amq"
+    "template": "s2i-karaf-camel-amq"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-karaf2-camel-amq",
+      "value": "s2i-karaf-camel-amq",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
-      "value": "https://github.com/fabric8-quickstarts/karaf2-camel-amq.git",
+      "value": "https://github.com/fabric8-quickstarts/karaf-camel-amq.git",
       "required": true,
       "description": "The URL of the repository with your application source code."
     },
@@ -37,7 +37,7 @@
     {
       "name": "SERVICE_NAME",
       "displayName": "Service Name",
-      "value": "s2i-karaf2-camel-amq",
+      "value": "s2i-karaf-camel-amq",
       "description": "Exposed Service name."
     },
     {
