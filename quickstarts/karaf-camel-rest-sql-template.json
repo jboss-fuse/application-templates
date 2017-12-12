@@ -284,8 +284,7 @@
             "kind": "ImageStreamTag",
             "name": "${APP_NAME}:latest"
           }
-        },
-        "resources": {}
+        }
       },
       "status": {
         "lastVersion": 0
@@ -307,9 +306,6 @@
         }
       },
       "spec": {
-        "strategy": {
-          "resources": {}
-        },
         "triggers": [
           {
             "type": "ConfigChange"
