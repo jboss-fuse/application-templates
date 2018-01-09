@@ -8,17 +8,17 @@
       "iconClass": "icon-jboss",
       "version": "2.0"
     },
-    "name": "s2i-spring-boot-cxf-jaxrs"
+    "name": "s2i-fuse70-spring-boot-cxf-jaxrs"
   },
   "labels": {
-    "template": "s2i-spring-boot-cxf-jaxrs"
+    "template": "s2i-fuse70-spring-boot-cxf-jaxrs"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-spring-boot-cxf-jaxrs",
+      "value": "s2i-fuse70-spring-boot-cxf-jaxrs",
       "description": "The name assigned to the application."
     },
     {
@@ -43,7 +43,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "2.0",
+      "value": "1.0",
       "description": "The version of the FIS S2I builder image to use."
     },
     {
@@ -219,7 +219,7 @@
             "from": {
               "kind": "ImageStreamTag",
               "namespace": "${IMAGE_STREAM_NAMESPACE}",
-              "name": "fis-java-openshift:${BUILDER_VERSION}"
+              "name": "jboss-fuse70-java-openshift:${BUILDER_VERSION}"
             },
             "forcePull": true,
             "incremental": true,

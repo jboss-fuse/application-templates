@@ -8,17 +8,17 @@
       "iconClass": "icon-jboss",
       "version": "2.0"
     },
-    "name": "s2i-karaf-camel-rest-sql"
+    "name": "s2i-fuse70-karaf-camel-rest-sql"
   },
   "labels": {
-    "template": "s2i-karaf-camel-rest-sql"
+    "template": "s2i-fuse70-karaf-camel-rest-sql"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-karaf-camel-rest-sql",
+      "value": "s2i-fuse70-karaf-camel-rest-sql",
       "description": "The name assigned to the application."
     },
     {
@@ -67,7 +67,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "2.0",
+      "value": "1.0",
       "description": "The version of the FIS S2I builder image to use."
     },
     {
@@ -255,7 +255,7 @@
             "from": {
               "kind": "ImageStreamTag",
               "namespace": "${IMAGE_STREAM_NAMESPACE}",
-              "name": "fis-karaf-openshift:${BUILDER_VERSION}"
+              "name": "jboss-fuse70-karaf-openshift:${BUILDER_VERSION}"
             },
             "forcePull": true,
             "incremental": true,

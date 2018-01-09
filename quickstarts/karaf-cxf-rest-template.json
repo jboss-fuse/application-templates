@@ -8,17 +8,17 @@
       "iconClass": "icon-jboss",
       "version": "2.0"
     },
-    "name": "s2i-karaf-cxf-rest"
+    "name": "s2i-fuse70-karaf-cxf-rest"
   },
   "labels": {
-    "template": "s2i-karaf-cxf-rest"
+    "template": "s2i-fuse70-karaf-cxf-rest"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-karaf-cxf-rest",
+      "value": "s2i-fuse70-karaf-cxf-rest",
       "description": "The name assigned to the application."
     },
     {
@@ -37,13 +37,13 @@
     {
       "name": "SERVICE_NAME",
       "displayName": "Service Name",
-      "value": "s2i-karaf-cxf-rest",
+      "value": "s2i-fuse70-karaf-cxf-rest",
       "description": "Exposed Service name."
     },
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "2.0",
+      "value": "1.0",
       "description": "The version of the FIS S2I builder image to use."
     },
     {
@@ -231,7 +231,7 @@
             "from": {
               "kind": "ImageStreamTag",
               "namespace": "${IMAGE_STREAM_NAMESPACE}",
-              "name": "fis-karaf-openshift:${BUILDER_VERSION}"
+              "name": "jboss-fuse70-karaf-openshift:${BUILDER_VERSION}"
             },
             "forcePull": true,
             "incremental": true,
