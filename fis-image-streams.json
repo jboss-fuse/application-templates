@@ -155,7 +155,7 @@
                         },
                         "from": {
                             "kind": "DockerImage",
-                            "name": "registry.access.redhat.com/jboss-fuse-7/fis-eap-openshift:1.0"
+                            "name": "registry.access.redhat.com/jboss-fuse-7/fuse-eap-openshift:1.0"
                         }
                     }
                 ]
