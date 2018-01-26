@@ -139,7 +139,7 @@
           "component": "${APP_NAME}",
           "container": "karaf",
           "group": "quickstarts",
-          "project": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "provider": "s2i",
           "version": "${APP_VERSION}"
         }
@@ -159,7 +159,7 @@
           "component": "${APP_NAME}",
           "container": "karaf",
           "group": "quickstarts",
-          "project": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "provider": "s2i",
           "version": "${APP_VERSION}"
         }
@@ -244,7 +244,7 @@
           "component": "${APP_NAME}",
           "container": "karaf",
           "group": "quickstarts",
-          "project": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "provider": "s2i",
           "version": "${APP_VERSION}"
         }
@@ -274,7 +274,7 @@
           "container": "karaf",
           "deploymentconfig": "${APP_NAME}",
           "group": "quickstarts",
-          "project": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "provider": "s2i",
           "version": "${APP_VERSION}"
         },
@@ -286,7 +286,7 @@
               "container": "karaf",
               "deploymentconfig": "${APP_NAME}",
               "group": "quickstarts",
-              "project": "${APP_NAME}",
+              "app": "${APP_NAME}",
               "provider": "s2i",
               "version": "${APP_VERSION}"
             }

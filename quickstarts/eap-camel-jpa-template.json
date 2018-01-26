@@ -262,11 +262,10 @@
       "metadata": {
         "name": "${APP_NAME}",
         "labels": {
-          "application": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "container": "eap",
           "component": "${APP_NAME}",
           "provider": "s2i",
-          "project": "${APP_NAME}",
           "version": "${APP_VERSION}",
           "group": "quickstarts"
         },
@@ -292,10 +291,9 @@
       "metadata": {
         "name": "${APP_NAME}-mysql",
         "labels": {
-          "application": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "component": "${APP_NAME}",
           "provider": "s2i",
-          "project": "${APP_NAME}",
           "version": "${APP_VERSION}",
           "group": "quickstarts"
         },
@@ -311,11 +309,10 @@
       "metadata": {
         "name": "${APP_NAME}",
         "labels": {
-          "application": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "container": "eap",
           "component": "${APP_NAME}",
           "provider": "s2i",
-          "project": "${APP_NAME}",
           "version": "${APP_VERSION}",
           "group": "quickstarts"
         },
@@ -336,11 +333,10 @@
       "metadata": {
         "name": "${APP_NAME}",
         "labels": {
-          "application": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "container": "eap",
           "component": "${APP_NAME}",
           "provider": "s2i",
-          "project": "${APP_NAME}",
           "version": "${APP_VERSION}",
           "group": "quickstarts"
         }
@@ -352,11 +348,10 @@
       "metadata": {
         "name": "${APP_NAME}",
         "labels": {
-          "application": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "container": "eap",
           "component": "${APP_NAME}",
           "provider": "s2i",
-          "project": "${APP_NAME}",
           "version": "${APP_VERSION}",
           "group": "quickstarts"
         }
@@ -435,11 +430,10 @@
       "metadata": {
         "name": "${APP_NAME}",
         "labels": {
-          "application": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "container": "eap",
           "component": "${APP_NAME}",
           "provider": "s2i",
-          "project": "${APP_NAME}",
           "version": "${APP_VERSION}",
           "group": "quickstarts"
         }
@@ -475,11 +469,10 @@
             "name": "${APP_NAME}",
             "labels": {
               "deploymentConfig": "${APP_NAME}",
-              "application": "${APP_NAME}",
+              "app": "${APP_NAME}",
               "container": "eap",
               "component": "${APP_NAME}",
               "provider": "s2i",
-              "project": "${APP_NAME}",
               "version": "${APP_VERSION}",
               "group": "quickstarts"
             }
@@ -530,7 +523,7 @@
                 "env": [
                   {
                     "name": "OPENSHIFT_KUBE_PING_LABELS",
-                    "value": "application=${APP_NAME}"
+                    "value": "app=${APP_NAME}"
                   },
                   {
                     "name": "OPENSHIFT_KUBE_PING_NAMESPACE",
@@ -617,10 +610,9 @@
       "metadata": {
       "name": "${APP_NAME}-mysql",
         "labels": {
-          "application": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "component": "${APP_NAME}",
           "provider": "s2i",
-          "project": "${APP_NAME}",
           "version": "${APP_VERSION}",
           "group": "quickstarts"
         }
@@ -657,10 +649,9 @@
             "name": "${APP_NAME}-mysql",
             "labels": {
               "deploymentConfig": "${APP_NAME}-mysql",
-              "application": "${APP_NAME}",
+              "app": "${APP_NAME}",
               "component": "${APP_NAME}",
               "provider": "s2i",
-              "project": "${APP_NAME}",
               "version": "${APP_VERSION}",
               "group": "quickstarts"
             }

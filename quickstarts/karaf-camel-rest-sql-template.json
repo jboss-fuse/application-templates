@@ -137,7 +137,7 @@
           "container": "karaf",
           "component": "${APP_NAME}",
           "provider": "s2i",
-          "project": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "version": "${APP_VERSION}",
           "group": "quickstarts"
         },
@@ -160,7 +160,7 @@
           "container": "karaf",
           "component": "${APP_NAME}",
           "provider": "s2i",
-          "project": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "version": "${APP_VERSION}",
           "group": "quickstarts"
         },
@@ -178,7 +178,7 @@
         ],
         "selector": {
           "container": "karaf",
-          "project": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "component": "${APP_NAME}",
           "provider": "s2i",
           "group": "quickstarts"
@@ -195,7 +195,7 @@
           "component": "${APP_NAME}",
           "container": "karaf",
           "group": "quickstarts",
-          "project": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "provider": "s2i",
           "version": "${APP_VERSION}"
         }
@@ -215,7 +215,7 @@
           "component": "${APP_NAME}",
           "container": "karaf",
           "group": "quickstarts",
-          "project": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "provider": "s2i",
           "version": "${APP_VERSION}"
         }
@@ -300,7 +300,7 @@
           "component": "${APP_NAME}",
           "container": "karaf",
           "group": "quickstarts",
-          "project": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "provider": "s2i",
           "version": "${APP_VERSION}"
         }
@@ -330,7 +330,7 @@
           "container": "karaf",
           "deploymentconfig": "${APP_NAME}",
           "group": "quickstarts",
-          "project": "${APP_NAME}",
+          "app": "${APP_NAME}",
           "provider": "s2i",
           "version": "${APP_VERSION}"
         },
@@ -342,7 +342,7 @@
               "container": "karaf",
               "deploymentconfig": "${APP_NAME}",
               "group": "quickstarts",
-              "project": "${APP_NAME}",
+              "app": "${APP_NAME}",
               "provider": "s2i",
               "version": "${APP_VERSION}"
             }
