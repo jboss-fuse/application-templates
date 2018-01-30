@@ -3,11 +3,11 @@
   "apiVersion": "v1",
   "metadata": {
     "annotations": {
+      "openshift.io/display-name": "JBoss Fuse 7.0 Camel CXF JAX-RS with EAP",
       "description": "JBoss Fuse on EAP Camel CXF JAX-RS quickstart. This example demonstrates using the camel-cxf component to produce and consume JAX-RS REST services.",
       "tags": "quickstart,javaee,java,jboss-fuse,fis",
       "iconClass": "icon-jboss",
-      "version": "2.0",
-      "openshift.io/display-name": "JBoss Fuse 7.0 on EAP - Camel  CXF JAX-RS"
+      "version": "2.0"
     },
     "name": "s2i-fuse70-eap-camel-cxf-jaxrs"
   },

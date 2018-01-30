@@ -3,7 +3,8 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "description": "Spring Boot and Camel using ConfigMaps and Secrets. This quickstart demonstrates how to configure a Spring-Boot application using OpenShift ConfigMaps and Secrets. This example requires that a ConfigMap named camel-config and a Secret named camel-config are present in the namespace before the application is deployed, instruction about how to manually create them can be found here: https://github.com/fabric8-quickstarts/spring-boot-camel-config/blob/master/README.redhat.md ",
+      "openshift.io/display-name": "JBoss Fuse 7.0 Camel + ConfigMap with Spring Boot",
+      "description": "Spring Boot and Camel using ConfigMaps and Secrets. This quickstart demonstrates how to configure a Spring Boot application using OpenShift ConfigMaps and Secrets. This example requires that a ConfigMap named camel-config and a Secret named camel-config are present in the namespace before the application is deployed, instruction about how to manually create them can be found here: https://github.com/fabric8-quickstarts/spring-boot-camel-config/blob/master/README.redhat.md ",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-jboss",
       "version": "2.0"
@@ -39,21 +40,21 @@
       "displayName": "Service Account",
       "value": "qs-camel-config",
       "required": true,
-      "description": "The Service Account that will be used to run the container. It must be already present in Openshift and have the view role."
+      "description": "The Service Account that will be used to run the container. It must be already present in OpenShift and have the view role."
     },
     {
       "name": "SECRET_NAME",
       "displayName": "Secret Name",
       "value": "camel-config",
       "required": true,
-      "description": "The name of the Openshift Secret that will be used to configure the application. It must be already present in Openshift."
+      "description": "The name of the OpenShift Secret that will be used to configure the application. It must be already present in OpenShift."
     },
     {
       "name": "CONFIGMAP_NAME",
       "displayName": "ConfigMap Name",
       "value": "camel-config",
       "required": true,
-      "description": "The name of the Openshift ConfigMap that will be used to configure the application. It must be already present in Openshift."
+      "description": "The name of the OpenShift ConfigMap that will be used to configure the application. It must be already present in OpenShift."
     },
     {
       "name": "BUILDER_VERSION",

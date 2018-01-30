@@ -3,7 +3,8 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "description": "Spring-Boot and Camel QuickStart. This example demonstrates how you can use Apache Camel with Spring Boot on Openshift. The quickstart uses Spring Boot to configure a little application that includes a Camel route that triggeres a message every 5th second, and routes the message to a log.",
+      "openshift.io/display-name": "JBoss Fuse 7.0 Camel with Spring Boot",
+      "description": "Spring Boot and Camel QuickStart. This example demonstrates how you can use Apache Camel with Spring Boot on OpenShift. The quickstart uses Spring Boot to configure an application which includes a Camel route that triggers a message every 5th second, and routes the message to a log.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-jboss",
       "version": "2.0"
