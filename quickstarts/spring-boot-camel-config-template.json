@@ -97,6 +97,20 @@
       "generate": "expression",
       "description": "The secret needed to trigger a build.",
       "from": "[a-zA-Z0-9]{40}"
+    },
+    {
+      "name": "BUILD_MEMORY_REQUEST",
+      "displayName": "Build Memory request",
+      "value": "0.7G",
+      "required": true,
+      "description": "The amount of memory to request for builds."
+    },
+    {
+      "name": "BUILD_MEMORY_LIMIT",
+      "displayName": "Build Memory limit",
+      "value": "0.8G",
+      "required": true,
+      "description": "The amount of memory the build container is limited to use."
     }
   ],
   "objects": [
@@ -196,6 +210,14 @@
           "to": {
             "kind": "ImageStreamTag",
             "name": "${APP_NAME}:latest"
+          }
+        },
+        "resources": {
+          "requests": {
+            "memory": "${BUILD_MEMORY_REQUEST}"
+          },
+          "limits": {
+            "memory": "${BUILD_MEMORY_LIMIT}"
           }
         }
       },
