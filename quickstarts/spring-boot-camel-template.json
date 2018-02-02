@@ -94,14 +94,14 @@
     {
       "name": "BUILD_MEMORY_REQUEST",
       "displayName": "Build Memory request",
-      "value": "0.3G",
+      "value": "0.7G",
       "required": true,
       "description": "The amount of memory to request for builds."
     },
     {
       "name": "BUILD_MEMORY_LIMIT",
       "displayName": "Build Memory limit",
-      "value": "0.4G",
+      "value": "0.8G",
       "required": true,
       "description": "The amount of memory the build container is limited to use."
     }
