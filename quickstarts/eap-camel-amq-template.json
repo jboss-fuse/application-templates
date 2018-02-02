@@ -69,7 +69,7 @@
       "name": "MQ_SERVICE_PREFIX",
       "value": "broker-amq",
       "required": true
-    },   
+    },
     {
       "displayName": "A-MQ Username",
       "description": "The username used to authenticate with the broker. Leave it empty if authentication is disabled.",
@@ -170,7 +170,7 @@
     },
     {
       "displayName": "CPU request",
-      "description": "The amount of CPU to requests.",
+      "description": "The amount of CPU to request.",
       "name": "CPU_REQUEST",
       "value": "0.2",
       "required": true
@@ -181,6 +181,20 @@
       "name": "CPU_LIMIT",
       "value": "1.0",
       "required": true
+    },
+    {
+      "name": "BUILD_MEMORY_REQUEST",
+      "displayName": "Build Memory request",
+      "value": "0.7G",
+      "required": true,
+      "description": "The amount of memory to request for builds."
+    },
+    {
+      "name": "BUILD_MEMORY_LIMIT",
+      "displayName": "Build Memory limit",
+      "value": "0.8G",
+      "required": true,
+      "description": "The amount of memory the build container is limited to use."
     }
   ],
   "objects": [
@@ -301,6 +315,14 @@
           "to": {
             "kind": "ImageStreamTag",
             "name": "${APP_NAME}:latest"
+          }
+        },
+        "resources": {
+          "requests": {
+            "memory": "${BUILD_MEMORY_REQUEST}"
+          },
+          "limits": {
+            "memory": "${BUILD_MEMORY_LIMIT}"
           }
         },
         "triggers": [
@@ -454,7 +476,7 @@
                   {
                     "name": "MQ_PASSWORD",
                     "value": "${MQ_PASSWORD}"
-                  },                  
+                  },
                   {
                     "name": "MQ_JNDI",
                     "value": "${MQ_JNDI}"

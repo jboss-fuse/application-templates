@@ -82,7 +82,7 @@
       "displayName": "CPU request",
       "value": "0.2",
       "required": true,
-      "description": "The amount of CPU to requests."
+      "description": "The amount of CPU to request."
     },
     {
       "name": "CPU_LIMIT",
@@ -90,6 +90,20 @@
       "value": "1.0",
       "required": true,
       "description": "The amount of CPU the container is limited to use."
+    },
+    {
+      "name": "BUILD_MEMORY_REQUEST",
+      "displayName": "Build Memory request",
+      "value": "0.3G",
+      "required": true,
+      "description": "The amount of memory to request for builds."
+    },
+    {
+      "name": "BUILD_MEMORY_LIMIT",
+      "displayName": "Build Memory limit",
+      "value": "0.4G",
+      "required": true,
+      "description": "The amount of memory the build container is limited to use."
     }
   ],
   "objects": [
@@ -189,6 +203,14 @@
           "to": {
             "kind": "ImageStreamTag",
             "name": "${APP_NAME}:latest"
+          }
+        },
+        "resources": {
+          "requests": {
+            "memory": "${BUILD_MEMORY_REQUEST}"
+          },
+          "limits": {
+            "memory": "${BUILD_MEMORY_LIMIT}"
           }
         }
       },
