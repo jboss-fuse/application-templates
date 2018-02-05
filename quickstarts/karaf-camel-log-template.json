@@ -93,7 +93,7 @@
     {
       "name": "MEMORY_REQUEST",
       "displayName": "Memory request",
-      "value": "1.5G",
+      "value": "128Mi",
       "required": true,
       "description": "The amount of memory required for the container to run."
     },
@@ -107,7 +107,7 @@
     {
       "name": "MEMORY_LIMIT",
       "displayName": "Memory limit",
-      "value": "2G",
+      "value": "512Mi",
       "required": true,
       "description": "The amount of memory the container is limited to use."
     },
