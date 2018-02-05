@@ -98,6 +98,34 @@
       "from": "[a-zA-Z0-9]{40}"
     },
     {
+      "name": "CPU_REQUEST",
+      "displayName": "CPU request",
+      "value": "0.2",
+      "required": true,
+      "description": "The amount of CPU to request."
+    },
+    {
+      "name": "MEMORY_REQUEST",
+      "displayName": "Memory request",
+      "value": "256Mi",
+      "required": true,
+      "description": "The amount of memory required for the container to run."
+    },
+    {
+      "name": "CPU_LIMIT",
+      "displayName": "CPU limit",
+      "value": "1.0",
+      "required": true,
+      "description": "The amount of CPU the container is limited to use."
+    },
+    {
+      "name": "MEMORY_LIMIT",
+      "displayName": "Memory limit",
+      "value": "256Mi",
+      "required": true,
+      "description": "The amount of memory the container is limited to use."
+    },
+    {
       "name": "BUILD_MEMORY_REQUEST",
       "displayName": "Build Memory request",
       "value": "0.7G",
@@ -329,7 +357,16 @@
                   "name": "SPRING_CLOUD_KUBERNETES_CONFIG_NAME",
                   "value": "${CONFIGMAP_NAME}"
                 } ],
-                "resources": {},
+                "resources": {
+                  "requests": {
+                    "cpu": "${CPU_REQUEST}",
+                    "memory": "${MEMORY_REQUEST}"
+                  },
+                  "limits": {
+                    "cpu": "${CPU_LIMIT}",
+                    "memory": "${MEMORY_LIMIT}"
+                  }
+                },
                 "volumeMounts": [
                   {
                     "name": "camel-config",
