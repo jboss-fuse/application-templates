@@ -32,7 +32,7 @@
     {
       "name": "GIT_REF",
       "displayName": "Git Reference",
-      "value": "spring-boot-cxf-jaxrs-1.0.0.fuse-000091",
+      "value": "spring-boot-cxf-jaxrs-1.0.0.fuse-000091-redhat-1",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
@@ -50,7 +50,7 @@
     {
       "name": "APP_VERSION",
       "displayName": "Application Version",
-      "value": "1.0.0.fuse-000091",
+      "value": "1.0.0.fuse-000091-redhat-1",
       "description": "The application version."
     },
     {
