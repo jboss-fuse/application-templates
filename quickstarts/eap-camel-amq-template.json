@@ -228,6 +228,37 @@
       }
     },
     {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "spec": {
+          "clusterIP": "None",
+          "ports": [
+              {
+                  "name": "ping",
+                  "port": 8888
+              }
+          ],
+          "selector": {
+              "deploymentConfig": "${APP_NAME}"
+          }
+      },
+      "metadata": {
+          "name": "${APP_NAME}-ping",
+          "labels": {
+            "app": "${APP_NAME}",
+            "container": "eap",
+            "component": "${APP_NAME}",
+            "provider": "s2i",
+            "version": "${APP_VERSION}",
+            "group": "quickstarts"
+          },
+          "annotations": {
+              "service.alpha.kubernetes.io/tolerate-unready-endpoints": "true",
+              "description": "The JGroups ping port for clustering."
+          }
+      }
+    },
+    {
       "kind": "Route",
       "apiVersion": "v1",
       "id": "${APP_NAME}-http",
@@ -446,16 +477,16 @@
                 ],
                 "env": [
                   {
-                    "name": "OPENSHIFT_KUBE_PING_LABELS",
-                    "value": "app=${APP_NAME}"
+                    "name": "JGROUPS_PING_PROTOCOL",
+                    "value": "openshift.DNS_PING"
                   },
                   {
-                    "name": "OPENSHIFT_KUBE_PING_NAMESPACE",
-                    "valueFrom": {
-                      "fieldRef": {
-                        "fieldPath": "metadata.namespace"
-                      }
-                    }
+                    "name": "OPENSHIFT_DNS_PING_SERVICE_NAME",
+                    "value": "${APP_NAME}-ping"
+                  },
+                  {
+                    "name": "OPENSHIFT_DNS_PING_SERVICE_PORT",
+                    "value": "8888"
                   },
                   {
                     "name": "MQ_SERVICE_PREFIX_MAPPING",
