@@ -489,6 +489,29 @@
       }
     },
     {
+      "apiVersion" : "route.openshift.io/v1",
+      "kind" : "Route",
+      "metadata" : {
+        "labels" : {
+          "component" : "${APP_NAME}",
+          "app" : "${APP_NAME}",
+          "provider" : "s2i",
+          "version" : "${APP_VERSION}",
+          "group" : "quickstarts"
+        },
+        "name" : "${APP_NAME}"
+      },
+      "spec" : {
+        "port" : {
+          "targetPort" : 8080
+        },
+        "to" : {
+          "kind" : "Service",
+          "name" : "${APP_NAME}"
+        }
+      }
+    },
+    {
       "apiVersion": "v1",
       "kind": "ServiceAccount",
       "metadata": {
