@@ -74,6 +74,13 @@
       "description": "The password used to authenticate with the PostgreSQL database."
     },
     {
+      "name": "VOLUME_SIZE",
+      "displayName": "Volume size for transaction log",
+      "required": true,
+      "value": "1Gi",
+      "description": "The size of the volume used to store the transaction log."
+    },
+    {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
       "value": "1.0",
@@ -285,6 +292,9 @@
           "app": "${APP_NAME}",
           "provider": "s2i",
           "version": "${APP_VERSION}"
+        },
+        "annotations": {
+          "image.openshift.io/triggers": "[{\"from\":{\"kind\":\"ImageStreamTag\",\"name\":\"${APP_NAME}:latest\"},\"fieldPath\":\"spec.template.spec.containers[?(@.name==\\\"${APP_NAME}\\\")].image\"}]"
         }
       },
       "spec": {
@@ -322,6 +332,10 @@
                   {
                     "name": "CLUSTER_BASE_DIR",
                     "value": "/var/transaction/data"
+                  },
+                  {
+                    "name": "CLUSTER_NAME",
+                    "value": "${APP_NAME}"
                   },
                   {
                     "name": "CLUSTER_NODENAME",
@@ -366,7 +380,7 @@
                   }
                 ],
                 "image": "${APP_NAME}:latest",
-                "imagePullPolicy": "IfNotPresent",
+                "imagePullPolicy": "Always",
                 "livenessProbe": {
                   "httpGet": {
                     "path": "/health",
@@ -547,6 +561,30 @@
           "name": "${APP_NAME}"
         }
       ]
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "labels": {
+          "component": "${APP_NAME}",
+          "app": "${APP_NAME}",
+          "group": "quickstarts",
+          "provider": "s2i",
+          "version": "${APP_VERSION}"
+        },
+        "name": "${APP_NAME}"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteMany"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "${VOLUME_SIZE}"
+          }
+        }
+      }
     }
   ]
 }
