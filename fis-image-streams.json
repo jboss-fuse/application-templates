@@ -4,7 +4,7 @@
     "metadata": {
         "name": "jboss-fuse-image-streams",
         "annotations": {
-            "description": "ImageStream definitions for JBoss Fuse."
+            "description": "ImageStream definitions for Red Hat Fuse."
         }
     },
     "items": [
@@ -19,7 +19,7 @@
                     {
                         "name": "1.0",
                         "annotations": {
-                            "description": "JBoss Fuse Integration Services 1.0 Java S2I images.",
+                            "description": "Red Hat Fuse Integration Services 1.0 Java S2I images.",
                             "iconClass": "icon-jboss",
                             "tags": "builder,jboss-fuse,java,xpaas,hidden",
                             "supports":"jboss-fuse:6.2.1,java:8,xpaas:1.2",
@@ -33,7 +33,7 @@
                     {
                         "name": "2.0",
                         "annotations": {
-                            "description": "JBoss Fuse Integration Services 2.0 Java S2I images.",
+                            "description": "Red Hat Fuse Integration Services 2.0 Java S2I images.",
                             "iconClass": "icon-jboss",
                             "tags": "builder,jboss-fuse,java,xpaas,hidden",
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",
@@ -58,7 +58,7 @@
                     {
                         "name": "1.0",
                         "annotations": {
-                            "description": "JBoss Fuse 7.0 Java S2I images.",
+                            "description": "Red Hat Fuse 7.0 Java S2I images.",
                             "iconClass": "icon-jboss",
                             "tags": "builder,jboss-fuse,java,xpaas",
                             "supports":"jboss-fuse:7.0.0,java:8,xpaas:1.2",
@@ -83,7 +83,7 @@
                     {
                         "name": "1.0",
                         "annotations": {
-                            "description": "JBoss Fuse Integration Services 1.0 Karaf S2I images.",
+                            "description": "Red Hat Fuse Integration Services 1.0 Karaf S2I images.",
                             "iconClass": "icon-jboss",
                             "tags": "builder,jboss-fuse,java,karaf,xpaas,hidden",
                             "supports":"jboss-fuse:6.2.1,java:8,xpaas:1.2",
@@ -97,7 +97,7 @@
                     {
                         "name": "2.0",
                         "annotations": {
-                            "description": "JBoss Fuse Integration Services 2.0 Karaf S2I images.",
+                            "description": "Red Hat Fuse Integration Services 2.0 Karaf S2I images.",
                             "iconClass": "icon-jboss",
                             "tags": "builder,jboss-fuse,java,karaf,xpaas,hidden",
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",
@@ -122,7 +122,7 @@
                     {
                         "name": "1.0",
                         "annotations": {
-                            "description": "JBoss Fuse 7.0 Karaf S2I images.",
+                            "description": "Red Hat Fuse 7.0 Karaf S2I images.",
                             "iconClass": "icon-jboss",
                             "tags": "builder,jboss-fuse,java,karaf,xpaas",
                             "supports":"jboss-fuse:7.0.0,java:8,xpaas:1.2",
@@ -147,7 +147,7 @@
                     {
                         "name": "1.0",
                         "annotations": {
-                            "description": "JBoss Fuse 7.0 EAP S2I images.",
+                            "description": "Red Hat Fuse 7.0 EAP S2I images.",
                             "iconClass": "icon-jboss",
                             "tags": "builder,jboss-fuse,java,eap,xpaas",
                             "supports":"jboss-fuse:7.0.0,java:8,xpaas:1.2",

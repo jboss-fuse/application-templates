@@ -3,8 +3,8 @@
   "apiVersion": "v1",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "JBoss Fuse 7.0 Camel JPA + MySQL (Ephemeral) with EAP",
-      "description": "JBoss Fuse on EAP Camel JPA quickstart. This example demonstrates how to connect a Camel application with JBoss Fuse on EAP to a MySQL database and expose a REST API. This example creates two containers, one container to run as a MySQL server, and another running the Camel application which acts as as a client to the database.",
+      "openshift.io/display-name": "Red Hat Fuse 7.0 Camel JPA + MySQL (Ephemeral) with EAP",
+      "description": "Red Hat Fuse on EAP Camel JPA quickstart. This example demonstrates how to connect a Camel application with Red Hat Fuse on EAP to a MySQL database and expose a REST API. This example creates two containers, one container to run as a MySQL server, and another running the Camel application which acts as as a client to the database.",
       "tags": "quickstart,javaee,java,jboss-fuse,fis",
       "iconClass": "icon-jboss",
       "version": "2.0"

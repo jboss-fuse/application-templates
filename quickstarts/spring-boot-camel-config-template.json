@@ -3,7 +3,7 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "JBoss Fuse 7.0 Camel + ConfigMap with Spring Boot",
+      "openshift.io/display-name": "Red Hat Fuse 7.0 Camel + ConfigMap with Spring Boot",
       "description": "Spring Boot and Camel using ConfigMaps and Secrets. This quickstart demonstrates how to configure a Spring Boot application using OpenShift ConfigMaps and Secrets. This example requires that a ConfigMap named camel-config and a Secret named camel-config are present in the namespace before the application is deployed, instruction about how to manually create them can be found here: https://github.com/fabric8-quickstarts/spring-boot-camel-config/blob/master/README.redhat.md ",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-jboss",

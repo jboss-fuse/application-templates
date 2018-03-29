@@ -3,8 +3,8 @@
   "apiVersion": "v1",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "JBoss Fuse 7.0 Camel CXF JAX-WS with EAP",
-      "description": "JBoss Fuse on EAP Camel CXF JAX-WS quickstart. This example demonstrates using the camel-cxf component to produce and consume JAX-WS web services.",
+      "openshift.io/display-name": "Red Hat Fuse 7.0 Camel CXF JAX-WS with EAP",
+      "description": "Red Hat Fuse on EAP Camel CXF JAX-WS quickstart. This example demonstrates using the camel-cxf component to produce and consume JAX-WS web services.",
       "tags": "quickstart,javaee,java,jboss-fuse,fis",
       "iconClass": "icon-jboss",
       "version": "2.0"
