@@ -5,7 +5,7 @@
     "annotations": {
       "description": "A simple Camel route in Karaf container. This quickstart shows a simple Apache Camel application that logs a message to the server log every 5th second.",
       "tags": "quickstart,java,karaf,fis,jboss-fuse",
-      "iconClass": "icon-jboss",
+      "iconClass": "icon-rh-integration",
       "version": "2.0"
     },
     "name": "s2i-karaf2-camel-log"
