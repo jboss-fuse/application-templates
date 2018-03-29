@@ -4,7 +4,7 @@
     "metadata": {
         "name": "fis-image-streams",
         "annotations": {
-            "description": "ImageStream definitions for JBoss Fuse Integration Services."
+            "description": "ImageStream definitions for Red Hat Fuse."
         }
     },
     "items": [
@@ -12,14 +12,19 @@
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
-                "name": "fis-java-openshift"
+                "name": "fis-java-openshift",
+                "annotations": {
+                    "openshift.io/display-name": "Red Hat Fuse 6.3 Java",
+                    "openshift.io/provider-display-name": "Red Hat, Inc."
+                }
             },
             "spec": {
                 "tags": [
                     {
                         "name": "1.0",
                         "annotations": {
-                            "description": "JBoss Fuse Integration Services 1.0 Java S2I images.",
+                            "description": "Red Hat Fuse 6.2.1 Java S2I images.",
+                            "openshift.io/display-name": "Red Hat Fuse 6.2.1 Java",
                             "iconClass": "icon-rh-integration",
                             "tags": "builder,jboss-fuse,java,xpaas,hidden",
                             "supports":"jboss-fuse:6.2.1,java:8,xpaas:1.2",
@@ -33,7 +38,8 @@
                     {
                         "name": "2.0",
                         "annotations": {
-                            "description": "JBoss Fuse Integration Services 2.0 Java S2I images.",
+                            "description": "Red Hat Fuse 6.3 Java S2I images.",
+                            "openshift.io/display-name": "Red Hat Fuse 6.3 Java",
                             "iconClass": "icon-rh-integration",
                             "tags": "builder,jboss-fuse,java,xpaas",
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",
@@ -51,14 +57,18 @@
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
-                "name": "fis-karaf-openshift"
+                "name": "fis-karaf-openshift",
+                "annotations": {
+                    "openshift.io/display-name": "Red Hat Fuse 6.3 Karaf",
+                    "openshift.io/provider-display-name": "Red Hat, Inc."
+                }
             },
             "spec": {
                 "tags": [
                     {
                         "name": "1.0",
                         "annotations": {
-                            "description": "JBoss Fuse Integration Services 1.0 Karaf S2I images.",
+                            "description": "Red Hat Fuse 6.2.1 Karaf S2I image.",
                             "iconClass": "icon-rh-integration",
                             "tags": "builder,jboss-fuse,java,karaf,xpaas,hidden",
                             "supports":"jboss-fuse:6.2.1,java:8,xpaas:1.2",
@@ -72,7 +82,7 @@
                     {
                         "name": "2.0",
                         "annotations": {
-                            "description": "JBoss Fuse Integration Services 2.0 Karaf S2I images.",
+                            "description": "Red Hat Fuse 6.3 Karaf S2I images.",
                             "iconClass": "icon-rh-integration",
                             "tags": "builder,jboss-fuse,java,karaf,xpaas",
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",

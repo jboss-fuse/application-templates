@@ -3,7 +3,9 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "description": "Spring-Boot and CXF JAXWS QuickStart. This example demonstrates how you can use Apache CXF JAXWS with Spring Boot on Openshift. The quickstart uses Spring Boot to configure a little application that includes a CXF JAXWS endpoint.",
+      "openshift.io/display-name": "Red Hat Fuse 6.3 CXF JAX-WS with Spring Boot",
+      "openshift.io/provider-display-name": "Red Hat, Inc.",
+      "description": "Spring Boot and CXF JAX-WS QuickStart. This example demonstrates how you can use Apache CXF JAX-WS with Spring Boot on OpenShift. The quickstart uses Spring Boot to configure a CXF application which includes a JAX-WS endpoint.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
       "version": "2.0"
