@@ -6,7 +6,7 @@
       "openshift.io/display-name": "Red Hat Fuse 7.0 Camel CXF REST with Karaf",
       "description": "REST example using CXF in Karaf container. This quickstart demonstrates how to create a RESTful (JAX-RS) web service using CXF and expose it through the OSGi HTTP Service",
       "tags": "quickstart,java,karaf,fis,jboss-fuse",
-      "iconClass": "icon-jboss",
+      "iconClass": "icon-rh-integration",
       "version": "2.0"
     },
     "name": "s2i-fuse70-karaf-cxf-rest"

@@ -6,7 +6,7 @@
       "openshift.io/display-name": "Red Hat Fuse 7.0 CXF JAX-RS with Spring Boot",
       "description": "Spring Boot and CXF JAX-RS QuickStart. This example demonstrates how you can use Apache CXF JAX-RS with Spring Boot on OpenShift. The quickstart uses Spring Boot to configure a CXF application which includes a JAX-RS endpoint with Swagger enabled.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
-      "iconClass": "icon-jboss",
+      "iconClass": "icon-rh-integration",
       "version": "2.0"
     },
     "name": "s2i-fuse70-spring-boot-cxf-jaxrs"
