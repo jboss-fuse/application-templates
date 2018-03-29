@@ -69,6 +69,7 @@
                         "name": "1.0",
                         "annotations": {
                             "description": "Red Hat Fuse 6.2.1 Karaf S2I image.",
+                            "openshift.io/display-name": "Red Hat Fuse 6.2.1 Karaf",
                             "iconClass": "icon-rh-integration",
                             "tags": "builder,jboss-fuse,java,karaf,xpaas,hidden",
                             "supports":"jboss-fuse:6.2.1,java:8,xpaas:1.2",
@@ -83,6 +84,7 @@
                         "name": "2.0",
                         "annotations": {
                             "description": "Red Hat Fuse 6.3 Karaf S2I images.",
+                            "openshift.io/display-name": "Red Hat Fuse 6.3 Karaf",
                             "iconClass": "icon-rh-integration",
                             "tags": "builder,jboss-fuse,java,karaf,xpaas",
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",
