@@ -4,6 +4,7 @@
   "metadata": {
     "annotations": {
       "openshift.io/display-name": "Red Hat Fuse 7.0 Camel + Drools with Spring Boot",
+      "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Spring Boot, Camel and JBoss BRMS QuickStart. This example demonstrates how you can use Apache Camel and JBoss BRMS with Spring Boot on OpenShift. Camel routes, defined via Spring, are used to pass (insert) the Body of the message as a POJO to a Drools engine for execution. A Kie Server should be deployed and configured before running the application, more information about how to configure it can be found at https://github.com/fabric8-quickstarts/spring-boot-camel-drools/blob/master/README.redhat.md",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",

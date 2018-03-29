@@ -4,6 +4,7 @@
   "metadata": {
     "annotations": {
       "openshift.io/display-name": "Red Hat Fuse 7.0 Camel A-MQ with EAP",
+      "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Red Hat Fuse on EAP Camel A-MQ quickstart. This example demonstrates using the camel-activemq component to connect to A-MQ xPaaS message broker running in OpenShift. It is assumed that the broker is already deployed. More more information, refer to the documentation for the A-MQ xPaaS image related to the amq63-basic template.",
       "tags": "quickstart,javaee,java,jboss-fuse,fis",
       "iconClass": "icon-rh-integration",

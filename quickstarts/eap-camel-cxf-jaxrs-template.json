@@ -4,6 +4,7 @@
   "metadata": {
     "annotations": {
       "openshift.io/display-name": "Red Hat Fuse 7.0 Camel CXF JAX-RS with EAP",
+      "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Red Hat Fuse on EAP Camel CXF JAX-RS quickstart. This example demonstrates using the camel-cxf component to produce and consume JAX-RS REST services.",
       "tags": "quickstart,javaee,java,jboss-fuse,fis",
       "iconClass": "icon-rh-integration",

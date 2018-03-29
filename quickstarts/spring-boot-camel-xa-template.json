@@ -4,6 +4,7 @@
   "metadata": {
     "annotations": {
       "openshift.io/display-name": "Red Hat Fuse 7.0 Camel on Spring Boot with XA Transactions",
+      "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Spring Boot, Camel and XA Transactions. This example demonstrates how to run a Camel Service on Spring-Boot that supports XA transactions on two external transactional resources: a JMS resource (A-MQ) and a database (PostgreSQL). This quickstart requires the PostgreSQL database and the A-MQ broker have been deployed and running first, one simple way to run them is to use the templates provided in the Openshift service catalog",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",

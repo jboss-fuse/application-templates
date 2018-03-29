@@ -4,6 +4,7 @@
   "metadata": {
     "annotations": {
       "openshift.io/display-name": "Red Hat Fuse 7.0 Camel CDI with EAP",
+      "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Red Hat Fuse on EAP Camel CDI quickstart. This example demonstrates using the camel-cdi component to integrate CDI beans with Camel routes.",
       "tags": "quickstart,javaee,java,jboss-fuse,fis",
       "iconClass": "icon-rh-integration",
