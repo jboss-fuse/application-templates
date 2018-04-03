@@ -41,7 +41,7 @@
                             "description": "Red Hat Fuse 6.3 Java S2I images.",
                             "openshift.io/display-name": "Red Hat Fuse 6.3 Java",
                             "iconClass": "icon-rh-integration",
-                            "tags": "builder,jboss-fuse,java,xpaas,hidden",
+                            "tags": "builder,jboss-fuse,java,xpaas",
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",
                             "version": "2.0"
                         },
@@ -116,7 +116,7 @@
                             "description": "Red Hat Fuse 6.3 Karaf S2I images.",
                             "openshift.io/display-name": "Red Hat Fuse 6.3 Karaf",
                             "iconClass": "icon-rh-integration",
-                            "tags": "builder,jboss-fuse,java,karaf,xpaas,hidden",
+                            "tags": "builder,jboss-fuse,java,karaf,xpaas",
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",
                             "version": "2.0"
                         },
