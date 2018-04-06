@@ -32,3 +32,66 @@ available to all users:
 ```
 $ oc create -n openshift -f quickstart-template.json
 ```
+
+## Fuse Console
+The Red Hat Fuse console eases the discovery and management of Fuse applications deployed on OpenShift.
+
+You can run the following instructions to deploy the Fuse console on your OpenShift cluster.
+There exist two OpenShift templates to choose from, depending on the following characteristics:
+
+| Template | Descripton |
+| -------- | ---------- |
+| [fis-console-cluster-template.json](https://raw.githubusercontent.com/jboss-fuse/application-templates/master/fis-console-cluster-template.json) | Use an OAuth client that requires the `cluster-admin` role to be created. The Fuse console can discover and connect to Fuse applications deployed across multiple namespaces / projects. |
+| [fis-console-namespace-template.json](https://raw.githubusercontent.com/jboss-fuse/application-templates/master/fis-console-namespace-template.json) | Use a service account as OAuth client, which only requires `admin` role in a project to be created. This restricts the Fuse console access to this single project, and as such acts as a single tenant deployment. |
+
+To install the Fuse console template, execute the following command:
+
+```sh
+$ oc create -n myproject -f fis-console-namespace-template.json
+```
+
+Then, you should be able to see the template after navigating to _Add to Project > Select from Project_ in your project.
+
+Or, if you prefer the command line:
+
+```sh
+$ oc new-app -n myproject -f fis-console-namespace-template.json \
+  -p OPENSHIFT_MASTER=<URL> \
+  -p ROUTE_HOSTNAME=<HOST>
+```
+
+Note that the `ROUTE_HOSTNAME` parameter can be omitted when using the `fis-console-namespace-template` template.
+In that case, OpenShift automatically generates one for you.
+
+You can obtain more information about the template parameters, by executing the following command:
+
+```
+$ oc process --parameters -f fis-console-namespace-template.json
+NAME                     DESCRIPTION                                                                    VALUE
+APP_NAME                 The name assigned to the application.                                          fuse70-console
+APP_VERSION              The application version.                                                       1.0
+IMAGE_STREAM_NAMESPACE   Namespace in which the Fuse ImageStreams are installed. These ImageStreams
+                         are normally installed in the openshift namespace. You should only need to
+                         modify this if you've installed the ImageStreams in a different
+                         namespace/project.                                                             openshift
+ROUTE_HOSTNAME           The externally-reachable host name that routes to the Red Hat Fuse console
+                         service
+OPENSHIFT_MASTER         The OpenShift master URL used to obtain OAuth access tokens
+CPU_REQUEST              The amount of CPU to request.                                                  0.2
+MEMORY_REQUEST           The amount of memory required for the container to run.                        32Mi
+CPU_LIMIT                The amount of CPU the container is limited to use.                             1.0
+MEMORY_LIMIT             The amount of memory the container is limited to use.                          32Mi
+```
+
+You can obtain the status of your deployment, by running:
+
+```sh
+$ oc status
+In project myproject on server https://192.168.64.12:8443
+
+https://fuse-console.192.168.64.12.nip.io (redirects) (svc/fuse70-console-service)
+  dc/fuse70-console deploys openshift/jboss-fuse70-console:1.0
+    deployment #1 deployed 2 minutes ago - 1 pod
+```
+
+Open the route URL displayed above from your Web browser to access the Fuse console.
