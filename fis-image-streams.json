@@ -187,6 +187,36 @@
                     }
                 ]
             }
+        },
+        {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "jboss-fuse70-console",
+                "annotations": {
+                    "openshift.io/display-name": "Red Hat Fuse 7.0 Console",
+                    "openshift.io/provider-display-name": "Red Hat, Inc."
+                }
+            },
+            "spec": {
+                "tags": [
+                    {
+                        "name": "1.0",
+                        "annotations": {
+                            "description": "Red Hat Fuse 7.0 Console image.",
+                            "openshift.io/display-name": "Red Hat Fuse 7.0 Console",
+                            "iconClass": "icon-rh-integration",
+                            "tags": "jboss-fuse,hawtio,java,xpaas",
+                            "supports":"jboss-fuse:7.0.0,java:8,xpaas:1.2",
+                            "version": "1.0"
+                        },
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "registry.access.redhat.com/jboss-fuse-7-tech-preview/hawtio-online:1.0"
+                        }
+                    }
+                ]
+            }
         }
     ]
 }
