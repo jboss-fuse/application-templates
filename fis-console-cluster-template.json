@@ -42,11 +42,6 @@
         "required": true
       },
       {
-        "name": "OPENSHIFT_MASTER",
-        "description": "The OpenShift master URL used to obtain OAuth access tokens",
-        "required": true
-      },
-      {
         "name": "CPU_REQUEST",
         "displayName": "CPU request",
         "value": "0.2",
@@ -216,10 +211,6 @@
                     }
                   ],
                   "env": [
-                    {
-                    "name": "OPENSHIFT_MASTER",
-                    "value": "${OPENSHIFT_MASTER}"
-                    },
                     {
                       "name": "HAWTIO_ONLINE_MODE",
                       "value": "cluster"

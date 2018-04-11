@@ -56,7 +56,6 @@ Or, if you prefer the command line:
 
 ```sh
 $ oc new-app -n myproject -f fis-console-namespace-template.json \
-  -p OPENSHIFT_MASTER=<URL> \
   -p ROUTE_HOSTNAME=<HOST>
 ```
 
@@ -76,7 +75,6 @@ IMAGE_STREAM_NAMESPACE   Namespace in which the Fuse ImageStreams are installed.
                          namespace/project.                                                             openshift
 ROUTE_HOSTNAME           The externally-reachable host name that routes to the Red Hat Fuse console
                          service
-OPENSHIFT_MASTER         The OpenShift master URL used to obtain OAuth access tokens
 CPU_REQUEST              The amount of CPU to request.                                                  0.2
 MEMORY_REQUEST           The amount of memory required for the container to run.                        32Mi
 CPU_LIMIT                The amount of CPU the container is limited to use.                             1.0
