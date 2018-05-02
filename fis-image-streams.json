@@ -212,7 +212,7 @@
                         },
                         "from": {
                             "kind": "DockerImage",
-                            "name": "registry.access.redhat.com/jboss-fuse-7-tech-preview/hawtio-online:1.0"
+                            "name": "registry.access.redhat.com/fuse7/fuse-online:1.0"
                         }
                     }
                 ]
