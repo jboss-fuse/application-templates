@@ -41,7 +41,7 @@
       "displayName": "Git Repository URL",
       "description": "Git source URI for application.",
       "name": "GIT_REPO",
-      "value": "https://github.com/wildfly-extras/wildfly-camel-examples.git",
+      "value": "https://github.com/jboss-fuse/wildfly-camel-examples.git",
       "required": true
     },
     {
