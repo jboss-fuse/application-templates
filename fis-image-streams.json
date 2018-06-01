@@ -41,7 +41,7 @@
                             "description": "Red Hat Fuse 6.3 Java S2I images.",
                             "openshift.io/display-name": "Red Hat Fuse 6.3 Java",
                             "iconClass": "icon-rh-integration",
-                            "tags": "builder,jboss-fuse,java,xpaas",
+                            "tags": "builder,jboss-fuse,java,xpaas,hidden",
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",
                             "version": "2.0"
                         },
@@ -71,7 +71,7 @@
                             "description": "Red Hat Fuse 7.0 Java S2I images.",
                             "openshift.io/display-name": "Red Hat Fuse 7.0 Java",
                             "iconClass": "icon-rh-integration",
-                            "tags": "builder,jboss-fuse,java,xpaas",
+                            "tags": "builder,jboss-fuse,java,xpaas,hidden",
                             "supports":"jboss-fuse:7.0.0,java:8,xpaas:1.2",
                             "version": "1.0"
                         },
@@ -116,7 +116,7 @@
                             "description": "Red Hat Fuse 6.3 Karaf S2I images.",
                             "openshift.io/display-name": "Red Hat Fuse 6.3 Karaf",
                             "iconClass": "icon-rh-integration",
-                            "tags": "builder,jboss-fuse,java,karaf,xpaas",
+                            "tags": "builder,jboss-fuse,java,karaf,xpaas,hidden",
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",
                             "version": "2.0"
                         },
@@ -146,7 +146,7 @@
                             "description": "Red Hat Fuse 7.0 Karaf S2I images.",
                             "openshift.io/display-name": "Red Hat Fuse 7.0 Karaf",
                             "iconClass": "icon-rh-integration",
-                            "tags": "builder,jboss-fuse,java,karaf,xpaas",
+                            "tags": "builder,jboss-fuse,java,karaf,xpaas,hidden",
                             "supports":"jboss-fuse:7.0.0,java:8,xpaas:1.2",
                             "version": "1.0"
                         },
@@ -176,7 +176,7 @@
                             "description": "Red Hat Fuse 7.0 EAP S2I images.",
                             "openshift.io/display-name": "Red Hat Fuse 7.0 EAP",
                             "iconClass": "icon-rh-integration",
-                            "tags": "builder,jboss-fuse,java,eap,xpaas",
+                            "tags": "builder,jboss-fuse,java,eap,xpaas,hidden",
                             "supports":"jboss-fuse:7.0.0,java:8,xpaas:1.2",
                             "version": "1.0"
                         },
@@ -206,7 +206,7 @@
                             "description": "Red Hat Fuse 7.0 Console image.",
                             "openshift.io/display-name": "Red Hat Fuse 7.0 Console",
                             "iconClass": "icon-rh-integration",
-                            "tags": "jboss-fuse,hawtio,java,xpaas",
+                            "tags": "jboss-fuse,hawtio,java,xpaas,hidden",
                             "supports":"jboss-fuse:7.0.0,java:8,xpaas:1.2",
                             "version": "1.0"
                         },
