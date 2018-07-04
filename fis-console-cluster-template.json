@@ -3,14 +3,14 @@
     "kind": "Template",
     "metadata": {
       "annotations": {
-        "openshift.io/display-name": "Red Hat Fuse 7.0 Console",
+        "openshift.io/display-name": "Red Hat Fuse 7.0 Console (cluster)",
         "openshift.io/provider-display-name": "Red Hat, Inc.",
         "description": "The Red Hat Fuse Console eases the discovery and management of FIS applications deployed on OpenShift.",
         "tags": "hawtio,java,fis,jboss-fuse",
         "iconClass": "icon-rh-integration",
         "version": "1.0"
       },
-      "name": "fuse70-console"
+      "name": "fuse70-console-cluster"
     },
     "labels": {
       "template": "fuse70-console"
