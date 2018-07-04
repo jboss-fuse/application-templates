@@ -5,7 +5,7 @@
       "annotations": {
         "openshift.io/display-name": "Red Hat Fuse 7.0 Console (cluster)",
         "openshift.io/provider-display-name": "Red Hat, Inc.",
-        "description": "The Red Hat Fuse Console eases the discovery and management of FIS applications deployed on OpenShift.",
+        "description": "The Red Hat Fuse Console eases the discovery and management of Fuse applications deployed on OpenShift.",
         "tags": "hawtio,java,fis,jboss-fuse",
         "iconClass": "icon-rh-integration",
         "version": "1.0"
