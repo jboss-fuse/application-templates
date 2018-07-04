@@ -10,10 +10,10 @@
         "iconClass": "icon-rh-integration",
         "version": "1.0"
       },
+      "labels": {
+        "template": "fuse-console"
+      },
       "name": "fuse70-console"
-    },
-    "labels": {
-      "template": "fuse70-console"
     },
     "parameters": [
       {
