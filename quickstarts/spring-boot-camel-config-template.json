@@ -5,7 +5,7 @@
     "annotations": {
       "openshift.io/display-name": "Red Hat Fuse 7.0 Camel + ConfigMap with Spring Boot",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
-      "description": "Spring Boot and Camel using ConfigMaps and Secrets. This quickstart demonstrates how to configure a Spring Boot application using OpenShift ConfigMaps and Secrets. This example requires that a ConfigMap named camel-config and a Secret named camel-config are present in the namespace before the application is deployed, instruction about how to manually create them can be found here: https://github.com/fabric8-quickstarts/spring-boot-camel-config/blob/master/README.md ",
+      "description": "Spring Boot and Camel using ConfigMaps and Secrets. This quickstart demonstrates how to configure a Spring Boot application using OpenShift ConfigMaps and Secrets. This example requires that a ConfigMap named camel-config and a Secret named camel-config are present in the namespace before the application is deployed, instruction about how to manually create them can be found here: https://github.com/fabric8-quickstarts/spring-boot-camel-config/blob/spring-boot-camel-config-1.0.0.fuse-710017/README.md ",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
       "version": "2.0"
@@ -33,7 +33,7 @@
     {
       "name": "GIT_REF",
       "displayName": "Git Reference",
-      "value": "master",
+      "value": "spring-boot-camel-config-1.0.0.fuse-710017",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
@@ -66,7 +66,7 @@
     {
       "name": "APP_VERSION",
       "displayName": "Application Version",
-      "value": "2.2.64-SNAPSHOT",
+      "value": "1.0.0.fuse-710017",
       "description": "The application version."
     },
     {
