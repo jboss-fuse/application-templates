@@ -3,24 +3,24 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.0 Camel A-MQ with Karaf",
+      "openshift.io/display-name": "Red Hat Fuse 7.1 Camel A-MQ with Karaf",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Camel route using AMQ in Karaf container. This quickstart demonstrates how to use Camel in a Karaf Container using Blueprint to connect to EnMasse (MaaS) and use JMS messaging between two Camel routes. It requires EnMasse to have been deployed and running first.",
       "tags": "quickstart,java,karaf,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
-      "version": "2.0"
+      "version": "1.1"
     },
-    "name": "s2i-fuse70-karaf-camel-amq"
+    "name": "s2i-fuse71-karaf-camel-amq"
   },
   "labels": {
-    "template": "s2i-fuse70-karaf-camel-amq"
+    "template": "s2i-fuse71-karaf-camel-amq"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse70-karaf-camel-amq",
+      "value": "s2i-fuse71-karaf-camel-amq",
       "description": "The name assigned to the application."
     },
     {
@@ -45,7 +45,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.0",
+      "value": "1.1",
       "description": "The version of the FIS S2I builder image to use."
     },
     {
@@ -220,7 +220,7 @@
             "from": {
               "kind": "ImageStreamTag",
               "namespace": "${IMAGE_STREAM_NAMESPACE}",
-              "name": "jboss-fuse70-karaf-openshift:${BUILDER_VERSION}"
+              "name": "fuse7-karaf-openshift:${BUILDER_VERSION}"
             },
             "forcePull": true,
             "incremental": true,
