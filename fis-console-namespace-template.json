@@ -3,31 +3,31 @@
     "kind": "Template",
     "metadata": {
       "annotations": {
-        "openshift.io/display-name": "Red Hat Fuse 7.0 Console",
+        "openshift.io/display-name": "Red Hat Fuse 7.1 Console",
         "openshift.io/provider-display-name": "Red Hat, Inc.",
         "description": "The Red Hat Fuse Console eases the discovery and management of Fuse applications deployed on OpenShift.",
         "tags": "hawtio,java,fis,jboss-fuse",
         "iconClass": "icon-rh-integration",
-        "version": "1.0"
+        "version": "1.1"
       },
       "labels": {
         "template": "fuse-console"
       },
-      "name": "fuse70-console"
+      "name": "fuse71-console"
     },
     "parameters": [
       {
         "name": "APP_NAME",
         "displayName": "Application Name",
         "required": true,
-        "value": "fuse70-console",
+        "value": "fuse71-console",
         "description": "The name assigned to the application."
       },
       {
         "name": "APP_VERSION",
         "displayName": "Application Version",
         "required": true,
-        "value": "1.0",
+        "value": "1.1",
         "description": "The application version."
       },
       {
@@ -170,7 +170,7 @@
                 "from": {
                   "kind": "ImageStreamTag",
                   "namespace": "${IMAGE_STREAM_NAMESPACE}",
-                  "name": "jboss-fuse70-console:${APP_VERSION}"
+                  "name": "fuse7-console:${APP_VERSION}"
                 }
               }
             }
@@ -198,7 +198,7 @@
               "containers": [
                 {
                   "name": "${APP_NAME}",
-                  "image": "jboss-fuse70-console:${APP_VERSION}",
+                  "image": "fuse7-console:${APP_VERSION}",
                   "readinessProbe" : {
                     "httpGet" : {
                       "path" : "/online",
