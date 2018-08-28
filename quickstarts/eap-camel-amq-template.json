@@ -3,24 +3,24 @@
   "apiVersion": "v1",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.0 Camel A-MQ with EAP",
+      "openshift.io/display-name": "Red Hat Fuse 7.1 Camel A-MQ with EAP",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Red Hat Fuse on EAP Camel A-MQ quickstart. This example demonstrates using the camel-activemq component to connect to A-MQ xPaaS message broker running in OpenShift. It is assumed that the broker is already deployed. More more information, refer to the documentation for the A-MQ xPaaS image related to the amq63-basic template.",
       "tags": "quickstart,javaee,java,jboss-fuse,fis",
       "iconClass": "icon-rh-integration",
-      "version": "2.0"
+      "version": "1.1"
     },
-    "name": "s2i-fuse70-eap-camel-amq"
+    "name": "s2i-fuse71-eap-camel-amq"
   },
   "labels": {
-    "template": "s2i-fuse70-eap-camel-amq"
+    "template": "s2i-fuse71-eap-camel-amq"
   },
   "parameters": [
     {
       "displayName": "Application Name",
       "description": "The name for the application.",
       "name": "APP_NAME",
-      "value": "s2i-fuse70-eap-camel-amq",
+      "value": "s2i-fuse71-eap-camel-amq",
       "required": true
     },
     {
@@ -62,7 +62,7 @@
       "displayName": "Builder version",
       "description": "The version of the FIS S2I builder image to use.",
       "name": "BUILDER_VERSION",
-      "value": "1.0"
+      "value": "1.1"
     },
     {
       "displayName": "A-MQ Service Prefix",
@@ -353,7 +353,7 @@
             "from": {
               "kind": "ImageStreamTag",
               "namespace": "${IMAGE_STREAM_NAMESPACE}",
-              "name": "jboss-fuse70-eap-openshift:${BUILDER_VERSION}"
+              "name": "fuse7-eap-openshift:${BUILDER_VERSION}"
             }
           }
         },
