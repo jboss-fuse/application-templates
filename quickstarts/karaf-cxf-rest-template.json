@@ -33,7 +33,7 @@
     {
       "name": "GIT_REF",
       "displayName": "Git Reference",
-      "value": "karaf-cxf-rest-1.0.0.fuse-710018-redhat-00002",
+      "value": "karaf-cxf-rest-1.0.0.fuse-710018-redhat-00003",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
