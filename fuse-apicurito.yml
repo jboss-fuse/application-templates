@@ -48,7 +48,7 @@ objects:
     tags:
     - from:
         kind: DockerImage
-        name: chirino/apicurito-ui:latest
+        name: apicurio/apicurito-ui:latest
       importPolicy:
         scheduled: true
       name: "latest"
@@ -166,7 +166,7 @@ objects:
     tags:
     - from:
         kind: DockerImage
-        name: chirino/fuse-apicurito-generator:latest
+        name: apicurio/fuse-apicurito-generator:latest
       importPolicy:
         scheduled: true
       name: "latest"
