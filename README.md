@@ -93,3 +93,28 @@ https://fuse-console.192.168.64.12.nip.io (redirects) (svc/fuse70-console-servic
 ```
 
 Open the route URL displayed above from your Web browser to access the Fuse console.
+
+## Fuse Apicurito
+
+Design beautiful, functional APIs with zero coding, using a visual designer for OpenAPI documents.
+
+You can run the following instructions to deploy Fuse Apicurito on your OpenShift cluster.
+To install the Fuse Apicurito template, execute the following command:
+
+```sh
+$ oc create -n myproject -f fuse-apicurito.yml
+```
+
+Then, you should be able to see the template after navigating to _Add to Project > Select from Project_ in your project.
+
+Or, if you prefer the command line:
+
+```sh
+$ oc new-app --template apicurito --param=ROUTE_HOSTNAME=<HOST>
+```
+
+Note that the `ROUTE_HOSTNAME` parameter MUST be specified and set to a hostname that will resolve to your openshift cluster.
+
+
+
+
