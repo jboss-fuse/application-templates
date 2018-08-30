@@ -101,11 +101,6 @@ objects:
         maxUnavailable: 25%
         timeoutSeconds: 600
         updatePeriodSeconds: 1
-      resources:
-        limits:
-          memory: ${MEMORY_LIMIT}
-        requests:
-          memory: ${MEMORY_REQUEST}
       type: Rolling
     template:
       metadata:
@@ -133,8 +128,10 @@ objects:
             name: config-volume
           resources:
             limits:
+              cpu: ${CPU_LIMIT}
               memory: ${MEMORY_LIMIT}
             requests:
+              cpu: ${CPU_REQUEST}
               memory: ${MEMORY_REQUEST}
         volumes:
         - name: config-volume
@@ -216,11 +213,6 @@ objects:
         maxUnavailable: 25%
         timeoutSeconds: 600
         updatePeriodSeconds: 1
-      resources:
-        limits:
-          memory: ${MEMORY_LIMIT}
-        requests:
-          memory: ${MEMORY_REQUEST}
       type: Rolling
     template:
       metadata:
