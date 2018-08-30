@@ -157,7 +157,7 @@ objects:
       console.alpha.openshift.io/overview-app-route: "true"
     name: apicurito
   spec:
-    host: "${ROUTE_HOSTNAME}"
+    host: ${ROUTE_HOSTNAME}
     tls:
       termination: edge
     to:
@@ -264,11 +264,10 @@ objects:
       app: apicurito
     name: fuse-apicurito-generator
   spec:
-    host: "${ROUTE_HOSTNAME}"
-    path: "/api/v1"
+    host: ${ROUTE_HOSTNAME}
+    path: /api/v1
     tls:
       termination: edge
     to:
       kind: Service
       name: fuse-apicurito-generator
-      
