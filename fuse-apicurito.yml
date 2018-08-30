@@ -11,13 +11,44 @@ metadata:
     tags: "fuse,apicurio,openapi,swagger,api"
     iconClass: "icon-rh-integration"
     version: "1.0"
-parameters:
-- name: ROUTE_HOSTNAME
-  description: The external hostname to access Apicurito
 message: |-
   Apicurito is now deployed to https://${ROUTE_HOSTNAME}.
+parameters:
+- name: APP_VERSION
+  displayName: Application Version
+  required: true
+  value: latest
+  description: The application version.
+- name: IMAGE_STREAM_NAMESPACE
+  displayName: Image Stream Namespace
+  value: openshift
+  required: true
+  description: Namespace in which the Fuse image streams are installed. These image streams
+    are normally installed in the 'openshift' namespace. You should only need to modify
+    this if you've installed the image streams in a different namespace/project.
+- name: ROUTE_HOSTNAME
+  description: The The external hostname to access Apicurito
+- name: CPU_REQUEST
+  displayName: CPU request
+  value: '0.2'
+  required: true
+  description: The amount of CPU to request for each container.
+- name: MEMORY_REQUEST
+  displayName: Memory request
+  value: 64Mi
+  required: true
+  description: The amount of memory required for each container to run.
+- name: CPU_LIMIT
+  displayName: CPU limit
+  value: '1.0'
+  required: true
+  description: The amount of CPU each container is limited to use.
+- name: MEMORY_LIMIT
+  displayName: Memory limit
+  value: 256Mi
+  required: true
+  description: The amount of memory each container is limited to use.
 objects:
-
 #
 # OpenShift resources need to run the apicurito-ui pod
 #
@@ -37,7 +68,6 @@ objects:
               }
           ]
       }
-
 - apiVersion: image.openshift.io/v1
   kind: ImageStream
   metadata:
@@ -73,9 +103,9 @@ objects:
         updatePeriodSeconds: 1
       resources:
         limits:
-          memory: "256Mi"
+          memory: ${MEMORY_LIMIT}
         requests:
-          memory: "20Mi"
+          memory: ${MEMORY_REQUEST}
       type: Rolling
     template:
       metadata:
@@ -85,7 +115,6 @@ objects:
       spec:
         containers:
         - name: apicurito-ui
-          image: ' '
           imagePullPolicy: IfNotPresent
           livenessProbe:
             httpGet:
@@ -102,16 +131,15 @@ objects:
           volumeMounts:
           - mountPath: /usr/share/nginx/html/config
             name: config-volume
-          # Set to burstable with a low memory footprint to start (50 Mi)
           resources:
             limits:
-              memory: 255Mi
+              memory: ${MEMORY_LIMIT}
             requests:
-              memory: 50Mi
+              memory: ${MEMORY_REQUEST}
         volumes:
         - name: config-volume
           configMap:
-            name: apicurito-ui-config          
+            name: apicurito-ui-config
     triggers:
     - imageChangeParams:
         automatic: true
@@ -119,8 +147,8 @@ objects:
         - apicurito-ui
         from:
           kind: ImageStreamTag
-          name: apicurito-ui:latest
-          # namespace: ${IMAGE_STREAM_NAMESPACE}
+          name: apicurito-ui:${APP_VERSION}
+          namespace: ${IMAGE_STREAM_NAMESPACE}
       type: ImageChange
     - type: ConfigChange
 - apiVersion: v1
@@ -136,7 +164,7 @@ objects:
       targetPort: 8080
     selector:
       app: apicurito
-      component: apicurito-ui      
+      component: apicurito-ui
 - apiVersion: route.openshift.io/v1
   kind: Route
   metadata:
@@ -152,7 +180,6 @@ objects:
     to:
       kind: Service
       name: apicurito-ui
-
 #
 # OpenShift resources need to run the fuse-apicurito-generator pod
 #
@@ -191,9 +218,9 @@ objects:
         updatePeriodSeconds: 1
       resources:
         limits:
-          memory: "256Mi"
+          memory: ${MEMORY_LIMIT}
         requests:
-          memory: "20Mi"
+          memory: ${MEMORY_REQUEST}
       type: Rolling
     template:
       metadata:
@@ -203,7 +230,6 @@ objects:
       spec:
         containers:
         - name: fuse-apicurito-generator
-          image: ' '
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
@@ -237,11 +263,11 @@ objects:
             protocol: TCP
           resources:
             limits:
-              cpu: "1"
-              memory: 250Mi
+              cpu: ${CPU_LIMIT}
+              memory: ${MEMORY_LIMIT}
             requests:
-              cpu: "200m"
-              memory: 250Mi     
+              cpu: ${CPU_REQUEST}
+              memory: ${MEMORY_REQUEST}
     triggers:
     - imageChangeParams:
         automatic: true
@@ -249,8 +275,8 @@ objects:
         - fuse-apicurito-generator
         from:
           kind: ImageStreamTag
-          name: fuse-apicurito-generator:latest
-          # namespace: ${IMAGE_STREAM_NAMESPACE}
+          name: fuse-apicurito-generator:${APP_VERSION}
+          namespace: ${IMAGE_STREAM_NAMESPACE}
       type: ImageChange
     - type: ConfigChange
 - apiVersion: v1
