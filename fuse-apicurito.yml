@@ -28,6 +28,7 @@ parameters:
     this if you've installed the image streams in a different namespace/project.
 - name: ROUTE_HOSTNAME
   description: The The external hostname to access Apicurito
+  required: true
 - name: CPU_REQUEST
   displayName: CPU request
   value: '0.2'

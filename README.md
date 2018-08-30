@@ -110,10 +110,10 @@ Then, you should be able to see the template after navigating to _Add to Project
 Or, if you prefer the command line:
 
 ```sh
-$ oc new-app --template apicurito --param=ROUTE_HOSTNAME=<HOST>
+$ oc new-app --template apicurito -p ROUTE_HOSTNAME=<HOST>
 ```
 
-Note that the `ROUTE_HOSTNAME` parameter MUST be specified and set to a hostname that will resolve to your openshift cluster.
+Note that the `ROUTE_HOSTNAME` parameter must be specified and set to a hostname that will resolve to your openshift cluster.
 
 
 
