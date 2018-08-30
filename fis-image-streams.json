@@ -397,6 +397,60 @@
                     }
                 ]
             }
+        },
+        {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "apicurito-ui",
+                "annotations": {
+                    "openshift.io/display-name": "Red Hat Apicurito UI",
+                    "openshift.io/provider-display-name": "Red Hat, Inc."
+                }
+            },
+            "spec": {
+                "tags": [
+                    {
+                        "name": "latest",
+                        "annotations": {
+                            "description": "Red Hat Apicurito UI image.",
+                            "openshift.io/display-name": "Red Hat Apicurito UI",
+                            "tags": "apicurio,hidden"
+                        },
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "apicurio/apicurito-ui:latest"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "fuse-apicurito-generator",
+                "annotations": {
+                    "openshift.io/display-name": "Red Hat Fuse Apicurito Generator",
+                    "openshift.io/provider-display-name": "Red Hat, Inc."
+                }
+            },
+            "spec": {
+                "tags": [
+                    {
+                        "name": "latest",
+                        "annotations": {
+                            "description": "Red Hat Apicurito Generator image.",
+                            "openshift.io/display-name": "Red Hat Apicurito Generator",
+                            "tags": "apicurio,fuse,hidden"
+                        },
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "apicurio/fuse-apicurito-generator:latest"
+                        }
+                    }
+                ]
+            }
         }
     ]
 }

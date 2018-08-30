@@ -68,20 +68,6 @@ objects:
               }
           ]
       }
-- apiVersion: image.openshift.io/v1
-  kind: ImageStream
-  metadata:
-    name: apicurito-ui
-    labels:
-      app: apicurito
-  spec:
-    tags:
-    - from:
-        kind: DockerImage
-        name: apicurio/apicurito-ui:latest
-      importPolicy:
-        scheduled: true
-      name: "latest"
 - apiVersion: apps.openshift.io/v1
   kind: DeploymentConfig
   metadata:
@@ -180,20 +166,6 @@ objects:
 #
 # OpenShift resources need to run the fuse-apicurito-generator pod
 #
-- apiVersion: image.openshift.io/v1
-  kind: ImageStream
-  metadata:
-    name: fuse-apicurito-generator
-    labels:
-      app: apicurito
-  spec:
-    tags:
-    - from:
-        kind: DockerImage
-        name: apicurio/fuse-apicurito-generator:latest
-      importPolicy:
-        scheduled: true
-      name: "latest"
 - apiVersion: apps.openshift.io/v1
   kind: DeploymentConfig
   metadata:
