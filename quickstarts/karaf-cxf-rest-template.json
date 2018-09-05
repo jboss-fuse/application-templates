@@ -39,7 +39,7 @@
     {
       "name": "SERVICE_NAME",
       "displayName": "Service Name",
-      "value": "s2i-fuse70-karaf-cxf-rest",
+      "value": "s2i-fuse71-karaf-cxf-rest",
       "description": "Exposed Service name."
     },
     {
