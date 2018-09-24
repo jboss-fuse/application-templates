@@ -73,6 +73,16 @@
     ],
     "objects": [
       {
+        "apiVersion": "v1",
+        "kind": "ConfigMap",
+        "metadata": {
+          "name": "${APP_NAME}-config"
+        },
+        "data": {
+          "hawtconfig.json": "{\n  \"about\": {\n    \"title\": \"Red Hat Fuse Console\",\n    \"productInfo\": [],\n    \"additionalInfo\": \"The Red Hat Fuse Console eases the discovery and management of Fuse applications deployed on OpenShift.\",\n    \"copyright\": \"\"\n  },\n  \"branding\": {\n    \"appName\": \"Fuse Console\",\n    \"appLogoUrl\": \"../online/img/fuse-logo.svg\"\n  },\n  \"disabledRoutes\": []\n}\n"
+        }
+      },
+      {
         "kind": "Route",
         "apiVersion": "v1",
         "metadata": {
@@ -228,6 +238,16 @@
                   ],
                   "volumeMounts": [
                     {
+                      "name": "${APP_NAME}-config",
+                      "mountPath": "/opt/app-root/src/online/online/hawtconfig.json",
+                      "subPath": "hawtconfig.json"
+                    },
+                    {
+                      "name": "${APP_NAME}-config",
+                      "mountPath": "/opt/app-root/src/integration/hawtconfig.json",
+                      "subPath": "hawtconfig.json"
+                    },
+                    {
                       "mountPath": "/etc/tls/private",
                       "name": "${APP_NAME}-tls"
                     }
@@ -245,6 +265,12 @@
                 }
               ],
               "volumes": [
+                {
+                  "name": "${APP_NAME}-config",
+                  "configMap": {
+                    "name": "${APP_NAME}-config"
+                  }
+                },
                 {
                   "name": "${APP_NAME}-tls",
                   "secret": {
