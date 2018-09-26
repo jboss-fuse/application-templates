@@ -4,7 +4,7 @@
     "metadata": {
         "name": "fis-image-streams",
         "annotations": {
-            "description": "ImageStream definitions for Red Hat Fuse."
+            "description": "ImageStream definitions for JBoss Fuse Integration Services."
         }
     },
     "items": [
@@ -12,20 +12,15 @@
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
-                "name": "fis-java-openshift",
-                "annotations": {
-                    "openshift.io/display-name": "Red Hat Fuse 6.3 Java",
-                    "openshift.io/provider-display-name": "Red Hat, Inc."
-                }
+                "name": "fis-java-openshift"
             },
             "spec": {
                 "tags": [
                     {
                         "name": "1.0",
                         "annotations": {
-                            "description": "Red Hat Fuse 6.2.1 Java S2I images.",
-                            "openshift.io/display-name": "Red Hat Fuse 6.2.1 Java",
-                            "iconClass": "icon-rh-integration",
+                            "description": "JBoss Fuse Integration Services 1.0 Java S2I images.",
+                            "iconClass": "icon-jboss",
                             "tags": "builder,jboss-fuse,java,xpaas,hidden",
                             "supports":"jboss-fuse:6.2.1,java:8,xpaas:1.2",
                             "version": "1.0"
@@ -38,9 +33,8 @@
                     {
                         "name": "2.0",
                         "annotations": {
-                            "description": "Red Hat Fuse 6.3 Java S2I images.",
-                            "openshift.io/display-name": "Red Hat Fuse 6.3 Java",
-                            "iconClass": "icon-rh-integration",
+                            "description": "JBoss Fuse Integration Services 2.0 Java S2I images.",
+                            "iconClass": "icon-jboss",
                             "tags": "builder,jboss-fuse,java,xpaas",
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",
                             "version": "2.0"
@@ -57,20 +51,16 @@
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
-                "name": "fis-karaf-openshift",
-                "annotations": {
-                    "openshift.io/display-name": "Red Hat Fuse 6.3 Karaf",
-                    "openshift.io/provider-display-name": "Red Hat, Inc."
-                }
+                "name": "fis-karaf-openshift"
             },
             "spec": {
+                "dockerImageRepository": "registry.access.redhat.com/jboss-fuse-6/fis-karaf-openshift",
                 "tags": [
                     {
                         "name": "1.0",
                         "annotations": {
-                            "description": "Red Hat Fuse 6.2.1 Karaf S2I image.",
-                            "openshift.io/display-name": "Red Hat Fuse 6.2.1 Karaf",
-                            "iconClass": "icon-rh-integration",
+                            "description": "JBoss Fuse Integration Services 1.0 Karaf S2I images.",
+                            "iconClass": "icon-jboss",
                             "tags": "builder,jboss-fuse,java,karaf,xpaas,hidden",
                             "supports":"jboss-fuse:6.2.1,java:8,xpaas:1.2",
                             "version": "1.0"
@@ -83,9 +73,8 @@
                     {
                         "name": "2.0",
                         "annotations": {
-                            "description": "Red Hat Fuse 6.3 Karaf S2I images.",
-                            "openshift.io/display-name": "Red Hat Fuse 6.3 Karaf",
-                            "iconClass": "icon-rh-integration",
+                            "description": "JBoss Fuse Integration Services 2.0 Karaf S2I images.",
+                            "iconClass": "icon-jboss",
                             "tags": "builder,jboss-fuse,java,karaf,xpaas",
                             "supports":"jboss-fuse:6.3.0,java:8,xpaas:1.2",
                             "version": "2.0"
