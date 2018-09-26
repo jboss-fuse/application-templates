@@ -37,12 +37,6 @@
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
-      "name": "SERVICE_NAME",
-      "displayName": "Service Name",
-      "value": "s2i-fuse72-karaf-camel-log",
-      "description": "Exposed Service name."
-    },
-    {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
       "value": "1.2",
