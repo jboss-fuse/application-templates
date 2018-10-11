@@ -1,0 +1,51 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: fuse-prometheus-service-monitor
+  labels:
+    app: fuse-prometheus-service-monitor
+  annotations:
+    openshift.io/display-name: "Red Hat Fuse service-monitor install"
+    openshift.io/provider-display-name: "Red Hat, Inc."
+    description: "A ServiceMonitor specifies how groups of services should be monitored - this template defines how to monitor a Fuse application for Prometheus."
+    tags: "fuse,prometheus,prometheus-operator,monitoring"
+    iconClass: "icon-rh-integration"
+    version: "1.0"
+message: |-
+  prometheus-operator is now deployed to ${NAMESPACE}
+parameters:
+- name: NAMESPACE
+  displayName: Namespace
+  value: fuse
+  required: true
+  description: Namespace in which the prometheus-operator is installed. 
+- name: FUSE_SERVICE_NAME
+  displayName: Fuse Service Name
+  value: 'myservicename'
+  required: true
+  description: The service name of the Fuse application to monitor.
+- name: FUSE_SERVICE_TEAM
+  displayName: Fuse Service Team
+  value: 'frontend'
+  required: true
+- name: ENDPOINT_PORT
+  displayName: Endpoint port
+  value: 'web'
+  required: true
+
+objects:
+#
+# OpenShift resources 
+#
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    name: ${FUSE_SERVICE_NAME}
+    labels:
+      team: ${FUSE_SERVICE_TEAM}
+  spec:
+    selector:
+      matchLabels:
+        app: ${FUSE_SERVICE_NAME}
+    endpoints:
+    - port: ${ENDPOINT_PORT}
