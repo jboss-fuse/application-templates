@@ -21,22 +21,22 @@ parameters:
   description: Namespace in which the prometheus-operator is installed. 
 - name: CPU_REQUEST
   displayName: CPU request
-  value: '0.2'
+  value: '100m'
   required: true
   description: The amount of CPU to request for each container.
 - name: MEMORY_REQUEST
   displayName: Memory request
-  value: 64Mi
+  value: '100Mi'
   required: true
   description: The amount of memory required for each container to run.
 - name: CPU_LIMIT
   displayName: CPU limit
-  value: '1.0'
+  value: '200m'
   required: true
   description: The amount of CPU each container is limited to use.
 - name: MEMORY_LIMIT
   displayName: Memory limit
-  value: '256Mi'
+  value: '200Mi'
   required: true
   description: The amount of memory each container is limited to use.
 - name: CONTAINER_PORT
@@ -72,6 +72,7 @@ objects:
   kind: CustomResourceDefinition
   metadata:
     name: prometheusrules.monitoring.coreos.com
+    namespace: ${NAMESPACE}
   spec:
     group: monitoring.coreos.com
     names:
@@ -86,6 +87,7 @@ objects:
   kind: CustomResourceDefinition
   metadata:
     name: servicemonitors.monitoring.coreos.com
+    namespace: ${NAMESPACE}
   spec:
     group: monitoring.coreos.com
     names:
@@ -100,6 +102,7 @@ objects:
   kind: CustomResourceDefinition
   metadata:
     name: prometheuses.monitoring.coreos.com
+    namespace: ${NAMESPACE}
   spec:    
     group: monitoring.coreos.com
     names: 
@@ -114,6 +117,7 @@ objects:
   kind: CustomResourceDefinition
   metadata:
     name: alertmanagers.monitoring.coreos.com
+    namespace: ${NAMESPACE}
   spec:
     group: monitoring.coreos.com
     names:
@@ -143,6 +147,7 @@ objects:
   kind: Role
   metadata:
     name: prometheus-operator
+    namespace: ${NAMESPACE}
   rules:
   - apiGroups:
     - apiextensions.k8s.io
@@ -255,6 +260,7 @@ objects:
     name: prometheus
     namespace: ${NAMESPACE}
   spec:
+    securityContext: {}
     serviceAccountName: prometheus
     serviceMonitorSelector:
       matchLabels:
@@ -284,7 +290,7 @@ objects:
     name: prometheus
     namespace: ${NAMESPACE}
 
-- apiVersion: v1
+- apiVersion: rbac.authorization.k8s.io/v1
   kind: Role
   metadata:
     namespace: ${NAMESPACE}
@@ -303,7 +309,7 @@ objects:
     - configmaps
     verbs: ["get"]
 
-- apiVersion: v1
+- apiVersion: rbac.authorization.k8s.io/v1beta1
   kind: RoleBinding
   metadata:
     name: prometheus
