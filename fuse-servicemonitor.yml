@@ -49,3 +49,16 @@ objects:
         app: ${FUSE_SERVICE_NAME}
     endpoints:
     - port: ${ENDPOINT_PORT}
+
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: demodefault
+    labels:
+      app: demodefault
+  spec:
+    selector:
+      app: demodefault
+    ports:
+    - name: web
+      port: 9779
