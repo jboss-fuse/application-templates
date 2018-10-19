@@ -53,12 +53,12 @@ objects:
 - apiVersion: v1
   kind: Service
   metadata:
-    name: demodefault
+    name: ${FUSE_SERVICE_NAME}
     labels:
-      app: demodefault
+      app: ${FUSE_SERVICE_NAME}
   spec:
     selector:
-      app: demodefault
+      app: ${FUSE_SERVICE_NAME}
     ports:
-    - name: web
+    - name: ${ENDPOINT_PORT}
       port: 9779
