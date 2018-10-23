@@ -26,7 +26,7 @@ parameters:
   description: The service name of the Fuse application to monitor.
 - name: FUSE_SERVICE_TEAM
   displayName: Fuse Service Team
-  value: 'frontend'
+  value: 'fuse'
   required: true
 - name: ENDPOINT_PORT
   displayName: Endpoint port
@@ -41,6 +41,7 @@ objects:
   kind: ServiceMonitor
   metadata:
     name: ${FUSE_SERVICE_NAME}
+    namespace: ${NAMESPACE}
     labels:
       team: ${FUSE_SERVICE_TEAM}
   spec:
@@ -54,6 +55,7 @@ objects:
   kind: Service
   metadata:
     name: ${FUSE_SERVICE_NAME}
+    namespace: ${NAMESPACE}
     labels:
       app: ${FUSE_SERVICE_NAME}
   spec:
