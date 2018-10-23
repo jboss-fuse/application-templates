@@ -50,17 +50,13 @@ parameters:
 - name: PROMETHEUS_SERVICE_PORT
   displayName: Prometheus Service Port
   value: '9090'
-- name: ENDPOINT_PORT
-  displayName: Endpoint Port
-  value: 'web'
-  required: true
 - name: PORT_NAME
   displayName: Port Name
   value: 'web'
   required: true
 - name: FUSE_SERVICE_TEAM
   displayName: Fuse Service team label
-  value: 'frontend'
+  value: 'fuse'
   requited: true
 
 
