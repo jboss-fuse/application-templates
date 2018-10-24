@@ -203,6 +203,7 @@ objects:
     resources:
     - namespaces
     verbs:
+    - get
     - list
     - watch
 
@@ -226,11 +227,11 @@ objects:
         containers:
         - args:
           - --manage-crds=false
-          - --namespace=${NAMESPACE}
+          - --namespaces=${NAMESPACE}
           - --logtostderr=true
           - --config-reloader-image=quay.io/coreos/configmap-reload:v0.0.1
-          - --prometheus-config-reloader=quay.io/coreos/prometheus-config-reloader:v0.23.2
-          image: quay.io/coreos/prometheus-operator:v0.23.2
+          - --prometheus-config-reloader=quay.io/coreos/prometheus-config-reloader:v0.24.0
+          image: quay.io/coreos/prometheus-operator:v0.24.0
           name: prometheus-operator
           ports:
           - containerPort: ${CONTAINER_PORT}
