@@ -1,0 +1,270 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: prometheus-operator
+  labels:
+    app: prometheus-operator
+  annotations:
+    openshift.io/display-name: "Red Hat Fuse prometheus-operator install"
+    openshift.io/provider-display-name: "Red Hat, Inc."
+    description: "."
+    tags: "fuse,prometheus,prometheus-operator,monitoring"
+    iconClass: "icon-rh-integration"
+    version: "1.0"
+message: |-
+  prometheus-operator is now deployed to ${NAMESPACE}
+parameters:
+- name: NAMESPACE
+  displayName: Namespace
+  value: fuse
+  required: true
+  description: Namespace in which the prometheus-operator is installed. 
+- name: CPU_REQUEST
+  displayName: CPU request
+  value: '100m'
+  required: true
+  description: The amount of CPU to request for each container.
+- name: MEMORY_REQUEST
+  displayName: Memory request
+  value: '100Mi'
+  required: true
+  description: The amount of memory required for each container to run.
+- name: CPU_LIMIT
+  displayName: CPU limit
+  value: '200m'
+  required: true
+  description: The amount of CPU each container is limited to use.
+- name: MEMORY_LIMIT
+  displayName: Memory limit
+  value: '200Mi'
+  required: true
+  description: The amount of memory each container is limited to use.
+- name: CONTAINER_PORT
+  displayName: Memory limit
+  value: '8080'
+  required: true
+  description: The amount of memory each container is limited to use.
+- name: PROMETHEUS_MEMORY
+  displayName: Prometheus Memory Limit
+  value: '400Mi'
+- name: PROMETHEUS_SERVICE_PORT
+  displayName: Prometheus Service Port
+  value: '9090'
+- name: PORT_NAME
+  displayName: Port Name
+  value: 'web'
+  required: true
+- name: FUSE_SERVICE_TEAM
+  displayName: Fuse Service team label
+  value: 'fuse'
+  requited: true
+
+
+objects:
+#
+# OpenShift resources 
+#
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    name: prometheus-operator
+    namespace: ${NAMESPACE}
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: prometheus-operator
+  subjects:
+  - kind: ServiceAccount
+    name: prometheus-operator
+    namespace: ${NAMESPACE}
+
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    name: prometheus-operator
+    namespace: ${NAMESPACE}
+  rules:
+  - apiGroups:
+    - apiextensions.k8s.io
+    resources:
+    - customresourcedefinitions
+    verbs:
+    - '*'
+  - apiGroups:
+    - monitoring.coreos.com
+    resources:
+    - alertmanagers
+    - prometheuses
+    - prometheuses/finalizers
+    - alertmanagers/finalizers
+    - servicemonitors
+    - prometheusrules
+    verbs:
+    - '*'
+  - apiGroups:
+    - apps
+    resources:
+    - statefulsets
+    verbs:
+    - '*'
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    - secrets
+    verbs:
+    - '*'
+  - apiGroups:
+    - ""
+    resources:
+    - pods
+    verbs:
+    - list
+    - delete
+  - apiGroups:
+    - ""
+    resources:
+    - services
+    - endpoints
+    verbs:
+    - get
+    - create
+    - update
+  - apiGroups:
+    - ""
+    resources:
+    - nodes
+    verbs:
+    - list
+    - watch
+  - apiGroups:
+    - ""
+    resources:
+    - namespaces
+    verbs:
+    - get
+    - list
+    - watch
+
+- apiVersion: apps/v1beta2
+  kind: Deployment
+  metadata:
+    labels:
+      k8s-app: prometheus-operator
+    name: prometheus-operator
+    namespace: ${NAMESPACE}
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        k8s-app: prometheus-operator
+    template:
+      metadata:
+        labels:
+          k8s-app: prometheus-operator
+      spec:
+        containers:
+        - args:
+          - --manage-crds=false
+          - --namespaces=${NAMESPACE}
+          - --logtostderr=true
+          - --config-reloader-image=quay.io/coreos/configmap-reload:v0.0.1
+          - --prometheus-config-reloader=quay.io/coreos/prometheus-config-reloader:v0.24.0
+          image: quay.io/coreos/prometheus-operator:v0.24.0
+          name: prometheus-operator
+          ports:
+          - containerPort: ${CONTAINER_PORT}
+            name: http
+          resources:
+            limits:
+              cpu: ${CPU_LIMIT}
+              memory: ${MEMORY_LIMIT}
+            requests:
+              cpu: ${CPU_REQUEST}
+              memory: ${MEMORY_REQUEST}
+        serviceAccountName: prometheus-operator
+
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    name: prometheus-operator
+    namespace: ${NAMESPACE}
+
+- apiVersion: monitoring.coreos.com/v1
+  kind: Prometheus
+  metadata:
+    name: prometheus
+    namespace: ${NAMESPACE}
+  spec:
+    securityContext: {}
+    serviceAccountName: prometheus
+    serviceMonitorSelector:
+      matchLabels:
+        team: ${FUSE_SERVICE_TEAM} 
+    resources:
+      requests:
+        memory: ${PROMETHEUS_MEMORY}
+
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: prometheus
+    namespace: ${NAMESPACE}
+  spec:
+    type: NodePort
+    ports:
+    - name: ${PORT_NAME} 
+      port: ${PROMETHEUS_SERVICE_PORT}
+      protocol: TCP 
+      targetPort: ${PORT_NAME}
+    selector:
+      prometheus: prometheus
+
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    name: prometheus
+    namespace: ${NAMESPACE}
+
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    namespace: ${NAMESPACE}
+    name: prometheus
+  rules:
+  - apiGroups: [""]
+    resources:
+    - nodes
+    - nodes/proxy
+    - services
+    - endpoints
+    - pods
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources:
+    - configmaps
+    verbs: ["get"]
+
+- apiVersion: rbac.authorization.k8s.io/v1beta1
+  kind: RoleBinding
+  metadata:
+    name: prometheus
+    namespace: ${NAMESPACE}
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: prometheus
+  subjects:
+  - kind: ServiceAccount
+    name: prometheus
+    namespace: ${NAMESPACE}
+
+- apiVersion: v1
+  kind: Route
+  metadata:
+    name: prometheus
+    namespace: ${NAMESPACE}
+  spec:
+    to:
+      kind: Service
+      name: prometheus

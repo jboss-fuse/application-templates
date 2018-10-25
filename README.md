@@ -120,6 +120,35 @@ https://fuse-console.192.168.64.12.nip.io (redirects) (svc/fuse70-console-servic
 
 Open the route URL displayed above from your Web browser to access the Fuse console.
 
+
+## Prometheus Operator for Fuse
+
+Monitor your Fuse applications and take advantage of the built-in instrumentation with the prometheus-operator.
+
+You can run the following instructions to deploy the prometheus-operator in your Fuse namespace:
+
+First, install the CustomResourceDefinitions necessary for running the prometheus-operator.   The CustomResourceDefinitions only need to be installed once per cluster, so if you are installing the prometheus-operator to multiple namespaces, you only need to run this step once.   Note that you will need to be logged in as a user with cluster admin permissions.
+
+```
+$ oc login -u system:admin
+$ oc create -f fuse-prometheus-crd.yml
+```
+
+Then, install the prometheus-operator to your namespace:
+
+```
+$ oc process -f fuse-prometheus-operator.yml  -p NAMESPACE=<YOUR NAMESPACE> | oc create -f -
+```
+
+Finally, tell it to monitor your fuse application:
+
+```
+$ oc process -f fuse-servicemonitor.yml -p NAMESPACE=<YOUR NAMESPACE> FUSE_SERVICE_NAME=<YOUR FUSE SERVICE> | oc create -f -
+```
+
+Note that the `NAMESPACE` and `FUSE_SERVICE_NAME` parameters must be specified.
+
+
 ## Fuse Apicurito
 
 Design beautiful, functional APIs with zero coding, using a visual designer for OpenAPI documents.
