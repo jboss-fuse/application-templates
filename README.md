@@ -127,7 +127,7 @@ Monitor your Fuse applications and take advantage of the built-in instrumentatio
 
 You can run the following instructions to deploy the prometheus-operator in your Fuse namespace:
 
-First, install the CustomResourceDefinitions necessary for running the prometheus-operator.   Note that you will need to be logged in as a user with cluster admin permissions.  
+First, install the CustomResourceDefinitions necessary for running the prometheus-operator.   The CustomResourceDefinitions only need to be installed once per cluster, so if you are installing the prometheus-operator to multiple namespaces, you only need to run this step once.   Note that you will need to be logged in as a user with cluster admin permissions.
 
 ```
 $ oc login -u system:admin
