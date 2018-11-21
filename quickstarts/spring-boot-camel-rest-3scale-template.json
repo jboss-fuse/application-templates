@@ -42,7 +42,6 @@
       "value": "camel-rest-3scale",
       "description": "Exposed service name."
     },
-    },
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
