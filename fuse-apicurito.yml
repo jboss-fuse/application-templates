@@ -17,7 +17,7 @@ parameters:
 - name: APP_VERSION
   displayName: Application Version
   required: true
-  value: latest
+  value: 1.2
   description: The application version.
 - name: IMAGE_STREAM_NAMESPACE
   displayName: Image Stream Namespace
