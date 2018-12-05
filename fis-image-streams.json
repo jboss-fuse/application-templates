@@ -539,7 +539,7 @@
                         },
                         "from": {
                             "kind": "DockerImage",
-                            "name": "apicurio/apicurito-ui:latest"
+                            "name": "registry.redhat.io/fuse7/fuse-apicurito:1.2"
                         }
                     }
                 ]
@@ -566,7 +566,7 @@
                         },
                         "from": {
                             "kind": "DockerImage",
-                            "name": "apicurio/fuse-apicurito-generator:latest"
+                            "name": "registry.redhat.io/fuse7/fuse-apicurito-generator:1.2"
                         }
                     }
                 ]
