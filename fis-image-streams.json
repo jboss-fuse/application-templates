@@ -531,7 +531,7 @@
             "spec": {
                 "tags": [
                     {
-                        "name": "latest",
+                        "name": "1.2",
                         "annotations": {
                             "description": "Red Hat Apicurito UI image.",
                             "openshift.io/display-name": "Red Hat Apicurito UI",
@@ -558,7 +558,7 @@
             "spec": {
                 "tags": [
                     {
-                        "name": "latest",
+                        "name": "1.2",
                         "annotations": {
                             "description": "Red Hat Apicurito Generator image.",
                             "openshift.io/display-name": "Red Hat Apicurito Generator",
