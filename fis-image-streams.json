@@ -537,6 +537,9 @@
                             "openshift.io/display-name": "Red Hat Apicurito UI",
                             "tags": "apicurio,hidden"
                         },
+                        "referencePolicy": {
+                            "type": "Local"
+                        },
                         "from": {
                             "kind": "DockerImage",
                             "name": "registry.redhat.io/fuse7/fuse-apicurito:1.2"
@@ -563,6 +566,9 @@
                             "description": "Red Hat Apicurito Generator image.",
                             "openshift.io/display-name": "Red Hat Apicurito Generator",
                             "tags": "apicurio,fuse,hidden"
+                        },
+                        "referencePolicy": {
+                            "type": "Local"
                         },
                         "from": {
                             "kind": "DockerImage",
