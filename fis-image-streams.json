@@ -531,15 +531,18 @@
             "spec": {
                 "tags": [
                     {
-                        "name": "latest",
+                        "name": "1.2",
                         "annotations": {
                             "description": "Red Hat Apicurito UI image.",
                             "openshift.io/display-name": "Red Hat Apicurito UI",
                             "tags": "apicurio,hidden"
                         },
+                        "referencePolicy": {
+                            "type": "Local"
+                        },
                         "from": {
                             "kind": "DockerImage",
-                            "name": "apicurio/apicurito-ui:latest"
+                            "name": "registry.redhat.io/fuse7/fuse-apicurito:1.2"
                         }
                     }
                 ]
@@ -558,15 +561,18 @@
             "spec": {
                 "tags": [
                     {
-                        "name": "latest",
+                        "name": "1.2",
                         "annotations": {
                             "description": "Red Hat Apicurito Generator image.",
                             "openshift.io/display-name": "Red Hat Apicurito Generator",
                             "tags": "apicurio,fuse,hidden"
                         },
+                        "referencePolicy": {
+                            "type": "Local"
+                        },
                         "from": {
                             "kind": "DockerImage",
-                            "name": "apicurio/fuse-apicurito-generator:latest"
+                            "name": "registry.redhat.io/fuse7/fuse-apicurito-generator:1.2"
                         }
                     }
                 ]
