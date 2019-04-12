@@ -33,7 +33,7 @@
     {
       "name": "GIT_REF",
       "displayName": "Git Reference",
-      "value": "spring-boot-camel-infinispan-1.0.0.fuse-730042",
+      "value": "spring-boot-camel-infinispan-1.0.0.fuse-730042-redhat-00002",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
@@ -52,7 +52,7 @@
     {
       "name": "APP_VERSION",
       "displayName": "Application Version",
-      "value": "1.0.0.fuse-730042",
+      "value": "1.0.0.fuse-730042-redhat-00002",
       "description": "The application version."
     },
     {
