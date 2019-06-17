@@ -10,17 +10,17 @@
       "iconClass": "icon-rh-integration",
       "version": "1.4"
     },
-    "name": "s2i-fuse73-spring-boot-camel-config"
+    "name": "s2i-fuse74-spring-boot-camel-config"
   },
   "labels": {
-    "template": "s2i-fuse73-spring-boot-camel-config"
+    "template": "s2i-fuse74-spring-boot-camel-config"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse73-spring-boot-camel-config",
+      "value": "s2i-fuse74-spring-boot-camel-config",
       "description": "The name assigned to the application."
     },
     {

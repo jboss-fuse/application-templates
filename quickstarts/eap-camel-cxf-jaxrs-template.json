@@ -10,17 +10,17 @@
       "iconClass": "icon-rh-integration",
       "version": "1.4"
     },
-    "name": "s2i-fuse73-eap-camel-cxf-jaxrs"
+    "name": "s2i-fuse74-eap-camel-cxf-jaxrs"
   },
   "labels": {
-    "template": "s2i-fuse73-eap-camel-cxf-jaxrs"
+    "template": "s2i-fuse74-eap-camel-cxf-jaxrs"
   },
   "parameters": [
     {
       "displayName": "Application Name",
       "description": "The name for the application.",
       "name": "APP_NAME",
-      "value": "s2i-fuse73-eap-camel-cxf-jaxrs",
+      "value": "s2i-fuse74-eap-camel-cxf-jaxrs",
       "required": true
     },
     {

@@ -10,17 +10,17 @@
       "iconClass": "icon-rh-integration",
       "version": "1.4"
     },
-    "name": "s2i-fuse73-spring-boot-camel-teiid"
+    "name": "s2i-fuse74-spring-boot-camel-teiid"
   },
   "labels": {
-    "template": "s2i-fuse73-spring-boot-camel-teiid"
+    "template": "s2i-fuse74-spring-boot-camel-teiid"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse73-spring-boot-camel-teiid",
+      "value": "s2i-fuse74-spring-boot-camel-teiid",
       "description": "The name assigned to the application."
     },
     {
