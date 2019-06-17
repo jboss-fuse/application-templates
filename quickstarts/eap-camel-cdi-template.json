@@ -10,17 +10,17 @@
       "iconClass": "icon-rh-integration",
       "version": "1.4"
     },
-    "name": "s2i-fuse73-eap-camel-cdi"
+    "name": "s2i-fuse74-eap-camel-cdi"
   },
   "labels": {
-    "template": "s2i-fuse73-eap-camel-cdi"
+    "template": "s2i-fuse74-eap-camel-cdi"
   },
   "parameters": [
     {
       "displayName": "Application Name",
       "description": "The name for the application.",
       "name": "APP_NAME",
-      "value": "s2i-fuse73-eap-camel-cdi",
+      "value": "s2i-fuse74-eap-camel-cdi",
       "required": true
     },
     {

@@ -10,17 +10,17 @@
       "iconClass": "icon-rh-integration",
       "version": "1.4"
     },
-    "name": "s2i-fuse73-karaf-cxf-rest"
+    "name": "s2i-fuse74-karaf-cxf-rest"
   },
   "labels": {
-    "template": "s2i-fuse73-karaf-cxf-rest"
+    "template": "s2i-fuse74-karaf-cxf-rest"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse73-karaf-cxf-rest",
+      "value": "s2i-fuse74-karaf-cxf-rest",
       "description": "The name assigned to the application."
     },
     {
@@ -39,7 +39,7 @@
     {
       "name": "SERVICE_NAME",
       "displayName": "Service Name",
-      "value": "s2i-fuse73-karaf-cxf-rest",
+      "value": "s2i-fuse74-karaf-cxf-rest",
       "description": "Exposed Service name."
     },
     {

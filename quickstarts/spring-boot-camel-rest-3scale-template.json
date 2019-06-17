@@ -10,17 +10,17 @@
       "iconClass": "icon-rh-integration",
       "version": "1.4"
     },
-    "name": "s2i-fuse73-spring-boot-camel-rest-3scale"
+    "name": "s2i-fuse74-spring-boot-camel-rest-3scale"
   },
   "labels": {
-    "template": "s2i-fuse73-spring-boot-camel-rest-3scale"
+    "template": "s2i-fuse74-spring-boot-camel-rest-3scale"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse73-spring-boot-camel-rest-3scale",
+      "value": "s2i-fuse74-spring-boot-camel-rest-3scale",
       "description": "The name assigned to the application."
     },
     {

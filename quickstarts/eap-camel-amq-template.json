@@ -10,17 +10,17 @@
       "iconClass": "icon-rh-integration",
       "version": "1.4"
     },
-    "name": "s2i-fuse73-eap-camel-amq"
+    "name": "s2i-fuse74-eap-camel-amq"
   },
   "labels": {
-    "template": "s2i-fuse73-eap-camel-amq"
+    "template": "s2i-fuse74-eap-camel-amq"
   },
   "parameters": [
     {
       "displayName": "Application Name",
       "description": "The name for the application.",
       "name": "APP_NAME",
-      "value": "s2i-fuse73-eap-camel-amq",
+      "value": "s2i-fuse74-eap-camel-amq",
       "required": true
     },
     {
