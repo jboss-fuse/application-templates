@@ -253,7 +253,7 @@
                   "volumeMounts": [
                     {
                       "name": "${APP_NAME}-config",
-                      "mountPath": "/opt/app-root/src/online/online/hawtconfig.json",
+                      "mountPath": "/opt/app-root/src/online/hawtconfig.json",
                       "subPath": "hawtconfig.json"
                     },
                     {
