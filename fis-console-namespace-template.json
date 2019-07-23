@@ -78,7 +78,7 @@
           "name": "${APP_NAME}-config"
         },
         "data": {
-          "hawtconfig.json": "{\n  \"about\": {\n    \"title\": \"Red Hat Fuse Console\",\n    \"productInfo\": [],\n    \"additionalInfo\": \"The Red Hat Fuse Console eases the discovery and management of Fuse applications deployed on OpenShift.\",\n    \"copyright\": \"\"\n    \"imgSrc\": \"../online/img/Logo-RedHat-A-Reverse-RGB.png\"  },\n  \"branding\": {\n    \"appName\": \"Fuse Console\",\n    \"appLogoUrl\": \"../online/img/Logo-Red_Hat-Fuse-A-Reverse-RGB.png\"\n  },\n  \"disabledRoutes\": []\n}\n"
+          "hawtconfig.json": "{\n  \"about\": {\n    \"title\": \"Red Hat Fuse Console\",\n    \"productInfo\": [],\n    \"additionalInfo\": \"The Red Hat Fuse Console eases the discovery and management of Fuse applications deployed on OpenShift.\",\n    \"copyright\": \"\",\n    \"imgSrc\": \"../online/img/Logo-RedHat-A-Reverse-RGB.png\"\n  },\n  \"branding\": {\n    \"appName\": \"Fuse Console\",\n    \"appLogoUrl\": \"../online/img/Logo-Red_Hat-Fuse-A-Reverse-RGB.png\"\n  },\n  \"disabledRoutes\": []\n}\n"
         }
       },
       {
