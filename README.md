@@ -157,7 +157,7 @@ Here are the steps to be performed prior to the deployment:
       authorityKeyIdentifier=keyid,issuer:always
       keyUsage=keyEncipherment,dataEncipherment
       extendedKeyUsage=serverAuth,clientAuth
-      EOT
+    EOT
     # Generate the CSR
     $ openssl req -new -key server.key -out server.csr -config csr.conf
     # Issue the signed certificate
