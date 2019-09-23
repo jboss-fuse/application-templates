@@ -63,7 +63,7 @@ $ oc create -n openshift -f quickstart-template.json
 The Red Hat Fuse console eases the discovery and management of Fuse applications deployed on OpenShift.
 
 You can run the following instructions to deploy the Fuse console on your OpenShift cluster.
-There exist two OpenShift templates to choose from, depending on the following characteristics:
+There exist different OpenShift templates to choose from, depending on the following characteristics:
 
 | Template | Descripton |
 | -------- | ---------- |
@@ -74,7 +74,7 @@ There exist two OpenShift templates to choose from, depending on the following c
 
 [service-signing-certificate]: https://docs.openshift.com/container-platform/4.1/authentication/certificates/service-serving-certificate.html
 
-To install the Fuse console template, execute the following command:
+For example, to install the Fuse console template, execute the following command:
 
 ```sh
 $ oc create -n myproject -f fis-console-namespace-template.json
