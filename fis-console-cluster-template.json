@@ -1,82 +1,67 @@
 {
-  "apiVersion": "v1",
-  "kind": "Template",
-  "metadata": {
-    "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.4 Console (cluster)",
-      "openshift.io/provider-display-name": "Red Hat, Inc.",
-      "description": "The Red Hat Fuse Console eases the discovery and management of Fuse applications deployed on OpenShift.",
-      "tags": "hawtio,java,fis,jboss-fuse",
-      "iconClass": "icon-rh-integration",
-      "version": "1.4"
+    "apiVersion": "v1",
+    "kind": "Template",
+    "metadata": {
+      "annotations": {
+        "openshift.io/display-name": "Red Hat Fuse 7.5 Console (cluster)",
+        "openshift.io/provider-display-name": "Red Hat, Inc.",
+        "description": "The Red Hat Fuse Console eases the discovery and management of Fuse applications deployed on OpenShift.",
+        "tags": "hawtio,java,fis,jboss-fuse",
+        "iconClass": "icon-rh-integration",
+        "version": "1.5"
+      },
+      "labels": {
+        "template": "fuse-console"
+      },
+      "name": "fuse75-console-cluster"
     },
-    "labels": {
-      "template": "fuse-console"
-    },
-    "name": "fuse74-console-cluster"
-  },
-  "parameters": [
-    {
-      "name": "APP_NAME",
-      "displayName": "Application Name",
-      "required": true,
-      "value": "fuse74-console",
-      "description": "The name assigned to the application."
-    },
-    {
-      "name": "APP_VERSION",
-      "displayName": "Application Version",
-      "required": true,
-      "value": "1.4",
-      "description": "The application version."
-    },
-    {
-      "name": "IMAGE_STREAM_NAMESPACE",
-      "displayName": "Image Stream Namespace",
-      "value": "openshift",
-      "required": true,
-      "description": "Namespace in which the Fuse ImageStreams are installed. These ImageStreams are normally installed in the openshift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project."
-    },
-    {
-      "name": "ROUTE_HOSTNAME",
-      "description": "The externally-reachable host name that routes to the Red Hat Fuse console service",
-      "required": true
-    },
-    {
-      "name": "CPU_REQUEST",
-      "displayName": "CPU request",
-      "value": "0.2",
-      "required": true,
-      "description": "The amount of CPU to request."
-    },
-    {
-      "name": "MEMORY_REQUEST",
-      "displayName": "Memory request",
-      "value": "32Mi",
-      "required": true,
-      "description": "The amount of memory required for the container to run."
-    },
-    {
-      "name": "CPU_LIMIT",
-      "displayName": "CPU limit",
-      "value": "1.0",
-      "required": true,
-      "description": "The amount of CPU the container is limited to use."
-    },
-    {
-      "name": "MEMORY_LIMIT",
-      "displayName": "Memory limit",
-      "value": "200Mi",
-      "required": true,
-      "description": "The amount of memory the container is limited to use."
-    }
-  ],
-  "objects": [
-    {
-      "apiVersion": "v1",
-      "kind": "ConfigMap",
-      "metadata": {
-        "name": "${APP_NAME}-config"
+    "parameters": [
+      {
+        "name": "APP_NAME",
+        "displayName": "Application Name",
+        "required": true,
+        "value": "fuse75-console",
+        "description": "The name assigned to the application."
+      },
+      {
+        "name": "APP_VERSION",
+        "displayName": "Application Version",
+        "required": true,
+        "value": "1.5",
+        "description": "The application version."
+      },
+      {
+        "name": "IMAGE_STREAM_NAMESPACE",
+        "displayName": "Image Stream Namespace",
+        "value": "openshift",
+        "required": true,
+        "description": "Namespace in which the Fuse ImageStreams are installed. These ImageStreams are normally installed in the openshift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project."
+      },
+      {
+        "name": "ROUTE_HOSTNAME",
+        "description": "The externally-reachable host name that routes to the Red Hat Fuse console service",
+        "required": true
+      },
+      {
+        "name": "CPU_REQUEST",
+        "displayName": "CPU request",
+        "value": "0.2",
+        "required": true,
+        "description": "The amount of CPU to request."
+      },
+      {
+        "name": "MEMORY_REQUEST",
+        "displayName": "Memory request",
+        "value": "32Mi",
+        "required": true,
+        "description": "The amount of memory required for the container to run."
+      },
+      {
+        "name": "CPU_LIMIT",
+        "displayName": "CPU limit",
+        "value": "1.0",
+        "required": true,
+        "description": "The amount of CPU the container is limited to use."
       },
       "data": {
         "hawtconfig.json": "{\n  \"about\": {\n    \"title\": \"Red Hat Fuse Console\",\n    \"productInfo\": [],\n    \"additionalInfo\": \"The Red Hat Fuse Console eases the discovery and management of Fuse applications deployed on OpenShift.\",\n    \"copyright\": \"\",\n    \"imgSrc\": \"../online/img/Logo-RedHat-A-Reverse-RGB.png\"\n  },\n  \"branding\": {\n    \"appName\": \"Fuse Console\",\n    \"appLogoUrl\": \"../online/img/Logo-Red_Hat-Fuse-A-Reverse-RGB.png\"\n  },\n  \"disabledRoutes\": []\n}\n"
