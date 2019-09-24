@@ -1,67 +1,81 @@
 {
-    "apiVersion": "v1",
-    "kind": "Template",
-    "metadata": {
-      "annotations": {
-        "openshift.io/display-name": "Red Hat Fuse 7.5 Console (cluster)",
-        "openshift.io/provider-display-name": "Red Hat, Inc.",
-        "description": "The Red Hat Fuse Console eases the discovery and management of Fuse applications deployed on OpenShift.",
-        "tags": "hawtio,java,fis,jboss-fuse",
-        "iconClass": "icon-rh-integration",
-        "version": "1.5"
-      },
-      "labels": {
-        "template": "fuse-console"
-      },
-      "name": "fuse75-console-cluster"
+  "apiVersion": "v1",
+  "kind": "Template",
+  "metadata": {
+    "annotations": {
+      "openshift.io/display-name": "Red Hat Fuse 7.4 Console",
+      "openshift.io/provider-display-name": "Red Hat, Inc.",
+      "description": "The Red Hat Fuse Console eases the discovery and management of Fuse applications deployed on OpenShift.",
+      "tags": "hawtio,java,fuse",
+      "iconClass": "icon-rh-integration",
+      "version": "1.4"
     },
-    "parameters": [
-      {
-        "name": "APP_NAME",
-        "displayName": "Application Name",
-        "required": true,
-        "value": "fuse75-console",
-        "description": "The name assigned to the application."
-      },
-      {
-        "name": "APP_VERSION",
-        "displayName": "Application Version",
-        "required": true,
-        "value": "1.5",
-        "description": "The application version."
-      },
-      {
-        "name": "IMAGE_STREAM_NAMESPACE",
-        "displayName": "Image Stream Namespace",
-        "value": "openshift",
-        "required": true,
-        "description": "Namespace in which the Fuse ImageStreams are installed. These ImageStreams are normally installed in the openshift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project."
-      },
-      {
-        "name": "ROUTE_HOSTNAME",
-        "description": "The externally-reachable host name that routes to the Red Hat Fuse console service",
-        "required": true
-      },
-      {
-        "name": "CPU_REQUEST",
-        "displayName": "CPU request",
-        "value": "0.2",
-        "required": true,
-        "description": "The amount of CPU to request."
-      },
-      {
-        "name": "MEMORY_REQUEST",
-        "displayName": "Memory request",
-        "value": "32Mi",
-        "required": true,
-        "description": "The amount of memory required for the container to run."
-      },
-      {
-        "name": "CPU_LIMIT",
-        "displayName": "CPU limit",
-        "value": "1.0",
-        "required": true,
-        "description": "The amount of CPU the container is limited to use."
+    "labels": {
+      "template": "fuse-console"
+    },
+    "name": "fuse74-console"
+  },
+  "parameters": [
+    {
+      "name": "APP_NAME",
+      "displayName": "Application Name",
+      "required": true,
+      "value": "fuse74-console",
+      "description": "The name assigned to the application."
+    },
+    {
+      "name": "APP_VERSION",
+      "displayName": "Application Version",
+      "required": true,
+      "value": "1.4",
+      "description": "The application version."
+    },
+    {
+      "name": "IMAGE_STREAM_NAMESPACE",
+      "displayName": "Image Stream Namespace",
+      "value": "openshift",
+      "required": true,
+      "description": "Namespace in which the Fuse ImageStreams are installed. These ImageStreams are normally installed in the openshift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project."
+    },
+    {
+      "name": "ROUTE_HOSTNAME",
+      "description": "The externally-reachable host name that routes to the Red Hat Fuse console service"
+    },
+    {
+      "name": "CPU_REQUEST",
+      "displayName": "CPU request",
+      "value": "0.2",
+      "required": true,
+      "description": "The amount of CPU to request."
+    },
+    {
+      "name": "MEMORY_REQUEST",
+      "displayName": "Memory request",
+      "value": "32Mi",
+      "required": true,
+      "description": "The amount of memory required for the container to run."
+    },
+    {
+      "name": "CPU_LIMIT",
+      "displayName": "CPU limit",
+      "value": "1.0",
+      "required": true,
+      "description": "The amount of CPU the container is limited to use."
+    },
+    {
+      "name": "MEMORY_LIMIT",
+      "displayName": "Memory limit",
+      "value": "200Mi",
+      "required": true,
+      "description": "The amount of memory the container is limited to use."
+    }
+  ],
+  "objects": [
+    {
+      "apiVersion": "v1",
+      "kind": "ConfigMap",
+      "metadata": {
+        "name": "${APP_NAME}-config"
       },
       "data": {
         "hawtconfig.json": "{\n  \"about\": {\n    \"title\": \"Red Hat Fuse Console\",\n    \"productInfo\": [],\n    \"additionalInfo\": \"The Red Hat Fuse Console eases the discovery and management of Fuse applications deployed on OpenShift.\",\n    \"copyright\": \"\",\n    \"imgSrc\": \"../online/img/Logo-RedHat-A-Reverse-RGB.png\"\n  },\n  \"branding\": {\n    \"appName\": \"Fuse Console\",\n    \"appLogoUrl\": \"../online/img/Logo-Red_Hat-Fuse-A-Reverse-RGB.png\"\n  },\n  \"disabledRoutes\": []\n}\n"
@@ -103,7 +117,7 @@
           "version": "${APP_VERSION}"
         },
         "annotations": {
-          "service.alpha.openshift.io/serving-cert-secret-name": "${APP_NAME}-tls"
+          "service.alpha.openshift.io/serving-cert-secret-name": "${APP_NAME}-tls-serving"
         }
       },
       "spec": {
@@ -122,14 +136,21 @@
       }
     },
     {
-      "kind": "OAuthClient",
+      "kind": "ServiceAccount",
       "apiVersion": "v1",
       "metadata": {
-        "name": "${APP_NAME}-oauth-client"
-      },
-      "redirectURIs": [
-        "https://${ROUTE_HOSTNAME}"
-      ]
+        "name": "${APP_NAME}-service-account",
+        "labels": {
+          "component": "${APP_NAME}",
+          "group": "console",
+          "app": "${APP_NAME}",
+          "version": "${APP_VERSION}"
+        },
+        "annotations": {
+          "serviceaccounts.openshift.io/oauth-redirecturi.route": "https://",
+          "serviceaccounts.openshift.io/oauth-redirectreference.route": "{\"kind\": \"OAuthRedirectReference\", \"apiVersion\": \"v1\", \"reference\": {\"kind\": \"Route\", \"name\": \"${APP_NAME}-route\"}}"
+        }
+      }
     },
     {
       "kind": "DeploymentConfig",
@@ -214,11 +235,23 @@
                 "env": [
                   {
                     "name": "HAWTIO_ONLINE_MODE",
-                    "value": "cluster"
+                    "value": "namespace"
+                  },
+                  {
+                    "name": "HAWTIO_ONLINE_GATEWAY",
+                    "value": "true"
+                  },
+                  {
+                    "name": "HAWTIO_ONLINE_NAMESPACE",
+                    "valueFrom": {
+                      "fieldRef": {
+                        "fieldPath": "metadata.namespace"
+                      }
+                    }
                   },
                   {
                     "name": "HAWTIO_OAUTH_CLIENT_ID",
-                    "value": "${APP_NAME}-oauth-client"
+                    "value": "${APP_NAME}-service-account"
                   }
                 ],
                 "volumeMounts": [
@@ -233,8 +266,12 @@
                     "subPath": "hawtconfig.json"
                   },
                   {
-                    "mountPath": "/etc/tls/private",
-                    "name": "${APP_NAME}-tls"
+                    "mountPath": "/etc/tls/private/serving",
+                    "name": "${APP_NAME}-tls-serving"
+                  },
+                  {
+                    "mountPath": "/etc/tls/private/proxying",
+                    "name": "${APP_NAME}-tls-proxying"
                   }
                 ],
                 "resources": {
@@ -257,9 +294,15 @@
                 }
               },
               {
-                "name": "${APP_NAME}-tls",
+                "name": "${APP_NAME}-tls-serving",
                 "secret": {
-                  "secretName": "${APP_NAME}-tls"
+                  "secretName": "${APP_NAME}-tls-serving"
+                }
+              },
+              {
+                "name": "${APP_NAME}-tls-proxying",
+                "secret": {
+                  "secretName": "${APP_NAME}-tls-proxying"
                 }
               }
             ]
