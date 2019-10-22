@@ -777,6 +777,21 @@
                         }
                     },
                     {
+                        "name": "1.4",
+                        "annotations": {
+                            "description": "Red Hat Apicurito UI image.",
+                            "openshift.io/display-name": "Red Hat Apicurito UI",
+                            "tags": "apicurio,hidden"
+                        },
+                        "referencePolicy": {
+                            "type": "Local"
+                        },
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "registry.redhat.io/fuse7/fuse-apicurito:1.4"
+                        }
+                    },
+                    {
                         "name": "1.5",
                         "annotations": {
                             "description": "Red Hat Apicurito UI image.",
