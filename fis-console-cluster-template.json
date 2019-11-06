@@ -248,7 +248,7 @@
                     "subPath": "hawtconfig.json"
                   },
                   {
-                    "mountPath": "/etc/tls/private",
+                    "mountPath": "/etc/tls/private/serving",
                     "name": "${APP_NAME}-tls"
                   }
                 ],
