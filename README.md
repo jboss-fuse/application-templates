@@ -155,7 +155,7 @@ Here are the steps to be performed prior to the deployment:
 
       [ v3_ext ]
       authorityKeyIdentifier=keyid,issuer:always
-      keyUsage=keyEncipherment,dataEncipherment
+      keyUsage=keyEncipherment,dataEncipherment,digitalSignature
       extendedKeyUsage=serverAuth,clientAuth
     EOT
     # Generate the CSR
