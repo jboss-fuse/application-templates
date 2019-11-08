@@ -3,31 +3,31 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.5 Camel AMQP with Spring Boot",
+      "openshift.io/display-name": "Red Hat Fuse 7.5 Camel + Drools with Spring Boot 2",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
-      "description": "Spring Boot, Camel and EnMasse (MaaS) QuickStart. This quickstart demonstrates how to connect a Spring Boot application to a EnMasse (MaaS) and use JMS messaging between two Camel routes using OpenShift. It requires EnMasse to have been deployed and running first.",
+      "description": "Spring Boot 2, Camel and JBoss BRMS QuickStart. This example demonstrates how you can use Apache Camel and JBoss BRMS with Spring Boot 2 on OpenShift. Camel routes, defined via Spring, are used to pass (insert) the Body of the message as a POJO to a Drools engine for execution. A Kie Server should be deployed and configured before running the application, more information about how to configure it can be found at https://github.com/fabric8-quickstarts/spring-boot-camel-drools/blob/master/README.md",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
       "version": "1.5"
     },
-    "name": "s2i-fuse75-spring-boot-camel-amq"
+    "name": "s2i-fuse75-spring-boot-2-camel-drools"
   },
   "labels": {
-    "template": "s2i-fuse75-spring-boot-camel-amq"
+    "template": "s2i-fuse75-spring-boot-2-camel-drools"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse75-spring-boot-camel-amq",
+      "value": "s2i-fuse75-spring-boot-2-camel-drools",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
       "required": true,
-      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-amq.git",
+      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-drools.git",
       "description": "The URL of the repository with your application source code."
     },
     {
@@ -37,26 +37,24 @@
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
-      "name": "AMQP_SERVICE_NAME",
-      "displayName": "EnMasse Service",
+      "name": "KIESERVER_SERVICE",
+      "displayName": "Decision Server Name",
       "required": true,
-      "description": "Set this to the route host name attached to the TCP service of the external 'messaging' route exposed by EnMasse. E.g messaging-enmasse.192.168.64.1.nip.io."
+      "value": "kie-app",
+      "description": "Set this to the name of the Decision Server. You may need to create an instance before."
     },
     {
-      "name": "AMQP_USERNAME",
-      "displayName": "EnMasse Username",
-      "description": "The username used to authenticate with EnMasse."
+      "name": "KIESERVER_USERNAME",
+      "displayName": "Decision Server Username",
+      "required": true,
+      "value": "kieserver",
+      "description": "The username used to authenticate with the Decision Server."
     },
     {
-      "name": "AMQP_PASSWORD",
-      "displayName": "EnMasse Password",
-      "description": "The password used to authenticate with EnMasse."
-    },
-    {
-      "name": "AMQP_PARAMETERS",
-      "displayName": "EnMasse Parameters",
-      "description": "The parameters passed to EnMasse.",
-      "value": "transport.trustAll=true&transport.verifyHost=false&amqp.idleTimeout=120000"
+      "name": "KIESERVER_PASSWORD",
+      "displayName": "Decision Server Password",
+      "required": true,
+      "description": "The password used to authenticate with the Decision Server."
     },
     {
       "name": "BUILDER_VERSION",
@@ -316,14 +314,14 @@
                 "image": "library/${APP_NAME}:latest",
                 "readinessProbe" : {
                   "httpGet" : {
-                    "path" : "/health",
+                    "path" : "/actuator/health",
                     "port" : 8081
                   },
                   "initialDelaySeconds" : 10
                 },
                 "livenessProbe" : {
                   "httpGet" : {
-                    "path" : "/health",
+                    "path" : "/actuator/health",
                     "port" : 8081
                   },
                   "initialDelaySeconds" : 180
@@ -342,17 +340,14 @@
                     }
                   }
                 }, {
-                  "name": "AMQP_SERVICE_NAME",
-                  "value": "${AMQP_SERVICE_NAME}"
+                  "name": "KIESERVER_SERVICE",
+                  "value": "${KIESERVER_SERVICE}"
                 }, {
-                  "name": "AMQP_USERNAME",
-                  "value": "${AMQP_USERNAME}"
+                  "name": "KIESERVER_USERNAME",
+                  "value": "${KIESERVER_USERNAME}"
                 }, {
-                  "name": "AMQP_PASSWORD",
-                  "value": "${AMQP_PASSWORD}"
-                }, {
-                  "name": "AMQP_PARAMETERS",
-                  "value": "${AMQP_PARAMETERS}"
+                  "name": "KIESERVER_PASSWORD",
+                  "value": "${KIESERVER_PASSWORD}"
                 } ],
                 "resources": {
                   "requests": {

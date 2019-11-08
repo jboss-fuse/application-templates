@@ -3,31 +3,31 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.5 Camel XML DSL with Spring Boot",
+      "openshift.io/display-name": "Red Hat Fuse 7.5 Camel + JDV with Spring Boot 2",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
-      "description": "Spring Boot and Camel Xml QuickStart. This example demonstrates how you can use Apache Camel with Spring Boot on OpenShift. The quickstart uses Spring Boot to configure an application which includes a Camel route (in Spring xml) that triggers a message every 5th second, and routes the message to a log.",
+      "description": "Spring Boot 2, Camel and JBoss Data Virtualization QuickStart. This example demonstrates how to connect Apache Camel to a remote JBoss Data Virtualization (or Teiid) Server using the JDBC protocol. This quickstart assumes that the JDV server is already running and configured on OpenShift, more information about to setup a JDV server can be found at https://github.com/fabric8-quickstarts/spring-boot-camel-teiid/blob/master/README.md",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
       "version": "1.5"
     },
-    "name": "s2i-fuse75-spring-boot-camel-xml"
+    "name": "s2i-fuse75-spring-boot-2-camel-teiid"
   },
   "labels": {
-    "template": "s2i-fuse75-spring-boot-camel-xml"
+    "template": "s2i-fuse75-spring-boot-2-camel-teiid"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse75-spring-boot-camel-xml",
+      "value": "s2i-fuse75-spring-boot-2-camel-teiid",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
       "required": true,
-      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-xml.git",
+      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-teiid.git",
       "description": "The URL of the repository with your application source code."
     },
     {
@@ -35,6 +35,31 @@
       "displayName": "Git Reference",
       "value": "master",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
+    },
+    {
+      "name": "TEIID_SERVICE_NAME",
+      "displayName": "JDV Server Name",
+      "required": true,
+      "value": "datavirt-app",
+      "description": "Set this to the name of the JDV Server. You may need to create an instance before."
+    },
+    {
+      "name": "TEIID_PORT_NAME",
+      "displayName": "JDV Port Name",
+      "value": "jdbc",
+      "description": "Set this to the name of the JDV port to use. Set this value if the JDV service contains multiple named ports."
+    },
+    {
+      "name": "TEIID_USERNAME",
+      "displayName": "JDV Server Username",
+      "required": true,
+      "description": "The username used to authenticate with the JDV Server."
+    },
+    {
+      "name": "TEIID_PASSWORD",
+      "displayName": "JDV Server Password",
+      "required": true,
+      "description": "The password used to authenticate with the JDV Server."
     },
     {
       "name": "BUILDER_VERSION",
@@ -294,14 +319,14 @@
                 "image": "library/${APP_NAME}:latest",
                 "readinessProbe" : {
                   "httpGet" : {
-                    "path" : "/health",
+                    "path" : "/actuator/health",
                     "port" : 8081
                   },
                   "initialDelaySeconds" : 10
                 },
                 "livenessProbe" : {
                   "httpGet" : {
-                    "path" : "/health",
+                    "path" : "/actuator/health",
                     "port" : 8081
                   },
                   "initialDelaySeconds" : 180
@@ -312,14 +337,27 @@
                     "name": "jolokia"
                   }
                 ],
-                "env" : [ {
-                  "name" : "KUBERNETES_NAMESPACE",
-                  "valueFrom" : {
-                    "fieldRef" : {
-                      "fieldPath" : "metadata.namespace"
+                "env" : [
+                  {
+                    "name" : "KUBERNETES_NAMESPACE",
+                    "valueFrom" : {
+                      "fieldRef" : {
+                        "fieldPath" : "metadata.namespace"
+                      }
                     }
-                  }
-                } ],
+                  }, {
+                    "name": "TEIID_SERVICE_NAME",
+                    "value": "${TEIID_SERVICE_NAME}"
+                  }, {
+                    "name": "TEIID_PORT_NAME",
+                    "value": "${TEIID_PORT_NAME}"
+                  }, {
+                    "name": "TEIID_USERNAME",
+                    "value": "${TEIID_USERNAME}"
+                  }, {
+                    "name": "TEIID_PASSWORD",
+                    "value": "${TEIID_PASSWORD}"
+                  }],
                 "resources": {
                   "requests": {
                     "cpu": "${CPU_REQUEST}",

@@ -3,31 +3,31 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.5 CXF JAX-RS with Spring Boot",
+      "openshift.io/display-name": "Red Hat Fuse 7.5 Camel + ConfigMap with Spring Boot 2",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
-      "description": "Spring Boot and CXF JAX-RS QuickStart. This example demonstrates how you can use Apache CXF JAX-RS with Spring Boot on OpenShift. The quickstart uses Spring Boot to configure a CXF application which includes a JAX-RS endpoint with Swagger enabled.",
+      "description": "Spring Boot 2 and Camel using ConfigMaps and Secrets. This quickstart demonstrates how to configure a Spring Boot 2 application using OpenShift ConfigMaps and Secrets. This example requires that a ConfigMap named camel-config and a Secret named camel-config are present in the namespace before the application is deployed, instruction about how to manually create them can be found here: https://github.com/fabric8-quickstarts/spring-boot-camel-config/blob/master/README.md ",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
       "version": "1.5"
     },
-    "name": "s2i-fuse75-spring-boot-cxf-jaxrs"
+    "name": "s2i-fuse75-spring-boot-2-camel-config"
   },
   "labels": {
-    "template": "s2i-fuse75-spring-boot-cxf-jaxrs"
+    "template": "s2i-fuse75-spring-boot-2-camel-config"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse75-spring-boot-cxf-jaxrs",
+      "value": "s2i-fuse75-spring-boot-2-camel-config",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
       "required": true,
-      "value": "https://github.com/fabric8-quickstarts/spring-boot-cxf-jaxrs.git",
+      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-config.git",
       "description": "The URL of the repository with your application source code."
     },
     {
@@ -37,10 +37,25 @@
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
-      "name": "SERVICE_NAME",
-      "displayName": "Service Name",
-      "value": "cxf-jaxrs",
-      "description": "Exposed service name."
+      "name": "SERVICE_ACCOUNT_NAME",
+      "displayName": "Service Account",
+      "value": "qs-camel-config",
+      "required": true,
+      "description": "The Service Account that will be used to run the container. It must be already present in OpenShift and have the view role."
+    },
+    {
+      "name": "SECRET_NAME",
+      "displayName": "Secret Name",
+      "value": "camel-config",
+      "required": true,
+      "description": "The name of the OpenShift Secret that will be used to configure the application. It must be already present in OpenShift."
+    },
+    {
+      "name": "CONFIGMAP_NAME",
+      "displayName": "ConfigMap Name",
+      "value": "camel-config",
+      "required": true,
+      "description": "The name of the OpenShift ConfigMap that will be used to configure the application. It must be already present in OpenShift."
     },
     {
       "name": "BUILDER_VERSION",
@@ -128,59 +143,6 @@
     }
   ],
   "objects": [
-    {
-      "apiVersion": "v1",
-      "kind": "Route",
-      "metadata": {
-        "labels": {
-          "component": "${APP_NAME}",
-          "provider": "s2i",
-          "app": "${APP_NAME}",
-          "version": "${APP_VERSION}",
-          "group": "quickstarts"
-        },
-        "name": "${SERVICE_NAME}-route"
-      },
-      "spec": {
-        "to": {
-          "kind": "Service",
-          "name": "${SERVICE_NAME}"
-        }
-      }
-    },
-    {
-      "apiVersion": "v1",
-      "kind": "Service",
-      "metadata": {
-        "annotations": {
-        },
-        "labels": {
-          "component": "${APP_NAME}",
-          "provider": "s2i",
-          "app": "${APP_NAME}",
-          "version": "${APP_VERSION}",
-          "group": "quickstarts"
-        },
-        "name": "${SERVICE_NAME}"
-      },
-      "spec": {
-        "clusterIP": "None",
-        "deprecatedPublicIPs": [],
-        "ports": [
-          {
-            "port": 9413,
-            "protocol": "TCP",
-            "targetPort": 8080
-          }
-        ],
-        "selector": {
-          "app": "${APP_NAME}",
-          "component": "${APP_NAME}",
-          "provider": "s2i",
-          "group": "quickstarts"
-        }
-      }
-    },
     {
       "kind": "ImageStream",
       "apiVersion": "v1",
@@ -347,20 +309,29 @@
             }
           },
           "spec": {
+            "serviceAccountName": "${SERVICE_ACCOUNT_NAME}",
+            "volumes": [
+              {
+                "name": "camel-config",
+                "secret": {
+                  "secretName": "${SECRET_NAME}"
+                }
+              }
+            ],
             "containers": [
               {
                 "name": "${APP_NAME}",
                 "image": "library/${APP_NAME}:latest",
                 "readinessProbe" : {
                   "httpGet" : {
-                    "path" : "/health",
+                    "path" : "/actuator/health",
                     "port" : 8081
                   },
                   "initialDelaySeconds" : 10
                 },
                 "livenessProbe" : {
                   "httpGet" : {
-                    "path" : "/health",
+                    "path" : "/actuator/health",
                     "port" : 8081
                   },
                   "initialDelaySeconds" : 180
@@ -378,6 +349,12 @@
                       "fieldPath" : "metadata.namespace"
                     }
                   }
+                }, {
+                  "name": "SPRING_CLOUD_KUBERNETES_SECRETS_NAME",
+                  "value": "${SECRET_NAME}"
+                }, {
+                  "name": "SPRING_CLOUD_KUBERNETES_CONFIG_NAME",
+                  "value": "${CONFIGMAP_NAME}"
                 } ],
                 "resources": {
                   "requests": {
@@ -388,7 +365,14 @@
                     "cpu": "${CPU_LIMIT}",
                     "memory": "${MEMORY_LIMIT}"
                   }
-                }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "camel-config",
+                    "readOnly": true,
+                    "mountPath": "/etc/secrets/camel-config"
+                  }
+                ]
               }
             ]
           }

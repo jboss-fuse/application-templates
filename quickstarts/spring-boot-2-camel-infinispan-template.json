@@ -3,31 +3,31 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.5 Camel log with Karaf",
+      "openshift.io/display-name": "Red Hat Fuse 7.5 Camel + JDG with Spring Boot 2",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
-      "description": "A simple Camel route in Karaf container. This quickstart shows a simple Apache Camel application that logs a message to the server log every 5th second.",
-      "tags": "quickstart,java,karaf,fis,jboss-fuse",
+      "description": "Spring Boot 2, Camel and JBoss Data Grid QuickStart. This quickstart demonstrates how to connect a Spring Boot 2 application to a JBoss Data Grid (or Infinispan) server using the Hot Rod protocol. It requires that the data grid server (or cluster) has been deployed first, one simple way to run a JDG service is following the documentation of the JDG xPaaS image for OpenShift related to the datagrid65-basic template.",
+      "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
       "version": "1.5"
     },
-    "name": "s2i-fuse75-karaf-camel-log"
+    "name": "s2i-fuse75-spring-boot-2-camel-infinispan"
   },
   "labels": {
-    "template": "s2i-fuse75-karaf-camel-log"
+    "template": "s2i-fuse75-spring-boot-2-camel-infinispan"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse75-karaf-camel-log",
+      "value": "s2i-fuse75-spring-boot-2-camel-infinispan",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
-      "value": "https://github.com/fabric8-quickstarts/karaf-camel-log.git",
       "required": true,
+      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-infinispan.git",
       "description": "The URL of the repository with your application source code."
     },
     {
@@ -35,6 +35,13 @@
       "displayName": "Git Reference",
       "value": "master",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
+    },
+    {
+      "name": "INFINISPAN_SERVICE",
+      "displayName": "JBoss Data Grid Service (Hot Rod)",
+      "required": true,
+      "value": "datagrid-app-hotrod",
+      "description": "Set this to the name of the Hot Rod service of the JBoss Data Grid. You may need to create the data grid first."
     },
     {
       "name": "BUILDER_VERSION",
@@ -45,13 +52,13 @@
     {
       "name": "APP_VERSION",
       "displayName": "Application Version",
-      "value": "2.2.60-SNAPSHOT",
+      "value": "2.2.64-SNAPSHOT",
       "description": "The application version."
     },
     {
       "name": "MAVEN_ARGS",
       "displayName": "Maven Arguments",
-      "value": "install -DskipTests -Dfabric8.skip -e -B",
+      "value": "package -DskipTests -Dfabric8.skip -e -B",
       "description": "Arguments passed to mvn in the build."
     },
     {
@@ -88,7 +95,7 @@
     {
       "name": "MEMORY_REQUEST",
       "displayName": "Memory request",
-      "value": "128Mi",
+      "value": "256Mi",
       "required": true,
       "description": "The amount of memory required for the container to run."
     },
@@ -102,7 +109,7 @@
     {
       "name": "MEMORY_LIMIT",
       "displayName": "Memory limit",
-      "value": "512Mi",
+      "value": "256Mi",
       "required": true,
       "description": "The amount of memory the container is limited to use."
     },
@@ -130,7 +137,6 @@
         "creationTimestamp": null,
         "labels": {
           "component": "${APP_NAME}",
-          "container": "karaf",
           "group": "quickstarts",
           "app": "${APP_NAME}",
           "provider": "s2i",
@@ -150,7 +156,6 @@
         "creationTimestamp": null,
         "labels": {
           "component": "${APP_NAME}",
-          "container": "karaf",
           "group": "quickstarts",
           "app": "${APP_NAME}",
           "provider": "s2i",
@@ -192,7 +197,7 @@
             "from": {
               "kind": "ImageStreamTag",
               "namespace": "${IMAGE_STREAM_NAMESPACE}",
-              "name": "fuse7-karaf-openshift:${BUILDER_VERSION}"
+              "name": "fuse7-java-openshift:${BUILDER_VERSION}"
             },
             "forcePull": true,
             "incremental": true,
@@ -243,7 +248,6 @@
         "creationTimestamp": null,
         "labels": {
           "component": "${APP_NAME}",
-          "container": "karaf",
           "group": "quickstarts",
           "app": "${APP_NAME}",
           "provider": "s2i",
@@ -272,7 +276,6 @@
         "replicas": 1,
         "selector": {
           "component": "${APP_NAME}",
-          "container": "karaf",
           "deploymentconfig": "${APP_NAME}",
           "group": "quickstarts",
           "app": "${APP_NAME}",
@@ -284,7 +287,6 @@
             "creationTimestamp": null,
             "labels": {
               "component": "${APP_NAME}",
-              "container": "karaf",
               "deploymentconfig": "${APP_NAME}",
               "group": "quickstarts",
               "app": "${APP_NAME}",
@@ -299,23 +301,19 @@
                 "image": "library/${APP_NAME}:latest",
                 "readinessProbe" : {
                   "httpGet" : {
-                    "path" : "/readiness-check",
-                    "port" : 8181
+                    "path" : "/actuator/health",
+                    "port" : 8081
                   },
                   "initialDelaySeconds" : 10
                 },
                 "livenessProbe" : {
                   "httpGet" : {
-                    "path" : "/health-check",
-                    "port" : 8181
+                    "path" : "/actuator/health",
+                    "port" : 8081
                   },
                   "initialDelaySeconds" : 180
                 },
                 "ports": [
-                  {
-                    "containerPort": 8181,
-                    "name": "http"
-                  },
                   {
                     "containerPort": 8778,
                     "name": "jolokia"
@@ -328,6 +326,9 @@
                       "fieldPath" : "metadata.namespace"
                     }
                   }
+                } , {
+                  "name": "INFINISPAN_SERVICE",
+                  "value": "${INFINISPAN_SERVICE}"
                 } ],
                 "resources": {
                   "requests": {

@@ -3,31 +3,31 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.5 Camel + JDG with Spring Boot",
+      "openshift.io/display-name": "Red Hat Fuse 7.5 Camel with Spring Boot 2",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
-      "description": "Spring Boot, Camel and JBoss Data Grid QuickStart. This quickstart demonstrates how to connect a Spring Boot application to a JBoss Data Grid (or Infinispan) server using the Hot Rod protocol. It requires that the data grid server (or cluster) has been deployed first, one simple way to run a JDG service is following the documentation of the JDG xPaaS image for OpenShift related to the datagrid65-basic template.",
+      "description": "Spring Boot 2 and Camel QuickStart. This example demonstrates how you can use Apache Camel with Spring Boot 2 on OpenShift. The quickstart uses Spring Boot to configure an application which includes a Camel route that triggers a message every 5th second, and routes the message to a log.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
       "version": "1.5"
     },
-    "name": "s2i-fuse75-spring-boot-camel-infinispan"
+    "name": "s2i-fuse75-spring-boot-2-camel"
   },
   "labels": {
-    "template": "s2i-fuse75-spring-boot-camel-infinispan"
+    "template": "s2i-fuse75-spring-boot-2-camel"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse75-spring-boot-camel-infinispan",
+      "value": "s2i-fuse75-spring-boot-2-camel",
       "description": "The name assigned to the application."
     },
     {
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
       "required": true,
-      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-infinispan.git",
+      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel.git",
       "description": "The URL of the repository with your application source code."
     },
     {
@@ -35,13 +35,6 @@
       "displayName": "Git Reference",
       "value": "master",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
-    },
-    {
-      "name": "INFINISPAN_SERVICE",
-      "displayName": "JBoss Data Grid Service (Hot Rod)",
-      "required": true,
-      "value": "datagrid-app-hotrod",
-      "description": "Set this to the name of the Hot Rod service of the JBoss Data Grid. You may need to create the data grid first."
     },
     {
       "name": "BUILDER_VERSION",
@@ -301,14 +294,14 @@
                 "image": "library/${APP_NAME}:latest",
                 "readinessProbe" : {
                   "httpGet" : {
-                    "path" : "/health",
+                    "path" : "/actuator/health",
                     "port" : 8081
                   },
                   "initialDelaySeconds" : 10
                 },
                 "livenessProbe" : {
                   "httpGet" : {
-                    "path" : "/health",
+                    "path" : "/actuator/health",
                     "port" : 8081
                   },
                   "initialDelaySeconds" : 180
@@ -326,9 +319,6 @@
                       "fieldPath" : "metadata.namespace"
                     }
                   }
-                } , {
-                  "name": "INFINISPAN_SERVICE",
-                  "value": "${INFINISPAN_SERVICE}"
                 } ],
                 "resources": {
                   "requests": {
