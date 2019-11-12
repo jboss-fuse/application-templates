@@ -42,6 +42,11 @@
       "description": "The externally-reachable host name that routes to the Red Hat Fuse console service"
     },
     {
+      "name": "OPENSHIFT_WEB_CONSOLE_URL",
+      "description": "The externally-reachable URL that routes to the OpenShift Web console",
+      "required": false
+    },
+    {
       "name": "CPU_REQUEST",
       "displayName": "CPU request",
       "value": "0.2",
