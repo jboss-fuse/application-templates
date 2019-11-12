@@ -238,6 +238,10 @@
                   {
                     "name": "HAWTIO_OAUTH_CLIENT_ID",
                     "value": "${APP_NAME}-oauth-client"
+                  },
+                  {
+                    "name": "OPENSHIFT_CLUSTER_VERSION",
+                    "value": "4"
                   }
                 ],
                 "volumeMounts": [
