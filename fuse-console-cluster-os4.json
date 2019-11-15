@@ -147,6 +147,7 @@
       "metadata": {
         "name": "${APP_NAME}-oauth-client"
       },
+      "grantMethod": "auto",
       "redirectURIs": [
         "https://${ROUTE_HOSTNAME}"
       ]
