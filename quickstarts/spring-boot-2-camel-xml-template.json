@@ -60,6 +60,11 @@
       "description": "Extra arguments passed to mvn, e.g. for multi-module builds."
     },
     {
+      "name": "MAVEN_ARGS_APPEND",
+      "displayName": "Extra Maven Arguments",
+      "description": "Extra arguments passed to mvn, e.g. for multi-module builds."
+    },
+    {
       "name": "ARTIFACT_DIR",
       "displayName": "Maven build directory",
       "description": "Directory of the artifact to be built, e.g. for multi-module builds."
@@ -210,6 +215,10 @@
               {
                 "name": "MAVEN_ARGS_APPEND",
                 "value": "${MAVEN_ARGS_APPEND}"
+              },
+              {
+                "name": "MAVEN_MIRROR_URL",
+                "value": "${MAVEN_MIRROR_URL}"
               }
             ]
           }
