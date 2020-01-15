@@ -105,9 +105,10 @@
       "description": "Extra arguments passed to mvn, e.g. for multi-module builds."
     },
     {
-      "name": "MAVEN_ARGS_APPEND",
-      "displayName": "Extra Maven Arguments",
-      "description": "Extra arguments passed to mvn, e.g. for multi-module builds."
+      "displayName": "Maven mirror URL",
+      "description": "Maven mirror to use for S2I builds.",
+      "name": "MAVEN_MIRROR_URL",
+      "required": false
     },
     {
       "name": "ARTIFACT_DIR",
