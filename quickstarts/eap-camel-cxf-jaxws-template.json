@@ -3,24 +3,24 @@
   "apiVersion": "v1",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.5 Camel CXF JAX-WS with EAP",
+      "openshift.io/display-name": "Red Hat Fuse 7.6 Camel CXF JAX-WS with EAP",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Red Hat Fuse on EAP Camel CXF JAX-WS quickstart. This example demonstrates using the camel-cxf component to produce and consume JAX-WS web services.",
       "tags": "quickstart,javaee,java,jboss-fuse,fis",
       "iconClass": "icon-rh-integration",
-      "version": "1.5"
+      "version": "1.6"
     },
-    "name": "s2i-fuse75-eap-camel-cxf-jaxws"
+    "name": "s2i-fuse76-eap-camel-cxf-jaxws"
   },
   "labels": {
-    "template": "s2i-fuse75-eap-camel-cxf-jaxws"
+    "template": "s2i-fuse76-eap-camel-cxf-jaxws"
   },
   "parameters": [
     {
       "displayName": "Application Name",
       "description": "The name for the application.",
       "name": "APP_NAME",
-      "value": "s2i-fuse75-eap-camel-cxf-jaxws",
+      "value": "s2i-fuse76-eap-camel-cxf-jaxws",
       "required": true
     },
     {
@@ -62,7 +62,7 @@
       "displayName": "Builder version",
       "description": "The version of the FIS S2I builder image to use.",
       "name": "BUILDER_VERSION",
-      "value": "1.5"
+      "value": "1.6"
     },
     {
       "displayName": "Queues",
