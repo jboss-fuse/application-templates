@@ -58,6 +58,7 @@
   <properties>
     <spring-boot-camel.version>7.6.0.fuse-sb2-760025</spring-boot-camel.version>
     <spring-boot-camel-amq.version>7.6.0.fuse-sb2-760025</spring-boot-camel-amq.version>
+    <spring-boot-camel-config.version>7.6.0.fuse-sb2-760002</spring-boot-camel-config.version>
     <spring-boot-camel-drools.version>7.6.0.fuse-sb2-760025</spring-boot-camel-drools.version>
     <spring-boot-camel-infinispan.version>7.6.0.fuse-sb2-760025</spring-boot-camel-infinispan.version>
     <spring-boot-camel-rest-sql.version>7.6.0.fuse-sb2-760025</spring-boot-camel-rest-sql.version>
