@@ -26,7 +26,7 @@
 
   <groupId>org.jboss.fuse</groupId>
   <artifactId>application-templates</artifactId>
-  <version>2.1.fuse-sb2-760025</version>
+  <version>2.1.fuse-sb2-760026</version>
   <packaging>pom</packaging>
 
   <name>Application templates</name>
