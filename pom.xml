@@ -56,16 +56,16 @@
   </scm>
 
   <properties>
-    <spring-boot-camel.version>7.6.0.fuse-sb2-760025</spring-boot-camel.version>
-    <spring-boot-camel-amq.version>7.6.0.fuse-sb2-760025</spring-boot-camel-amq.version>
-    <spring-boot-camel-config.version>7.6.0.fuse-sb2-760002</spring-boot-camel-config.version>
-    <spring-boot-camel-drools.version>7.6.0.fuse-sb2-760025</spring-boot-camel-drools.version>
-    <spring-boot-camel-infinispan.version>7.6.0.fuse-sb2-760025</spring-boot-camel-infinispan.version>
-    <spring-boot-camel-rest-sql.version>7.6.0.fuse-sb2-760025</spring-boot-camel-rest-sql.version>
-    <spring-boot-camel-rest-3scale.version>7.6.0.fuse-sb2-760025</spring-boot-camel-rest-3scale.version>
-    <spring-boot-camel-xml.version>7.6.0.fuse-sb2-760025</spring-boot-camel-xml.version>
-    <spring-boot-cxf-jaxrs.version>7.6.0.fuse-sb2-760025</spring-boot-cxf-jaxrs.version>
-    <spring-boot-cxf-jaxws.version>7.6.0.fuse-sb2-760025</spring-boot-cxf-jaxws.version>
+    <spring-boot-2-camel.version>7.6.0.fuse-sb2-760025</spring-boot-2-camel.version>
+    <spring-boot-2-camel-amq.version>7.6.0.fuse-sb2-760025</spring-boot-2-camel-amq.version>
+    <spring-boot-2-camel-config.version>7.6.0.fuse-sb2-760002</spring-boot-2-camel-config.version>
+    <spring-boot-2-camel-drools.version>7.6.0.fuse-sb2-760025</spring-boot-2-camel-drools.version>
+    <spring-boot-2-camel-infinispan.version>7.6.0.fuse-sb2-760025</spring-boot-2-camel-infinispan.version>
+    <spring-boot-2-camel-rest-sql.version>7.6.0.fuse-sb2-760025</spring-boot-2-camel-rest-sql.version>
+    <spring-boot-2-camel-rest-3scale.version>7.6.0.fuse-sb2-760025</spring-boot-2-camel-rest-3scale.version>
+    <spring-boot-2-camel-xml.version>7.6.0.fuse-sb2-760025</spring-boot-2-camel-xml.version>
+    <spring-boot-2-cxf-jaxrs.version>7.6.0.fuse-sb2-760025</spring-boot-2-cxf-jaxrs.version>
+    <spring-boot-2-cxf-jaxws.version>7.6.0.fuse-sb2-760025</spring-boot-2-cxf-jaxws.version>
   </properties>
 
   <dependencyManagement>
@@ -141,70 +141,70 @@
      <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>spring-boot-camel</artifactId>
-        <version>${spring-boot-camel.version}</version>
+        <version>${spring-boot-2-camel.version}</version>
         <scope>test</scope>
       </dependency>
 
      <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>spring-boot-camel-amq</artifactId>
-        <version>${spring-boot-camel-amq.version}</version>
+        <version>${spring-boot-2-camel-amq.version}</version>
         <scope>test</scope>
       </dependency>
 
      <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>spring-boot-camel-config</artifactId>
-        <version>${spring-boot-camel-config.version}</version>
+        <version>${spring-boot-2-camel-config.version}</version>
         <scope>test</scope>
       </dependency>
 
      <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>spring-boot-camel-drools</artifactId>
-        <version>${spring-boot-camel-drools.version}</version>
+        <version>${spring-boot-2-camel-drools.version}</version>
         <scope>test</scope>
       </dependency>
 
      <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>spring-boot-camel-infinispan</artifactId>
-        <version>${spring-boot-camel-infinispan.version}</version>
+        <version>${spring-boot-2-camel-infinispan.version}</version>
         <scope>test</scope>
       </dependency>
 
      <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>spring-boot-camel-rest-sql</artifactId>
-        <version>${spring-boot-camel-rest-sql.version}</version>
+        <version>${spring-boot-2-camel-rest-sql.version}</version>
         <scope>test</scope>
       </dependency>
 
      <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>spring-boot-camel-rest-3scale</artifactId>
-        <version>${spring-boot-camel-rest-3scale.version}</version>
+        <version>${spring-boot-2-camel-rest-3scale.version}</version>
         <scope>test</scope>
       </dependency>
 
      <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>spring-boot-camel-xml</artifactId>
-        <version>${spring-boot-camel-xml.version}</version>
+        <version>${spring-boot-2-camel-xml.version}</version>
         <scope>test</scope>
       </dependency>
 
      <dependency>
         <groupId>io.fabric8.quickstarts.cxf.jaxrs</groupId>
         <artifactId>spring-boot-cxf-jaxrs</artifactId>
-        <version>${spring-boot-cxf-jaxrs.version}</version>
+        <version>${spring-boot-2-cxf-jaxrs.version}</version>
         <scope>test</scope>
       </dependency>
 
      <dependency>
         <groupId>io.fabric8.quickstarts.cxf.jaxws</groupId>
         <artifactId>spring-boot-cxf-jaxws</artifactId>
-        <version>${spring-boot-cxf-jaxws.version}</version>
+        <version>${spring-boot-2-cxf-jaxws.version}</version>
         <scope>test</scope>
       </dependency>
 
