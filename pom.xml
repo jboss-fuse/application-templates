@@ -85,30 +85,35 @@
         <artifactId>example-camel-activemq</artifactId>
         <version>${eap-camel-amq.version}</version>
         <scope>test</scope>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.wildfly.camel.example</groupId>
         <artifactId>example-camel-cdi</artifactId>
         <version>${eap-camel-cdi.version}</version>
         <scope>test</scope>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.wildfly.camel.example</groupId>
         <artifactId>example-camel-cdi</artifactId>
         <version>${eap-camel-cxf-jaxws.version}</version>
         <scope>test</scope>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.wildfly.camel.example</groupId>
         <artifactId>example-camel-cxf-jaxws</artifactId>
         <version>${eap-camel-cxf-jaxws.version}</version>
         <scope>test</scope>
+        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.wildfly.camel.example</groupId>
         <artifactId>example-camel-jpa</artifactId>
         <version>${eap-camel-jpa.version}</version>
         <scope>test</scope>
+        <type>pom</type>
       </dependency>
 
       <dependency>
