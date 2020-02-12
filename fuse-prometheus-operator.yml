@@ -146,7 +146,7 @@ objects:
     - list
     - watch
 
-- apiVersion: apps/v1beta2
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     labels:
@@ -169,8 +169,8 @@ objects:
           - --namespaces=${NAMESPACE}
           - --logtostderr=true
           - --config-reloader-image=quay.io/coreos/configmap-reload:v0.0.1
-          - --prometheus-config-reloader=quay.io/coreos/prometheus-config-reloader:v0.29.0
-          image: quay.io/coreos/prometheus-operator:v0.29.0
+          - --prometheus-config-reloader=quay.io/coreos/prometheus-config-reloader:v0.30.1
+          image: quay.io/coreos/prometheus-operator:v0.30.1
           name: prometheus-operator
           ports:
           - containerPort: ${{CONTAINER_PORT}}
