@@ -218,6 +218,20 @@
         <scope>test</scope>
       </dependency>
 
+     <dependency>
+        <groupId>io.fabric8.quickstarts.cxf.jaxrs</groupId>
+        <artifactId>spring-boot-cxf-jaxrs-xml</artifactId>
+        <version>${spring-boot-2-cxf-jaxrs-xml.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+     <dependency>
+        <groupId>io.fabric8.quickstarts.cxf.jaxws</groupId>
+        <artifactId>spring-boot-cxf-jaxws-xml</artifactId>
+        <version>${spring-boot-2-cxf-jaxws-xml.version}</version>
+        <scope>test</scope>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
 
