@@ -15,18 +15,19 @@
      implied.  See the License for the specific language governing
      permissions and limitations under the License.
 
---><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.sonatype.oss</groupId>
     <artifactId>oss-parent</artifactId>
-    <version>9</version>
+    <version>9.0.0.redhat-2</version>
   </parent>
 
   <groupId>org.jboss.fuse</groupId>
   <artifactId>application-templates</artifactId>
-  <version>2.1.fuse-760040</version>
+  <version>2.1.0.fuse-760040-redhat-00001</version>
   <packaging>pom</packaging>
 
   <name>Application templates</name>
@@ -56,26 +57,26 @@
   </scm>
 
   <properties>
-    <eap-camel-amq.version>5.4.0.fuse-760019</eap-camel-amq.version>
-    <eap-camel-cdi.version>5.4.0.fuse-760019</eap-camel-cdi.version>
-    <eap-camel-cxf-jaxws.version>5.4.0.fuse-760019</eap-camel-cxf-jaxws.version>
-    <eap-camel-cxf-jaxrs.version>5.4.0.fuse-760019</eap-camel-cxf-jaxrs.version>
-    <eap-camel-jpa.version>5.4.0.fuse-760019</eap-camel-jpa.version>
-    <karaf-camel-amq.version>1.0.0.fuse-760021</karaf-camel-amq.version>
-    <karaf-camel-log.version>1.0.0.fuse-760021</karaf-camel-log.version>
-    <karaf-camel-rest-sql.version>1.0.0.fuse-760021</karaf-camel-rest-sql.version>
-    <karaf-cxf-rest.version>1.0.0.fuse-760020</karaf-cxf-rest.version>
-    <spring-boot-camel.version>1.0.0.fuse-760020</spring-boot-camel.version>
-    <spring-boot-camel-amq.version>1.0.0.fuse-760020</spring-boot-camel-amq.version>
-    <spring-boot-camel-config.version>1.0.0.fuse-760020</spring-boot-camel-config.version>
-    <spring-boot-camel-drools.version>1.0.0.fuse-760020</spring-boot-camel-drools.version>
-    <spring-boot-camel-infinispan.version>1.0.0.fuse-760020</spring-boot-camel-infinispan.version>
-    <spring-boot-camel-rest-sql.version>1.0.0.fuse-760020</spring-boot-camel-rest-sql.version>
-    <spring-boot-camel-rest-3scale.version>1.0.0.fuse-760020</spring-boot-camel-rest-3scale.version>
-    <spring-boot-camel-xml.version>1.0.0.fuse-760020</spring-boot-camel-xml.version>
-    <spring-boot-camel-xa.version>1.0.0.fuse-760020</spring-boot-camel-xa.version>
-    <spring-boot-cxf-jaxrs.version>1.0.0.fuse-760020</spring-boot-cxf-jaxrs.version>
-    <spring-boot-cxf-jaxws.version>1.0.0.fuse-760020</spring-boot-cxf-jaxws.version>
+    <eap-camel-amq.version>5.4.0.fuse-760019-redhat-00001</eap-camel-amq.version>
+    <eap-camel-cdi.version>5.4.0.fuse-760019-redhat-00001</eap-camel-cdi.version>
+    <eap-camel-cxf-jaxws.version>5.4.0.fuse-760019-redhat-00001</eap-camel-cxf-jaxws.version>
+    <eap-camel-cxf-jaxrs.version>5.4.0.fuse-760019-redhat-00001</eap-camel-cxf-jaxrs.version>
+    <eap-camel-jpa.version>5.4.0.fuse-760019-redhat-00001</eap-camel-jpa.version>
+    <karaf-camel-amq.version>1.0.0.fuse-760021-redhat-00001</karaf-camel-amq.version>
+    <karaf-camel-log.version>1.0.0.fuse-760021-redhat-00001</karaf-camel-log.version>
+    <karaf-camel-rest-sql.version>1.0.0.fuse-760021-redhat-00001</karaf-camel-rest-sql.version>
+    <karaf-cxf-rest.version>1.0.0.fuse-760020-redhat-00001</karaf-cxf-rest.version>
+    <spring-boot-camel.version>1.0.0.fuse-760020-redhat-00001</spring-boot-camel.version>
+    <spring-boot-camel-amq.version>1.0.0.fuse-760020-redhat-00001</spring-boot-camel-amq.version>
+    <spring-boot-camel-config.version>1.0.0.fuse-760020-redhat-00001</spring-boot-camel-config.version>
+    <spring-boot-camel-drools.version>1.0.0.fuse-760020-redhat-00001</spring-boot-camel-drools.version>
+    <spring-boot-camel-infinispan.version>1.0.0.fuse-760020-redhat-00001</spring-boot-camel-infinispan.version>
+    <spring-boot-camel-rest-sql.version>1.0.0.fuse-760020-redhat-00001</spring-boot-camel-rest-sql.version>
+    <spring-boot-camel-rest-3scale.version>1.0.0.fuse-760020-redhat-00001</spring-boot-camel-rest-3scale.version>
+    <spring-boot-camel-xml.version>1.0.0.fuse-760020-redhat-00001</spring-boot-camel-xml.version>
+    <spring-boot-camel-xa.version>1.0.0.fuse-760020-redhat-00001</spring-boot-camel-xa.version>
+    <spring-boot-cxf-jaxrs.version>1.0.0.fuse-760020-redhat-00001</spring-boot-cxf-jaxrs.version>
+    <spring-boot-cxf-jaxws.version>1.0.0.fuse-760020-redhat-00001</spring-boot-cxf-jaxws.version>
   </properties>
 
   <dependencyManagement>
@@ -136,13 +137,6 @@
 
       <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
-        <artifactId>karaf-camel-log</artifactId>
-        <version>${karaf-camel-log.version}</version>
-        <scope>test</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>karaf-camel-rest-sql</artifactId>
         <version>${karaf-camel-rest-sql.version}</version>
         <scope>test</scope>
@@ -155,7 +149,7 @@
         <scope>test</scope>
       </dependency>
 
-     <dependency>
+      <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>spring-boot-camel</artifactId>
         <version>${spring-boot-camel.version}</version>
@@ -232,7 +226,33 @@
         <scope>test</scope>
       </dependency>
 
+     
+
     </dependencies>
   </dependencyManagement>
 
+  <build>
+    <pluginManagement></pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.commonjava.maven.plugins</groupId>
+        <artifactId>project-sources-maven-plugin</artifactId>
+        <version>1.0</version>
+        <executions>
+          <execution>
+            <id>project-sources-archive</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>archive</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>
+<!--
+Modified by POM Manipulation Extension for Maven 3.8.1 ( SHA: 24b97b2e ) 
+-->
+
