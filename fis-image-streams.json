@@ -794,7 +794,7 @@
                             "iconClass": "icon-rh-integration",
                             "tags": "jboss-fuse,hawtio,java,xpaas,hidden",
                             "supports":"jboss-fuse:7.6.0,java:8,xpaas:1.2",
-                            "version": "1.5"
+                            "version": "1.6"
                         },
                         "referencePolicy": {
                             "type": "Local"
@@ -878,6 +878,21 @@
                             "kind": "DockerImage",
                             "name": "registry.redhat.io/fuse7/fuse-apicurito:1.5"
                         }
+                    },
+                    {
+                        "name": "1.6",
+                        "annotations": {
+                            "description": "Red Hat Apicurito UI image.",
+                            "openshift.io/display-name": "Red Hat Apicurito UI",
+                            "tags": "apicurio,hidden"
+                        },
+                        "referencePolicy": {
+                            "type": "Local"
+                        },
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "registry.redhat.io/fuse7/fuse-apicurito:1.6"
+                        }
                     }
                 ]
             }
@@ -953,7 +968,22 @@
                             "kind": "DockerImage",
                             "name": "registry.redhat.io/fuse7/fuse-apicurito-generator:1.5"
                         }
-                    }                    
+                    },
+                    {
+                        "name": "1.6",
+                        "annotations": {
+                            "description": "Red Hat Apicurito Generator image.",
+                            "openshift.io/display-name": "Red Hat Apicurito Generator",
+                            "tags": "apicurio,fuse,hidden"
+                        },
+                        "referencePolicy": {
+                            "type": "Local"
+                        },
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "registry.redhat.io/fuse7/fuse-apicurito-generator:1.6"
+                        }
+                    }
                 ]
             }
         }
