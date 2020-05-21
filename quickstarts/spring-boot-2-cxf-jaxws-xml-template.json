@@ -3,24 +3,24 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.6 CXF JAX-WS XML with Spring Boot 2",
+      "openshift.io/display-name": "Red Hat Fuse 7.7 CXF JAX-WS XML with Spring Boot 2",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Spring Boot 2 and CXF JAX-WS QuickStart. This example demonstrates how you can use Apache CXF JAX-WS with Spring Boot 2 on OpenShift. The quickstart uses Spring Boot 2 to launch a Spring configuration file based CXF application which includes a JAX-WS endpoint.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
-      "version": "1.6"
+      "version": "1.7
     },
-    "name": "s2i-fuse76-spring-boot-2-cxf-jaxws-xml"
+    "name": "s2i-fuse77-spring-boot-2-cxf-jaxws-xml"
   },
   "labels": {
-    "template": "s2i-fuse76-spring-boot-2-cxf-jaxws-xml"
+    "template": "s2i-fuse77-spring-boot-2-cxf-jaxws-xml"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse76-spring-boot-2-cxf-jaxws-xml",
+      "value": "s2i-fuse77-spring-boot-2-cxf-jaxws-xml",
       "description": "The name assigned to the application."
     },
     {
@@ -45,7 +45,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.6",
+      "value": "1.7",
       "description": "The version of the FIS S2I builder image to use."
     },
     {
