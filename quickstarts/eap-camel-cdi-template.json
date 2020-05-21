@@ -3,24 +3,24 @@
   "apiVersion": "v1",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.6 Camel CDI with EAP",
+      "openshift.io/display-name": "Red Hat Fuse 7.7 Camel CDI with EAP",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Red Hat Fuse on EAP Camel CDI quickstart. This example demonstrates using the camel-cdi component to integrate CDI beans with Camel routes.",
       "tags": "quickstart,javaee,java,jboss-fuse,fis",
       "iconClass": "icon-rh-integration",
-      "version": "1.6"
+      "version": "1.7"
     },
-    "name": "s2i-fuse76-eap-camel-cdi"
+    "name": "s2i-fuse77-eap-camel-cdi"
   },
   "labels": {
-    "template": "s2i-fuse76-eap-camel-cdi"
+    "template": "s2i-fuse77-eap-camel-cdi"
   },
   "parameters": [
     {
       "displayName": "Application Name",
       "description": "The name for the application.",
       "name": "APP_NAME",
-      "value": "s2i-fuse76-eap-camel-cdi",
+      "value": "s2i-fuse77-eap-camel-cdi",
       "required": true
     },
     {
@@ -62,7 +62,7 @@
       "displayName": "Builder version",
       "description": "The version of the FIS S2I builder image to use.",
       "name": "BUILDER_VERSION",
-      "value": "1.6"
+      "value": "1.7"
     },
     {
       "displayName": "Queues",

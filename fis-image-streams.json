@@ -365,12 +365,12 @@
                     {
                         "name": "1.6",
                         "annotations": {
-                            "description": "Red Hat Fuse 7.6 Java S2I images.",
+                            "description": "Red Hat Fuse 7.7 Java S2I images.",
                             "openshift.io/display-name": "Red Hat Fuse 7.6 Java",
                             "iconClass": "icon-rh-integration",
                             "tags": "builder,jboss-fuse,java,xpaas,hidden",
                             "supports":"jboss-fuse:7.6.0,java:8,xpaas:1.2",
-                            "version": "1.6"
+                            "version": "1.7"
                         },
                         "referencePolicy": {
                             "type": "Local"
@@ -522,21 +522,21 @@
                         }
                     },
                     {
-                        "name": "1.6",
+                        "name": "1.7",
                         "annotations": {
-                            "description": "Red Hat Fuse 7.6 Karaf S2I images.",
-                            "openshift.io/display-name": "Red Hat Fuse 7.6 Karaf",
+                            "description": "Red Hat Fuse 7.7 Karaf S2I images.",
+                            "openshift.io/display-name": "Red Hat Fuse 7.7 Karaf",
                             "iconClass": "icon-rh-integration",
                             "tags": "builder,jboss-fuse,java,karaf,xpaas,hidden",
-                            "supports":"jboss-fuse:7.6.0,java:8,xpaas:1.2",
-                            "version": "1.6"
+                            "supports":"jboss-fuse:7.7.0,java:8,xpaas:1.2",
+                            "version": "1.7"
                         },
                         "referencePolicy": {
                             "type": "Local"
                         },
                         "from": {
                             "kind": "DockerImage",
-                            "name": "registry.redhat.io/fuse7/fuse-karaf-openshift:1.6"
+                            "name": "registry.redhat.io/fuse7/fuse-karaf-openshift:1.7"
                         }
                     },                    {
                         "name": "1.7",
