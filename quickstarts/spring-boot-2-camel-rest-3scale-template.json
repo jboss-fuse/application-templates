@@ -3,24 +3,24 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.6 Camel REST DSL and 3Scale",
+      "openshift.io/display-name": "Red Hat Fuse 7.7 Camel REST DSL and 3Scale",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Spring Boot 2, Camel REST DSL and 3Scale QuickStart. This example demonstrates how to use Camel's REST DSL to expose a RESTful API and expose it to 3scale.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse,3scale",
       "iconClass": "icon-rh-integration",
-      "version": "1.6"
+      "version": "1.7"
     },
-    "name": "s2i-fuse76-spring-boot-2-camel-rest-3scale"
+    "name": "s2i-fuse77-spring-boot-2-camel-rest-3scale"
   },
   "labels": {
-    "template": "s2i-fuse76-spring-boot-2-camel-rest-3scale"
+    "template": "s2i-fuse77-spring-boot-2-camel-rest-3scale"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse76-spring-boot-2-camel-rest-3scale",
+      "value": "s2i-fuse77-spring-boot-2-camel-rest-3scale",
       "description": "The name assigned to the application."
     },
     {
@@ -45,7 +45,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.6",
+      "value": "1.7",
       "description": "The version of the FIS S2I builder image to use."
     },
     {
