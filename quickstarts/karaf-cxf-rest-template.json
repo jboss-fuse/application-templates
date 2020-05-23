@@ -33,7 +33,7 @@
     {
       "name": "GIT_REF",
       "displayName": "Git Reference",
-      "value": "master",
+      "value": "karaf-cxf-rest-1.0.0.fuse-770004",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
@@ -51,7 +51,7 @@
     {
       "name": "APP_VERSION",
       "displayName": "Application Version",
-      "value": "2.2.60-SNAPSHOT",
+      "value": "1.0.0.fuse-770004",
       "description": "The application version."
     },
     {
