@@ -40,7 +40,7 @@ parameters:
   description: The amount of CPU to request.
 - name: MEMORY_REQUEST
   displayName: Memory request
-  value: 64Mi,
+  value: 64Mi
   required: true
   description: The amount of memory required for the container to run.
 - name: CPU_LIMIT
@@ -50,8 +50,8 @@ parameters:
   description: The amount of CPU the container is limited to use.
 - name: MEMORY_LIMIT
   displayName: Memory limit
-  value: "200Mi"
-  required: true,
+  value: 200Mi
+  required: true
   description: The amount of memory the container is limited to use.
 objects:
 - apiVersion: v1
@@ -141,7 +141,7 @@ objects:
         containerNames:
         - ${APP_NAME}
         from:
-          kind: ImageStreamTag,
+          kind: ImageStreamTag
           namespace: ${IMAGE_STREAM_NAMESPACE}
           name: fuse7-console:${APP_VERSION}
     replicas: 1
