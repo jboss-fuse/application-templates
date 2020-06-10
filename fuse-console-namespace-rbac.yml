@@ -29,7 +29,6 @@ parameters:
   description: Namespace in which the Fuse ImageStreams are installed. These ImageStreams are normally installed in the openshift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project.
 - name: ROUTE_HOSTNAME
   description: The externally-reachable host name that routes to the Red Hat Fuse console service
-  required: true
 - name: OPENSHIFT_WEB_CONSOLE_URL
   description: The externally-reachable URL that routes to the OpenShift Web console
   required: false
