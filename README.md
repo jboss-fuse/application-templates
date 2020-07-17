@@ -275,7 +275,7 @@ $ oc process -f fuse-prometheus-operator.yml  -p NAMESPACE=<YOUR NAMESPACE> | oc
 Finally, tell it to monitor your fuse application:
 
 ```
-$ oc process -f fuse-servicemonitor.yml -p NAMESPACE=<YOUR NAMESPACE> FUSE_SERVICE_NAME=<YOUR FUSE SERVICE> | oc create -f -
+$ oc process -f fuse-servicemonitor.yml -p NAMESPACE=<YOUR NAMESPACE> -p FUSE_SERVICE_NAME=<YOUR FUSE SERVICE> | oc create -f -
 ```
 
 Note that the `NAMESPACE` and `FUSE_SERVICE_NAME` parameters must be specified.
