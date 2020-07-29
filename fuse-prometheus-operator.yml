@@ -18,7 +18,7 @@ parameters:
   displayName: Namespace
   value: fuse
   required: true
-  description: Namespace in which the prometheus-operator is installed. 
+  description: Namespace in which the prometheus-operator is installed.
 - name: CPU_REQUEST
   displayName: CPU request
   value: '100m'
@@ -62,7 +62,7 @@ parameters:
 
 objects:
 #
-# OpenShift resources 
+# OpenShift resources
 #
 - apiVersion: rbac.authorization.k8s.io/v1
   kind: RoleBinding
@@ -200,7 +200,7 @@ objects:
     serviceAccountName: prometheus
     serviceMonitorSelector:
       matchLabels:
-        team: ${FUSE_SERVICE_TEAM} 
+        team: ${FUSE_SERVICE_TEAM}
     resources:
       requests:
         memory: ${PROMETHEUS_MEMORY}
@@ -213,9 +213,9 @@ objects:
   spec:
     type: NodePort
     ports:
-    - name: ${PORT_NAME} 
+    - name: ${PORT_NAME}
       port: ${{PROMETHEUS_SERVICE_PORT}}
-      protocol: TCP 
+      protocol: TCP
       targetPort: ${PORT_NAME}
     selector:
       prometheus: prometheus
