@@ -1,0 +1,17 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDataSource
+metadata:
+  name: fuse-grafana-datasource
+spec:
+  name: prometheus-datasource.yaml
+  datasources:
+    - name: Prometheus
+      type: prometheus
+      access: proxy
+      url: http://prometheus:9090
+      isDefault: true
+      version: 1
+      editable: true
+      jsonData:
+        tlsSkipVerify: true
+        timeInterval: "5s"
