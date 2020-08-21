@@ -5,7 +5,7 @@
     "annotations": {
       "openshift.io/display-name": "Red Hat Fuse 7.8 Camel SOAP REST Bridge with Spring Boot 2",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
-      "description": "Spring Boot 2 and Camel SOAP REST Bridge QuickStart. This example demonstrates how to use Camel’s REST DSL to expose a backend SOAP API.",
+      "description": "Spring Boot 2 and Camel SOAP REST Bridge QuickStart. This example demonstrates how to use Camel?s REST DSL to expose a backend SOAP API.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
       "version": "1.8"
@@ -33,7 +33,7 @@
     {
       "name": "GIT_REF",
       "displayName": "Git Reference",
-      "value": "spring-boot-camel-soap-rest-bridge-7.8.0.fuse-sb2-780010",
+      "value": "spring-boot-camel-soap-rest-bridge-7.8.0.fuse-sb2-780010-redhat-00001",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
@@ -45,7 +45,7 @@
     {
       "name": "APP_VERSION",
       "displayName": "Application Version",
-      "value": "7.8.0.fuse-sb2-780010",
+      "value": "7.8.0.fuse-sb2-780010-redhat-00001",
       "description": "The application version."
     },
     {
