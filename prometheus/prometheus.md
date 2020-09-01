@@ -5,20 +5,20 @@ OpenShift 4 has built-in support for custom application monitoring and this guid
 
 ## Install your Fuse application in a custom namespace
 
-Follow the [https://access.redhat.com/documentation/en-us/red_hat_fuse/7.7/html/fuse_on_openshift_guide/index](guide to Fuse on Openshift) to install Fuse and your Fuse application on OpenShift.
+Follow the [guide to Fuse on Openshift](https://access.redhat.com/documentation/en-us/red_hat_fuse/7.7/html/fuse_on_openshift_guide/index) to install Fuse and your Fuse application on OpenShift.
 
 For the purposes of this guide, we'll assume that you used a "fuse7" namespace.
 
 ## Enable User Workload Monitoring
 
-Follow the [https://docs.openshift.com/container-platform/4.4/monitoring/monitoring-your-own-services.html](guide to installing User Workload Monitoring) :
+Follow the [guide to installing User Workload Monitoring](https://docs.openshift.com/container-platform/4.4/monitoring/monitoring-your-own-services.html) :
 
 `oc -n openshift-monitoring create configmap cluster-monitoring-config`
 `oc -n openshift-monitoring edit configmap cluster-monitoring-config`
 
 Set techPreviewUserWorkload setting to true by adding the `data:` section specified below:
 
-`
+```
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -28,15 +28,15 @@ data:
   config.yaml: |
     techPreviewUserWorkload:
       enabled: true
-`
+```
 
-Save the file to apply the changes.    Saving the changes automatically enables User Workload Monitoring, and you can use the steps specified in the [https://docs.openshift.com/container-platform/4.4/monitoring/monitoring-your-own-services.html](guide to installing User Workload Monitoring) to verify that User Workload Monitoring has been successfully installed.
+Save the file to apply the changes.    Saving the changes automatically enables User Workload Monitoring, and you can use the steps specified in the [guide to installing User Workload Monitoring](https://docs.openshift.com/container-platform/4.4/monitoring/monitoring-your-own-services.html) to verify that User Workload Monitoring has been successfully installed.
 
 Use our template to define a ServiceMonitor and to create a service account and binding :
 
-`
+```
 oc process -f fuse-servicemonitor.yml -p NAMESPACE=<your-fuse-namespace> FUSE_SERVICE_NAME=<fuse-app-name> | oc apply -f -
-`
+```
 
 Once you have done this, you should be able to view metrics for your Fuse application in the Monitoring->Metrics section.     Type "org_apache_camel_ExchangesTotal" or another camel metric into the query box :
 
@@ -57,22 +57,22 @@ Make sure the current project is your namespace
 
 Get the URL of the thanos-querier from your cluster :
 
-`
+```
 sh% oc get route -n openshift-monitoring thanos-querier
 NAME             HOST/PORT                                                                  PATH   SERVICES         PORT   TERMINATION          WILDCARD
 thanos-querier   thanos-querier-openshift-monitoring.apps.tomprom.lab.pnq2.cee.redhat.com          thanos-querier   web    reencrypt/Redirect   None
-`
+```
 
 Get the token from your grafana-serviceaccount : 
 
-`
+```
 oc serviceaccounts get-token grafana-serviceaccount -n fuse7
-`
+```
 
 Go to the Grafana Datasource tab in the Grafana Operator
 Create Grafana Datasource
 
-`
+```
 apiVersion: 1
 
 datasources:
@@ -90,4 +90,4 @@ datasources:
   secureJsonData:
     httpHeaderValue1: "Bearer <REPLACE-WITH-TOKEN>"
   editable: true
-`
+```
