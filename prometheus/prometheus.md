@@ -13,8 +13,10 @@ For the purposes of this guide, we'll assume that you used a "fuse7" namespace.
 
 Follow the [guide to installing User Workload Monitoring](https://docs.openshift.com/container-platform/4.4/monitoring/monitoring-your-own-services.html) :
 
-`oc -n openshift-monitoring create configmap cluster-monitoring-config`
-`oc -n openshift-monitoring edit configmap cluster-monitoring-config`
+```
+oc -n openshift-monitoring create configmap cluster-monitoring-config
+oc -n openshift-monitoring edit configmap cluster-monitoring-config
+```
 
 Set techPreviewUserWorkload setting to true by adding the `data:` section specified below:
 
