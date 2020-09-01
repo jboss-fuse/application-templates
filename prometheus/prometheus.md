@@ -47,17 +47,19 @@ Once you have done this, you should be able to view metrics for your Fuse applic
 
 ## Grafana
 
-In the OpenShift UI, to Operators -> OperatorHub
-Choose the Grafana Operator provided by Red Hat
-Click Install
+In the OpenShift UI, browse to Operators - OperatorHub :
 
-Once installed, go to the Grafana tab
-Click Create Grafana
-Make sure the current project is your namespace
+* Choose the Grafana Operator provided by Red Hat
+* Click Install
+
+Once installed, go to the Grafana tab :
+
+* Make sure the current project is your namespace
+* Click Create Grafana
 
 ![Create Grafana](https://github.com/jboss-fuse/application-templates/raw/master/prometheus/creategrafana.png)
 
-Get the URL of the thanos-querier from your cluster :
+* Get the URL of the thanos-querier from your cluster :
 
 ```
 sh% oc get route -n openshift-monitoring thanos-querier
@@ -65,14 +67,14 @@ NAME             HOST/PORT                                                      
 thanos-querier   thanos-querier-openshift-monitoring.apps.tomprom.lab.pnq2.cee.redhat.com          thanos-querier   web    reencrypt/Redirect   None
 ```
 
-Get the token from your grafana-serviceaccount : 
+* Get the token from your grafana-serviceaccount : 
 
 ```
 oc serviceaccounts get-token grafana-serviceaccount -n fuse7
 ```
 
-Go to the Grafana Datasource tab in the Grafana Operator
-Create Grafana Datasource
+* Go to the Grafana Datasource tab in the Grafana Operator
+* Create Grafana Datasource
 
 ```
 apiVersion: 1
