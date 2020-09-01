@@ -95,3 +95,17 @@ datasources:
     httpHeaderValue1: "Bearer <REPLACE-WITH-TOKEN>"
   editable: true
 ```
+
+
+## Installing Fuse Grafana dashboards
+
+```
+oc apply -n <namespace> -f dashboards/fuse-grafana-dashboard.yml
+oc apply -n <namespace> -f dashboards/fuse-grafana-dashboard-routes.yml
+```
+
+If you log into your Grafana instance, you can then view your dashboards or even create your own.  You can find the route for the Grafana instance that you have installed :
+
+```
+oc get routes -n <namespace> grafana-route
+```
