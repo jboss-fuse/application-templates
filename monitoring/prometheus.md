@@ -42,7 +42,7 @@ oc process -f fuse-servicemonitor.yml -p NAMESPACE=<your-fuse-namespace> FUSE_SE
 
 Once you have done this, you should be able to view metrics for your Fuse application in the Monitoring->Metrics section.     Type "org_apache_camel_ExchangesTotal" or another camel metric into the query box :
 
-![Exchanges Total](https://github.com/jboss-fuse/application-templates/raw/master/monitoring/exchangestotal.png)
+![Exchanges Total](https://github.com/jboss-fuse/application-templates/raw/master/monitoring/img/exchangestotal.png)
 
 
 ## Grafana
@@ -57,7 +57,7 @@ Once installed, go to the Grafana tab :
 * Make sure the current project is your namespace
 * Click Create Grafana
 
-![Create Grafana](https://github.com/jboss-fuse/application-templates/raw/master/monitoring/creategrafana.png)
+![Create Grafana](https://github.com/jboss-fuse/application-templates/raw/master/monitoring/img/creategrafana.png)
 
 * Get the URL of the thanos-querier from your cluster :
 
@@ -109,3 +109,7 @@ If you log into your Grafana instance, you can then view your dashboards or even
 ```
 oc get routes -n <namespace> grafana-route
 ```
+
+You should be able to create your own dashboards within the Grafana instance as well, and the Fuse metrics will show up automatically :
+
+![Camel Metrics in Grafana](https://github.com/jboss-fuse/application-templates/raw/master/monitoring/img/camelgrafana.png)

@@ -252,7 +252,7 @@ Its value is used to match the role that impersonates the request, against the r
 If the current key does not match, the less specific key is looked up and matched following the steps 1 to 4 above, up until the `default` key.
 Otherwise, the operation invocation is denied.
 
-# Monitoring
+## Monitoring
 
 * [Monitoring Fuse on Openshift 4](./monitoring/prometheus.md)
 * [Fuse Example Grafana Dashboards](./monitoring/dashboards.msd)
