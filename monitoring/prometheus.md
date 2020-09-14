@@ -37,7 +37,7 @@ Save the file to apply the changes.    Saving the changes automatically enables 
 Use our template to define a ServiceMonitor and to create a service account and binding :
 
 ```
-oc process -f fuse-servicemonitor.yml -p NAMESPACE=<your-fuse-namespace> FUSE_SERVICE_NAME=<fuse-app-name> | oc apply -f -
+oc process -f fuse-servicemonitor.yml -p NAMESPACE=<your-fuse-namespace> -p FUSE_SERVICE_NAME=<fuse-app-name> | oc apply -f -
 ```
 
 Once you have done this, you should be able to view metrics for your Fuse application in the Monitoring->Metrics section.     Type "org_apache_camel_ExchangesTotal" or another camel metric into the query box :
