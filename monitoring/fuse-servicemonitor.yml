@@ -12,7 +12,7 @@ metadata:
     iconClass: "icon-rh-integration"
     version: "1.0"
 message: |-
-  prometheus-operator is now deployed to ${NAMESPACE}
+  service-monitor is now deployed to ${NAMESPACE}
 parameters:
 - name: NAMESPACE
   displayName: Namespace
