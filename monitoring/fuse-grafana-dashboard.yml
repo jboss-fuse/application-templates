@@ -423,7 +423,7 @@ spec:
           "dashLength": 10,
           "dashes": false,
           "datasource": "${DS_PROMETHEUS}",
-          "description": "Camel Exchanges",
+          "description": "Camel Exchanges per minute",
           "fill": 1,
           "gridPos": {
             "h": 6,
@@ -456,24 +456,24 @@ spec:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(org_apache_camel_ExchangesCompleted{pod=\"$pod\"})",
+              "expr": "sum(increase(org_apache_camel_ExchangesCompleted{pod=\"$pod\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "Exchanges Completed",
+              "legendFormat": "Exchanges Completed / 1m",
               "refId": "A"
             },
             {
-              "expr": "sum(org_apache_camel_ExchangesFailed{pod=\"$pod\"})",
+              "expr": "sum(increase(org_apache_camel_ExchangesFailed{pod=\"$pod\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "Exchanges Failed",
+              "legendFormat": "Exchanges Failed / 1m",
               "refId": "B"
             },
             {
-              "expr": "sum(org_apache_camel_ExchangesTotal{pod=\"$pod\"})",
+              "expr": "sum(increase(org_apache_camel_ExchangesTotal{pod=\"$pod\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "Exchanges Total",
+              "legendFormat": "Exchanges Total / 1m",
               "refId": "C"
             },
             {
@@ -488,7 +488,7 @@ spec:
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Camel Exchanges",
+          "title": "Camel Exchanges / 1m",
           "tooltip": {
             "shared": true,
             "sort": 0,
