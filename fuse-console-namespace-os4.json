@@ -204,7 +204,12 @@
               "deploymentconfig": "${APP_NAME}",
               "group": "console",
               "app": "${APP_NAME}",
-              "version": "${APP_VERSION}"
+              "version": "${APP_VERSION}",
+              "com.company": "Red_Hat",
+              "rht.prod_name": "Red_Hat_Integration",
+              "rht.prod_ver": "7.7",
+              "rht.comp": "${APP_NAME}",
+              "rht.comp_ver": "${APP_VERSION}"
             }
           },
           "spec": {

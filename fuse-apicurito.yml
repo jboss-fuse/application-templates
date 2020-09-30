@@ -94,6 +94,11 @@ objects:
         labels:
           app: apicurito
           component: apicurito-ui
+          com.company: Red_Hat
+          rht.prod_name: Red_Hat_Integration
+          rht.prod_ver: 7.7
+          rht.comp: apicurito-ui
+          rht.comp_ver: ${APP_VERSION}
       spec:
         containers:
         - name: apicurito-ui
@@ -192,6 +197,11 @@ objects:
         labels:
           app: apicurito
           component: fuse-apicurito-generator
+          com.company: Red_Hat
+          rht.prod_name: Red_Hat_Integration
+          rht.prod_ver: 7.7
+          rht.comp: fuse-apicurito-generator
+          rht.comp_ver: ${APP_VERSION}
       spec:
         containers:
         - name: fuse-apicurito-generator
