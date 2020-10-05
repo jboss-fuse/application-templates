@@ -78,7 +78,7 @@ thanos-ruler   thanos-ruler-openshift-user-workload-monitoring.apps.promtest.loc
 
 Use the route listed and plug it into your browser :
 
-![Thanos Alerting](https://github.com/jboss-fuse/application-templates/raw/master/monitoring/img/thanosalerts.png)
+![Thanos Alerting](img/thanosalerts.png)
 
 If an alert is triggered, it will move from "inactive" to "pending" until .    If the alert violates the alerting rule long enough for the period specified in `for:` to pass, it will move from pending to firing.
 
