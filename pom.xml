@@ -15,18 +15,19 @@
      implied.  See the License for the specific language governing
      permissions and limitations under the License.
 
---><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.sonatype.oss</groupId>
     <artifactId>oss-parent</artifactId>
-    <version>9</version>
+    <version>9.0.0.redhat-2</version>
   </parent>
 
   <groupId>org.jboss.fuse</groupId>
   <artifactId>application-templates</artifactId>
-  <version>2.1.0.fuse-sb2-780003</version>
+  <version>2.1.0.fuse-sb2-780003-redhat-00003</version>
   <packaging>pom</packaging>
 
   <name>Application templates</name>
@@ -56,20 +57,20 @@
   </scm>
 
   <properties>
-    <spring-boot-2-camel.version>7.8.0.fuse-sb2-780019</spring-boot-2-camel.version>
-    <spring-boot-2-camel-xa.version>7.8.0.fuse-sb2-780019</spring-boot-2-camel-xa.version>
-    <spring-boot-2-camel-amq.version>7.8.0.fuse-sb2-780018</spring-boot-2-camel-amq.version>
-    <spring-boot-2-camel-config.version>7.8.0.fuse-sb2-780017</spring-boot-2-camel-config.version>
-    <spring-boot-2-camel-drools.version>7.8.0.fuse-sb2-780024</spring-boot-2-camel-drools.version>
-    <spring-boot-2-camel-infinispan.version>7.8.0.fuse-sb2-780018</spring-boot-2-camel-infinispan.version>
-    <spring-boot-2-camel-rest-sql.version>7.8.0.fuse-sb2-780024</spring-boot-2-camel-rest-sql.version>
-    <spring-boot-2-camel-rest-3scale.version>7.8.0.fuse-sb2-780024</spring-boot-2-camel-rest-3scale.version>
-    <spring-boot-2-camel-xml.version>7.8.0.fuse-sb2-780022</spring-boot-2-camel-xml.version>
-    <spring-boot-2-camel-soap-rest-bridge.version>7.8.0.fuse-sb2-780016</spring-boot-2-camel-soap-rest-bridge.version>
-    <spring-boot-2-cxf-jaxrs.version>7.8.0.fuse-sb2-780016</spring-boot-2-cxf-jaxrs.version>
-    <spring-boot-2-cxf-jaxws.version>7.8.0.fuse-sb2-780016</spring-boot-2-cxf-jaxws.version>
-    <spring-boot-2-cxf-jaxrs-xml.version>7.8.0.fuse-sb2-780016</spring-boot-2-cxf-jaxrs-xml.version>
-    <spring-boot-2-cxf-jaxws-xml.version>7.8.0.fuse-sb2-780016</spring-boot-2-cxf-jaxws-xml.version>
+    <spring-boot-2-camel.version>7.8.0.fuse-sb2-780019-redhat-00004</spring-boot-2-camel.version>
+    <spring-boot-2-camel-xa.version>7.8.0.fuse-sb2-780019-redhat-00002</spring-boot-2-camel-xa.version>
+    <spring-boot-2-camel-amq.version>7.8.0.fuse-sb2-780018-redhat-00002</spring-boot-2-camel-amq.version>
+    <spring-boot-2-camel-config.version>7.8.0.fuse-sb2-780017-redhat-00001</spring-boot-2-camel-config.version>
+    <spring-boot-2-camel-drools.version>7.8.0.fuse-sb2-780024-redhat-00001</spring-boot-2-camel-drools.version>
+    <spring-boot-2-camel-infinispan.version>7.8.0.fuse-sb2-780018-redhat-00001</spring-boot-2-camel-infinispan.version>
+    <spring-boot-2-camel-rest-sql.version>7.8.0.fuse-sb2-780024-redhat-00001</spring-boot-2-camel-rest-sql.version>
+    <spring-boot-2-camel-rest-3scale.version>7.8.0.fuse-sb2-780024-redhat-00001</spring-boot-2-camel-rest-3scale.version>
+    <spring-boot-2-camel-xml.version>7.8.0.fuse-sb2-780022-redhat-00002</spring-boot-2-camel-xml.version>
+    <spring-boot-2-camel-soap-rest-bridge.version>7.8.0.fuse-sb2-780016-redhat-00001</spring-boot-2-camel-soap-rest-bridge.version>
+    <spring-boot-2-cxf-jaxrs.version>7.8.0.fuse-sb2-780016-redhat-00002</spring-boot-2-cxf-jaxrs.version>
+    <spring-boot-2-cxf-jaxws.version>7.8.0.fuse-sb2-780016-redhat-00001</spring-boot-2-cxf-jaxws.version>
+    <spring-boot-2-cxf-jaxrs-xml.version>7.8.0.fuse-sb2-780016-redhat-00002</spring-boot-2-cxf-jaxrs-xml.version>
+    <spring-boot-2-cxf-jaxws-xml.version>7.8.0.fuse-sb2-780016-redhat-00001</spring-boot-2-cxf-jaxws-xml.version>
   </properties>
 
   <dependencyManagement>
@@ -123,13 +124,6 @@
 
       <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
-        <artifactId>karaf-camel-log</artifactId>
-        <version>${karaf-camel-log.version}</version>
-        <scope>test</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>karaf-camel-rest-sql</artifactId>
         <version>${karaf-camel-rest-sql.version}</version>
         <scope>test</scope>
@@ -142,7 +136,7 @@
         <scope>test</scope>
       </dependency>
 
-     <dependency>
+      <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>spring-boot-camel</artifactId>
         <version>${spring-boot-2-camel.version}</version>
@@ -154,14 +148,14 @@
         <artifactId>spring-boot-camel-xa</artifactId>
         <version>${spring-boot-2-camel-xa.version}</version>
         <scope>test</scope>
-     </dependency>
+      </dependency>
 
      <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>spring-boot-camel-amq</artifactId>
         <version>${spring-boot-2-camel-amq.version}</version>
         <scope>test</scope>
-      </dependency>
+     </dependency>
 
      <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
@@ -205,14 +199,14 @@
         <scope>test</scope>
       </dependency>
 
-      <dependency>
+     <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>spring-boot-camel-soap-rest-bridge</artifactId>
         <version>${spring-boot-2-camel-soap-rest-bridge.version}</version>
         <scope>test</scope>
       </dependency>
 
-     <dependency>
+      <dependency>
         <groupId>io.fabric8.quickstarts.cxf.jaxrs</groupId>
         <artifactId>spring-boot-cxf-jaxrs</artifactId>
         <version>${spring-boot-2-cxf-jaxrs.version}</version>
@@ -224,14 +218,14 @@
         <artifactId>spring-boot-cxf-jaxws</artifactId>
         <version>${spring-boot-2-cxf-jaxws.version}</version>
         <scope>test</scope>
-     </dependency>
+      </dependency>
 
      <dependency>
         <groupId>io.fabric8.quickstarts.cxf.jaxrs</groupId>
         <artifactId>spring-boot-cxf-jaxrs-xml</artifactId>
         <version>${spring-boot-2-cxf-jaxrs-xml.version}</version>
         <scope>test</scope>
-      </dependency>
+     </dependency>
 
      <dependency>
         <groupId>io.fabric8.quickstarts.cxf.jaxws</groupId>
@@ -240,8 +234,18 @@
         <scope>test</scope>
       </dependency>
 
+     
+
 
     </dependencies>
   </dependencyManagement>
 
+  <build>
+    <pluginManagement></pluginManagement>
+  </build>
+
 </project>
+<!--
+Modified by POM Manipulation Extension for Maven 4.0 ( SHA: 1c463180 ) 
+-->
+
