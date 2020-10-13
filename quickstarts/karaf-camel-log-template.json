@@ -3,24 +3,24 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.7 Camel log with Karaf",
+      "openshift.io/display-name": "Red Hat Fuse 7.8 Camel log with Karaf",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "A simple Camel route in Karaf container. This quickstart shows a simple Apache Camel application that logs a message to the server log every 5th second.",
       "tags": "quickstart,java,karaf,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
-      "version": "1.7"
+      "version": "1.8"
     },
-    "name": "s2i-fuse77-karaf-camel-log"
+    "name": "s2i-fuse78-karaf-camel-log"
   },
   "labels": {
-    "template": "s2i-fuse77-karaf-camel-log"
+    "template": "s2i-fuse78-karaf-camel-log"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse77-karaf-camel-log",
+      "value": "s2i-fuse78-karaf-camel-log",
       "description": "The name assigned to the application."
     },
     {
@@ -39,7 +39,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.7",
+      "value": "1.8",
       "description": "The version of the FIS S2I builder image to use."
     },
     {
@@ -302,7 +302,7 @@
               "version": "${APP_VERSION}",
               "com.company": "Red_Hat",
               "rht.prod_name": "Red_Hat_Integration",
-              "rht.prod_ver": "7.7",
+              "rht.prod_ver": "7.8",
               "rht.comp": "${APP_NAME}",
               "rht.comp_ver": "${APP_VERSION}"
             }
