@@ -40,7 +40,9 @@ Use our template to define a ServiceMonitor and to create a service account and 
 oc process -f fuse-servicemonitor.yml -p NAMESPACE=<your-fuse-namespace> -p FUSE_SERVICE_NAME=<fuse-app-name> | oc apply -f -
 ```
 
-Once you have done this, you should be able to view metrics for your Fuse application in the Monitoring->Metrics section.     Type "org_apache_camel_ExchangesTotal" or another camel metric into the query box :
+It may take five to ten minutes for the metrics for your Fuse application to begin to be collected and display within Monitoring->Metrics, so be patient, and possibly take a coffee break at this point.
+
+Type "org_apache_camel_ExchangesTotal" or another camel metric into the query box :
 
 ![Exchanges Total](https://github.com/jboss-fuse/application-templates/raw/master/monitoring/img/exchangestotal.png)
 
