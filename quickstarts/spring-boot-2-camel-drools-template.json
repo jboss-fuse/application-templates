@@ -33,7 +33,7 @@
     {
       "name": "GIT_REF",
       "displayName": "Git Reference",
-      "value": "spring-boot-camel-drools-7.8.0.fuse-sb2-780028",
+      "value": "spring-boot-camel-drools-7.8.0.fuse-sb2-780028-redhat-00002",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
@@ -65,7 +65,7 @@
     {
       "name": "APP_VERSION",
       "displayName": "Application Version",
-      "value": "7.8.0.fuse-sb2-780028",
+      "value": "7.8.0.fuse-sb2-780028-redhat-00002",
       "description": "The application version."
     },
     {
