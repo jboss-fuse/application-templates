@@ -173,56 +173,88 @@ Note that `CN=fuse-console.fuse.svc` must be trusted by the Jolokia agents, for 
 
 You can then proceed with the [deployment](#deployment).
 
+### RBAC
 
-## Prometheus Operator for Fuse
+#### Configuration
 
-Monitor your Fuse applications and take advantage of the built-in instrumentation with the prometheus-operator.
+The `fuse-console-cluster-rbac.yml` and `fuse-console-namespace-rbac.yml` templates create a _ConfigMap_, that contains the configuration file used to define the roles allowed for MBean operations.
+This _ConfigMap_ is mounted into the Fuse console container, and the `HAWTIO_ONLINE_RBAC_ACL` environment variable is used to pass the configuration file path to the server.
+If that environment variable is not set, RBAC support is disabled, and only users granted the `update` verb on the pod resources are authorized to call MBeans operations.
 
-You can run the following instructions to deploy the prometheus-operator in your Fuse namespace:
+#### Roles
 
-First, install the CustomResourceDefinitions necessary for running the prometheus-operator.   The CustomResourceDefinitions only need to be installed once per cluster, so if you are installing the prometheus-operator to multiple namespaces, you only need to run this step once.   Note that you will need to be logged in as a user with cluster admin permissions.
+For the time being, only the `viewer` and `admin` roles are supported.
+Once the current invocation is authenticated, these roles are inferred from the permissions the user impersonating the request is granted for the pod hosting the operation being invoked.
 
-```
-$ oc login -u system:admin
-$ oc create -f fuse-prometheus-crd.yml
-```
-
-Then, install the prometheus-operator to your namespace:
-
-```
-$ oc process -f fuse-prometheus-operator.yml  -p NAMESPACE=<YOUR NAMESPACE> | oc create -f -
-```
-
-Finally, tell it to monitor your fuse application:
-
-```
-$ oc process -f fuse-servicemonitor.yml -p NAMESPACE=<YOUR NAMESPACE> FUSE_SERVICE_NAME=<YOUR FUSE SERVICE> | oc apply -f -
-```
-
-Note that the `NAMESPACE` and `FUSE_SERVICE_NAME` parameters must be specified.
-
-
-## Fuse Apicurito
-
-Design beautiful, functional APIs with zero coding, using a visual designer for OpenAPI documents.
-
-You can run the following instructions to deploy Fuse Apicurito on your OpenShift cluster.
-To install the Fuse Apicurito template, execute the following command:
+A user that's granted the `update` verb on the pod resource is bound to the `admin` role, i.e.:
 
 ```sh
-$ oc create -n myproject -f fuse-apicurito.yml
+$ oc auth can-i update pods/<pod> --as <user>
+yes
 ```
 
-Then, you should be able to see the template after navigating to _Add to Project > Select from Project_ in your project.
-
-Or, if you prefer the command line:
+Else, a user granted the `get` verb on the pod resource is bound the `viewer` role, i.e.:
 
 ```sh
-$ oc new-app --template apicurito -p ROUTE_HOSTNAME=<HOST>
+$ oc auth can-i get pods/<pod> --as <user>
+yes
 ```
 
-Note that the `ROUTE_HOSTNAME` parameter must be specified and set to a hostname that will resolve to your openshift cluster.
+Otherwise the user is not bound any roles, i.e.:
 
+```sh
+$ oc auth can-i get pods/<pod> --as <user>
+no
+```
 
+#### ACL
+
+The ACL definition for JMX operations works as follows:
+
+Based on the _ObjectName_ of the JMX MBean, a key composed with the _ObjectName_ domain, optionally followed by the `type` attribute, can be declared, using the convention `<domain>.<type>`.
+For example, the `java.lang.Threading` key for the MBean with the _ObjectName_ `java.lang:type=Threading` can be declared.
+A more generic key with the domain only can be declared (e.g. `java.lang`).
+A `default` top-level key can also be declared.
+A key can either be an unordered or ordered map, whose keys can either be string or regexp, and whose values can either be string or array of strings, that represent roles that are allowed to invoke the MBean member.
+
+The default ACL definition can be found in the `${APP_NAME}-rbac` _ConfigMap_ from the `fuse-console-cluster-rbac.yml` and `fuse-console-namespace-rbac.yml` templates.
+
+#### Authorization
+
+The system looks for allowed roles using the following process:
+
+The most specific key is tried first. E.g. for the above example, the `java.lang.Threading` key is looked up first.
+If the most specific key does not exist, the domain-only key is looked up, otherwise, the `default` key is looked up.
+Using the matching key, the system looks up its map value for:
+
+1. An exact match for the operation invocation, using the operation signature, and the invocation arguments, e.g.:
+
+   `uninstall(java.lang.String)[0]: [] # no roles can perform this operation`
+
+2. A regexp match for the operation invocation, using the operation signature, and the invocation arguments, e.g.:
+
+   `/update\(java\.lang\.String,java\.lang\.String\)\[[1-4]?[0-9],.*\]/: admin`
+
+   Note that, if the value is an ordered map, the iteration order is guaranteed, and the first matching regexp key is selected;
+
+3. An exact match for the operation invocation, using the operation signature, without the invocation arguments, e.g.:
+
+   `delete(java.lang.String): admin`
+
+4. An exact match for the operation invocation, using the operation name, e.g.:
+
+   `dumpStatsAsXml: admin, viewer`
+
+If the key matches the operation invocation, it is used and the process will not look for any other keys. So the most specific key always takes precedence.
+Its value is used to match the role that impersonates the request, against the roles that are allowed to invoke the operation.
+If the current key does not match, the less specific key is looked up and matched following the steps 1 to 4 above, up until the `default` key.
+Otherwise, the operation invocation is denied.
+
+## Monitoring
+
+* [Monitoring Fuse on Openshift 4](./monitoring/prometheus.md)
+* [Fuse Example Grafana Dashboards](./monitoring/dashboards.msd)
+
+To learn how to use Prometheus and Grafana to monitor Fuse on Openshift 4, follow [this guide](./monitoring/prometheus.md).   Fuse provides a number of [example dashboards](./monitoring/dashboards.md).    We also have instructions on how to use [Fuse and Prometheus on Openshift 3](./openshift3/prometheus-openshift3.md)
 
 

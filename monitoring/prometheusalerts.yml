@@ -1,0 +1,33 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: camel-alerts
+  namespace: fuse7
+spec:
+  groups:
+  - name: CamelAlerts
+    rules:
+    - alert: ExchangesFailed
+      expr: org_apache_camel_ExchangesFailed{job="spring-boot-camel"} > 0
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "{{$labels.job}} exchange failure in context {{$labels.context}}"
+        description: "{{$labels.job}} exchange failed - context {{$labels.context}}, namespace {{$labels.namespace}}, processor {{$labels.processor}}"
+    - alert: MeanProcessingTimeAboveValueForTenMinutes
+      expr: org_apache_camel_MeanProcessingTime{job="spring-boot-camel"} >= 5000
+      for: 10m
+      labels:
+        severity: critical
+      annotations:
+        summary: "{{$labels.job}} mean processing time was {{ $value }}, above specified value of 5000"
+        description: "{{$labels.job}} mean processing time was {{ $value }}, above specified value of 5000"
+    - alert: CamelContextDownAfterTenMinutes
+      expr: org_apache_camel_StartedRoutes{job="spring-boot-camel"} == 0
+      for: 10m
+      labels:
+        severity: critical
+      annotations:
+        summary: "{{$labels.job}} has no started routes after ten minutes"
+        description: "{{$labels.job}} has {{ $value }} started routes after ten minutes"
