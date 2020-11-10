@@ -40,6 +40,11 @@ Use our template to define a ServiceMonitor and to create a service account and 
 oc process -f fuse-servicemonitor.yml -p NAMESPACE=<your-fuse-namespace> -p FUSE_SERVICE_NAME=<fuse-app-name> | oc apply -f -
 ```
 
+>**NOTE:** Make sure the configuration of the created service's selector is correct and matches all conditions properly.
+
+>**NOTE:** Fuse Console quickstart pods have no app name in labels. In the given example you have to remove *app: <app-name>* from the selector of the created service.
+>Otherwise, the quickstart won't be monitored.
+
 It may take five to ten minutes for the metrics for your Fuse application to begin to be collected and display within Monitoring->Metrics, so be patient, and possibly take a coffee break at this point.
 
 Type "org_apache_camel_ExchangesTotal" or another camel metric into the query box :
@@ -77,25 +82,29 @@ oc serviceaccounts get-token grafana-serviceaccount -n fuse7
 
 * Go to the Grafana Datasource tab in the Grafana Operator
 * Create Grafana Datasource
+> **NOTE:** The template provided below you can also find in the Custom Grafana dashboards for Red Hat OpenShift Container Platform 4 [documentation](https://www.redhat.com/en/blog/custom-grafana-dashboards-red-hat-openshift-container-platform-4).
 
 ```
-apiVersion: 1
-
-datasources:
-- name: Prometheus
-  type: prometheus
-  url: <REPLACE-WITH-THANOS-QUERIER-URL>
-  access: proxy
-  basicAuth: false
-  withCredentials: false
-  isDefault: true
-  jsonData:
-    timeInterval: 5s
-    tlsSkipVerify: true
-    httpHeaderName1: "Authorization"
-  secureJsonData:
-    httpHeaderValue1: "Bearer <REPLACE-WITH-TOKEN>"
-  editable: true
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDataSource
+metadata:
+  name: example-grafanadatasource
+  namespace: <REPLACE-WITH-YOUR-WORKING-NAMESPACE>
+spec:
+  datasources:
+  - access: proxy
+    editable: true
+    isDefault: true
+    jsonData:
+      httpHeaderName1: 'Authorization'
+      timeInterval: 5s
+      tlsSkipVerify: true
+    name: Prometheus
+    secureJsonData:
+      httpHeaderValue1: "Bearer <REPLACE-WITH-TOKEN>"
+    type: prometheus
+    url: <REPLACE-WITH-THANOS-QUERIER-URL>
+  name: example-datasources.yaml
 ```
 
 
