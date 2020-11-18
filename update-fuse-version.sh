@@ -70,8 +70,20 @@ function main {
       sed -i -E "s/\"registry.redhat.io\/fuse7\/fuse-apicurito:1.${PREVIOUS_MINOR_VERSION}\"/\"registry.redhat.io\/fuse7\/fuse-apicurito:1.${PREVIOUS_MINOR_VERSION}\"\n${FUSE_APICURITO}/" $file
       sed -i -E "s/\"registry.redhat.io\/fuse7\/fuse-apicurito-generator:1.${PREVIOUS_MINOR_VERSION}\"/\"registry.redhat.io\/fuse7\/fuse-apicurito-generator:1.${PREVIOUS_MINOR_VERSION}\"\n${FUSE_APICURITO_GENERATOR}/" $file
     fi
+    # Replace version in metadata.annotation.openshift.io/display-name
     sed -i -E "s/Fuse [0-9]+\.[0-9]+\.?[0-9]*/Fuse ${FUSE_VERSION}/" $file
+
+    # Replace version in rht.prod_ver label value in DeploymentConfig
+    sed -i -E "s/\"rht.prod_ver\": \"[0-9]+\.[0-9]+\"/\"rht.prod_ver\": \"${FUSE_VERSION}\"/" $file
+
+    # Replace version in image names
     sed -i -E "s/fuse[0-9][0-9]+/${FUSE_NAME}/" $file
+  done
+
+  for file in *.yml
+  do
+    # Replace version in rht.prod_ver label value in DeploymentConfig
+    sed -i -E "s/rht.prod_ver: [0-9]+\.[0-9]+/rht.prod_ver: ${FUSE_VERSION}/" $file
   done
 }
 
