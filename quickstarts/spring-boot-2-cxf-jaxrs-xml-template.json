@@ -3,24 +3,24 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.8 CXF JAX-RS with Spring Boot 2",
+      "openshift.io/display-name": "Red Hat Fuse 7.9 CXF JAX-RS with Spring Boot 2",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Spring Boot 2 and CXF JAX-RS QuickStart. This example demonstrates how you can use Apache CXF JAX-RS with Spring Boot 2 on OpenShift. The quickstart uses Spring Boot 2 to launch a Spring configuration file based CXF application which includes a JAX-RS endpoint with Swagger enabled.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
       "version": "1.8"
     },
-    "name": "s2i-fuse78-spring-boot-2-cxf-jaxrs-xml"
+    "name": "s2i-fuse79-spring-boot-2-cxf-jaxrs-xml"
   },
   "labels": {
-    "template": "s2i-fuse78-spring-boot-2-cxf-jaxrs-xml"
+    "template": "s2i-fuse79-spring-boot-2-cxf-jaxrs-xml"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse78-spring-boot-2-cxf-jaxrs-xml",
+      "value": "s2i-fuse79-spring-boot-2-cxf-jaxrs-xml",
       "description": "The name assigned to the application."
     },
     {
