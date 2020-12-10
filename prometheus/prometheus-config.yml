@@ -208,6 +208,14 @@ rules:
         route: $2
         type: routes
     type: GAUGE
+  - pattern: 'org.apache.camel<context=([^,]+), type=routes, name=([^,]+)><>OldestInflightDuration'
+    name: org.apache.camel.OldestInflightDuration
+    help: Oldest Inflight Duration
+    labels:
+        context: $1
+        route: $2
+        type: routes
+    type: GAUGE
   - pattern: 'org.apache.camel<context=([^,]+), type=routes, name=([^,]+)><>InflightExchanges'
     name: org.apache.camel.InflightExchanges
     help: Inflight Exchanges
