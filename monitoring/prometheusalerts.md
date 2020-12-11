@@ -21,6 +21,46 @@ spec:
   groups:
   - name: CamelAlerts
     rules:
+    - alert: Availability
+      expr: absent(up{job="spring-boot-camel"})
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "{{$labels.job}} is missing"
+        description: "{{$labels.job}} is missing - context {{$labels.context}}, namespace {{$labels.namespace}}, processor {{$labels.processor}}"
+    - alert: MinProcessingTime
+      expr: org_apache_camel_MinProcessingTime{job="spring-boot-camel"} > 1000
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "{{$labels.job}} minimum processing time above limit in context {{$labels.context}}"
+        description: "{{$labels.job}} minimum processing time - context {{$labels.context}}, namespace {{$labels.namespace}}, processor {{$labels.processor}}"
+    - alert: MeanProcessingTime
+      expr: org_apache_camel_MeanProcessingTime{job="spring-boot-camel"} > 1000
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "{{$labels.job}} mean processing time above limit in context {{$labels.context}}"
+        description: "{{$labels.job}} mean processing time - context {{$labels.context}}, namespace {{$labels.namespace}}, processor {{$labels.processor}}"
+    - alert: ExchangesCompletedInAMinute
+      expr: rate(org_apache_camel_ExchangesCompleted{job="spring-boot-camel"}[5m]) == 0
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "{{$labels.job}} no exchanges completed in last 5 minutes in context {{$labels.context}}"
+        description: "{{$labels.job}} exchanges completed in a minute - context {{$labels.context}}, namespace {{$labels.namespace}}, processor {{$labels.processor}}"
+    - alert: ExchangesFailedInAMinute
+      expr: rate(org_apache_camel_ExchangesFailed{job="spring-boot-camel"}[5m]) > 5
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "{{$labels.job}} no exchanges completed in last 5 minutes in context {{$labels.context}}"
+        description: "{{$labels.job}} exchanges completed in a minute - context {{$labels.context}}, namespace {{$labels.namespace}}, processor {{$labels.processor}}"
     - alert: ExchangesFailed
       expr: org_apache_camel_ExchangesFailed{job="spring-boot-camel"} > 0
       for: 1m
@@ -80,7 +120,7 @@ Use the route listed and plug it into your browser :
 
 ![Thanos Alerting](img/thanosalerts.png)
 
-If an alert is triggered, it will move from "inactive" to "pending" until .    If the alert violates the alerting rule long enough for the period specified in `for:` to pass, it will move from pending to firing.
+If an alert is triggered, it will move from "inactive" to "pending" until the period specified in `for:` is completed.    If the alert violates the alerting rule long enough for the period specified in `for:` to pass, it will move from pending to firing.
 
 [Prometheus documentation on writing alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)
 
