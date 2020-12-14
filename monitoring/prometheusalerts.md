@@ -125,3 +125,10 @@ If an alert is triggered, it will move from "inactive" to "pending" until the pe
 [Prometheus documentation on writing alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)
 
 [Configuring alerting receivers](https://www.openshift.com/blog/openshift-4-3-alertmanager-configuration)
+
+
+## Silences and Recovery
+
+If you have an alert that is frequently triggering, and the number of notifications you are getting are excessive, you can dampen the number of notifications you get about this alert through using [Silences](https://docs.openshift.com/container-platform/4.6/monitoring/managing-alerts.html#managing-silences_managing-alerts). 
+
+If you want a notification upon an alert condition recovering and moving from triggered to inactive or pending, you can add [send_resolved](https://prometheus.io/docs/alerting/latest/configuration/) to your alertmanager configuration.
