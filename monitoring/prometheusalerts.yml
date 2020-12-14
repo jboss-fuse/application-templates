@@ -7,6 +7,46 @@ spec:
   groups:
   - name: CamelAlerts
     rules:
+    - alert: Availability
+      expr: absent(up{job="spring-boot-camel"})
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "{{$labels.job}} is missing"
+        description: "{{$labels.job}} is missing - context {{$labels.context}}, namespace {{$labels.namespace}}, processor {{$labels.processor}}"
+    - alert: MinProcessingTime
+      expr: org_apache_camel_MinProcessingTime{job="spring-boot-camel"} > 1000
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "{{$labels.job}} minimum processing time above limit in context {{$labels.context}}"
+        description: "{{$labels.job}} minimum processing time - context {{$labels.context}}, namespace {{$labels.namespace}}, processor {{$labels.processor}}"
+    - alert: MeanProcessingTime
+      expr: org_apache_camel_MeanProcessingTime{job="spring-boot-camel"} > 1000
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "{{$labels.job}} mean processing time above limit in context {{$labels.context}}"
+        description: "{{$labels.job}} mean processing time - context {{$labels.context}}, namespace {{$labels.namespace}}, processor {{$labels.processor}}"
+    - alert: ExchangesCompletedInAMinute
+      expr: rate(org_apache_camel_ExchangesCompleted{job="spring-boot-camel"}[5m]) == 0
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "{{$labels.job}} no exchanges completed in last 5 minutes in context {{$labels.context}}"
+        description: "{{$labels.job}} exchanges completed in a minute - context {{$labels.context}}, namespace {{$labels.namespace}}, processor {{$labels.processor}}"
+    - alert: ExchangesFailedInAMinute
+      expr: rate(org_apache_camel_ExchangesFailed{job="spring-boot-camel"}[5m]) > 5
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "{{$labels.job}} no exchanges completed in last 5 minutes in context {{$labels.context}}"
+        description: "{{$labels.job}} exchanges completed in a minute - context {{$labels.context}}, namespace {{$labels.namespace}}, processor {{$labels.processor}}"
     - alert: ExchangesFailed
       expr: org_apache_camel_ExchangesFailed{job="spring-boot-camel"} > 0
       for: 1m
