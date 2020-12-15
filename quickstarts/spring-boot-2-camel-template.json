@@ -3,24 +3,24 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.8 Camel with Spring Boot 2",
+      "openshift.io/display-name": "Red Hat Fuse 7.9 Camel with Spring Boot 2",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Spring Boot 2 and Camel QuickStart. This example demonstrates how you can use Apache Camel with Spring Boot 2 on OpenShift. The quickstart uses Spring Boot to configure an application which includes a Camel route that triggers a message every 5th second, and routes the message to a log.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
       "version": "1.8"
     },
-    "name": "s2i-fuse78-spring-boot-2-camel"
+    "name": "s2i-fuse79-spring-boot-2-camel"
   },
   "labels": {
-    "template": "s2i-fuse78-spring-boot-2-camel"
+    "template": "s2i-fuse79-spring-boot-2-camel"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse78-spring-boot-2-camel",
+      "value": "s2i-fuse79-spring-boot-2-camel",
       "description": "The name assigned to the application."
     },
     {
