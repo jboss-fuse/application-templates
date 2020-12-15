@@ -329,7 +329,12 @@
               "app": "${APP_NAME}",
               "provider": "s2i",
               "version": "${APP_VERSION}",
-              "group": "quickstarts"
+              "group": "quickstarts",
+              "com.company": "Red_Hat",
+              "rht.prod_name": "Red_Hat_Integration",
+              "rht.prod_ver": "7.8",
+              "rht.comp": "${APP_NAME}",
+              "rht.comp_ver": "${APP_VERSION}"
             }
           },
           "spec": {
