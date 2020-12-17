@@ -27,7 +27,7 @@
 
   <groupId>org.jboss.fuse</groupId>
   <artifactId>application-templates</artifactId>
-  <version>2.1.0.fuse-sb2-780019-redhat-00004</version>
+  <version>2.1.0.fuse-sb2-780019-redhat-00005</version>
   <packaging>pom</packaging>
 
   <name>Application templates</name>
