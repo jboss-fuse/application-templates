@@ -8,7 +8,7 @@
       "description": "The Red Hat Fuse Console eases the discovery and management of Fuse applications deployed on OpenShift.",
       "tags": "hawtio,java,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
-      "version": "1.7"
+      "version": "1.9"
     },
     "labels": {
       "template": "fuse-console"
@@ -27,7 +27,7 @@
       "name": "APP_VERSION",
       "displayName": "Application Version",
       "required": true,
-      "value": "1.7",
+      "value": "1.9",
       "description": "The application version."
     },
     {
