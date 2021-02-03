@@ -82,6 +82,12 @@
       "description": "The size of the volume used to store the transaction log."
     },
     {
+      "name": "BASE_IMAGE_NAME",
+      "displayName": "Base Image Name, JDK11 or JDK8",
+      "value": "fuse7-java-openshift",
+      "description": "The base image used. Default is fuse7-java-openshift which is JDK8 based; fuse7-java11-openshift is JDK11 based"
+    },
+    {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
       "value": "1.8",
@@ -245,7 +251,7 @@
             "from": {
               "kind": "ImageStreamTag",
               "namespace": "${IMAGE_STREAM_NAMESPACE}",
-              "name": "fuse7-java-openshift:${BUILDER_VERSION}"
+              "name": "${BASE_IMAGE_NAME}:${BUILDER_VERSION}"
             },
             "forcePull": true,
             "incremental": true,
