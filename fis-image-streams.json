@@ -441,6 +441,39 @@
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
+                "name": "fuse7-java11-openshift",
+                "annotations": {
+                    "openshift.io/display-name": "Red Hat Fuse 7 Java11",
+                    "openshift.io/provider-display-name": "Red Hat, Inc."
+                }
+            },
+            "spec": {
+                "tags": [
+                    {
+                        "name": "1.9",
+                        "annotations": {
+                            "description": "Red Hat Fuse 7.9 Java11 S2I images.",
+                            "openshift.io/display-name": "Red Hat Fuse 7.9 Java11",
+                            "iconClass": "icon-rh-integration",
+                            "tags": "builder,jboss-fuse,java,xpaas,hidden",
+                            "supports":"jboss-fuse:7.9.0,java:11,xpaas:1.2",
+                            "version": "1.9"
+                        },
+                        "referencePolicy": {
+                            "type": "Local"
+                        },
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "registry.redhat.io/fuse7/fuse-java-openshift-jdk11-rhel7:1.9"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
+            "metadata": {
                 "name": "fuse7-karaf-openshift",
                 "annotations": {
                     "openshift.io/display-name": "Red Hat Fuse 7 Karaf",
