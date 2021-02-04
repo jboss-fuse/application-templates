@@ -8,7 +8,7 @@
       "description": "Red Hat Fuse on EAP Camel JPA quickstart. This example demonstrates how to connect a Camel application with Red Hat Fuse on EAP to a MySQL database and expose a REST API. This example creates two containers, one container to run as a MySQL server, and another running the Camel application which acts as as a client to the database.",
       "tags": "quickstart,javaee,java,jboss-fuse,fis",
       "iconClass": "icon-rh-integration",
-      "version": "1.8"
+      "version": "1.9"
     },
     "name": "s2i-fuse79-eap-camel-jpa"
   },
@@ -62,7 +62,7 @@
       "displayName": "Builder version",
       "description": "The version of the FIS S2I builder image to use.",
       "name": "BUILDER_VERSION",
-      "value": "1.8"
+      "value": "1.9"
     },
     {
       "displayName": "Database JNDI Name",

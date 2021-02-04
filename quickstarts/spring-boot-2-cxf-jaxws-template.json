@@ -8,7 +8,7 @@
       "description": "Spring Boot 2 and CXF JAX-WS QuickStart. This example demonstrates how you can use Apache CXF JAX-WS with Spring Boot 2 on OpenShift. The quickstart uses Spring Boot 2 to configure a CXF application which includes a JAX-WS endpoint.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
-      "version": "1.8"
+      "version": "1.9"
     },
     "name": "s2i-fuse79-spring-boot-2-cxf-jaxws"
   },
@@ -51,7 +51,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.8",
+      "value": "1.9",
       "description": "The version of the FIS S2I builder image to use."
     },
     {

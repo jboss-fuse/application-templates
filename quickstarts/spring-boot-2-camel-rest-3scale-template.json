@@ -8,7 +8,7 @@
       "description": "Spring Boot 2, Camel REST DSL and 3Scale QuickStart. This example demonstrates how to use Camel's REST DSL to expose a RESTful API and expose it to 3scale.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse,3scale",
       "iconClass": "icon-rh-integration",
-      "version": "1.8"
+      "version": "1.9"
     },
     "name": "s2i-fuse79-spring-boot-2-camel-rest-3scale"
   },
@@ -51,7 +51,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.8",
+      "value": "1.9",
       "description": "The version of the FIS S2I builder image to use."
     },
     {

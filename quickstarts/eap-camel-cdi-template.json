@@ -8,7 +8,7 @@
       "description": "Red Hat Fuse on EAP Camel CDI quickstart. This example demonstrates using the camel-cdi component to integrate CDI beans with Camel routes.",
       "tags": "quickstart,javaee,java,jboss-fuse,fis",
       "iconClass": "icon-rh-integration",
-      "version": "1.8"
+      "version": "1.9"
     },
     "name": "s2i-fuse79-eap-camel-cdi"
   },
@@ -62,7 +62,7 @@
       "displayName": "Builder version",
       "description": "The version of the FIS S2I builder image to use.",
       "name": "BUILDER_VERSION",
-      "value": "1.8"
+      "value": "1.9"
     },
     {
       "displayName": "Queues",
