@@ -165,7 +165,7 @@ objects:
           version: ${APP_VERSION}
           com.company: Red_Hat
           rht.prod_name: Red_Hat_Integration
-          rht.prod_ver: 7.7
+          rht.prod_ver: 7.9
           rht.comp: ${APP_NAME}
           rht.comp_ver: ${APP_VERSION}
       spec:

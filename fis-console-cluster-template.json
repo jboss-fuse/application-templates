@@ -3,7 +3,7 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.7 Console (cluster)",
+      "openshift.io/display-name": "Red Hat Fuse 7.9 Console (cluster)",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "The Red Hat Fuse Console eases the discovery and management of Fuse applications deployed on OpenShift.",
       "tags": "hawtio,java,fis,jboss-fuse",
@@ -13,14 +13,14 @@
     "labels": {
       "template": "fuse-console"
     },
-    "name": "fuse77-console-cluster"
+    "name": "fuse79-console-cluster"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "fuse77-console",
+      "value": "fuse79-console",
       "description": "The name assigned to the application."
     },
     {
@@ -198,7 +198,7 @@
               "version": "${APP_VERSION}",
               "com.company": "Red_Hat",
               "rht.prod_name": "Red_Hat_Integration",
-              "rht.prod_ver": "7.7",
+              "rht.prod_ver": "7.9",
               "rht.comp": "${APP_NAME}",
               "rht.comp_ver": "${APP_VERSION}"
             }

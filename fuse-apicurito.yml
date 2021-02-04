@@ -96,7 +96,7 @@ objects:
           component: apicurito-ui
           com.company: Red_Hat
           rht.prod_name: Red_Hat_Integration
-          rht.prod_ver: 7.7
+          rht.prod_ver: 7.9
           rht.comp: apicurito-ui
           rht.comp_ver: ${APP_VERSION}
       spec:
@@ -199,7 +199,7 @@ objects:
           component: fuse-apicurito-generator
           com.company: Red_Hat
           rht.prod_name: Red_Hat_Integration
-          rht.prod_ver: 7.7
+          rht.prod_ver: 7.9
           rht.comp: fuse-apicurito-generator
           rht.comp_ver: ${APP_VERSION}
       spec:
