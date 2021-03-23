@@ -85,13 +85,13 @@
       "from": "[a-zA-Z0-9]{40}"
     },
     {
-      "name": "AMQP_SERVICE_NAME",
+      "name": "AMQ_CAMEL_SERVICE_NAME",
       "displayName": "EnMasse Service",
       "required": true,
       "description": "Set this to the route host name attached to the TCP service of the external 'messaging' route exposed by EnMasse. E.g messaging-enmasse.192.168.64.1.nip.io."
     },
     {
-      "name": "AMQP_SERVICE_PORT",
+      "name": "AMQ_CAMEL_SERVICE_PORT_AMQPS",
       "displayName": "EnMasse Service Port",
       "required": true,
       "description": "Set this to the EnMasse Service port e.g 5671"
@@ -107,7 +107,7 @@
       "description": "The password used to authenticate with EnMasse."
     },
     {
-      "name": "AMQP_PARAMETERS",
+      "name": "AMQ_CAMEL_SERVICE_PORT_AMQP",
       "displayName": "EnMasse Parameters",
       "description": "The parameters passed to EnMasse.",
       "value": "transport.trustAll=true&transport.verifyHost=false&amqp.idleTimeout=120000"
@@ -372,11 +372,11 @@
                     }
                   }
                 }, {
-                  "name": "AMQP_SERVICE_NAME",
-                  "value": "${AMQP_SERVICE_NAME}"
+                  "name": "AMQ_CAMEL_SERVICE_NAME",
+                  "value": "${AMQ_CAMEL_SERVICE_NAME}"
                 }, {
-                  "name": "AMQP_SERVICE_PORT",
-                  "value": "${AMQP_SERVICE_PORT}"
+                  "name": "AMQ_CAMEL_SERVICE_PORT_AMQPS",
+                  "value": "${AMQ_CAMEL_SERVICE_PORT_AMQPS}"
                 }, {
                   "name": "AMQP_USERNAME",
                   "value": "${AMQP_USERNAME}"
@@ -384,8 +384,8 @@
                   "name": "AMQP_PASSWORD",
                   "value": "${AMQP_PASSWORD}"
                 }, {
-                  "name": "AMQP_PARAMETERS",
-                  "value": "${AMQP_PARAMETERS}"
+                  "name": "AMQ_CAMEL_SERVICE_PORT_AMQP",
+                  "value": "${AMQ_CAMEL_SERVICE_PORT_AMQP}"
                 } ],
                 "resources": {
                   "requests": {
