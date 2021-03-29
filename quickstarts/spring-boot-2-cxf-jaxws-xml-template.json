@@ -63,7 +63,7 @@
     {
       "name": "MAVEN_ARGS",
       "displayName": "Maven Arguments",
-      "value": "package -DskipTests -Dfabric8.skip -e -B",
+      "value": "package -DskipTests -Djkube.skip -e -B",
       "description": "Arguments passed to mvn in the build."
     },
     {
