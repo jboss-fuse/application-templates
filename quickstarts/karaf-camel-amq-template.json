@@ -94,7 +94,22 @@
       "name": "AMQP_SERVICE_PORT",
       "displayName": "EnMasse Service Port",
       "required": true,
-      "description": "Set this to the EnMasse Service port e.g 5671"
+      "description": "AMQP service port",
+      "value": "5672"
+    },
+    { 
+      "name": "AMQP_SERVICE_PORT_SSL",
+      "displayName": "EnMasse SSL Service Port",
+      "required": true,
+      "description": "AMQPS service port", 
+      "value": "5671"
+    },
+    { 
+      "name": "AMQP_SERVICE_PROTOCOL",
+      "displayName": "EnMasse Service Protocol",
+      "required": true,
+      "description": "AMQPS service protocol to use, amqp or amqps",
+      "value": "amqps"
     },
     {
       "name": "AMQP_USERNAME",
@@ -372,19 +387,25 @@
                     }
                   }
                 }, {
-                  "name": "AMQP_SERVICE_NAME",
+                  "name": "AMQ_CAMEL_PROTOCOL",
+                  "value": "${AMQP_SERVICE_PROTOCOL}"
+                },{
+                  "name": "AMQ_CAMEL_SERVICE_NAME",
                   "value": "${AMQP_SERVICE_NAME}"
                 }, {
-                  "name": "AMQP_SERVICE_PORT",
+                  "name": "AMQ_CAMEL_SERVICE_PORT_AMQP",
                   "value": "${AMQP_SERVICE_PORT}"
+                },{
+                  "name": "AMQ_CAMEL_SERVICE_PORT_AMQPS",
+                  "value": "${AMQP_SERVICE_PORT_SSL}"
                 }, {
-                  "name": "AMQP_USERNAME",
+                  "name": "AMQ_CAMEL_USERNAME",
                   "value": "${AMQP_USERNAME}"
                 }, {
-                  "name": "AMQP_PASSWORD",
+                  "name": "AMQ_CAMEL_PASSWORD",
                   "value": "${AMQP_PASSWORD}"
                 }, {
-                  "name": "AMQP_PARAMETERS",
+                  "name": "AMQ_CAMEL_PARAMETERS",
                   "value": "${AMQP_PARAMETERS}"
                 } ],
                 "resources": {
