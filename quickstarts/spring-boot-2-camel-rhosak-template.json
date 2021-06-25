@@ -5,7 +5,7 @@
     "annotations": {
       "openshift.io/display-name": "Red Hat Fuse 7.9 Camel on Spring Boot 2 with Red Hat OpenShift Streams for Apache Kafka",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
-      "description": "Spring Boot 2, Camel and Red Hat OpenShift streams for Apache Kafka. This example demonstrates how to run a Camel Service on Spring-Boot 2 that connects with Red Hat OpenShift Streams for Apache Kafka.",
+      "description": "Spring Boot 2, Camel and Red Hat OpenShift Streams for Apache Kafka. This example demonstrates how to run a Camel Service on Spring-Boot 2 that connects with Red Hat OpenShift Streams for Apache Kafka.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
       "version": "1.9"
@@ -126,7 +126,7 @@
       "displayName": "Image Stream Namespace",
       "value": "openshift",
       "required": true,
-      "description": "Namespace in which the Fuse ImageStreams are installed. These ImageStreams are normally installed in the openshift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project."
+      "description": "Namespace in which the Fuse ImageStreams are installed. These ImageStreams are normally installed in the OpenShift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project."
     },
     {
       "name": "BUILD_SECRET",
