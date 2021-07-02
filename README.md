@@ -255,7 +255,7 @@ Otherwise, the operation invocation is denied.
 ## Monitoring
 
 * [Monitoring Fuse on Openshift 4](./monitoring/prometheus.md)
-* [Fuse Example Grafana Dashboards](./monitoring/dashboards.msd)
+* [Fuse Example Grafana Dashboards](./monitoring/dashboards.md)
 
 To learn how to use Prometheus and Grafana to monitor Fuse on Openshift 4, follow [this guide](./monitoring/prometheus.md).   Fuse provides a number of [example dashboards](./monitoring/dashboards.md).    We also have instructions on how to use [Fuse and Prometheus on Openshift 3](./openshift3/prometheus-openshift3.md)
 
