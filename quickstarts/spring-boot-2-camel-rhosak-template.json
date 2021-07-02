@@ -27,7 +27,7 @@
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
       "required": true,
-      "value": "https://github.com/jboss-fuse/spring-boot-camel-rhosak.git",
+      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-rhosak.git",
       "description": "The URL of the repository with your application source code."
     },
     {
