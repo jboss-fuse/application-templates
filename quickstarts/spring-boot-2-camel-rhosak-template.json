@@ -20,7 +20,7 @@
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse79-sb2-rhosak",
+      "value": "qs-sb2-camel-rhosak",
       "description": "The name assigned to the application (max 20 characters)."
     },
     {
@@ -37,49 +37,57 @@
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
-      "name": "BROKER_HOST",
-      "displayName": "A-MQ Broker Service",
+      "name": "KAFKA_BROKERS",
+      "displayName": "Kafka brokers",
       "required": true,
-      "value": "broker-amq-tcp",
-      "description": "Set this to the name of the TCP service of the A-MQ broker. You may need to create a broker first."
+      "description": "URL of the Kafka brokers to use. The format is 'host1:port1,host2:port2' and the list can be a subset of brokers or a VIP pointing to a subset of brokers. This option is known as bootstrap.servers in the Kafka documentation"
     },
     {
-      "name": "BROKER_USERNAME",
-      "displayName": "A-MQ Broker Username",
+      "name": "SA_CLIENT_ID",
+      "displayName": "Kafka Broker Service Account Client ID",
       "required": true,
-      "description": "The username used to authenticate with the A-MQ broker."
+      "description": "The Service Account Client ID used to authenticate with the A-MQ broker."
     },
     {
-      "name": "BROKER_PASSWORD",
-      "displayName": "A-MQ Broker Password",
+      "name": "SA_CLIENT_SECRET",
+      "displayName": "Kafka Broker Service Account Client Secret",
       "required": true,
-      "description": "The password used to authenticate with the A-MQ broker."
+      "description": "The Service Account Client Secret used to authenticate with the A-MQ broker."
     },
     {
-      "name": "DATABASE_HOST",
-      "displayName": "PostgreSQL Service",
+      "name": "TOPIC_NAME",
+      "displayName": "Kafka Topic Name",
       "required": true,
-      "value": "postgresql",
-      "description": "Set this to the name of the PostgreSQL service. You may need to create the database first."
+      "value": "test",
+      "description": "Name of the topic to use. On the consumer you can use comma to separate multiple topics. A producer can only send a message to a single topic."
     },
     {
-      "name": "DATABASE_USERNAME",
-      "displayName": "PostgreSQL Username",
+      "name": "CONSUMER_GROUP_ID",
+      "displayName": "Kafka Consumer Group ID",
       "required": true,
-      "description": "The username used to authenticate with the PostgreSQL database."
+      "value": "kafkaGroup",
+      "description": "A string that uniquely identifies the group of consumer processes to which this consumer belongs. By setting the same group id multiple processes indicate that they are all part of the same consumer group. This option is required for consumers."
     },
     {
-      "name": "DATABASE_PASSWORD",
-      "displayName": "PostgreSQL Password",
+      "name": "SEEK_TO_STRATEGY",
+      "displayName": "Kafka seek to strategy",
       "required": true,
-      "description": "The password used to authenticate with the PostgreSQL database."
+      "value": "beginning",
+      "description": "Set if Kafka Consumer will read from beginning or end on startup"
     },
     {
-      "name": "VOLUME_SIZE",
-      "displayName": "Volume size for transaction log",
+      "name": "MAX_POLL_RECORDS",
+      "displayName": "Kafka Max Poll Records",
       "required": true,
-      "value": "1Gi",
-      "description": "The size of the volume used to store the transaction log."
+      "value": "5000",
+      "description": "The maximum number of records returned in a single call to poll()."
+    },
+    {
+      "name": "KAFKA_CONSUMERS_COUNT",
+      "displayName": "Kafka Consumer Count",
+      "required": true,
+      "value": "1",
+      "description": "The number of consumers that connect to kafka server."
     },
     {
       "name": "BASE_IMAGE_NAME",
@@ -96,7 +104,7 @@
     {
       "name": "APP_VERSION",
       "displayName": "Application Version",
-      "value": "2.2.64-SNAPSHOT",
+      "value": "1.0-SNAPSHOT",
       "description": "The application version."
     },
     {
@@ -111,9 +119,9 @@
       "description": "Extra arguments passed to mvn, e.g. for multi-module builds."
     },
     {
+      "name": "MAVEN_MIRROR_URL",
       "displayName": "Maven mirror URL",
       "description": "Maven mirror to use for S2I builds.",
-      "name": "MAVEN_MIRROR_URL",
       "required": false
     },
     {
@@ -179,6 +187,13 @@
     }
   ],
   "objects": [
+    {
+      "apiVersion": "v1",
+      "kind": "ServiceAccount",
+      "metadata": {
+        "name": "${APP_NAME}"
+      }
+    },
     {
       "kind": "ImageStream",
       "apiVersion": "v1",
@@ -293,14 +308,11 @@
             "memory": "${BUILD_MEMORY_LIMIT}"
           }
         }
-      },
-      "status": {
-        "lastVersion": 0
       }
     },
     {
-      "kind": "StatefulSet",
-      "apiVersion": "apps/v1",
+      "kind": "DeploymentConfig",
+      "apiVersion": "apps.openshift.io/v1",
       "metadata": {
         "name": "${APP_NAME}",
         "labels": {
@@ -315,297 +327,171 @@
         }
       },
       "spec": {
-        "podManagementPolicy": "Parallel",
-        "updateStrategy": {
-          "type": "RollingUpdate"
+        "strategy": {
+          "type": "Rolling",
+          "rollingParams": {
+            "updatePeriodSeconds": 1,
+            "intervalSeconds": 1,
+            "timeoutSeconds": 3600,
+            "maxUnavailable": "25%",
+            "maxSurge": "25%"
+          },
+          "activeDeadlineSeconds": 21600
         },
-        "replicas": 1,
-        "selector": {
-          "matchLabels": {
-            "app": "${APP_NAME}",
-            "provider": "s2i",
-            "group": "quickstarts"
+        "triggers": [
+          {
+            "type": "ConfigChange"
+          },
+          {
+            "type": "ImageChange",
+            "imageChangeParams": {
+              "automatic": true,
+              "containerNames": [
+                "${APP_NAME}"
+              ],
+              "from": {
+                "kind": "ImageStreamTag",
+                "name": "${APP_NAME}:latest"
+              }
+            }
           }
+        ],
+        "replicas": 1,
+        "revisionHistoryLimit": 2,
+        "test": false,
+        "selector": {
+          "app": "${APP_NAME}",
+          "group": "io.fabric8.quickstarts",
+          "provider": "s2i"
         },
-        "serviceName": "${APP_NAME}-headless",
         "template": {
           "metadata": {
             "labels": {
-              "component": "${APP_NAME}",
               "app": "${APP_NAME}",
-              "provider": "s2i",
-              "version": "${APP_VERSION}",
-              "group": "quickstarts",
-              "com.company": "Red_Hat",
-              "rht.prod_name": "Red_Hat_Integration",
-              "rht.prod_ver": "7.9",
-              "rht.comp": "${APP_NAME}",
-              "rht.comp_ver": "${APP_VERSION}"
+              "group": "io.fabric8.quickstarts",
+              "provider": "s2i"
             }
           },
           "spec": {
             "containers": [
               {
+                "name": "${APP_NAME}",
+                "image": "library/${APP_NAME}:latest",
+                "resources": {
+                  "limits": {
+                    "cpu": "${CPU_LIMIT}",
+                    "memory": "${MEMORY_LIMIT}"
+                  },
+                  "requests": {
+                    "cpu": "${CPU_REQUEST}",
+                    "memory": "${MEMORY_REQUEST}"
+                  }
+                },
+                "readinessProbe": {
+                  "httpGet": {
+                    "path": "/actuator/health",
+                    "port": 8081,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 10,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "livenessProbe": {
+                  "httpGet": {
+                    "path": "/actuator/health",
+                    "port": 8081,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 180,
+                  "timeoutSeconds": 1,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
                 "env": [
-                  {
-                    "name": "CLUSTER_RECOVERY_ENABLED",
-                    "value": "true"
-                  },
-                  {
-                    "name": "CLUSTER_BASE_DIR",
-                    "value": "/var/transaction/data"
-                  },
-                  {
-                    "name": "CLUSTER_NAME",
-                    "value": "${APP_NAME}"
-                  },
-                  {
-                    "name": "CLUSTER_NODENAME",
-                    "valueFrom": {
-                      "fieldRef": {
-                        "apiVersion": "v1",
-                        "fieldPath": "metadata.name"
-                      }
-                    }
-                  },
-                  {
-                    "name": "BROKER_HOST",
-                    "value": "${BROKER_HOST}"
-                  },
-                  {
-                    "name": "BROKER_USERNAME",
-                    "value": "${BROKER_USERNAME}"
-                  },
-                  {
-                    "name": "BROKER_PASSWORD",
-                    "value": "${BROKER_PASSWORD}"
-                  },
-                  {
-                    "name": "DATABASE_HOST",
-                    "value": "${DATABASE_HOST}"
-                  },
-                  {
-                    "name": "DATABASE_USERNAME",
-                    "value": "${DATABASE_USERNAME}"
-                  },
-                  {
-                    "name": "DATABASE_PASSWORD",
-                    "value": "${DATABASE_PASSWORD}"
-                  },
                   {
                     "name": "KUBERNETES_NAMESPACE",
                     "valueFrom": {
                       "fieldRef": {
+                        "apiVersion": "v1",
                         "fieldPath": "metadata.namespace"
                       }
                     }
-                  }
-                ],
-                "image": "${APP_NAME}:latest",
-                "imagePullPolicy": "Always",
-                "livenessProbe": {
-                  "httpGet": {
-                    "path": "/actuator/health",
-                    "port": 8080,
-                    "scheme": "HTTP"
-                  },
-                  "initialDelaySeconds": 180
-                },
-                "name": "${APP_NAME}",
-                "ports": [
-                  {
-                    "containerPort": 8080,
-                    "name": "http",
-                    "protocol": "TCP"
                   },
                   {
-                    "containerPort": 8778,
-                    "name": "jolokia",
-                    "protocol": "TCP"
+                    "name": "SPRING_CONFIG_LOCATION",
+                    "value":"/etc/config/application.properties"
+                  },
+                  {
+                    "name": "SPRING_CLOUD_KUBERNETES_CONFIG_ENABLED",
+                    "value": "false"
                   }
                 ],
-                "readinessProbe": {
-                  "httpGet": {
-                    "path": "/actuator/health",
-                    "port": 8080,
-                    "scheme": "HTTP"
-                  },
-                  "initialDelaySeconds": 10
-                },
-                "resources": {
-                  "limits": {
-                    "cpu": "1.0",
-                    "memory": "256Mi"
-                  },
-                  "requests": {
-                    "cpu": "0.2",
-                    "memory": "256Mi"
-                  }
-                },
                 "securityContext": {
                   "privileged": false
                 },
+                "ports": [
+                  {
+                    "name": "http",
+                    "containerPort": 8080,
+                    "protocol": "TCP"
+                  },
+                  {
+                    "name": "prometheus",
+                    "containerPort": 9779,
+                    "protocol": "TCP"
+                  },
+                  {
+                    "name": "jolokia",
+                    "containerPort": 8778,
+                    "protocol": "TCP"
+                  }
+                ],
+                "imagePullPolicy": "IfNotPresent",
+                "terminationMessagePolicy": "File",
                 "volumeMounts": [
                   {
-                    "mountPath": "/var/transaction/data",
-                    "name": "${APP_NAME}-data"
+                    "name": "config",
+                    "mountPath": "/etc/config"
                   }
                 ]
               }
             ],
+            "restartPolicy": "Always",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
             "serviceAccountName": "${APP_NAME}",
-            "terminationGracePeriodSeconds": 180,
+            "serviceAccount": "${APP_NAME}",
+            "securityContext": {
+            },
             "volumes": [
               {
-                "name": "${APP_NAME}-data",
-                "persistentVolumeClaim": {
-                  "claimName": "${APP_NAME}"
+                "name": "config",
+                "configMap": {
+                  "name": "spring-boot-camel-rhosak"
                 }
               }
-            ]
+            ],
+            "schedulerName": "default-scheduler"
           }
         }
       }
     },
     {
+      "kind": "ConfigMap",
       "apiVersion": "v1",
-      "kind": "Service",
       "metadata": {
-        "labels": {
-          "component": "${APP_NAME}",
-          "app": "${APP_NAME}",
-          "provider": "s2i",
-          "version": "${APP_VERSION}",
-          "group": "quickstarts"
+        "annotations": {
+          "description": "ConfigMap to use in the quickstart"
         },
-        "name": "${APP_NAME}"
+        "name": "spring-boot-camel-rhosak"
       },
-      "spec": {
-        "ports": [
-          {
-            "name": "http",
-            "port": 8080,
-            "protocol": "TCP",
-            "targetPort": 8080
-          }
-        ],
-        "selector": {
-          "app": "${APP_NAME}",
-          "provider": "s2i",
-          "group": "quickstarts"
-        }
-      }
-    },
-    {
-      "apiVersion" : "v1",
-      "kind" : "Service",
-      "metadata" : {
-        "labels": {
-          "component": "${APP_NAME}",
-          "app": "${APP_NAME}",
-          "provider": "s2i",
-          "version": "${APP_VERSION}",
-          "group": "quickstarts"
-        },
-        "name" : "${APP_NAME}-headless"
-      },
-      "spec" : {
-        "clusterIP" : "None",
-        "ports" : [ {
-          "name" : "http",
-          "port" : 8080,
-          "protocol" : "TCP",
-          "targetPort" : 8080
-        } ],
-        "selector" : {
-          "app" : "${APP_NAME}",
-          "group" : "quickstarts",
-          "provider" : "s2i"
-        }
-      }
-    },
-    {
-      "apiVersion" : "route.openshift.io/v1",
-      "kind" : "Route",
-      "metadata" : {
-        "labels" : {
-          "component" : "${APP_NAME}",
-          "app" : "${APP_NAME}",
-          "provider" : "s2i",
-          "version" : "${APP_VERSION}",
-          "group" : "quickstarts"
-        },
-        "name" : "${APP_NAME}"
-      },
-      "spec" : {
-        "port" : {
-          "targetPort" : 8080
-        },
-        "to" : {
-          "kind" : "Service",
-          "name" : "${APP_NAME}"
-        }
-      }
-    },
-    {
-      "apiVersion": "v1",
-      "kind": "ServiceAccount",
-      "metadata": {
-        "labels": {
-          "component": "${APP_NAME}",
-          "app": "${APP_NAME}",
-          "provider": "s2i",
-          "version": "${APP_VERSION}",
-          "group": "quickstarts"
-        },
-        "name": "${APP_NAME}"
-      }
-    },
-    {
-      "apiVersion": "v1",
-      "kind": "RoleBinding",
-      "metadata": {
-        "labels": {
-          "component": "${APP_NAME}",
-          "app": "${APP_NAME}",
-          "provider": "s2i",
-          "version": "${APP_VERSION}",
-          "group": "quickstarts"
-        },
-        "name": "${APP_NAME}"
-      },
-      "roleRef": {
-        "name": "edit"
-      },
-      "subjects": [
-        {
-          "kind": "ServiceAccount",
-          "name": "${APP_NAME}"
-        }
-      ]
-    },
-    {
-      "apiVersion": "v1",
-      "kind": "PersistentVolumeClaim",
-      "metadata": {
-        "labels": {
-          "component": "${APP_NAME}",
-          "app": "${APP_NAME}",
-          "group": "quickstarts",
-          "provider": "s2i",
-          "version": "${APP_VERSION}"
-        },
-        "name": "${APP_NAME}"
-      },
-      "spec": {
-        "accessModes": [
-          "ReadWriteMany"
-        ],
-        "resources": {
-          "requests": {
-            "storage": "${VOLUME_SIZE}"
-          }
-        }
+      "data": {
+        "application.properties": "# Service Account info\nkafka.client-id=${SA_CLIENT_ID}\nkafka.client-secret=${SA_CLIENT_SECRET}\n\n# URL of the Kafka brokers to use. The format is host1:port1,host2:port2,\n# and the list can be a subset of brokers or a VIP pointing to a subset of brokers.\n# This option is known as bootstrap.servers in the Kafka documentation\nkafka.brokers = ${KAFKA_BROKERS}\n# The Simple Authentication and Security Layer (SASL) Mechanism used. For the\n# valid values see http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml\nkafka.sasl-mechanism = PLAIN\n# Protocol used to communicate with brokers. Currently only PLAINTEXT and SSL\n# are supported.\nkafka.security-protocol = SASL_SSL\n# Expose the kafka sasl.jaas.config parameter\nkafka.sasl-jaas-config = org.apache.kafka.common.security.plain.PlainLoginModule required username='${SA_CLIENT_ID}' password='${SA_CLIENT_SECRET}';\n# The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and TLSv1 are enabled by default.\nkafka.ssl-enabled-protocols = TLSv1.2,TLSv1.3\n# The SSL protocol used to generate the SSLContext. Default setting is TLS,\n# which is fine for most cases. Allowed values in recent JVMs are TLS, TLSv1.1,\n# TLSv1.2 and TLSv1.3. SSL, SSLv2 and SSLv3 may be supported in older JVMs,\n# but their usage is discouraged due to known security vulnerabilities.\nkafka.ssl-protocol = TLSv1.3\n# The maximum number of records returned in a single call to poll()\nkafka.max-poll-records = ${MAX_POLL_RECORDS}\n# A string that uniquely identifies the group of consumer processes to which\n# this consumer belongs. By setting the same group id multiple processes indicate\n# that they are all part of the same consumer group. This option is required for consumers.\nkafka.group-id = ${CONSUMER_GROUP_ID}\n# Set if KafkaConsumer will read from beginning or end on startup:\n# beginning : read from beginning\n# end : read from end\n# This is replacing the earlier property seekToBeginning\nkafka.seek-to = ${SEEK_TO_STRATEGY}\n# The number of consumers that connect to kafka server\nkafka.consumers-count = ${KAFKA_CONSUMERS_COUNT}\n# Name of the topic to use. On the consumer you can use comma to separate\n# multiple topics. A producer can only send a message to a single topic.\nkafka.topic = ${TOPIC_NAME}\n\n# lets listen on all ports to ensure we can be invoked from the pod IP\nserver.address=0.0.0.0\nmanagement.server.address=0.0.0.0\n\n# lets use a different management port in case you need to listen to HTTP requests on 8080\nmanagement.server.port=8081\n\n# disable all management endpoints except health\nendpoints.enabled = false\nendpoints.health.enabled = true"
       }
     }
   ]
