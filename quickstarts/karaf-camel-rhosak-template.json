@@ -1,5 +1,5 @@
 {
-  "apiVersion": "v1",
+  "apiVersion": "template.openshift.io/v1",
   "kind": "Template",
   "metadata": {
     "annotations": {
@@ -35,6 +35,59 @@
       "displayName": "Git Reference",
       "value": "master",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
+    },
+    {
+      "name": "KAFKA_BROKERS",
+      "displayName": "Kafka brokers",
+      "required": true,
+      "description": "URL of the Kafka brokers to use. The format is 'host1:port1,host2:port2' and the list can be a subset of brokers or a VIP pointing to a subset of brokers. This option is known as bootstrap.servers in the Kafka documentation"
+    },
+    {
+      "name": "SA_CLIENT_ID",
+      "displayName": "Kafka Broker Service Account Client ID",
+      "required": true,
+      "description": "The Service Account Client ID used to authenticate with the A-MQ broker."
+    },
+    {
+      "name": "SA_CLIENT_SECRET",
+      "displayName": "Kafka Broker Service Account Client Secret",
+      "required": true,
+      "description": "The Service Account Client Secret used to authenticate with the A-MQ broker."
+    },
+    {
+      "name": "TOPIC_NAME",
+      "displayName": "Kafka Topic Name",
+      "required": true,
+      "value": "test",
+      "description": "Name of the topic to use. On the consumer you can use comma to separate multiple topics. A producer can only send a message to a single topic."
+    },
+    {
+      "name": "CONSUMER_GROUP_ID",
+      "displayName": "Kafka Consumer Group ID",
+      "required": true,
+      "value": "kafkaGroup",
+      "description": "A string that uniquely identifies the group of consumer processes to which this consumer belongs. By setting the same group id multiple processes indicate that they are all part of the same consumer group. This option is required for consumers."
+    },
+    {
+      "name": "SEEK_TO_STRATEGY",
+      "displayName": "Kafka seek to strategy",
+      "required": true,
+      "value": "beginning",
+      "description": "Set if Kafka Consumer will read from beginning or end on startup"
+    },
+    {
+      "name": "MAX_POLL_RECORDS",
+      "displayName": "Kafka Max Poll Records",
+      "required": true,
+      "value": "5000",
+      "description": "The maximum number of records returned in a single call to poll()."
+    },
+    {
+      "name": "KAFKA_CONSUMERS_COUNT",
+      "displayName": "Kafka Consumer Count",
+      "required": true,
+      "value": "1",
+      "description": "The number of consumers that connect to kafka server."
     },
     {
       "name": "BUILDER_VERSION",
@@ -312,19 +365,19 @@
               {
                 "name": "${APP_NAME}",
                 "image": "library/${APP_NAME}:latest",
-                "readinessProbe" : {
-                  "httpGet" : {
-                    "path" : "/readiness-check",
-                    "port" : 8181
+                "readinessProbe": {
+                  "httpGet": {
+                    "path": "/readiness-check",
+                    "port": 8181
                   },
-                  "initialDelaySeconds" : 10
+                  "initialDelaySeconds": 10
                 },
-                "livenessProbe" : {
-                  "httpGet" : {
-                    "path" : "/health-check",
-                    "port" : 8181
+                "livenessProbe": {
+                  "httpGet": {
+                    "path": "/health-check",
+                    "port": 8181
                   },
-                  "initialDelaySeconds" : 180
+                  "initialDelaySeconds": 180
                 },
                 "ports": [
                   {
@@ -336,14 +389,20 @@
                     "name": "jolokia"
                   }
                 ],
-                "env" : [ {
-                  "name" : "KUBERNETES_NAMESPACE",
-                  "valueFrom" : {
-                    "fieldRef" : {
-                      "fieldPath" : "metadata.namespace"
+                "env": [
+                  {
+                    "name": "KUBERNETES_NAMESPACE",
+                    "valueFrom": {
+                      "fieldRef": {
+                        "fieldPath": "metadata.namespace"
+                      }
                     }
+                  },
+                  {
+                    "name": "JAVA_OPTIONS",
+                    "value": "-Dfabric8.cm.bridge.enabled=false -Dfabric8.config.plugin.enabled=false -Dkafka.brokers=${KAFKA_BROKERS} -Dtopic.name=${TOPIC_NAME} -Dconsumer.group=${CONSUMER_GROUP_ID} -Dconsumer.maxPollRecords=${MAX_POLL_RECORDS} -Dconsumer.consumersCount=${KAFKA_CONSUMERS_COUNT} -Dconsumer.seekTo=${SEEK_TO_STRATEGY} -Dsa.client.id=${SA_CLIENT_ID} -Dsa.client.secret=${SA_CLIENT_SECRET}"
                   }
-                } ],
+                ],
                 "resources": {
                   "requests": {
                     "cpu": "${CPU_REQUEST}",
