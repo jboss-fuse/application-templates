@@ -125,7 +125,7 @@
       "name": "AMQP_PARAMETERS",
       "displayName": "EnMasse Parameters",
       "description": "The parameters passed to EnMasse.",
-      "value": "transport.trustAll=true&transport.verifyHost=false&amqp.idleTimeout=120000"
+      "value": "transport.trustAll=true&transport.verifyHost=false&amqp.idleTimeout=120000&amqp.saslMechanisms=PLAIN"
     },
     {
       "name": "CPU_REQUEST",
