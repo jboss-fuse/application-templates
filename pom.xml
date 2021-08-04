@@ -22,12 +22,12 @@
   <parent>
     <groupId>org.sonatype.oss</groupId>
     <artifactId>oss-parent</artifactId>
-    <version>9</version>
+    <version>9.0.0.redhat-2</version>
   </parent>
 
   <groupId>org.jboss.fuse</groupId>
   <artifactId>application-templates</artifactId>
-  <version>2.1.0.fuse-sb2-790047</version>
+  <version>2.1.0.fuse-sb2-790047-redhat-00004</version>
   <packaging>pom</packaging>
 
   <name>Application templates</name>
@@ -57,32 +57,32 @@
   </scm>
 
   <properties>
-    <eap-camel-amq.version>5.7.0.fuse-790063</eap-camel-amq.version>
-    <eap-camel-cdi.version>5.7.0.fuse-790063</eap-camel-cdi.version>
-    <eap-camel-cxf-jaxws.version>5.7.0.fuse-790063</eap-camel-cxf-jaxws.version>
-    <eap-camel-cxf-jaxrs.version>5.7.0.fuse-790063</eap-camel-cxf-jaxrs.version>
-    <eap-camel-jpa.version>5.7.0.fuse-790063</eap-camel-jpa.version>
-    <karaf-camel-amq.version>7.9.0.fuse-sb2-790050</karaf-camel-amq.version>
-    <karaf-camel-log.version>7.9.0.fuse-sb2-790050</karaf-camel-log.version>
-    <karaf-camel-rest-sql.version>7.9.0.fuse-sb2-790048</karaf-camel-rest-sql.version>
-    <karaf-camel-rhosak.version>7.9.0.fuse-sb2-790012</karaf-camel-rhosak.version>
-    <karaf-cxf-rest.version>7.9.0.fuse-sb2-790049</karaf-cxf-rest.version>
-    <spring-boot-2-camel.version>7.9.0.fuse-sb2-790048</spring-boot-2-camel.version>
-    <spring-boot-2-camel-xa.version>7.9.0.fuse-sb2-790055</spring-boot-2-camel-xa.version>
-    <spring-boot-2-camel-amq.version>7.9.0.fuse-sb2-790048</spring-boot-2-camel-amq.version>
-    <spring-boot-2-camel-config.version>7.9.0.fuse-sb2-790048</spring-boot-2-camel-config.version>
-    <spring-boot-2-camel-drools.version>7.9.0.fuse-sb2-790048</spring-boot-2-camel-drools.version>
-    <spring-boot-2-camel-infinispan.version>7.9.0.fuse-sb2-790048</spring-boot-2-camel-infinispan.version>
-    <spring-boot-2-camel-rest-sql.version>7.9.0.fuse-sb2-790048</spring-boot-2-camel-rest-sql.version>
-    <spring-boot-2-camel-rest-3scale.version>7.9.0.fuse-sb2-790049</spring-boot-2-camel-rest-3scale.version>
-    <spring-boot-2-camel-rhosak.version>7.9.0.fuse-sb2-790011</spring-boot-2-camel-rhosak.version>
+    <eap-camel-amq.version>5.7.0.fuse-790063-redhat-00001</eap-camel-amq.version>
+    <eap-camel-cdi.version>5.7.0.fuse-790063-redhat-00001</eap-camel-cdi.version>
+    <eap-camel-cxf-jaxws.version>5.7.0.fuse-790063-redhat-00001</eap-camel-cxf-jaxws.version>
+    <eap-camel-cxf-jaxrs.version>5.7.0.fuse-790063-redhat-00001</eap-camel-cxf-jaxrs.version>
+    <eap-camel-jpa.version>5.7.0.fuse-790063-redhat-00001</eap-camel-jpa.version>
+    <karaf-camel-amq.version>7.9.0.fuse-sb2-790050-redhat-00003</karaf-camel-amq.version>
+    <karaf-camel-log.version>7.9.0.fuse-sb2-790050-redhat-00002</karaf-camel-log.version>
+    <karaf-camel-rest-sql.version>7.9.0.fuse-sb2-790048-redhat-00002</karaf-camel-rest-sql.version>
+    <karaf-camel-rhosak.version>7.9.0.fuse-sb2-790012-redhat-00002</karaf-camel-rhosak.version>
+    <karaf-cxf-rest.version>7.9.0.fuse-sb2-790049-redhat-00002</karaf-cxf-rest.version>
+    <spring-boot-2-camel.version>7.9.0.fuse-sb2-790048-redhat-00002</spring-boot-2-camel.version>
+    <spring-boot-2-camel-xa.version>7.9.0.fuse-sb2-790055-redhat-00002</spring-boot-2-camel-xa.version>
+    <spring-boot-2-camel-amq.version>7.9.0.fuse-sb2-790048-redhat-00003</spring-boot-2-camel-amq.version>
+    <spring-boot-2-camel-config.version>7.9.0.fuse-sb2-790048-redhat-00002</spring-boot-2-camel-config.version>
+    <spring-boot-2-camel-drools.version>7.9.0.fuse-sb2-790048-redhat-00002</spring-boot-2-camel-drools.version>
+    <spring-boot-2-camel-infinispan.version>7.9.0.fuse-sb2-790048-redhat-00002</spring-boot-2-camel-infinispan.version>
+    <spring-boot-2-camel-rest-sql.version>7.9.0.fuse-sb2-790048-redhat-00002</spring-boot-2-camel-rest-sql.version>
+    <spring-boot-2-camel-rest-3scale.version>7.9.0.fuse-sb2-790049-redhat-00002</spring-boot-2-camel-rest-3scale.version>
+    <spring-boot-2-camel-rhosak.version>7.9.0.fuse-sb2-790011-redhat-00002</spring-boot-2-camel-rhosak.version>
 
-    <spring-boot-2-camel-xml.version>7.9.0.fuse-sb2-790047</spring-boot-2-camel-xml.version>
-    <spring-boot-2-camel-soap-rest-bridge.version>7.9.0.fuse-sb2-790048</spring-boot-2-camel-soap-rest-bridge.version>
-    <spring-boot-2-cxf-jaxrs.version>7.9.0.fuse-sb2-790047</spring-boot-2-cxf-jaxrs.version>
-    <spring-boot-2-cxf-jaxws.version>7.9.0.fuse-sb2-790047</spring-boot-2-cxf-jaxws.version>
-    <spring-boot-2-cxf-jaxrs-xml.version>7.9.0.fuse-sb2-790046</spring-boot-2-cxf-jaxrs-xml.version>
-    <spring-boot-2-cxf-jaxws-xml.version>7.9.0.fuse-sb2-790046</spring-boot-2-cxf-jaxws-xml.version>
+    <spring-boot-2-camel-xml.version>7.9.0.fuse-sb2-790047-redhat-00002</spring-boot-2-camel-xml.version>
+    <spring-boot-2-camel-soap-rest-bridge.version>7.9.0.fuse-sb2-790048-redhat-00002</spring-boot-2-camel-soap-rest-bridge.version>
+    <spring-boot-2-cxf-jaxrs.version>7.9.0.fuse-sb2-790047-redhat-00002</spring-boot-2-cxf-jaxrs.version>
+    <spring-boot-2-cxf-jaxws.version>7.9.0.fuse-sb2-790047-redhat-00002</spring-boot-2-cxf-jaxws.version>
+    <spring-boot-2-cxf-jaxrs-xml.version>7.9.0.fuse-sb2-790046-redhat-00002</spring-boot-2-cxf-jaxrs-xml.version>
+    <spring-boot-2-cxf-jaxws-xml.version>7.9.0.fuse-sb2-790046-redhat-00002</spring-boot-2-cxf-jaxws-xml.version>
   </properties>
 
   <dependencyManagement>
@@ -268,4 +268,11 @@
 
     </dependencies>
   </dependencyManagement>
+
+  <build>
+    <pluginManagement />
+  </build>
 </project>
+<!--
+Modified by POM Manipulation Extension for Maven 4.4 ( SHA: 02f85b8f )
+-->
