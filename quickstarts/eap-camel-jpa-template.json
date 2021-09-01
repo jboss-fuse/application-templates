@@ -27,7 +27,7 @@
       "displayName": "Application Version",
       "description": "The application version.",
       "name": "APP_VERSION",
-      "value": "5.7.0.fuse-7_10_0-00002",
+      "value": "5.7.0.fuse-7_10_0-00002-redhat-00001",
       "required": true
     },
     {
@@ -48,7 +48,7 @@
       "displayName": "Git Reference",
       "description": "Git branch/tag reference",
       "name": "GIT_REF",
-      "value": "wildfly-camel-examples-5.7.0.fuse-7_10_0-00002",
+      "value": "wildfly-camel-examples-5.7.0.fuse-7_10_0-00002-redhat-00001",
       "required": false
     },
     {
