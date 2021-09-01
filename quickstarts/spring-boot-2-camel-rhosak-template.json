@@ -192,6 +192,13 @@
       "kind": "ServiceAccount",
       "metadata": {
         "name": "${APP_NAME}"
+        "labels": {
+          "component": "${APP_NAME}",
+          "group": "quickstarts",
+          "app": "${APP_NAME}",
+          "provider": "s2i",
+          "version": "${APP_VERSION}"
+        }
       }
     },
     {
