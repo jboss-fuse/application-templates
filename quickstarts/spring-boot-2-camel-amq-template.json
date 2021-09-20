@@ -3,7 +3,7 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.9 Camel AMQP with Spring Boot 2",
+      "openshift.io/display-name": "Red Hat Fuse 7.10 Camel AMQP with Spring Boot 2",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Spring Boot 2, Camel and EnMasse (MaaS) QuickStart. This quickstart demonstrates how to connect a Spring Boot 2 application to a EnMasse (MaaS) and use JMS messaging between two Camel routes using OpenShift. It requires EnMasse to have been deployed and running first.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
@@ -346,7 +346,7 @@
               "version": "${APP_VERSION}",
               "com.company": "Red_Hat",
               "rht.prod_name": "Red_Hat_Integration",
-              "rht.prod_ver": "7.9",
+              "rht.prod_ver": "7.10",
               "rht.comp": "${APP_NAME}",
               "rht.comp_ver": "${APP_VERSION}"
             }

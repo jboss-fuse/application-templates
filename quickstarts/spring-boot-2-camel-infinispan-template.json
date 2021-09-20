@@ -3,7 +3,7 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.9 Camel + JDG with Spring Boot 2",
+      "openshift.io/display-name": "Red Hat Fuse 7.10 Camel + JDG with Spring Boot 2",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Spring Boot 2, Camel and JBoss Data Grid QuickStart. This quickstart demonstrates how to connect a Spring Boot 2 application to a JBoss Data Grid (or Infinispan) server using the Hot Rod protocol. It requires that the data grid server (or cluster) has been deployed first, one simple way to run a JDG service is following the documentation of the JDG xPaaS image for OpenShift related to the datagrid65-basic template.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
@@ -310,7 +310,7 @@
               "version": "${APP_VERSION}",
               "com.company": "Red_Hat",
               "rht.prod_name": "Red_Hat_Integration",
-              "rht.prod_ver": "7.9",
+              "rht.prod_ver": "7.10",
               "rht.comp": "${APP_NAME}",
               "rht.comp_ver": "${APP_VERSION}"
             }

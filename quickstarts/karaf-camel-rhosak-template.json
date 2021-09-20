@@ -3,7 +3,7 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.9 Camel RHOSAK with Karaf",
+      "openshift.io/display-name": "Red Hat Fuse 7.10 Camel RHOSAK with Karaf",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "A simple Camel route for Red Hat OpenShift Streams for Apache Kafka. This quickstart shows a simple Apache Camel application that connects with Red Hat OpenShift Streams for Apache Kafka.",
       "tags": "quickstart,java,karaf,fis,jboss-fuse,rhosak",
@@ -355,7 +355,7 @@
               "version": "${APP_VERSION}",
               "com.company": "Red_Hat",
               "rht.prod_name": "Red_Hat_Integration",
-              "rht.prod_ver": "7.9",
+              "rht.prod_ver": "7.10",
               "rht.comp": "${APP_NAME}",
               "rht.comp_ver": "${APP_VERSION}"
             }
