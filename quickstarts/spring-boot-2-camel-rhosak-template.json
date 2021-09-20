@@ -191,7 +191,7 @@
       "apiVersion": "v1",
       "kind": "ServiceAccount",
       "metadata": {
-        "name": "${APP_NAME}"
+        "name": "${APP_NAME}",
         "labels": {
           "component": "${APP_NAME}",
           "group": "quickstarts",
@@ -375,7 +375,6 @@
           "metadata": {
             "labels": {
               "app": "${APP_NAME}",
-              "group": "io.fabric8.quickstarts",
               "component": "${APP_NAME}",
               "container": "java",
               "deploymentconfig": "${APP_NAME}",
