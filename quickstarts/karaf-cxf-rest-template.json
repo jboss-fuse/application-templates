@@ -3,7 +3,7 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.9 Camel CXF REST with Karaf",
+      "openshift.io/display-name": "Red Hat Fuse 7.10 Camel CXF REST with Karaf",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "REST example using CXF in Karaf container. This quickstart demonstrates how to create a RESTful (JAX-RS) web service using CXF and expose it through the OSGi HTTP Service",
       "tags": "quickstart,java,karaf,fis,jboss-fuse",
@@ -357,7 +357,7 @@
               "version": "${APP_VERSION}",
               "com.company": "Red_Hat",
               "rht.prod_name": "Red_Hat_Integration",
-              "rht.prod_ver": "7.9",
+              "rht.prod_ver": "7.10",
               "rht.comp": "${APP_NAME}",
               "rht.comp_ver": "${APP_VERSION}"
             }
