@@ -8,7 +8,7 @@
       "description": "A simple Camel route for Red Hat OpenShift Streams for Apache Kafka. This quickstart shows a simple Apache Camel application that connects with Red Hat OpenShift Streams for Apache Kafka.",
       "tags": "quickstart,java,karaf,fis,jboss-fuse,rhosak",
       "iconClass": "icon-rh-integration",
-      "version": "1.9"
+      "version": "1.10"
     },
     "name": "s2i-fuse79-karaf-camel-rhosak"
   },
@@ -92,7 +92,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.9",
+      "value": "1.10",
       "description": "The version of the FIS S2I builder image to use."
     },
     {
