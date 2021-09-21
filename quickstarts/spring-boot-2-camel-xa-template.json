@@ -8,7 +8,7 @@
       "description": "Spring Boot 2, Camel and XA Transactions. This example demonstrates how to run a Camel Service on Spring-Boot 2 that supports XA transactions on two external transactional resources: a JMS resource (A-MQ) and a database (PostgreSQL). This quickstart requires the PostgreSQL database and the A-MQ broker have been deployed and running first, one simple way to run them is to use the templates provided in the Openshift service catalog",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
-      "version": "1.9"
+      "version": "1.10"
     },
     "name": "s2i-fuse79-spring-boot-2-camel-xa"
   },
@@ -90,7 +90,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.9",
+      "value": "1.10",
       "description": "The version of the Fuse S2I builder image to use."
     },
     {

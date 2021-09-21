@@ -8,7 +8,7 @@
       "description": "Red Hat Fuse on EAP Camel CXF JAX-WS quickstart. This example demonstrates using the camel-cxf component to produce and consume JAX-WS web services.",
       "tags": "quickstart,javaee,java,jboss-fuse,fis",
       "iconClass": "icon-rh-integration",
-      "version": "1.9"
+      "version": "1.10"
     },
     "name": "s2i-fuse79-eap-camel-cxf-jaxws"
   },
@@ -62,7 +62,7 @@
       "displayName": "Builder version",
       "description": "The version of the FIS S2I builder image to use.",
       "name": "BUILDER_VERSION",
-      "value": "1.9"
+      "value": "1.10"
     },
     {
       "displayName": "Queues",
