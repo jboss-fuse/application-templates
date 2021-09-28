@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+     Copyright 2005-2015 Red Hat, Inc.
+
+     Red Hat licenses this file to you under the Apache License, version
+     2.0 (the "License"); you may not use this file except in compliance
+     with the License.  You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+     implied.  See the License for the specific language governing
+     permissions and limitations under the License.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>9</version>
+  </parent>
+
+  <groupId>org.jboss.fuse</groupId>
+  <artifactId>application-templates</artifactId>
+  <version>2.1.0.fuse-sb2-7_10_0-00006</version>
+  <packaging>pom</packaging>
+
+  <name>Application templates</name>
+  <description>Dummy pom for openshift templates</description>
+
+  <url>http://github.com/jboss-fuse/application-templates</url>
+  <inceptionYear>2014</inceptionYear>
+
+  <organization>
+    <name>Red Hat</name>
+    <url>http://redhat.com</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:git@github.com:jboss-fuse/application-templates.git</connection>
+    <developerConnection>scm:git:git@github.com:jboss-fuse/application-templates.git</developerConnection>
+    <url>http://github.com/jboss-fuse/application-templates</url>
+    <tag>quickstarts-2.0.1</tag>
+  </scm>
+
+  <properties>
+    <eap-camel-amq.version>5.8.0.fuse-7_10_0-00003</eap-camel-amq.version>
+    <eap-camel-cdi.version>5.8.0.fuse-7_10_0-00003</eap-camel-cdi.version>
+    <eap-camel-cxf-jaxws.version>5.8.0.fuse-7_10_0-00003</eap-camel-cxf-jaxws.version>
+    <eap-camel-cxf-jaxrs.version>5.8.0.fuse-7_10_0-00003</eap-camel-cxf-jaxrs.version>
+    <eap-camel-jpa.version>5.8.0.fuse-7_10_0-00003</eap-camel-jpa.version>
+    <karaf-camel-amq.version>7.10.0.fuse-sb2-7_10_0-00006</karaf-camel-amq.version>
+    <karaf-camel-log.version>7.10.0.fuse-sb2-7_10_0-00006</karaf-camel-log.version>
+    <karaf-camel-rest-sql.version>7.10.0.fuse-sb2-7_10_0-00006</karaf-camel-rest-sql.version>
+    <karaf-cxf-rest.version>7.10.0.fuse-sb2-7_10_0-00006</karaf-cxf-rest.version>
+    <spring-boot-2-camel.version>7.10.0.fuse-sb2-7_10_0-00006</spring-boot-2-camel.version>
+    <spring-boot-2-camel-xa.version>7.10.0.fuse-sb2-7_10_0-00006</spring-boot-2-camel-xa.version>
+    <spring-boot-2-camel-amq.version>7.10.0.fuse-sb2-7_10_0-00006</spring-boot-2-camel-amq.version>
+    <spring-boot-2-camel-config.version>7.10.0.fuse-sb2-7_10_0-00006</spring-boot-2-camel-config.version>
+    <spring-boot-2-camel-drools.version>7.10.0.fuse-sb2-7_10_0-00006</spring-boot-2-camel-drools.version>
+    <spring-boot-2-camel-infinispan.version>7.10.0.fuse-sb2-7_10_0-00006</spring-boot-2-camel-infinispan.version>
+    <spring-boot-2-camel-rest-sql.version>7.10.0.fuse-sb2-7_10_0-00006</spring-boot-2-camel-rest-sql.version>
+    <spring-boot-2-camel-rest-3scale.version>7.10.0.fuse-sb2-7_10_0-00006</spring-boot-2-camel-rest-3scale.version>
+    <spring-boot-2-camel-xml.version>7.10.0.fuse-sb2-7_10_0-00006</spring-boot-2-camel-xml.version>
+    <spring-boot-2-camel-soap-rest-bridge.version>7.10.0.fuse-sb2-7_10_0-00006</spring-boot-2-camel-soap-rest-bridge.version>
+    <spring-boot-2-cxf-jaxrs.version>7.10.0.fuse-sb2-7_10_0-00006</spring-boot-2-cxf-jaxrs.version>
+    <spring-boot-2-cxf-jaxws.version>7.10.0.fuse-sb2-7_10_0-00006</spring-boot-2-cxf-jaxws.version>
+    <spring-boot-2-cxf-jaxrs-xml.version>7.10.0.fuse-sb2-7_10_0-00006</spring-boot-2-cxf-jaxrs-xml.version>
+    <spring-boot-2-cxf-jaxws-xml.version>7.10.0.fuse-sb2-7_10_0-00006</spring-boot-2-cxf-jaxws-xml.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+
+      <!-- Dependencies for quickstarts so that we get the correct versions from PNC -->
+      <dependency>
+        <groupId>org.wildfly.camel.example</groupId>
+        <artifactId>example-camel-activemq</artifactId>
+        <version>${eap-camel-amq.version}</version>
+        <type>pom</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.wildfly.camel.example</groupId>
+        <artifactId>example-camel-cdi</artifactId>
+        <version>${eap-camel-cdi.version}</version>
+        <type>pom</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.wildfly.camel.example</groupId>
+        <artifactId>example-camel-cxf-jaxrs</artifactId>
+        <version>${eap-camel-cxf-jaxrs.version}</version>
+        <type>pom</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.wildfly.camel.example</groupId>
+        <artifactId>example-camel-cxf-jaxws</artifactId>
+        <version>${eap-camel-cxf-jaxws.version}</version>
+        <type>pom</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.wildfly.camel.example</groupId>
+        <artifactId>example-camel-jpa</artifactId>
+        <version>${eap-camel-jpa.version}</version>
+        <type>pom</type>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>karaf-camel-amq</artifactId>
+        <version>${karaf-camel-amq.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>karaf-camel-log</artifactId>
+        <version>${karaf-camel-log.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>karaf-camel-rest-sql</artifactId>
+        <version>${karaf-camel-rest-sql.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>karaf-cxf-rest</artifactId>
+        <version>${karaf-cxf-rest.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+     <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>spring-boot-camel</artifactId>
+        <version>${spring-boot-2-camel.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+     <dependency>
+        <groupId>com.redhat.fuse.quickstarts</groupId>
+        <artifactId>spring-boot-camel-xa</artifactId>
+        <version>${spring-boot-2-camel-xa.version}</version>
+        <scope>test</scope>
+     </dependency>
+
+     <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>spring-boot-camel-amq</artifactId>
+        <version>${spring-boot-2-camel-amq.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+     <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>spring-boot-camel-config</artifactId>
+        <version>${spring-boot-2-camel-config.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+     <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>spring-boot-camel-drools</artifactId>
+        <version>${spring-boot-2-camel-drools.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+     <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>spring-boot-camel-infinispan</artifactId>
+        <version>${spring-boot-2-camel-infinispan.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+     <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>spring-boot-camel-rest-sql</artifactId>
+        <version>${spring-boot-2-camel-rest-sql.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+     <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>spring-boot-camel-rest-3scale</artifactId>
+        <version>${spring-boot-2-camel-rest-3scale.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+     <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>spring-boot-camel-xml</artifactId>
+        <version>${spring-boot-2-camel-xml.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>spring-boot-camel-soap-rest-bridge</artifactId>
+        <version>${spring-boot-2-camel-soap-rest-bridge.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+     <dependency>
+        <groupId>io.fabric8.quickstarts.cxf.jaxrs</groupId>
+        <artifactId>spring-boot-cxf-jaxrs</artifactId>
+        <version>${spring-boot-2-cxf-jaxrs.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+     <dependency>
+        <groupId>io.fabric8.quickstarts.cxf.jaxws</groupId>
+        <artifactId>spring-boot-cxf-jaxws</artifactId>
+        <version>${spring-boot-2-cxf-jaxws.version}</version>
+        <scope>test</scope>
+     </dependency>
+
+     <dependency>
+        <groupId>io.fabric8.quickstarts.cxf.jaxrs</groupId>
+        <artifactId>spring-boot-cxf-jaxrs-xml</artifactId>
+        <version>${spring-boot-2-cxf-jaxrs-xml.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+     <dependency>
+        <groupId>io.fabric8.quickstarts.cxf.jaxws</groupId>
+        <artifactId>spring-boot-cxf-jaxws-xml</artifactId>
+        <version>${spring-boot-2-cxf-jaxws-xml.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+
+    </dependencies>
+  </dependencyManagement>
+</project>
