@@ -10,17 +10,17 @@
       "iconClass": "icon-rh-integration",
       "version": "1.10"
     },
-    "name": "s2i-fuse79-spring-boot-2-camel-xa"
+    "name": "s2i-fuse710-spring-boot-2-camel-xa"
   },
   "labels": {
-    "template": "s2i-fuse79-spring-boot-2-camel-xa"
+    "template": "s2i-fuse710-spring-boot-2-camel-xa"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse79-sb2-xa",
+      "value": "s2i-fuse710-sb2-xa",
       "description": "The name assigned to the application (max 20 characters)."
     },
     {

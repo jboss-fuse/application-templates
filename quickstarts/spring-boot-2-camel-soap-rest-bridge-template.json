@@ -10,17 +10,17 @@
       "iconClass": "icon-rh-integration",
       "version": "1.10"
     },
-    "name": "s2i-fuse79-spring-boot-2-camel-soap-rest-bridge"
+    "name": "s2i-fuse710-spring-boot-2-camel-soap-rest-bridge"
   },
   "labels": {
-    "template": "s2i-fuse79-spring-boot-2-camel-soap-rest-bridge"
+    "template": "s2i-fuse710-spring-boot-2-camel-soap-rest-bridge"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse79-spring-boot-2-camel-soap-rest-bridge",
+      "value": "s2i-fuse710-spring-boot-2-camel-soap-rest-bridge",
       "description": "The name assigned to the application."
     },
     {

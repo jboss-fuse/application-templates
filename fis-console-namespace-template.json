@@ -13,14 +13,14 @@
     "labels": {
       "template": "fuse-console"
     },
-    "name": "fuse79-console"
+    "name": "fuse710-console"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "fuse79-console",
+      "value": "fuse710-console",
       "description": "The name assigned to the application."
     },
     {

@@ -10,17 +10,17 @@
       "iconClass": "icon-rh-integration",
       "version": "1.10"
     },
-    "name": "s2i-fuse79-karaf-camel-log"
+    "name": "s2i-fuse710-karaf-camel-log"
   },
   "labels": {
-    "template": "s2i-fuse79-karaf-camel-log"
+    "template": "s2i-fuse710-karaf-camel-log"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse79-karaf-camel-log",
+      "value": "s2i-fuse710-karaf-camel-log",
       "description": "The name assigned to the application."
     },
     {

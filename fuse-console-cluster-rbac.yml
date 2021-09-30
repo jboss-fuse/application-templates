@@ -1,26 +1,26 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: fuse79-console-cluster-rbac
+  name: fuse710-console-cluster-rbac
   labels:
     template: fuse-console
   annotations:
-    openshift.io/display-name: Red Hat Fuse 7.9 Console with RBAC (cluster)
+    openshift.io/display-name: Red Hat Fuse 7.10 Console with RBAC (cluster)
     openshift.io/provider-display-name: Red Hat, Inc.
     description: The Red Hat Fuse Console eases the discovery and management of Fuse applications deployed on OpenShift.
     tags: hawtio,java,fuse
     iconClass: icon-rh-integration
-    version: "1.9"
+    version: "1.10"
 parameters:
 - name: APP_NAME
   displayName: Application Name
   required: true
-  value: fuse79-console
+  value: fuse710-console
   description: The name assigned to the application
 - name: APP_VERSION
   displayName: Application Version
   required: true
-  value: "1.9"
+  value: "1.10"
   description: The application version
 - name: IMAGE_STREAM_NAMESPACE
   displayName: Image Stream Namespace
@@ -161,7 +161,7 @@ objects:
           version: ${APP_VERSION}
           com.company: Red_Hat
           rht.prod_name: Red_Hat_Integration
-          rht.prod_ver: "7.9"
+          rht.prod_ver: "7.10"
           rht.comp: ${APP_NAME}
           rht.comp_ver: ${APP_VERSION}
       spec:
