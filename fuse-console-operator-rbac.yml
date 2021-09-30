@@ -1,21 +1,21 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: fuse79-console-operator-rbac
+  name: fuse710-console-operator-rbac
   labels:
     template: fuse-console
   annotations:
-    openshift.io/display-name: Red Hat Fuse 7.9 Console RBAC ConfigMap
+    openshift.io/display-name: Red Hat Fuse 7.10 Console RBAC ConfigMap
     openshift.io/provider-display-name: Red Hat, Inc.
     description: RBAC ConfigMap for the Red Hat Fuse Console.
     tags: hawtio,java,fuse
     iconClass: icon-rh-integration
-    version: "1.9"
+    version: "1.10"
 parameters:
 - name: APP_NAME
   displayName: Application Name
   required: true
-  value: fuse79-console
+  value: fuse710-console
   description: The name assigned to the application
 objects:
 - apiVersion: v1

@@ -10,17 +10,17 @@
       "iconClass": "icon-rh-integration",
       "version": "1.10"
     },
-    "name": "s2i-fuse79-spring-boot-2-cxf-jaxws"
+    "name": "s2i-fuse710-spring-boot-2-cxf-jaxws"
   },
   "labels": {
-    "template": "s2i-fuse79-spring-boot-2-cxf-jaxws"
+    "template": "s2i-fuse710-spring-boot-2-cxf-jaxws"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse79-spring-boot-2-cxf-jaxws",
+      "value": "s2i-fuse710-spring-boot-2-cxf-jaxws",
       "description": "The name assigned to the application."
     },
     {

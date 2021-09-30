@@ -10,17 +10,17 @@
       "iconClass": "icon-rh-integration",
       "version": "1.10"
     },
-    "name": "s2i-fuse79-spring-boot-2-camel-drools"
+    "name": "s2i-fuse710-spring-boot-2-camel-drools"
   },
   "labels": {
-    "template": "s2i-fuse79-spring-boot-2-camel-drools"
+    "template": "s2i-fuse710-spring-boot-2-camel-drools"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse79-spring-boot-2-camel-drools",
+      "value": "s2i-fuse710-spring-boot-2-camel-drools",
       "description": "The name assigned to the application."
     },
     {

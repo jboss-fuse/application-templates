@@ -10,10 +10,10 @@
       "iconClass": "icon-rh-integration",
       "version": "1.10"
     },
-    "name": "s2i-fuse79-spring-boot-2-camel-rhosak"
+    "name": "s2i-fuse710-spring-boot-2-camel-rhosak"
   },
   "labels": {
-    "template": "s2i-fuse79-spring-boot-2-camel-rhosak"
+    "template": "s2i-fuse710-spring-boot-2-camel-rhosak"
   },
   "parameters": [
     {
