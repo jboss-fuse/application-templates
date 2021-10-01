@@ -504,6 +504,13 @@
         "annotations": {
           "description": "ConfigMap to use in the quickstart"
         },
+        "labels": {
+          "component": "${APP_NAME}",
+          "group": "quickstarts",
+          "app": "${APP_NAME}",
+          "provider": "s2i",
+          "version": "${APP_VERSION}"
+        },
         "name": "spring-boot-camel-rhosak"
       },
       "data": {
