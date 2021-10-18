@@ -80,6 +80,8 @@
     <spring-boot-2-cxf-jaxws.version>7.10.0.fuse-sb2-7_10_0-00008</spring-boot-2-cxf-jaxws.version>
     <spring-boot-2-cxf-jaxrs-xml.version>7.10.0.fuse-sb2-7_10_0-00008</spring-boot-2-cxf-jaxrs-xml.version>
     <spring-boot-2-cxf-jaxws-xml.version>7.10.0.fuse-sb2-7_10_0-00008</spring-boot-2-cxf-jaxws-xml.version>
+    <karaf-camel-rhosak.version>7.10.0.fuse-sb2-7_10_0-00008</karaf-camel-rhosak.version>
+    <spring-boot-2-camel-rhosak.version>7.10.0.fuse-sb2-7_10_0-00008</spring-boot-2-camel-rhosak.version>
   </properties>
 
   <dependencyManagement>
@@ -245,6 +247,20 @@
         <groupId>io.fabric8.quickstarts.cxf.jaxws</groupId>
         <artifactId>spring-boot-cxf-jaxws-xml</artifactId>
         <version>${spring-boot-2-cxf-jaxws-xml.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>karaf-camel-rhosak</artifactId>
+        <version>${karaf-camel-rhosak.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+     <dependency>
+        <groupId>io.fabric8.quickstarts</groupId>
+        <artifactId>spring-boot-camel-rhosak</artifactId>
+        <version>${spring-boot-2-camel-rhosak.version}</version>
         <scope>test</scope>
       </dependency>
 
