@@ -368,7 +368,7 @@
         "test": false,
         "selector": {
           "app": "${APP_NAME}",
-          "group": "io.fabric8.quickstarts",
+          "group": "quickstarts",
           "provider": "s2i"
         },
         "template": {
