@@ -3,24 +3,24 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.10 Camel REST SQL with Spring Boot 2",
+      "openshift.io/display-name": "Red Hat Fuse 7.11 Camel REST SQL with Spring Boot 2",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Spring Boot 2, Camel REST DSL and MySQL QuickStart. This quickstart demonstrates how to connect a Spring Boot 2 application to a MySQL database and expose a REST API with Camel on OpenShift. In this example we will use two containers, one container to run as a MySQL server, and another as a client to the database, where the Camel routes are running. This quickstart requires the MySQL server to be deployed and started first, one simple way to run a MySQL service is following the documentation of the OpenShift MySQL container image related to the mysql-ephemeral template.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
       "version": "1.10"
     },
-    "name": "s2i-fuse710-spring-boot-2-camel-rest-sql"
+    "name": "s2i-fuse711-spring-boot-2-camel-rest-sql"
   },
   "labels": {
-    "template": "s2i-fuse710-spring-boot-2-camel-rest-sql"
+    "template": "s2i-fuse711-spring-boot-2-camel-rest-sql"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse710-spring-boot-2-camel-rest-sql",
+      "value": "s2i-fuse711-spring-boot-2-camel-rest-sql",
       "description": "The name assigned to the application."
     },
     {
@@ -385,7 +385,7 @@
               "version": "${APP_VERSION}",
               "com.company": "Red_Hat",
               "rht.prod_name": "Red_Hat_Integration",
-              "rht.prod_ver": "7.10",
+              "rht.prod_ver": "7.11",
               "rht.comp": "${APP_NAME}",
               "rht.comp_ver": "${APP_VERSION}"
             }

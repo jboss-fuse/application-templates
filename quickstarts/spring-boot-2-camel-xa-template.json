@@ -3,24 +3,24 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.10 Camel on Spring Boot 2 with XA Transactions",
+      "openshift.io/display-name": "Red Hat Fuse 7.11 Camel on Spring Boot 2 with XA Transactions",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Spring Boot 2, Camel and XA Transactions. This example demonstrates how to run a Camel Service on Spring-Boot 2 that supports XA transactions on two external transactional resources: a JMS resource (A-MQ) and a database (PostgreSQL). This quickstart requires the PostgreSQL database and the A-MQ broker have been deployed and running first, one simple way to run them is to use the templates provided in the Openshift service catalog",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
       "version": "1.10"
     },
-    "name": "s2i-fuse710-spring-boot-2-camel-xa"
+    "name": "s2i-fuse711-spring-boot-2-camel-xa"
   },
   "labels": {
-    "template": "s2i-fuse710-spring-boot-2-camel-xa"
+    "template": "s2i-fuse711-spring-boot-2-camel-xa"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse710-sb2-xa",
+      "value": "s2i-fuse711-sb2-xa",
       "description": "The name assigned to the application (max 20 characters)."
     },
     {
@@ -338,7 +338,7 @@
               "group": "quickstarts",
               "com.company": "Red_Hat",
               "rht.prod_name": "Red_Hat_Integration",
-              "rht.prod_ver": "7.10",
+              "rht.prod_ver": "7.11",
               "rht.comp": "${APP_NAME}",
               "rht.comp_ver": "${APP_VERSION}"
             }
