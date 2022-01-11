@@ -3,24 +3,24 @@
   "apiVersion": "v1",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.10 Camel CDI with EAP",
+      "openshift.io/display-name": "Red Hat Fuse 7.11 Camel CDI with EAP",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Red Hat Fuse on EAP Camel CDI quickstart. This example demonstrates using the camel-cdi component to integrate CDI beans with Camel routes.",
       "tags": "quickstart,javaee,java,jboss-fuse,fis",
       "iconClass": "icon-rh-integration",
       "version": "1.10"
     },
-    "name": "s2i-fuse710-eap-camel-cdi"
+    "name": "s2i-fuse711-eap-camel-cdi"
   },
   "labels": {
-    "template": "s2i-fuse710-eap-camel-cdi"
+    "template": "s2i-fuse711-eap-camel-cdi"
   },
   "parameters": [
     {
       "displayName": "Application Name",
       "description": "The name for the application.",
       "name": "APP_NAME",
-      "value": "s2i-fuse710-eap-camel-cdi",
+      "value": "s2i-fuse711-eap-camel-cdi",
       "required": true
     },
     {
@@ -428,7 +428,7 @@
               "group": "quickstarts",
               "com.company": "Red_Hat",
               "rht.prod_name": "Red_Hat_Integration",
-              "rht.prod_ver": "7.10",
+              "rht.prod_ver": "7.11",
               "rht.comp": "${APP_NAME}",
               "rht.comp_ver": "${APP_VERSION}"
             }

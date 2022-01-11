@@ -3,17 +3,17 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.10 Camel on Spring Boot 2 with Red Hat OpenShift Streams for Apache Kafka",
+      "openshift.io/display-name": "Red Hat Fuse 7.11 Camel on Spring Boot 2 with Red Hat OpenShift Streams for Apache Kafka",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Spring Boot 2, Camel and Red Hat OpenShift Streams for Apache Kafka. This example demonstrates how to run a Camel Service on Spring-Boot 2 that connects with Red Hat OpenShift Streams for Apache Kafka.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
       "version": "1.10"
     },
-    "name": "s2i-fuse710-spring-boot-2-camel-rhosak"
+    "name": "s2i-fuse711-spring-boot-2-camel-rhosak"
   },
   "labels": {
-    "template": "s2i-fuse710-spring-boot-2-camel-rhosak"
+    "template": "s2i-fuse711-spring-boot-2-camel-rhosak"
   },
   "parameters": [
     {
@@ -383,7 +383,7 @@
               "version": "${APP_VERSION}",
               "com.company": "Red_Hat",
               "rht.prod_name": "Red_Hat_Integration",
-              "rht.prod_ver": "7.10",
+              "rht.prod_ver": "7.11",
               "rht.comp": "${APP_NAME}",
               "rht.comp_ver": "${APP_VERSION}"
             }
