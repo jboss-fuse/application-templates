@@ -8,7 +8,7 @@
       "description": "Spring Boot 2, Camel and EnMasse (MaaS) QuickStart. This quickstart demonstrates how to connect a Spring Boot 2 application to a EnMasse (MaaS) and use JMS messaging between two Camel routes using OpenShift. It requires EnMasse to have been deployed and running first.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
-      "version": "1.10"
+      "version": "1.11"
     },
     "name": "s2i-fuse711-spring-boot-2-camel-amq"
   },
@@ -88,7 +88,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.10",
+      "value": "1.11",
       "description": "The version of the FIS S2I builder image to use."
     },
     {

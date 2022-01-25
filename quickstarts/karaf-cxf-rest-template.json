@@ -8,7 +8,7 @@
       "description": "REST example using CXF in Karaf container. This quickstart demonstrates how to create a RESTful (JAX-RS) web service using CXF and expose it through the OSGi HTTP Service",
       "tags": "quickstart,java,karaf,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
-      "version": "1.10"
+      "version": "1.11"
     },
     "name": "s2i-fuse711-karaf-cxf-rest"
   },
@@ -45,7 +45,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.10",
+      "value": "1.11",
       "description": "The version of the FIS S2I builder image to use."
     },
     {
