@@ -419,11 +419,11 @@
                     {
                         "name": "1.11",
                         "annotations": {
-                            "description": "Red Hat Fuse 7.10 Java S2I images.",
-                            "openshift.io/display-name": "Red Hat Fuse 7.10 Java",
+                            "description": "Red Hat Fuse 7.11 Java S2I images.",
+                            "openshift.io/display-name": "Red Hat Fuse 7.11 Java",
                             "iconClass": "icon-rh-integration",
                             "tags": "builder,jboss-fuse,java,xpaas,hidden",
-                            "supports":"jboss-fuse:7.10.0,java:8,xpaas:1.2",
+                            "supports":"jboss-fuse:7.11.0,java:8,xpaas:1.2",
                             "version": "1.11"
                         },
                         "referencePolicy": {
@@ -665,11 +665,11 @@
                     {
                         "name": "1.11",
                         "annotations": {
-                            "description": "Red Hat Fuse 7.10 Karaf S2I images.",
-                            "openshift.io/display-name": "Red Hat Fuse 7.10 Karaf",
+                            "description": "Red Hat Fuse 7.11 Karaf S2I images.",
+                            "openshift.io/display-name": "Red Hat Fuse 7.11 Karaf",
                             "iconClass": "icon-rh-integration",
                             "tags": "builder,jboss-fuse,java,karaf,xpaas,hidden",
-                            "supports":"jboss-fuse:7.10.0,java:8,xpaas:1.2",
+                            "supports":"jboss-fuse:7.11.0,java:8,xpaas:1.2",
                             "version": "1.11"
                         },
                         "referencePolicy": {
@@ -684,7 +684,7 @@
                         "name": "1.11",
                         "annotations": {
                             "description": "Red Hat Fuse 7.11 Karaf S2I images.",
-                            "openshift.io/display-name": "Red Hat Fuse 7.10 Karaf",
+                            "openshift.io/display-name": "Red Hat Fuse 7.11 Karaf",
                             "iconClass": "icon-rh-integration",
                             "tags": "builder,jboss-fuse,java,karaf,xpaas,hidden",
                             "supports":"jboss-fuse:7.11.0,java:8,xpaas:1.2",
@@ -911,11 +911,11 @@
                     {
                         "name": "1.11",
                         "annotations": {
-                            "description": "Red Hat Fuse 7.10 EAP S2I images.",
-                            "openshift.io/display-name": "Red Hat Fuse 7.10 EAP",
+                            "description": "Red Hat Fuse 7.11 EAP S2I images.",
+                            "openshift.io/display-name": "Red Hat Fuse 7.11 EAP",
                             "iconClass": "icon-rh-integration",
                             "tags": "builder,jboss-fuse,java,eap,xpaas,hidden",
-                            "supports":"jboss-fuse:7.10.0,java:8,xpaas:1.2",
+                            "supports":"jboss-fuse:7.11.0,java:8,xpaas:1.2",
                             "version": "1.11"
                         },
                         "referencePolicy": {
@@ -1157,11 +1157,11 @@
                     {
                         "name": "1.11",
                         "annotations": {
-                            "description": "Red Hat Fuse 7.10 Console image.",
-                            "openshift.io/display-name": "Red Hat Fuse 7.10 Console",
+                            "description": "Red Hat Fuse 7.11 Console image.",
+                            "openshift.io/display-name": "Red Hat Fuse 7.11 Console",
                             "iconClass": "icon-rh-integration",
                             "tags": "jboss-fuse,hawtio,java,xpaas,hidden",
-                            "supports":"jboss-fuse:7.10.0,java:8,xpaas:1.2",
+                            "supports":"jboss-fuse:7.11.0,java:8,xpaas:1.2",
                             "version": "1.11"
                         },
                         "referencePolicy": {
