@@ -173,6 +173,79 @@ Note that `CN=fuse-console.fuse.svc` must be trusted by the Jolokia agents, for 
 
 You can then proceed with the [deployment](#deployment).
 
+### Kubernetes
+
+The Fuse console can also be deployed on Kubernetes. You can run the following instructions to deploy the Fuse console on your Kubernetes cluster.
+There exist different YAML resources files to choose from, depending on the following characteristics:
+
+| File | Descripton |
+| ---- | ---------- |
+| [fuse-console-cluster-k8s.yml](./fuse-console-cluster-k8s.yml) | The Fuse console can discover and connect to Fuse applications deployed across multiple namespaces. |
+| [fuse-console-namespace-k8s.yml](./fuse-console-namespace-k8s.yml) | This restricts the Fuse console access to a single namespace, and as such acts as a single tenant deployment. |
+
+Before deploying the Fuse console, you need to create a serving certificate for the Fuse console TLS.
+
+Follow the steps below to create a secret named `fuse-console-tls-serving` with the serving certificate:
+
+1. Prepare a TLS certificate and private key for the Fuse console. For development purposes, you can generate a self-signed certificate with the following commmands:
+    ```sh
+    # Generate the private key
+    $ openssl genrsa -out tls.key 2048
+    # Generate the certificate (valid for 365 days)
+    $ openssl req -x509 -new -nodes -key tls.key -subj "/CN=fuse-console.fuse.svc" -days 365 -out tls.crt
+    ```
+
+2. Create the secret to be mounted in the Fuse console from the certificate and private key in the first step:
+   ```sh
+   $ kubectl create -n myproject secret tls fuse-console-tls-serving --cert tls.crt --key tls.key
+   ```
+
+Now you can move on to deploy the Fuse console. For example, to install it in a single namespace, execute the following command:
+
+```sh
+$ kubectl apply -n myproject -f fuse-console-namespace-k8s.yml
+```
+
+By default it creates a `NodePort` service for access to the console, but you can choose other options to expose the console: `NodePort` / `LoadBalancer` Service or Ingress. For Ingress, suppose the FQDN you provide for the Fuse console is `fuse.example.com`, run the following command to create an ingress for the console:
+
+```sh
+$ cat <<EOF | kubectl apply -f -
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fuse-console-ingress
+  labels:
+    component: fuse-console
+    group: console
+    app: fuse-console
+    version: "1.11"
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  tls:
+  - hosts:
+      - fuse.example.com
+    secretName: fuse-console-tls-serving
+  rules:
+  - host: fuse.example.com
+    http:
+      paths:
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: fuse-console-service
+            port:
+              number: 443
+EOF
+```
+
+**NOTE:** To make ingresses work on your Kubernetes cluster, an Ingress controller needs to be running. See [Ingress Controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) for more information.
+
+For how to create a user for the Fuse console on Kubernetes, see [Creating a Hawtio user for Form authentication](https://github.com/hawtio/hawtio-online/blob/master/docs/create-user.md).
+
 ### RBAC
 
 #### Configuration
