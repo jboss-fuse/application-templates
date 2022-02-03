@@ -1,0 +1,487 @@
+{
+  "apiVersion": "v1",
+  "kind": "Template",
+  "metadata": {
+    "annotations": {
+      "openshift.io/display-name": "Red Hat Fuse 7.11 Camel on Spring Boot 2 Singleton Services Kubernetes",
+      "openshift.io/provider-display-name": "Red Hat, Inc.",
+      "description": "Spring Boot 2, Camel Singleton Services on Kubernetes/Openshift. This example demonstrates how to implement Singleton Service pattern with Camel on Spring-Boot 2.",
+      "tags": "quickstart,java,springboot,fis,jboss-fuse",
+      "iconClass": "icon-rh-integration",
+      "version": "1.11"
+    },
+    "name": "s2i-fuse711-spring-boot-2-camel-singleton-services-kubernetes"
+  },
+  "labels": {
+    "template": "s2i-fuse711-spring-boot-2-camel-singleton-services-kubernetes"
+  },
+  "parameters": [
+    {
+      "name": "APP_NAME",
+      "displayName": "Application Name",
+      "required": true,
+      "value": "qs-sb2-camel-singleton-services-kubernetes",
+      "description": "The name assigned to the application (max 20 characters)."
+    },
+    {
+      "name": "GIT_REPO",
+      "displayName": "Git Repository URL",
+      "required": true,
+      "value": "io.fabric8.kubernetes.client",
+      "description": "The URL of the repository with your application source code."
+    },
+    {
+      "name": "GIT_REF",
+      "displayName": "Git Reference",
+      "value": "main",
+      "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
+    },
+    {
+      "name": "BASE_IMAGE_NAME",
+      "displayName": "Base Image Name, JDK11 or JDK8",
+      "value": "fuse7-java-openshift",
+      "description": "The base image used. Default is fuse7-java-openshift which is JDK8 based; fuse7-java11-openshift is JDK11 based"
+    },
+    {
+      "name": "BUILDER_VERSION",
+      "displayName": "Builder version",
+      "value": "1.10",
+      "description": "The version of the Fuse S2I builder image to use."
+    },
+    {
+      "name": "APP_VERSION",
+      "displayName": "Application Version",
+      "value": "1.0-SNAPSHOT",
+      "description": "The application version."
+    },
+    {
+      "name": "MAVEN_ARGS",
+      "displayName": "Maven Arguments",
+      "value": "package -DskipTests -Djkube.skip -e -B",
+      "description": "Arguments passed to mvn in the build."
+    },
+    {
+      "name": "MAVEN_ARGS_APPEND",
+      "displayName": "Extra Maven Arguments",
+      "description": "Extra arguments passed to mvn, e.g. for multi-module builds."
+    },
+    {
+      "name": "MAVEN_MIRROR_URL",
+      "displayName": "Maven mirror URL",
+      "description": "Maven mirror to use for S2I builds.",
+      "required": false
+    },
+    {
+      "name": "ARTIFACT_DIR",
+      "displayName": "Maven build directory",
+      "description": "Directory of the artifact to be built, e.g. for multi-module builds."
+    },
+    {
+      "name": "IMAGE_STREAM_NAMESPACE",
+      "displayName": "Image Stream Namespace",
+      "value": "openshift",
+      "required": true,
+      "description": "Namespace in which the Fuse ImageStreams are installed. These ImageStreams are normally installed in the OpenShift namespace. You should only need to modify this if you've installed the ImageStreams in a different namespace/project."
+    },
+    {
+      "name": "BUILD_SECRET",
+      "displayName": "Git Build Secret",
+      "generate": "expression",
+      "description": "The secret needed to trigger a build.",
+      "from": "[a-zA-Z0-9]{40}"
+    },
+    {
+      "name": "CPU_REQUEST",
+      "displayName": "CPU request",
+      "value": "0.2",
+      "required": true,
+      "description": "The amount of CPU to request."
+    },
+    {
+      "name": "MEMORY_REQUEST",
+      "displayName": "Memory request",
+      "value": "128Mi",
+      "required": true,
+      "description": "The amount of memory required for the container to run."
+    },
+    {
+      "name": "CPU_LIMIT",
+      "displayName": "CPU limit",
+      "value": "1.0",
+      "required": true,
+      "description": "The amount of CPU the container is limited to use."
+    },
+    {
+      "name": "MEMORY_LIMIT",
+      "displayName": "Memory limit",
+      "value": "512Mi",
+      "required": true,
+      "description": "The amount of memory the container is limited to use."
+    },
+    {
+      "name": "BUILD_MEMORY_REQUEST",
+      "displayName": "Build Memory request",
+      "value": "0.7G",
+      "required": true,
+      "description": "The amount of memory to request for builds."
+    },
+    {
+      "name": "BUILD_MEMORY_LIMIT",
+      "displayName": "Build Memory limit",
+      "value": "1G",
+      "required": true,
+      "description": "The amount of memory the build container is limited to use."
+    }
+  ],
+  "objects": [
+    {
+      "kind": "ServiceAccount",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "${APP_NAME}",
+        "labels": {
+          "component": "${APP_NAME}",
+          "group": "quickstarts",
+          "app": "${APP_NAME}",
+          "provider": "s2i",
+          "version": "${APP_VERSION}"
+        }
+      }
+    },
+    {
+      "kind": "Role",
+      "apiVersion": "rbac.authorization.k8s.io/v1",
+      "metadata": {
+        "name": "${APP_NAME}",
+        "labels": {
+          "component": "${APP_NAME}",
+          "group": "quickstarts",
+          "app": "${APP_NAME}",
+          "provider": "s2i",
+          "version": "${APP_VERSION}"
+        }
+      },
+      "rules": [
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "configmaps",
+            "secrets",
+            "pods"
+          ],
+          "verbs": [
+            "create",
+            "delete",
+            "deletecollection",
+            "get",
+            "list",
+            "patch",
+            "update",
+            "watch"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "RoleBinding",
+      "apiVersion": "rbac.authorization.k8s.io/v1",
+      "metadata": {
+        "name": "${APP_NAME}",
+        "labels": {
+          "component": "${APP_NAME}",
+          "group": "quickstarts",
+          "app": "${APP_NAME}",
+          "provider": "s2i",
+          "version": "${APP_VERSION}"
+        }
+      },
+      "subjects": [
+        {
+          "kind": "ServiceAccount",
+          "name": "${APP_NAME}"
+        }
+      ],
+      "roleRef": {
+        "kind": "Role",
+        "name": "${APP_NAME}",
+        "apiGroup": "rbac.authorization.k8s.io"
+      }
+    },
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "${APP_NAME}",
+        "creationTimestamp": null,
+        "labels": {
+          "component": "${APP_NAME}",
+          "group": "quickstarts",
+          "app": "${APP_NAME}",
+          "provider": "s2i",
+          "version": "${APP_VERSION}"
+        }
+      },
+      "spec": {
+        "lookupPolicy": {
+          "local": true
+        }
+      },
+      "status": {
+        "dockerImageRepository": ""
+      }
+    },
+    {
+      "kind": "BuildConfig",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "${APP_NAME}",
+        "creationTimestamp": null,
+        "labels": {
+          "component": "${APP_NAME}",
+          "group": "quickstarts",
+          "app": "${APP_NAME}",
+          "provider": "s2i",
+          "version": "${APP_VERSION}"
+        }
+      },
+      "spec": {
+        "triggers": [
+          {
+            "type": "GitHub",
+            "github": {
+              "secret": "${BUILD_SECRET}"
+            }
+          },
+          {
+            "type": "Generic",
+            "generic": {
+              "secret": "${BUILD_SECRET}"
+            }
+          },
+          {
+            "type": "ConfigChange"
+          },
+          {
+            "type": "ImageChange",
+            "imageChange": {}
+          }
+        ],
+        "source": {
+          "type": "Git",
+          "git": {
+            "uri": "${GIT_REPO}",
+            "ref": "${GIT_REF}"
+          }
+        },
+        "strategy": {
+          "type": "Source",
+          "sourceStrategy": {
+            "from": {
+              "kind": "ImageStreamTag",
+              "namespace": "${IMAGE_STREAM_NAMESPACE}",
+              "name": "${BASE_IMAGE_NAME}:${BUILDER_VERSION}"
+            },
+            "forcePull": true,
+            "incremental": true,
+            "env": [
+              {
+                "name": "BUILD_LOGLEVEL",
+                "value": "5"
+              },
+              {
+                "name": "ARTIFACT_DIR",
+                "value": "${ARTIFACT_DIR}"
+              },
+              {
+                "name": "MAVEN_ARGS",
+                "value": "${MAVEN_ARGS}"
+              },
+              {
+                "name": "MAVEN_ARGS_APPEND",
+                "value": "${MAVEN_ARGS_APPEND}"
+              },
+              {
+                "name": "MAVEN_MIRROR_URL",
+                "value": "${MAVEN_MIRROR_URL}"
+              }
+            ]
+          }
+        },
+        "output": {
+          "to": {
+            "kind": "ImageStreamTag",
+            "name": "${APP_NAME}:latest"
+          }
+        },
+        "resources": {
+          "requests": {
+            "memory": "${BUILD_MEMORY_REQUEST}"
+          },
+          "limits": {
+            "memory": "${BUILD_MEMORY_LIMIT}"
+          }
+        }
+      }
+    },
+    {
+      "kind": "DeploymentConfig",
+      "apiVersion": "apps.openshift.io/v1",
+      "metadata": {
+        "name": "${APP_NAME}",
+        "labels": {
+          "component": "${APP_NAME}",
+          "group": "quickstarts",
+          "app": "${APP_NAME}",
+          "provider": "s2i",
+          "version": "${APP_VERSION}"
+        },
+        "annotations": {
+          "image.openshift.io/triggers": "[{\"from\":{\"kind\":\"ImageStreamTag\",\"name\":\"${APP_NAME}:latest\"},\"fieldPath\":\"spec.template.spec.containers[?(@.name==\\\"${APP_NAME}\\\")].image\"}]"
+        }
+      },
+      "spec": {
+        "strategy": {
+          "type": "Rolling",
+          "rollingParams": {
+            "updatePeriodSeconds": 1,
+            "intervalSeconds": 1,
+            "timeoutSeconds": 3600,
+            "maxUnavailable": "25%",
+            "maxSurge": "25%"
+          },
+          "activeDeadlineSeconds": 21600
+        },
+        "triggers": [
+          {
+            "type": "ConfigChange"
+          },
+          {
+            "type": "ImageChange",
+            "imageChangeParams": {
+              "automatic": true,
+              "containerNames": [
+                "${APP_NAME}"
+              ],
+              "from": {
+                "kind": "ImageStreamTag",
+                "name": "${APP_NAME}:latest"
+              }
+            }
+          }
+        ],
+        "replicas": 3,
+        "revisionHistoryLimit": 2,
+        "test": false,
+        "selector": {
+          "app": "${APP_NAME}",
+          "group": "quickstarts",
+          "provider": "s2i"
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "${APP_NAME}",
+              "component": "${APP_NAME}",
+              "container": "java",
+              "deploymentconfig": "${APP_NAME}",
+              "leader.election": "true",
+              "group": "quickstarts",
+              "provider": "s2i",
+              "version": "${APP_VERSION}",
+              "com.company": "Red_Hat",
+              "rht.prod_name": "Red_Hat_Integration",
+              "rht.prod_ver": "7.11",
+              "rht.comp": "${APP_NAME}",
+              "rht.comp_ver": "${APP_VERSION}"
+            }
+          },
+          "spec": {
+            "serviceAccountName": "${APP_NAME}",
+            "serviceAccount": "${APP_NAME}",
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "KUBERNETES_NAMESPACE",
+                    "valueFrom": {
+                      "fieldRef": {
+                        "fieldPath": "metadata.namespace"
+                      }
+                    }
+                  }
+                ],
+                "name": "${APP_NAME}",
+                "image": "library/${APP_NAME}:latest",
+                "resources": {
+                  "limits": {
+                    "cpu": "${CPU_LIMIT}",
+                    "memory": "${MEMORY_LIMIT}"
+                  },
+                  "requests": {
+                    "cpu": "${CPU_REQUEST}",
+                    "memory": "${MEMORY_REQUEST}"
+                  }
+                },
+                "readinessProbe": {
+                  "httpGet": {
+                    "path": "/actuator/health",
+                    "port": 8081,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 10,
+                  "timeoutSeconds": 3,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "livenessProbe": {
+                  "httpGet": {
+                    "path": "/actuator/health",
+                    "port": 8081,
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 180,
+                  "timeoutSeconds": 3,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "failureThreshold": 3
+                },
+                "securityContext": {
+                  "privileged": false
+                },
+                "ports": [
+                  {
+                    "name": "http",
+                    "containerPort": 8080,
+                    "protocol": "TCP"
+                  },
+                  {
+                    "name": "prometheus",
+                    "containerPort": 9779,
+                    "protocol": "TCP"
+                  },
+                  {
+                    "name": "jolokia",
+                    "containerPort": 8778,
+                    "protocol": "TCP"
+                  }
+                ],
+                "imagePullPolicy": "IfNotPresent",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "restartPolicy": "Always",
+            "terminationGracePeriodSeconds": 30,
+            "dnsPolicy": "ClusterFirst",
+            "securityContext": {
+            },
+            "schedulerName": "default-scheduler"
+          }
+        }
+      }
+    }
+  ]
+}
