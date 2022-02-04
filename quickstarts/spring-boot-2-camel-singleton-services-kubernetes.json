@@ -27,7 +27,7 @@
       "name": "GIT_REPO",
       "displayName": "Git Repository URL",
       "required": true,
-      "value": "io.fabric8.kubernetes.client",
+      "value": "https://github.com/fabric8-quickstarts/spring-boot-camel-singleton-services-kubernetes.git",
       "description": "The URL of the repository with your application source code."
     },
     {
@@ -45,7 +45,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.10",
+      "value": "1.11",
       "description": "The version of the Fuse S2I builder image to use."
     },
     {
