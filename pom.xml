@@ -76,7 +76,7 @@
     <spring-boot-2-camel-rest-sql.version>7.11.0.fuse-sb2-7_11_0-00009</spring-boot-2-camel-rest-sql.version>
     <spring-boot-2-camel-rest-3scale.version>7.11.0.fuse-sb2-7_11_0-00009</spring-boot-2-camel-rest-3scale.version>
     <spring-boot-2-camel-rhosak.version>7.11.0.fuse-sb2-7_11_0-00009</spring-boot-2-camel-rhosak.version>
-    <spring-boot-camel-singleton-services-kubernetes.version>7.11.0.fuse-sb2-7_11_0-00004</spring-boot-camel-singleton-services-kubernetes.version>
+    <spring-boot-2-camel-singleton-services-kubernetes.version>7.11.0.fuse-sb2-7_11_0-00004</spring-boot-2-camel-singleton-services-kubernetes.version>
     <spring-boot-2-camel-xml.version>7.11.0.fuse-sb2-7_11_0-00008</spring-boot-2-camel-xml.version>
     <spring-boot-2-camel-soap-rest-bridge.version>7.11.0.fuse-sb2-7_11_0-00008</spring-boot-2-camel-soap-rest-bridge.version>
     <spring-boot-2-cxf-jaxrs.version>7.11.0.fuse-sb2-7_11_0-00008</spring-boot-2-cxf-jaxrs.version>
@@ -268,7 +268,7 @@
       <dependency>
         <groupId>io.fabric8.quickstarts</groupId>
         <artifactId>springboot-camel-singleton-services-kubernetes</artifactId>
-        <version>${spring-boot-camel-singleton-services-kubernetes.version}</version>
+        <version>${spring-boot-2-camel-singleton-services-kubernetes.version}</version>
         <scope>test</scope>
       </dependency>
 
