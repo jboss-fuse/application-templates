@@ -33,7 +33,7 @@
     {
       "name": "GIT_REF",
       "displayName": "Git Reference",
-      "value": "spring-boot-camel-amq-7.10.0.fuse-sb2-7_10_2-00001",
+      "value": "spring-boot-camel-amq-7.10.0.fuse-sb2-7_10_2-00001-redhat-00001",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
@@ -94,7 +94,7 @@
     {
       "name": "APP_VERSION",
       "displayName": "Application Version",
-      "value": "7.10.0.fuse-sb2-7_10_2-00001",
+      "value": "7.10.0.fuse-sb2-7_10_2-00001-redhat-00001",
       "description": "The application version."
     },
     {
