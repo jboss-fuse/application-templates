@@ -33,7 +33,7 @@
     {
       "name": "GIT_REF",
       "displayName": "Git Reference",
-      "value": "main",
+      "value": "spring-boot-camel-singleton-services-kubernetes-7.11.0.fuse-sb2-7_11_0-00010",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
@@ -51,7 +51,7 @@
     {
       "name": "APP_VERSION",
       "displayName": "Application Version",
-      "value": "1.0-SNAPSHOT",
+      "value": "7.11.0.fuse-sb2-7_11_0-00010",
       "description": "The application version."
     },
     {
