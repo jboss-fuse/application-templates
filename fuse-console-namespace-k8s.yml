@@ -83,7 +83,7 @@ spec:
     spec:
       containers:
       - name: fuse-console
-        image: fuse7-console:1.11
+        image: registry.redhat.io/fuse7/fuse-console-rhel8:1.11
         readinessProbe:
           httpGet:
             path: /online
