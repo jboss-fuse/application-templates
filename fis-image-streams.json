@@ -10,7 +10,7 @@
     "items": [
         {
             "kind": "ImageStream",
-            "apiVersion": "v1",
+            "apiVersion": "image.openshift.io/v1",
             "metadata": {
                 "name": "fis-java-openshift",
                 "annotations": {
@@ -61,7 +61,7 @@
         },
         {
             "kind": "ImageStream",
-            "apiVersion": "v1",
+            "apiVersion": "image.openshift.io/v1",
             "metadata": {
                 "name": "jboss-fuse70-java-openshift",
                 "annotations": {
@@ -94,7 +94,7 @@
         },
         {
             "kind": "ImageStream",
-            "apiVersion": "v1",
+            "apiVersion": "image.openshift.io/v1",
             "metadata": {
                 "name": "fis-karaf-openshift",
                 "annotations": {
@@ -145,7 +145,7 @@
         },
         {
             "kind": "ImageStream",
-            "apiVersion": "v1",
+            "apiVersion": "image.openshift.io/v1",
             "metadata": {
                 "name": "jboss-fuse70-karaf-openshift",
                 "annotations": {
@@ -178,7 +178,7 @@
         },
         {
             "kind": "ImageStream",
-            "apiVersion": "v1",
+            "apiVersion": "image.openshift.io/v1",
             "metadata": {
                 "name": "jboss-fuse70-eap-openshift",
                 "annotations": {
@@ -211,7 +211,7 @@
         },
         {
             "kind": "ImageStream",
-            "apiVersion": "v1",
+            "apiVersion": "image.openshift.io/v1",
             "metadata": {
                 "name": "jboss-fuse70-console",
                 "annotations": {
@@ -244,7 +244,7 @@
         },
         {
             "kind": "ImageStream",
-            "apiVersion": "v1",
+            "apiVersion": "image.openshift.io/v1",
             "metadata": {
                 "name": "fuse7-java-openshift",
                 "annotations": {
@@ -367,7 +367,7 @@
         },
         {
             "kind": "ImageStream",
-            "apiVersion": "v1",
+            "apiVersion": "image.openshift.io/v1",
             "metadata": {
                 "name": "fuse7-karaf-openshift",
                 "annotations": {
@@ -490,7 +490,7 @@
         },
         {
             "kind": "ImageStream",
-            "apiVersion": "v1",
+            "apiVersion": "image.openshift.io/v1",
             "metadata": {
                 "name": "fuse7-eap-openshift",
                 "annotations": {
@@ -613,7 +613,7 @@
         },
         {
             "kind": "ImageStream",
-            "apiVersion": "v1",
+            "apiVersion": "image.openshift.io/v1",
             "metadata": {
                 "name": "fuse7-console",
                 "annotations": {
@@ -736,7 +736,7 @@
         },
         {
             "kind": "ImageStream",
-            "apiVersion": "v1",
+            "apiVersion": "image.openshift.io/v1",
             "metadata": {
                 "name": "apicurito-ui",
                 "annotations": {
@@ -811,7 +811,7 @@
         },
         {
             "kind": "ImageStream",
-            "apiVersion": "v1",
+            "apiVersion": "image.openshift.io/v1",
             "metadata": {
                 "name": "fuse-apicurito-generator",
                 "annotations": {
