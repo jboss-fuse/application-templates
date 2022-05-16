@@ -1,6 +1,6 @@
 {
     "kind": "List",
-    "apiVersion": "image.openshift.io/v1",
+    "apiVersion": "v1",
     "metadata": {
         "name": "jboss-fuse-image-streams",
         "annotations": {
