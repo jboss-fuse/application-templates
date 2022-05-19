@@ -117,7 +117,7 @@ spec:
             memory: 64Mi
           limits:
             cpu: "1.0"
-            memory: 200Mi
+            memory: 512Mi
         volumeMounts:
         - name: fuse-console-config
           mountPath: /opt/app-root/src/online/hawtconfig.json
