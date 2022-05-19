@@ -50,7 +50,7 @@ parameters:
   description: The amount of CPU the container is limited to use.
 - name: MEMORY_LIMIT
   displayName: Memory limit
-  value: 200Mi
+  value: 512Mi
   required: true
   description: The amount of memory the container is limited to use.
 objects:
