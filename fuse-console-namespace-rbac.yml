@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
   name: fuse711-console-rbac
@@ -78,7 +78,7 @@ objects:
             "/jvm/local"
         ]
       }
-- apiVersion: v1
+- apiVersion: route.openshift.io/v1
   kind: Route
   metadata:
     name: ${APP_NAME}-route
@@ -127,7 +127,7 @@ objects:
     annotations:
       serviceaccounts.openshift.io/oauth-redirecturi.route: https://
       serviceaccounts.openshift.io/oauth-redirectreference.route: '{"kind": "OAuthRedirectReference", "apiVersion": "v1", "reference": {"kind": "Route", "name": "${APP_NAME}-route"}}'
-- apiVersion: v1
+- apiVersion: apps.openshift.io/v1
   kind: DeploymentConfig
   metadata:
     name: ${APP_NAME}
