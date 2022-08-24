@@ -259,7 +259,7 @@ objects:
     name: prometheus
     namespace: ${NAMESPACE}
 
-- apiVersion: v1
+- apiVersion: route.openshift.io/v1
   kind: Route
   metadata:
     name: prometheus
