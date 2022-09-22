@@ -33,7 +33,7 @@
     {
       "name": "GIT_REF",
       "displayName": "Git Reference",
-      "value": "master",
+      "value": "spring-boot-camel-xa-7.11.1.fuse-sb2-7_11_1-00007",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
@@ -96,7 +96,7 @@
     {
       "name": "APP_VERSION",
       "displayName": "Application Version",
-      "value": "2.2.64-SNAPSHOT",
+      "value": "7.11.1.fuse-sb2-7_11_1-00007",
       "description": "The application version."
     },
     {
