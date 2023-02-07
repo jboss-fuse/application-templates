@@ -33,7 +33,7 @@
     {
       "name": "GIT_REF",
       "displayName": "Git Reference",
-      "value": "karaf-camel-log-7.12.0.fuse-7_12_0-00004",
+      "value": "karaf-camel-log-7.12.0.fuse-7_12_0-00004-redhat-00001",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
@@ -45,7 +45,7 @@
     {
       "name": "APP_VERSION",
       "displayName": "Application Version",
-      "value": "7.12.0.fuse-7_12_0-00004",
+      "value": "7.12.0.fuse-7_12_0-00004-redhat-00001",
       "description": "The application version."
     },
     {
