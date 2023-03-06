@@ -77,7 +77,7 @@ spec:
         version: "1.11"
         com.company: Red_Hat
         rht.prod_name: Red_Hat_Integration
-        rht.prod_ver: "7.11.1"
+        rht.prod_ver: "7.12"
         rht.comp: fuse-console
         rht.comp_ver: "1.11"
     spec:
