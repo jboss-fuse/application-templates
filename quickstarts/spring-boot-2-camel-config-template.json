@@ -3,24 +3,24 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.11 Camel + ConfigMap with Spring Boot 2",
+      "openshift.io/display-name": "Red Hat Fuse 7.12 Camel + ConfigMap with Spring Boot 2",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Spring Boot 2 and Camel using ConfigMaps and Secrets. This quickstart demonstrates how to configure a Spring Boot 2 application using OpenShift ConfigMaps and Secrets. This example requires that a ConfigMap named camel-config and a Secret named camel-config are present in the namespace before the application is deployed, instruction about how to manually create them can be found here: https://github.com/fabric8-quickstarts/spring-boot-camel-config/blob/master/README.md ",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
-      "version": "1.11"
+      "version": "1.12"
     },
-    "name": "s2i-fuse711-spring-boot-2-camel-config"
+    "name": "s2i-fuse712-spring-boot-2-camel-config"
   },
   "labels": {
-    "template": "s2i-fuse711-spring-boot-2-camel-config"
+    "template": "s2i-fuse712-spring-boot-2-camel-config"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse711-spring-boot-2-camel-config",
+      "value": "s2i-fuse712-spring-boot-2-camel-config",
       "description": "The name assigned to the application."
     },
     {
@@ -66,7 +66,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.11",
+      "value": "1.12",
       "description": "The version of the FIS S2I builder image to use."
     },
     {
