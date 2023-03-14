@@ -3,24 +3,24 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.11 Camel RHOSAK with Karaf",
+      "openshift.io/display-name": "Red Hat Fuse 7.12 Camel RHOSAK with Karaf",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "A simple Camel route for Red Hat OpenShift Streams for Apache Kafka. This quickstart shows a simple Apache Camel application that connects with Red Hat OpenShift Streams for Apache Kafka.",
       "tags": "quickstart,java,karaf,fis,jboss-fuse,rhosak",
       "iconClass": "icon-rh-integration",
-      "version": "1.11"
+      "version": "1.12"
     },
-    "name": "s2i-fuse711-karaf-camel-rhosak"
+    "name": "s2i-fuse712-karaf-camel-rhosak"
   },
   "labels": {
-    "template": "s2i-fuse711-karaf-camel-rhosak"
+    "template": "s2i-fuse712-karaf-camel-rhosak"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse711-karaf-camel-rhosak",
+      "value": "s2i-fuse712-karaf-camel-rhosak",
       "description": "The name assigned to the application."
     },
     {
@@ -92,7 +92,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.11",
+      "value": "1.12",
       "description": "The version of the FIS S2I builder image to use."
     },
     {

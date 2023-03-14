@@ -3,24 +3,24 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.11 Camel XML DSL with Spring Boot 2",
+      "openshift.io/display-name": "Red Hat Fuse 7.12 Camel XML DSL with Spring Boot 2",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Spring Boot 2 and Camel Xml QuickStart. This example demonstrates how you can use Apache Camel with Spring Boot 2 on OpenShift. The quickstart uses Spring Boot 2 to configure an application which includes a Camel route (in Spring xml) that triggers a message every 5th second, and routes the message to a log.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
-      "version": "1.11"
+      "version": "1.12"
     },
-    "name": "s2i-fuse711-spring-boot-2-camel-xml"
+    "name": "s2i-fuse712-spring-boot-2-camel-xml"
   },
   "labels": {
-    "template": "s2i-fuse711-spring-boot-2-camel-xml"
+    "template": "s2i-fuse712-spring-boot-2-camel-xml"
   },
   "parameters": [
     {
       "name": "APP_NAME",
       "displayName": "Application Name",
       "required": true,
-      "value": "s2i-fuse711-spring-boot-2-camel-xml",
+      "value": "s2i-fuse712-spring-boot-2-camel-xml",
       "description": "The name assigned to the application."
     },
     {
@@ -45,7 +45,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.11",
+      "value": "1.12",
       "description": "The version of the FIS S2I builder image to use."
     },
     {
