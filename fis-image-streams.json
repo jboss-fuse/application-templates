@@ -507,7 +507,7 @@
                         "name": "1.12",
                         "annotations": {
                             "description": "Red Hat Fuse 7.12 Java11 S2I images.",
-                            "openshift.io/display-name": "Red Hat Fuse 7.12 Java11",
+                            "openshift.io/display-name": "Red Hat Fuse 7.12 Java 11",
                             "iconClass": "icon-rh-integration",
                             "tags": "builder,jboss-fuse,java,xpaas,hidden",
                             "supports":"jboss-fuse:7.12.0,java:11,xpaas:1.2",
