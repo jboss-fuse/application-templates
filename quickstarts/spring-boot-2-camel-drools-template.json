@@ -33,7 +33,7 @@
     {
       "name": "GIT_REF",
       "displayName": "Git Reference",
-      "value": "master",
+      "value": "spring-boot-camel-drools-7.12.0.fuse-7_12_0-00011",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
@@ -71,7 +71,7 @@
     {
       "name": "APP_VERSION",
       "displayName": "Application Version",
-      "value": "2.2.64-SNAPSHOT",
+      "value": "7.12.0.fuse-7_12_0-00011",
       "description": "The application version."
     },
     {
