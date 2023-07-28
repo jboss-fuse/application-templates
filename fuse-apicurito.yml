@@ -10,14 +10,14 @@ metadata:
     description: "Design beautiful, functional APIs with zero coding, using a visual designer for OpenAPI documents."
     tags: "fuse,apicurio,openapi,swagger,api"
     iconClass: "icon-rh-integration"
-    version: "1.12"
+    version: "1.13"
 message: |-
   Apicurito is now deployed to https://${ROUTE_HOSTNAME}.
 parameters:
 - name: APP_VERSION
   displayName: Application Version
   required: true
-  value: "1.12"
+  value: "1.13"
   description: The application version.
 - name: IMAGE_STREAM_NAMESPACE
   displayName: Image Stream Namespace
@@ -96,7 +96,7 @@ objects:
           component: apicurito-ui
           com.company: Red_Hat
           rht.prod_name: Red_Hat_Integration
-          rht.prod_ver: "7.12.0"
+          rht.prod_ver: "7.13.0"
           rht.comp: apicurito-ui
           rht.comp_ver: ${APP_VERSION}
       spec:
@@ -199,7 +199,7 @@ objects:
           component: fuse-apicurito-generator
           com.company: Red_Hat
           rht.prod_name: Red_Hat_Integration
-          rht.prod_ver: "7.12.0"
+          rht.prod_ver: "7.13.0"
           rht.comp: fuse-apicurito-generator
           rht.comp_ver: ${APP_VERSION}
       spec:

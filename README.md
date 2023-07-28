@@ -218,7 +218,7 @@ metadata:
     component: fuse-console
     group: console
     app: fuse-console
-    version: "1.12"
+    version: "1.13"
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
