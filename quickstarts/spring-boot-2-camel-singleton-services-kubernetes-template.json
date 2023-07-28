@@ -3,17 +3,17 @@
   "kind": "Template",
   "metadata": {
     "annotations": {
-      "openshift.io/display-name": "Red Hat Fuse 7.12 Camel on Spring Boot 2 Singleton Services Kubernetes",
+      "openshift.io/display-name": "Red Hat Fuse 7.13 Camel on Spring Boot 2 Singleton Services Kubernetes",
       "openshift.io/provider-display-name": "Red Hat, Inc.",
       "description": "Spring Boot 2, Camel Singleton Services on Kubernetes/Openshift. This example demonstrates how to implement Singleton Service pattern with Camel on Spring-Boot 2.",
       "tags": "quickstart,java,springboot,fis,jboss-fuse",
       "iconClass": "icon-rh-integration",
-      "version": "1.12"
+      "version": "1.13"
     },
-    "name": "s2i-fuse712-spring-boot-2-camel-singleton-services-kubernetes"
+    "name": "s2i-fuse713-spring-boot-2-camel-singleton-services-kubernetes"
   },
   "labels": {
-    "template": "s2i-fuse712-spring-boot-2-camel-singleton-services-kubernetes"
+    "template": "s2i-fuse713-spring-boot-2-camel-singleton-services-kubernetes"
   },
   "parameters": [
     {
@@ -45,7 +45,7 @@
     {
       "name": "BUILDER_VERSION",
       "displayName": "Builder version",
-      "value": "1.12",
+      "value": "1.13",
       "description": "The version of the Fuse S2I builder image to use."
     },
     {
@@ -392,7 +392,7 @@
               "version": "${APP_VERSION}",
               "com.company": "Red_Hat",
               "rht.prod_name": "Red_Hat_Integration",
-              "rht.prod_ver": "7.12.0",
+              "rht.prod_ver": "7.13.0",
               "rht.comp": "${APP_NAME}",
               "rht.comp_ver": "${APP_VERSION}"
             }
