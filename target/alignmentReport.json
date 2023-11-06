@@ -1,0 +1,230 @@
+{
+  "executionRoot" : {
+    "groupId" : "org.jboss.fuse",
+    "artifactId" : "application-templates",
+    "version" : "2.1.0.fuse-7_12_1-00011-redhat-00001",
+    "originalGAV" : "org.jboss.fuse:application-templates:2.1.0.fuse-7_12_1-00011"
+  },
+  "modules" : [ {
+    "gav" : {
+      "groupId" : "org.jboss.fuse",
+      "artifactId" : "application-templates",
+      "version" : "2.1.0.fuse-7_12_1-00011-redhat-00001",
+      "originalGAV" : "org.jboss.fuse:application-templates:2.1.0.fuse-7_12_1-00011"
+    },
+    "properties" : {
+      "karaf-camel-amq.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "karaf-camel-log.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-cxf-jaxrs-xml.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-cxf-jaxws-xml.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "karaf-camel-rest-sql.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-camel.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-camel-drools.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-camel-amq.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "karaf-cxf-rest.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-camel-rest-3scale.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-camel-infinispan.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-cxf-jaxws.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-camel-config.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-camel-xml.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-camel-singleton-services-kubernetes.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "eap-camel-cxf-jaxrs.version" : {
+        "oldValue" : "5.10.0.fuse-7_12_1-00009",
+        "value" : "5.10.0.fuse-7_12_1-00009-redhat-00001"
+      },
+      "eap-camel-amq.version" : {
+        "oldValue" : "5.10.0.fuse-7_12_1-00009",
+        "value" : "5.10.0.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-cxf-jaxrs.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-camel-xa.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-camel-rest-sql.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "spring-boot-2-camel-soap-rest-bridge.version" : {
+        "oldValue" : "7.12.1.fuse-7_12_1-00009",
+        "value" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+      },
+      "eap-camel-cxf-jaxws.version" : {
+        "oldValue" : "5.10.0.fuse-7_12_1-00009",
+        "value" : "5.10.0.fuse-7_12_1-00009-redhat-00001"
+      },
+      "eap-camel-cdi.version" : {
+        "oldValue" : "5.10.0.fuse-7_12_1-00009",
+        "value" : "5.10.0.fuse-7_12_1-00009-redhat-00001"
+      }
+    },
+    "managedPlugins" : { },
+    "managedDependencies" : {
+      "dependencies" : {
+        "io.fabric8.quickstarts:spring-boot-camel-xml:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts",
+          "artifactId" : "spring-boot-camel-xml",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts.cxf.jaxrs:spring-boot-cxf-jaxrs:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts.cxf.jaxrs",
+          "artifactId" : "spring-boot-cxf-jaxrs",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts:spring-boot-camel-soap-rest-bridge:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts",
+          "artifactId" : "spring-boot-camel-soap-rest-bridge",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts:karaf-cxf-rest:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts",
+          "artifactId" : "karaf-cxf-rest",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "org.wildfly.camel.example:example-camel-cxf-jaxws:5.10.0.fuse-7_12_1-00009" : {
+          "groupId" : "org.wildfly.camel.example",
+          "artifactId" : "example-camel-cxf-jaxws",
+          "version" : "5.10.0.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts:spring-boot-camel:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts",
+          "artifactId" : "spring-boot-camel",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts:karaf-camel-rest-sql:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts",
+          "artifactId" : "karaf-camel-rest-sql",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts:spring-boot-camel-drools:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts",
+          "artifactId" : "spring-boot-camel-drools",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts:spring-boot-camel-rest-3scale:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts",
+          "artifactId" : "spring-boot-camel-rest-3scale",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts:spring-boot-camel-amq:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts",
+          "artifactId" : "spring-boot-camel-amq",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "com.redhat.fuse.quickstarts:spring-boot-camel-xa:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "com.redhat.fuse.quickstarts",
+          "artifactId" : "spring-boot-camel-xa",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts:spring-boot-camel-infinispan:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts",
+          "artifactId" : "spring-boot-camel-infinispan",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts:spring-boot-camel-config:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts",
+          "artifactId" : "spring-boot-camel-config",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts.cxf.jaxws:spring-boot-cxf-jaxws-xml:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts.cxf.jaxws",
+          "artifactId" : "spring-boot-cxf-jaxws-xml",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts:spring-boot-camel-rest-sql:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts",
+          "artifactId" : "spring-boot-camel-rest-sql",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts:karaf-camel-log:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts",
+          "artifactId" : "karaf-camel-log",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts:spring-boot-camel-singleton-services-kubernetes:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts",
+          "artifactId" : "spring-boot-camel-singleton-services-kubernetes",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "org.wildfly.camel.example:example-camel-cdi:5.10.0.fuse-7_12_1-00009" : {
+          "groupId" : "org.wildfly.camel.example",
+          "artifactId" : "example-camel-cdi",
+          "version" : "5.10.0.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts.cxf.jaxrs:spring-boot-cxf-jaxrs-xml:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts.cxf.jaxrs",
+          "artifactId" : "spring-boot-cxf-jaxrs-xml",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "org.wildfly.camel.example:example-camel-activemq:5.10.0.fuse-7_12_1-00009" : {
+          "groupId" : "org.wildfly.camel.example",
+          "artifactId" : "example-camel-activemq",
+          "version" : "5.10.0.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts.cxf.jaxws:spring-boot-cxf-jaxws:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts.cxf.jaxws",
+          "artifactId" : "spring-boot-cxf-jaxws",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        },
+        "org.wildfly.camel.example:example-camel-cxf-jaxrs:5.10.0.fuse-7_12_1-00009" : {
+          "groupId" : "org.wildfly.camel.example",
+          "artifactId" : "example-camel-cxf-jaxrs",
+          "version" : "5.10.0.fuse-7_12_1-00009-redhat-00001"
+        },
+        "io.fabric8.quickstarts:karaf-camel-amq:7.12.1.fuse-7_12_1-00009" : {
+          "groupId" : "io.fabric8.quickstarts",
+          "artifactId" : "karaf-camel-amq",
+          "version" : "7.12.1.fuse-7_12_1-00009-redhat-00001"
+        }
+      }
+    }
+  } ]
+}
