@@ -33,7 +33,7 @@
     {
       "name": "GIT_REF",
       "displayName": "Git Reference",
-      "value": "spring-boot-camel-7.13.0.fuse-7_13_0-00004",
+      "value": "spring-boot-camel-7.13.0.fuse-7_13_0-00004-redhat-00001",
       "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
     },
     {
@@ -51,7 +51,7 @@
     {
       "name": "APP_VERSION",
       "displayName": "Application Version",
-      "value": "7.13.0.fuse-7_13_0-00004",
+      "value": "7.13.0.fuse-7_13_0-00004-redhat-00001",
       "description": "The application version."
     },
     {
